@@ -259,6 +259,45 @@
     #stableList .actions{padding:0 3px} #stableList .actions .btn{padding:2px 8px;font-size:11px;border:0;background:none;color:var(--muted);text-decoration:underline}
     .modal .wish.full{border:0;padding:0} .modal .wish.full .grip{display:none} .modal .wish.full .pic{height:240px}
   }
+  .topbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:4px 0 18px}
+  .topbar .grow{flex:1}
+  .topbar>.btn:first-child{padding:12px 22px;font-size:16px}
+  .coinpill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 16px 6px 6px;cursor:pointer;font:inherit;color:var(--ink);font-size:15px}
+  .coinpill:hover{border-color:var(--gold)}
+  .coinpill .coin{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a6,var(--gold) 55%,#b98318);display:flex;align-items:center;justify-content:center;color:#fff8dc;font-size:16px;text-shadow:0 1px 0 #9a6a0f}
+  .coinpill b{font-weight:800}
+  .coinpill .pillsub{color:var(--muted);font-size:13px;font-weight:600}
+  .sheet{position:fixed;inset:0;background:rgba(15,17,45,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
+  .sheet.on{display:flex}
+  .sheet>.card{width:100%;max-width:680px;max-height:90vh;overflow:auto;margin:0}
+  .sheethead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+  .sheethead h2,.sheethead h3{margin:0}
+  .x{border:0;background:var(--soft);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--muted);flex:none}
+  .x:hover{color:var(--ink)}
+  body.noscroll{overflow:hidden}
+  .scform{display:flex;gap:8px;margin:12px 0}
+  .scform input{flex:1;min-width:0}
+  .coinlines{margin:6px 0 0;padding-left:20px;line-height:1.55;font-size:15px}
+  .coinlines li{margin-bottom:6px}
+  .muted{color:var(--muted);font-size:14px}
+  .listbar .ptabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .ptabs button,.coinpill{white-space:nowrap}
+  @media (max-width:560px){
+    header.hero p{display:none}
+    header.hero{padding-top:18px}
+    .topbar{gap:8px}
+    .topbar>.btn:first-child{flex:1 1 100%;order:0}
+    .topbar .coinpill{order:1;flex:1;justify-content:flex-start}
+    .topbar .grow{display:none}
+    .topbar #shareList,.topbar #backupBtn{order:2;padding:8px 10px}
+    .sheet{align-items:flex-end;padding:0}
+    .sheet>.card{max-width:none;border-radius:22px 22px 0 0;max-height:88vh}
+    .listbar{flex-wrap:nowrap}
+    .listbar .ptabs{flex-basis:auto!important;flex:1;min-width:0}
+    .listbar .ptabs button{padding:6px 12px;font-size:14px}
+    .coinpill .pillsub{display:none}
+    .listbar select{flex:none;max-width:120px;padding-inline:10px}
+  }
 </style>
 </head>
 <body>
@@ -280,8 +319,15 @@
 
   <!-- MY WISHLIST -->
   <section class="panel on" id="p-mine">
-    <form class="card addcard" id="addForm">
-      <h2>Add a horse</h2>
+    <div class="topbar">
+      <button class="btn" type="button" id="openAdd">+ Add a horse</button>
+      <button class="coinpill" type="button" id="coins" hidden></button>
+      <span class="grow"></span>
+      <button class="btn small ghost" type="button" id="shareList" title="Send your wishlist to friends">🔗 Share</button>
+      <button class="btn small ghost" type="button" id="backupBtn" title="Move your lists to another device, or keep a copy">💾 Backup</button>
+    </div>
+    <div class="sheet" id="addSheet"><form class="card addcard" id="addForm">
+      <div class="sheethead"><h2>Add a horse</h2><button class="x" type="button" data-close-sheet aria-label="Close">✕</button></div>
       <div class="row addrow">
         <label class="f" style="flex:3">Horse
           <select id="addBreed" required><option value="">Loading horses…</option></select>
@@ -306,8 +352,8 @@
           </label>
         </div>
       </details>
-    </form>
-    <div class="coins" id="coins" hidden></div>
+    </form></div>
+    
     <div class="summary" id="summary" hidden></div>
     <div class="toolbar listbar">
       <div class="ptabs" id="ptabs" role="tablist" aria-label="Show wishes by priority"></div>
@@ -318,8 +364,6 @@
         <option value="bazaar">Next Bazaar</option>
         <option value="name">A to Z</option>
       </select>
-      <button class="btn small" type="button" id="shareList">🔗 Share</button>
-      <button class="btn small ghost" type="button" id="backupBtn" title="Move your lists to another device, or keep a copy">💾 Backup</button>
     </div>
     <div class="grid" id="mineList"></div>
   </section>
@@ -356,8 +400,9 @@
 
   <!-- MY STABLE -->
   <section class="panel" id="p-stable">
-    <form class="card" id="ownForm">
-      <h2>Add a horse you own</h2>
+    <div class="topbar"><button class="btn" type="button" id="openOwn">+ Add a horse I own</button></div>
+    <div class="sheet" id="ownSheet"><form class="card" id="ownForm">
+      <div class="sheethead"><h2>Add a horse you own</h2><button class="x" type="button" data-close-sheet aria-label="Close">✕</button></div>
       <div class="row">
         <label class="f" style="flex:2">Horse / breed
           <select id="ownBreed" required><option value="">Loading horses…</option></select>
@@ -368,7 +413,7 @@
         <button class="btn" type="submit">+ Add to my stable</button>
       </div>
       <div class="coatpick" id="ownPick" aria-label="Pick the coat"></div>
-    </form>
+    </form></div>
     <p class="private">🔒 Only you can see your stable and your Star Coins.</p>
     <div class="grid stablegrid" id="stableList"></div>
   </section>
@@ -444,7 +489,7 @@
       <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
       <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on starstable.com ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
     $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
-    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=Number(b.dataset.gw); { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); $('#addCoat').focus(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo,c)+' picked – hit Add'); };
+    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=Number(b.dataset.gw); { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo,c)+' picked – hit Add'); };
   }
   let addCoatNo=null;
   let autoCoat='';
@@ -717,9 +762,16 @@
     S.myItems.push({id:uidGen(),breed,coat:$('#addCoat').value.trim(),prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-Date.now(),...(addCoatNo?{coatNo:addCoatNo}:{}),...($('#addName').value.trim()?{plannedName:$('#addName').value.trim()}:{})});
     $('#addName').value='';
     $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=null; refreshAddPicker();
-    saveMine(); toast('Added to your wishlist 💜');
+    saveMine(); closeSheet('addSheet'); toast('Added to your wishlist 💜');
   };
   const phone=()=>matchMedia('(max-width:560px)').matches;
+  function openSheet(id){ const sh=$('#'+id); sh.classList.add('on'); document.body.classList.add('noscroll'); setTimeout(()=>{ const f=sh.querySelector('select'); if(f&&!phone()) f.focus(); },50); }
+  function closeSheet(id){ (id?[$('#'+id)]:document.querySelectorAll('.sheet.on')).forEach(x=>x.classList.remove('on')); document.body.classList.remove('noscroll'); }
+  document.querySelectorAll('.sheet').forEach(sh=>sh.addEventListener('click',e=>{ if(e.target===sh||e.target.closest('[data-close-sheet]')) closeSheet(sh.id); }));
+  addEventListener('keydown',e=>{ if(e.key==='Escape' && !$('#ov').classList.contains('on')) closeSheet(); });
+  $('#openAdd').onclick=()=>openSheet('addSheet');
+  $('#openOwn').onclick=()=>openSheet('ownSheet');
+  function openAdd(){ openSheet('addSheet'); }
   $('#mineList').onclick=e=>{
     if(phone() && !e.target.closest('button,a')){ const w=e.target.closest('.wish'); if(!w) return;
       openModal(`<div class="wish full">${w.innerHTML}</div><div class="actions" style="margin-top:10px"><button class="btn ghost" type="button" id="dClose" style="margin-left:auto">Close</button></div>`);
@@ -772,7 +824,7 @@
   $('#hBody').onclick=e=>{
     const w=e.target.closest('[data-wish]'), ed=e.target.closest('[data-edit]');
     const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
-    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=null; refreshAddPicker(); showTab('mine'); $('#addCoat').focus(); toast('Pick a coat, then hit Add'); }
+    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=null; refreshAddPicker(); showTab('mine'); openAdd(); toast('Pick a coat, then hit Add'); }
     if(ed){ editHorse(ed.dataset.edit); }
   };
   $('#addHorseBtn').onclick=()=>editHorse(null);
@@ -837,26 +889,37 @@
     const weeks=Math.ceil(need/w); const d=new Date(); d.setDate(d.getDate()+weeks*7);
     return ` · about ${weeks} week${weeks>1?'s':''} (${d.toLocaleDateString(undefined,{month:'short',day:'numeric'})})`;
   }
-  function renderCoins(){
-    const el=$('#coins');
-    if(!S.uid || !S.meLoaded){ el.hidden=true; return; }
-    el.hidden=false;
+  function coinInfo(){
     const open=S.myItems.filter(i=>!i.got && wishPrice(i));
     const can=S.me.sc==null?0:open.filter(i=>S.me.sc>=wishPrice(i)).length;
     const dream=open.filter(i=>i.prio===1 && S.me.sc!=null && S.me.sc<wishPrice(i)).sort((a,b)=>wishPrice(a)-wishPrice(b))[0];
     const all=S.myItems.filter(i=>!i.got); const total=all.reduce((t,i)=>t+(wishPrice(i)||0),0);
-    const sub = S.me.sc==null ? 'Type in your Star Coins to see what you can afford.'
-      : [all.length?(can?`You can afford ${can} of your ${all.length} horse${all.length>1?'s':''} now.`:'Nothing on your list is affordable yet. Keep saving!'):'',
-         dream?`${(wishPrice(dream)-S.me.sc).toLocaleString()} SC to go for your ${esc(S.catalog[dream.breed]?.name||'dream horse')}${etaText(wishPrice(dream)-S.me.sc)}.`:''].filter(Boolean).join(' ');
-    const tot = all.length?`<div class="tot"><b>${total.toLocaleString()} SC</b><span>for your whole list</span></div>`:'';
-    el.innerHTML = `<div class="coin" aria-hidden="true">★</div>
-      <div class="have"><b>${S.me.sc==null?'? SC':S.me.sc.toLocaleString()+' SC'}</b><div class="sub" title="Time estimates count 100 SC a week">${sub}</div></div>
-      ${tot}
-      <form id="scForm"><label class="f" style="min-width:0;flex:none">My Star Coins<input id="scIn" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="Star Coins" value="${S.me.sc??''}"></label><button class="btn small ghost" type="submit" style="align-self:flex-end">Save</button></form>`;
-    $('#scForm').onsubmit=e=>{ e.preventDefault(); const num=v=>v===''?null:Math.max(0,Math.floor(Number(v)));
-      const a=$('#scIn').value.trim(); const n=num(a);
+    return {can,dream,all,total};
+  }
+  function renderCoins(){
+    const el=$('#coins');
+    if(!S.uid || !S.meLoaded){ el.hidden=true; return; }
+    el.hidden=false;
+    const {can,all}=coinInfo();
+    el.innerHTML = S.me.sc==null ? `<span class="coin" aria-hidden="true">★</span><span>Add my Star Coins</span>`
+      : `<span class="coin" aria-hidden="true">★</span><b>${S.me.sc.toLocaleString()} SC</b>${all.length?`<span class="pillsub">${can} of ${all.length} affordable</span>`:''}`;
+    el.onclick=openCoins;
+  }
+  function openCoins(){
+    const {can,dream,all,total}=coinInfo();
+    const lines=[];
+    if(S.me.sc!=null && all.length) lines.push(can?`You can afford <b>${can}</b> of the ${all.length} horse${all.length>1?'s':''} on your list right now.`:'Nothing on your list is affordable yet. Keep saving!');
+    if(dream) lines.push(`<b>${(wishPrice(dream)-S.me.sc).toLocaleString()} SC</b> to go for your ${esc(S.catalog[dream.breed]?.name||'dream horse')}${etaText(wishPrice(dream)-S.me.sc)}.`);
+    if(all.length) lines.push(`Your whole list costs <b>${total.toLocaleString()} SC</b>.`);
+    if(S.me.scAt) lines.push(`<span class="muted">Last updated ${fmtDate(S.me.scAt)}. Time estimates count 100 SC a week.</span>`);
+    openModal(`<div class="sheethead"><h3>My Star Coins</h3><button class="x" type="button" id="cX" aria-label="Close">✕</button></div>
+      <form id="scForm" class="scform"><input id="scIn" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="How many Star Coins do you have?" value="${S.me.sc??''}" aria-label="Star Coins"><button class="btn" type="submit">Save</button></form>
+      ${lines.length?`<ul class="coinlines">${lines.map(l=>`<li>${l}</li>`).join('')}</ul>`:'<p class="muted">Type in your Star Coins to see which horses you can afford.</p>'}`);
+    $('#cX').onclick=closeModal;
+    if(!phone()) $('#scIn').focus();
+    $('#scForm').onsubmit=e=>{ e.preventDefault(); const a=$('#scIn').value.trim(); const n=a===''?null:Math.max(0,Math.floor(Number(a)));
       if(a!==''&&!Number.isFinite(n)) return;
-      if(n!==S.me.sc) S.me.scAt=today; S.me.sc=n; saveMe(); renderCoins(); renderMine(); toast('Saved'); };
+      if(n!==S.me.sc) S.me.scAt=today; S.me.sc=n; saveMe(); renderCoins(); renderMine(); openCoins(); toast('Saved'); };
   }
   let ownCoatNo=null;
   function refreshOwnPicker(){ coatPicker($('#ownBreed').value, ownCoatNo, n=>{ownCoatNo=n;}, $('#ownPick')); }
@@ -875,7 +938,7 @@
         <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
   }
   $('#ownBreed').onchange=()=>{ ownCoatNo=null; refreshOwnPicker(); };
-  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed) return;
+  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed) return; closeSheet('ownSheet');
     if(!S.uid){ toast('Sign in to save your stable'); return; }
     S.me.owned.push({id:uidGen(),breed,...(ownCoatNo?{coatNo:ownCoatNo}:{}),...($('#ownName').value.trim()?{name:$('#ownName').value.trim()}:{}),addedAt:new Date().toISOString()});
     $('#ownName').value=''; ownCoatNo=null; refreshOwnPicker(); saveMe(); renderStable(); renderHorses(); renderMine(); toast('Added to your stable 🏡'); };
