@@ -317,6 +317,27 @@
   .sgform{display:flex;flex-direction:column;gap:12px;margin-top:10px}
   .sgform label.f{min-width:0}
   .sgform textarea{width:100%;resize:vertical;font:inherit;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--soft)}
+  .vh{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0}
+  .hpf{position:relative}
+  #addForm .addrow,#ownForm .row{flex-wrap:wrap}
+  #addForm .addrow>.hpf,#ownForm .row>.hpf{flex:1 1 100%!important}
+  .hp{margin-top:6px;font-weight:400}
+  .hpq{width:100%}
+  .hpcats{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}
+  .hpcats button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap}
+  .hpcats button .ct{opacity:.7;margin-left:2px}
+  .hpcats button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .hpgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;max-height:min(44vh,400px);overflow:auto;padding:2px 2px 4px;margin-top:8px}
+  .hpitem{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:4px 4px 7px;cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;color:var(--ink);display:flex;flex-direction:column;gap:5px;text-align:center;line-height:1.2}
+  .hpitem:hover,.hpitem:focus-visible{border-color:var(--rose)}
+  .hpt{width:100%;height:78px;border-radius:9px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3));flex:none}
+  .hpt.nopic{display:flex;align-items:center;justify-content:center;font-size:30px}
+  .hpchosen{display:flex;align-items:center;gap:14px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  .hpchosen .hpt{width:120px;height:96px}
+  .hpchosen b{flex:1;font-size:17px}
+  @media (max-width:560px){ .hpgrid{grid-template-columns:repeat(3,minmax(0,1fr));max-height:38vh} .hpt{height:64px} .hpchosen .hpt{width:96px;height:77px} }
+  small.cw{display:block;font-size:10.5px;font-weight:700;color:#a8700c;line-height:1.2;margin-top:2px}
+  .coathint{font-size:13px;color:var(--muted);margin:10px 0 -6px}
 </style>
 </head>
 <body>
@@ -348,15 +369,15 @@
     <div class="sheet" id="addSheet"><form class="card addcard" id="addForm">
       <div class="sheethead"><h2>Add a horse</h2><button class="x" type="button" data-close-sheet aria-label="Close">✕</button></div>
       <div class="row addrow">
-        <label class="f" style="flex:3">Horse
-          <select id="addBreed" required><option value="">Loading horses…</option></select>
-        </label>
+        <div class="f hpf" style="flex:3">Horse
+          <select id="addBreed" aria-label="Horse"><option value="">Loading horses…</option></select>
+        </div>
         <label class="f" style="flex:1.4">How much do you want it?
           <select id="addPrio"><option value="1">💖 Dream horse</option><option value="2" selected>⭐ Really want</option><option value="3">🤔 Maybe</option></select>
         </label>
         <button class="btn" type="submit" id="addBtn">+ Add</button>
       </div>
-      <div class="coatpick" id="addPick" aria-label="Pick a coat"></div>
+      <p class="coathint" id="addHint" hidden>Pick one or more coats (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
       <details class="more">
         <summary>Add a name idea or a note</summary>
         <div class="row" style="margin-top:10px">
@@ -392,7 +413,7 @@
     <div class="toolbar">
       <input id="hSearch" placeholder="Search breeds or places…">
       <select id="hSortSel" aria-label="Sort horses"><option value="name">Sort: name</option><option value="price">Sort: price</option><option value="location">Sort: where to buy</option><option value="last">Sort: last Bazaar</option><option value="next">Sort: next Bazaar</option></select>
-      <select id="hType"><option value="">All horses</option><option value="sale">For sale now</option><option>Horse</option><option>Pony</option><option>Hybrid</option><option value="Magical">Magical ✨</option><option value="Special">Special &amp; event ★</option><option value="old">Older generations</option><option value="retired">Not sold anymore</option></select>
+      <select id="hType"><option value="">All horses</option><option value="sale">Gen 3</option><option value="Magical">Magical ✨</option><option value="retired">Older gens</option><option>Horse</option><option>Pony</option><option>Hybrid</option></select>
       <button class="btn ghost" id="addHorseBtn">+ Add a horse</button>
     </div>
     <div class="hgrid" id="hBody"></div>
@@ -423,9 +444,9 @@
     <div class="sheet" id="ownSheet"><form class="card" id="ownForm">
       <div class="sheethead"><h2>Add a horse you own</h2><button class="x" type="button" data-close-sheet aria-label="Close">✕</button></div>
       <div class="row">
-        <label class="f" style="flex:2">Horse / breed
-          <select id="ownBreed" required><option value="">Loading horses…</option></select>
-        </label>
+        <div class="f hpf" style="flex:2">Horse
+          <select id="ownBreed" aria-label="Horse"><option value="">Loading horses…</option></select>
+        </div>
         <label class="f" style="flex:2">Name (optional)
           <input id="ownName" placeholder="e.g. Moonbeam" maxlength="40">
         </label>
@@ -496,34 +517,68 @@
     t.textContent = magic ? '🐴 '+c.forms[0] : '✨ '+c.forms[1]; t.setAttribute('aria-label','Show '+(magic?c.forms[0]:c.forms[1]));
   }, true);
   const isRetired = c => c && c.status==='retired';
+  const isOldGen = c => c && (c.gen==='1G'||c.gen==='2G');
   const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':'';
-  const whereTxt = c => isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
-  const priceTxt = c => c.price ? (isRetired(c)?'Was ':'')+sc(c.price) : '<span class="unk">not known yet</span>';
+  const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
+  const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
+  const whereTxt = (c,n) => coatWhere(c,n) ? esc(coatWhere(c,n)) : isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
+  const priceTxt = (c,n) => coatPriceOf(c,n) ? (isRetired(c)&&!coatWhere(c,n)?'Was ':'')+sc(coatPriceOf(c,n)) : '<span class="unk">not known yet</span>';
+  const whereTag = (c,n) => coatWhere(c,n) ? `<small class="cw">${esc(coatWhere(c,n))}</small>` : '';
   function breedOptions(){
     const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
-    const grp=[['For sale now',([,c])=>!isRetired(c)&&c.type!=='Magical'&&c.type!=='Special'],['Magical horses ✨',([,c])=>!isRetired(c)&&c.type==='Magical'],['Special & event horses ★',([,c])=>!isRetired(c)&&c.type==='Special'],['Older generations (not sold anymore)',([,c])=>isRetired(c)&&c.gen],['Retired horses (not sold anymore)',([,c])=>isRetired(c)&&!c.gen]];
+    const grp=[['Gen 3',([,c])=>c.type!=='Magical'&&!isOldGen(c)],['Magical horses ✨',([,c])=>c.type==='Magical'],['Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)]];
     return grp.map(([l,f])=>{ const o=all.filter(f); return o.length?`<optgroup label="${esc(l)}">${o.map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${badge(c)}</option>`).join('')}</optgroup>`:''; }).join('');
+  }
+  const HP_GROUPS=[['sale','Gen 3',([,c])=>c.type!=='Magical'&&!isOldGen(c)],['magic','Magical ✨',([,c])=>c.type==='Magical'],['gone','Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)]];
+  function mountHP(sel){
+    const box=document.createElement('div'); box.className='hp'; sel.after(box); sel.classList.add('vh'); sel.tabIndex=-1;
+    let cat='sale', q='';
+    const tile=c=>hasCoats(c)?coatHtml(c,1,'hpt h'):'<div class="hpt nopic">🐴</div>';
+    function render(){
+      const id=sel.value, c=S.catalog[id];
+      if(id&&c){ box.innerHTML=`<div class="hpchosen">${tile(c)}<b>${esc(c.name)}${badge(c)}</b><button type="button" class="btn small ghost" data-hpchange>Change</button></div>`; return; }
+      const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
+      const groups=HP_GROUPS.map(g=>[g,all.filter(g[2]).length]).filter(x=>x[1]);
+      if(!groups.some(([g])=>g[0]===cat)) cat=groups[0]?.[0][0]||'sale';
+      const list=q?all.filter(([,c])=>c.name.toLowerCase().includes(q)):all.filter(HP_GROUPS.find(g=>g[0]===cat)[2]);
+      box.innerHTML=`<input type="search" class="hpq" placeholder="Search all horses…" value="${esc(q)}" aria-label="Search horses">
+        ${q||groups.length<2?'':`<div class="hpcats" role="tablist">${groups.map(([g,n])=>`<button type="button" role="tab" data-hpcat="${g[0]}" aria-selected="${g[0]===cat}">${g[1]} <span class="ct">${n}</span></button>`).join('')}</div>`}
+        <div class="hpgrid">${list.map(([i,c])=>`<button type="button" class="hpitem" data-hpid="${esc(i)}">${tile(c)}<span>${esc(c.name)}${badge(c)}</span></button>`).join('')||'<p class="muted">No horses match.</p>'}</div>`;
+      const qi=box.querySelector('.hpq');
+      qi.oninput=()=>{ q=qi.value.toLowerCase().trim(); const pos=qi.selectionStart; render(); const n=box.querySelector('.hpq'); n.focus(); try{n.setSelectionRange(pos,pos);}catch(e){} };
+      qi.onkeydown=e=>{ if(e.key==='Enter') e.preventDefault(); };
+    }
+    box.addEventListener('click',e=>{ const t=e.target.closest('[data-hpcat],[data-hpid],[data-hpchange]'); if(!t) return; e.preventDefault();
+      if(t.dataset.hpcat){ cat=t.dataset.hpcat; render(); box.querySelector('.hpgrid').scrollTop=0; }
+      else if(t.dataset.hpid){ sel.value=t.dataset.hpid; q=''; sel.dispatchEvent(new Event('change')); render(); }
+      else { sel.value=''; sel.dispatchEvent(new Event('change')); render(); setTimeout(()=>{ if(!phone()) box.querySelector('.hpq')?.focus(); },0); }
+    });
+    sel._hpRender=render; render();
   }
   const coatLabel = (n,c) => hasForms(c) ? '' : ((c && Array.isArray(c.coatNames) && c.coatNames[n-1]) || 'Coat '+String(n).padStart(2,'0'));
   function coatPicker(breedId, sel, onPick, box){
     const c=S.catalog[breedId];
     if(!hasCoats(c)){ box.innerHTML=''; return; }
-    box.innerHTML = hasForms(c) ? `<div class="formprev">${coatHtml(c,1,'pic h')}<span>You get both forms. Tap ✨ to see the other one.</span></div>` : Array.from({length:c.coatCount},(_,j)=>`<button type="button" data-n="${j+1}" class="${sel===j+1?'on':''}" title="${coatLabel(j+1,c)}">${coatHtml(c,j+1,'h')}${coatLabel(j+1,c)}</button>`).join('');
-    box.onclick=e=>{ if(e.target.closest('[data-form-toggle]')) return; const b=e.target.closest('button[data-n]'); if(!b) return; const n=Number(b.dataset.n); const now = b.classList.contains('on') ? null : n;
-      box.querySelectorAll('button').forEach(x=>x.classList.toggle('on', Number(x.dataset.n)===now)); onPick(now); };
+    box.innerHTML = hasForms(c) ? `<div class="formprev">${coatHtml(c,1,'pic h')}<span>You get both forms. Tap ✨ to see the other one.</span></div>` : Array.from({length:c.coatCount},(_,j)=>`<button type="button" data-n="${j+1}" class="" title="${coatLabel(j+1,c)}">${coatHtml(c,j+1,'h')}${coatLabel(j+1,c)}${whereTag(c,j+1)}</button>`).join('');
+    const cur=new Set(Array.isArray(sel)?sel:(sel?[sel]:[]));
+    box.querySelectorAll('button[data-n]').forEach(x=>x.classList.toggle('on',cur.has(Number(x.dataset.n))));
+    box.onclick=e=>{ if(e.target.closest('[data-form-toggle]')) return; const b=e.target.closest('button[data-n]'); if(!b) return; const n=Number(b.dataset.n);
+      if(cur.has(n)) cur.delete(n); else cur.add(n);
+      b.classList.toggle('on',cur.has(n)); onPick([...cur].sort((a,b)=>a-b)); };
   }
   function showGallery(id){
     const c=S.catalog[id]; if(!hasCoats(c)) return;
-    openModal(`<h3>${esc(c.name)} coats</h3><p class="note" style="font-style:normal">${c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
-      <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
+    openModal(`<h3>${esc(c.name)} coats</h3><p class="note" style="font-style:normal">${c.coatSource!=='ssodb'&&c.coatWhere?'Official pictures from starstable.com, plus extra coats from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a> (photos by Abbie Starwatcher).':c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
+      <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}${whereTag(c,j+1)}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
       <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on starstable.com ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
     $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
-    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=Number(b.dataset.gw); { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo,c)+' picked – hit Add'); };
+    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
   }
-  let addCoatNo=null;
+  let addCoatNo=[];
   let autoCoat='';
-  function refreshAddPicker(){ coatPicker($('#addBreed').value, addCoatNo, n=>{ addCoatNo=n; const c=S.catalog[$('#addBreed').value]; const nm=n&&c&&Array.isArray(c.coatNames)?c.coatNames[n-1]:'';
-    const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } }, $('#addPick')); }
+  function refreshAddPicker(){ $('#addBreed')._hpRender?.(); coatPicker($('#addBreed').value, addCoatNo, arr=>{ addCoatNo=arr; const c=S.catalog[$('#addBreed').value]; const nm=arr.length===1&&c&&Array.isArray(c.coatNames)?c.coatNames[arr[0]-1]:'';
+    const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; }
+    $('#addHint').hidden=!$('#addPick').children.length||hasForms(S.catalog[$('#addBreed').value]); $('#addBtn').textContent = arr.length>1 ? `+ Add ${arr.length}` : '+ Add'; }, $('#addPick')); $('#addHint').hidden=!$('#addPick').children.length||hasForms(S.catalog[$('#addBreed').value]); $('#addBtn').textContent = addCoatNo.length>1 ? `+ Add ${addCoatNo.length}` : '+ Add'; }
   const filePick =Object.assign(document.createElement('input'),{type:'file',accept:'image/*'});
   function pickImage(){
     return new Promise(res=>{ filePick.value=''; filePick.onchange=()=>res(filePick.files[0]||null); filePick.click(); });
@@ -558,7 +613,9 @@
   // ---------- bazaar logic ----------
   function bazaarInfo(breedId){
     let last=null, next=null, now=null;
+    const since=S.catalog[breedId]?.since||'';
     for(const b of S.bazaars){
+      if(since && b.start<since) continue; // older model of this breed, not this one
       const h=(b.horses||[]).find(x=>x.breed===breedId); if(!h) continue;
       const end=b.end||addDays(b.start,6);
       if(b.start<=today && end>=today) now={...b,end,price:h.price};
@@ -569,7 +626,8 @@
   }
   // Bazaar price history for one breed: Bazaars with a price, newest first
   function bazaarHistory(breedId){
-    return S.bazaars.map(b=>{ const h=(b.horses||[]).find(x=>x.breed===breedId); return h&&h.price?{start:b.start,price:h.price}:null; })
+    const since=S.catalog[breedId]?.since||'';
+    return S.bazaars.map(b=>{ if(since && b.start<since) return null; const h=(b.horses||[]).find(x=>x.breed===breedId); return h&&h.price?{start:b.start,price:h.price}:null; })
       .filter(Boolean).sort((a,b)=>a.start<b.start?1:-1);
   }
   function histHtml(breedId){
@@ -620,6 +678,7 @@
     const sel=$('#addBreed'); const cur=sel.value;
     sel.innerHTML = `<option value="">Choose a horse…</option>${opts}`;
     if(cur) sel.value=cur;
+    if(!sel._hpRender) mountHP(sel); else sel._hpRender();
   }
   function renderMine(){
     const list=$('#mineList');
@@ -662,8 +721,8 @@
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
         <dl class="facts">
-          <dt>Price</dt><dd>${priceTxt(c)}</dd>
-          <dt>Buy at</dt><dd>${whereTxt(c)}${c.level&&!isRetired(c)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
+          <dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd>
+          <dt>Buy at</dt><dd>${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
           <dt>Bazaar</dt><dd${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
@@ -732,7 +791,7 @@
       return `<div class="wish ${i.got?'got':''}">
         ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h'):`<div class="nopic">🐴</div>`}
         <div class="top"><div><h3>${esc(c.name)}${badge(c)}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><span class="prio ${pc}">${i.got?'✓ Got it':pl}</span></div>
-        <dl class="facts"><dt>Price</dt><dd>${priceTxt(c)}</dd><dt>Where</dt><dd>${whereTxt(c)}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
+        <dl class="facts"><dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd><dt>Where</dt><dd>${whereTxt(c,i.coatNo)}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
         ${i.plannedName?`<div class="pname" style="padding:0 4px">“${esc(i.plannedName)}”</div>`:''}
         ${!isMe&&!i.got?`<div class="actions">${mine.has(i.breed+':'+(i.coatNo||''))?'<span class="note" style="font-style:normal">♥ On your list too</span>':`<button class="btn small ghost" data-copywish="${esc(i.id)}">+ Add to my wishlist</button>`}</div>`:''}
@@ -779,21 +838,24 @@
     if(!LS.set(K_WISH,S.myItems)) status('Your browser blocked saving (private mode?). Use Backup to keep a copy of your list.', true);
     renderMine(); renderBanner();
   }
-  $('#addBreed').onchange=()=>{ addCoatNo=null; refreshAddPicker(); };
+  $('#addBreed').onchange=()=>{ addCoatNo=[]; refreshAddPicker(); };
   $('#addForm').onsubmit=e=>{
+    if(!$('#addBreed').value){ e.preventDefault(); toast('Pick a horse first'); return; }
     e.preventDefault();
     const breed=$('#addBreed').value; if(!breed) return;
-    if(addCoatNo && ownsCoat(breed,addCoatNo) && !e.submitter?.dataset.force){
-      confirmBox(`You already own ${esc(S.catalog[breed]?.name||'this horse')} ${coatLabel(addCoatNo,S.catalog[breed])}. Add it to your wishlist anyway?`,()=>{ const f=document.createElement('button'); f.dataset.force='1'; f.type='submit'; f.hidden=true; $('#addForm').append(f); f.click(); f.remove(); });
+    const cc=S.catalog[breed]; const owned=addCoatNo.filter(n=>ownsCoat(breed,n));
+    if((owned.length || (!addCoatNo.length && ownsBreed(breed).length)) && !e.submitter?.dataset.force){
+      confirmBox(owned.length?`You already own ${esc(cc?.name||'this horse')} ${owned.map(n=>esc(coatLabel(n,cc))).join(', ')}. Add ${addCoatNo.length>1?'them':'it'} to your wishlist anyway?`:`You already have a ${esc(cc?.name||'horse like this')} in your stable. Add it to your wishlist anyway?`,()=>{ const f=document.createElement('button'); f.dataset.force='1'; f.type='submit'; f.hidden=true; $('#addForm').append(f); f.click(); f.remove(); });
       return;
     }
-    S.myItems.push({id:uidGen(),breed,coat:$('#addCoat').value.trim(),prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-Date.now(),...(addCoatNo?{coatNo:addCoatNo}:{}),...($('#addName').value.trim()?{plannedName:$('#addName').value.trim()}:{})});
+    const list=addCoatNo.length?addCoatNo:[null]; const t0=Date.now();
+    list.forEach((n,k)=>S.myItems.push({id:uidGen(),breed,coat:list.length===1?$('#addCoat').value.trim():'',prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-(t0+list.length-k),...(n?{coatNo:n}:{}),...($('#addName').value.trim()&&list.length===1?{plannedName:$('#addName').value.trim()}:{})}));
     $('#addName').value='';
-    $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=null; refreshAddPicker();
-    saveMine(); closeSheet('addSheet'); toast('Added to your wishlist 💜');
+    $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=[]; $('#addBreed').value=''; refreshAddPicker();
+    saveMine(); closeSheet('addSheet'); toast(list.length>1?`Added ${list.length} coats to your wishlist 💜`:'Added to your wishlist 💜');
   };
   const phone=()=>matchMedia('(max-width:560px)').matches;
-  function openSheet(id){ const sh=$('#'+id); sh.classList.add('on'); document.body.classList.add('noscroll'); setTimeout(()=>{ const f=sh.querySelector('select'); if(f&&!phone()) f.focus(); },50); }
+  function openSheet(id){ const sh=$('#'+id); sh.classList.add('on'); document.body.classList.add('noscroll'); sh.querySelectorAll('select').forEach(x=>x._hpRender?.()); setTimeout(()=>{ const f=sh.querySelector('.hpq'); if(f&&!phone()) f.focus(); },50); }
   function closeSheet(id){ (id?[$('#'+id)]:document.querySelectorAll('.sheet.on')).forEach(x=>x.classList.remove('on')); document.body.classList.remove('noscroll'); }
   document.querySelectorAll('.sheet').forEach(sh=>sh.addEventListener('click',e=>{ if(e.target===sh||e.target.closest('[data-close-sheet]')) closeSheet(sh.id); }));
   addEventListener('keydown',e=>{ if(e.key==='Escape' && !$('#ov').classList.contains('on')) closeSheet(); });
@@ -824,7 +886,7 @@
     const q=$('#hSearch').value.toLowerCase().trim(), t=$('#hType').value;
     let rows=Object.entries(S.catalog).map(([id,c])=>({id,...c,bz:bazaarInfo(id)}));
     if(q) rows=rows.filter(r=>(r.name+' '+(r.location||'')).toLowerCase().includes(q));
-    if(t) rows=rows.filter(r=> t==='sale'?!isRetired(r) : t==='old'?!!r.gen : t==='retired'?isRetired(r) : r.type===t&&(t==='Special'||!isRetired(r)));
+    if(t) rows=rows.filter(r=> t==='sale'?r.type!=='Magical'&&!isOldGen(r) : t==='retired'?r.type!=='Magical'&&isOldGen(r) : t==='Magical'?r.type==='Magical' : r.type===t&&!isRetired(r));
     const {key,dir}=S.hSort;
     const val=r=> key==='price'?(r.price??1e9): key==='location'?(r.location||'~'): key==='last'?(r.bz.now?'9999':r.bz.last?.start||'0000'): key==='next'?(r.bz.next?.start||'9999'): r.name.toLowerCase();
     rows.sort((a,b)=>{const x=val(a),y=val(b); return (x<y?-1:x>y?1:0)*dir;});
@@ -852,7 +914,7 @@
   $('#hBody').onclick=e=>{
     const w=e.target.closest('[data-wish]'), ed=e.target.closest('[data-edit]');
     const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
-    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=null; refreshAddPicker(); showTab('mine'); openAdd(); toast('Pick a coat, then hit Add'); }
+    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=[]; refreshAddPicker(); showTab('mine'); openAdd(); toast('Pick a coat, then hit Add'); }
     if(ed){ editHorse(ed.dataset.edit); }
   };
   $('#addHorseBtn').onclick=()=>editHorse(null);
@@ -902,7 +964,7 @@
   }
   const ownsBreed = id => S.me.owned.filter(o=>o.breed===id);
   const ownsCoat = (id,n) => n ? S.me.owned.some(o=>o.breed===id && o.coatNo===n) : false;
-  const wishPrice = i => { const b=bazaarInfo(i.breed); return (b.now&&b.now.price) || S.catalog[i.breed]?.price || null; };
+  const wishPrice = i => { const b=bazaarInfo(i.breed); const c=S.catalog[i.breed]; return (b.now&&b.now.price&&!coatWhere(c,i.coatNo)&&b.now.price) || coatPriceOf(c,i.coatNo) || null; };
   function affordHtml(i){
     if(S.me.sc==null || i.got) return '';
     const p=wishPrice(i); if(!p) return '';
@@ -949,12 +1011,13 @@
       if(a!==''&&!Number.isFinite(n)) return;
       if(n!==S.me.sc) S.me.scAt=today; S.me.sc=n; saveMe(); renderCoins(); renderMine(); openCoins(); toast('Saved'); };
   }
-  let ownCoatNo=null;
-  function refreshOwnPicker(){ coatPicker($('#ownBreed').value, ownCoatNo, n=>{ownCoatNo=n;}, $('#ownPick')); }
+  let ownCoatNo=[];
+  function refreshOwnPicker(){ $('#ownBreed')._hpRender?.(); coatPicker($('#ownBreed').value, ownCoatNo, arr=>{ownCoatNo=arr;}, $('#ownPick')); }
   function renderStable(){
     const sel=$('#ownBreed'); const cur=sel.value;
     sel.innerHTML=`<option value="">Choose a horse…</option>`+breedOptions();
     if(cur) sel.value=cur;
+    if(!sel._hpRender) mountHP(sel); else sel._hpRender();
     const el=$('#stableList');
     if(!S.uid){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Sign in to keep track of your stable.</div>`; return; }
     if(!S.meLoaded){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Loading your stable…</div>`; return; }
@@ -965,11 +1028,15 @@
         <div class="top"><div><h3>${esc(o.name||c.name)}</h3><div class="coat">${esc([o.name?c.name:'', o.coatNo&&hasCoats(c)?coatLabel(o.coatNo,c):''].filter(Boolean).join(' · '))}</div></div></div>
         <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
   }
-  $('#ownBreed').onchange=()=>{ ownCoatNo=null; refreshOwnPicker(); };
-  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed) return; closeSheet('ownSheet');
-    if(!S.uid){ toast('Sign in to save your stable'); return; }
-    S.me.owned.push({id:uidGen(),breed,...(ownCoatNo?{coatNo:ownCoatNo}:{}),...($('#ownName').value.trim()?{name:$('#ownName').value.trim()}:{}),addedAt:new Date().toISOString()});
-    $('#ownName').value=''; ownCoatNo=null; refreshOwnPicker(); saveMe(); renderStable(); renderHorses(); renderMine(); toast('Added to your stable 🏡'); };
+  $('#ownBreed').onchange=()=>{ ownCoatNo=[]; refreshOwnPicker(); };
+  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed){ toast('Pick a horse first'); return; }
+    const cc=S.catalog[breed]; const list=ownCoatNo.length?ownCoatNo:[null];
+    const dup=list.filter(n=>n?ownsCoat(breed,n):ownsBreed(breed).length);
+    const doAdd=()=>{ closeSheet('ownSheet');
+      list.forEach(n=>S.me.owned.push({id:uidGen(),breed,...(n?{coatNo:n}:{}),...($('#ownName').value.trim()&&list.length===1?{name:$('#ownName').value.trim()}:{}),addedAt:new Date().toISOString()}));
+      $('#ownName').value=''; ownCoatNo=[]; $('#ownBreed').value=''; refreshOwnPicker(); saveMe(); renderStable(); renderHorses(); renderMine(); toast(list.length>1?`Added ${list.length} horses to your stable 🏡`:'Added to your stable 🏡'); };
+    if(dup.length) confirmBox(`You already added ${esc(cc?.name||'that horse')}${dup[0]?' '+dup.map(n=>esc(coatLabel(n,cc))).join(', '):''} to your stable. Are you sure you want another one?`, doAdd);
+    else doAdd(); };
   $('#stableList').onclick=e=>{ const b=e.target.closest('[data-own-del]'); if(!b) return; const o=S.me.owned.find(x=>x.id===b.dataset.ownDel); if(!o) return;
     confirmBox(`Remove ${esc(o.name||S.catalog[o.breed]?.name||'this horse')} from your stable?`,()=>{ S.me.owned=S.me.owned.filter(x=>x!==o); saveMe(); renderStable(); renderHorses(); renderMine(); }); };
 
