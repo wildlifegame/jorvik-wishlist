@@ -237,6 +237,12 @@
   .wish .pic[data-gal]{cursor:zoom-in}
   .afford{font-size:13px;padding:6px 10px}
   @media (max-width:560px){ .coins .tot{text-align:left;border:0;padding:0} .listbar .ptabs{flex-basis:100%} .addrow .btn{width:100%} .bzshow{grid-template-columns:repeat(4,1fr);gap:8px} .bzshow .pic{height:72px;border-radius:10px} .bzshow figcaption{font-size:11px} }
+  .coatpick .formtog{width:auto;border:0;padding:6px 12px;background:rgba(31,37,71,.82);color:#fff;font-size:13px}
+  .coatpick .formtog.on{background:var(--rose);color:#fff}
+  .formprev .coatbox{position:relative}
+  .formprev{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted);font-weight:600}
+  .formprev .coatbox{width:220px;height:176px;flex:none;border-radius:16px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3))}
+  @media (max-width:560px){ .formprev{flex-direction:column;align-items:flex-start} .formprev .coatbox{width:100%;height:220px} }
 </style>
 </head>
 <body>
@@ -412,8 +418,8 @@
   function coatPicker(breedId, sel, onPick, box){
     const c=S.catalog[breedId];
     if(!hasCoats(c)){ box.innerHTML=''; return; }
-    box.innerHTML = hasForms(c) ? '' : Array.from({length:c.coatCount},(_,j)=>`<button type="button" data-n="${j+1}" class="${sel===j+1?'on':''}" title="${coatLabel(j+1,c)}">${coatHtml(c,j+1,'h')}${coatLabel(j+1,c)}</button>`).join('');
-    box.onclick=e=>{ const b=e.target.closest('button[data-n]'); if(!b) return; const n=Number(b.dataset.n); const now = b.classList.contains('on') ? null : n;
+    box.innerHTML = hasForms(c) ? `<div class="formprev">${coatHtml(c,1,'pic h')}<span>You get both forms. Tap ✨ to see the other one.</span></div>` : Array.from({length:c.coatCount},(_,j)=>`<button type="button" data-n="${j+1}" class="${sel===j+1?'on':''}" title="${coatLabel(j+1,c)}">${coatHtml(c,j+1,'h')}${coatLabel(j+1,c)}</button>`).join('');
+    box.onclick=e=>{ if(e.target.closest('[data-form-toggle]')) return; const b=e.target.closest('button[data-n]'); if(!b) return; const n=Number(b.dataset.n); const now = b.classList.contains('on') ? null : n;
       box.querySelectorAll('button').forEach(x=>x.classList.toggle('on', Number(x.dataset.n)===now)); onPick(now); };
   }
   function showGallery(id){
