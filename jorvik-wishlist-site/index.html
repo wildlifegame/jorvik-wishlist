@@ -27,7 +27,8 @@
   h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em;font-variation-settings:"SOFT" 100,"WONK" 0}
   button,input,select,textarea{font:inherit;color:inherit}
   :focus-visible{outline:3px solid var(--rose);outline-offset:2px}
-  .wrap{max-width:none;margin:0 auto;padding:clamp(10px,2vw,28px) clamp(12px,3vw,48px) 64px}
+  .wrap{max-width:1440px;margin:0 auto;padding:clamp(10px,2vw,28px) clamp(12px,3vw,48px) 32px;min-height:100vh;display:flex;flex-direction:column}
+  .wrap>*{flex-shrink:0}
 
   /* hero: dusk sky over the moors */
   header.hero{position:relative;overflow:hidden;border-radius:28px;padding:34px 34px 30px;color:#f4f2ff;
@@ -40,20 +41,21 @@
   header.hero::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-1px;height:70px;background:var(--bg);
     clip-path:polygon(0 70%,12% 45%,24% 62%,38% 30%,52% 55%,66% 35%,80% 58%,92% 40%,100% 52%,100% 100%,0 100%);opacity:.9}
   header.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.05;font-weight:700}
-  header.hero p{margin:10px 0 0;max-width:56ch;color:#d9d6f5;font-size:17px}
+  header.hero{text-align:center}
+  header.hero p{margin:10px auto 0;max-width:56ch;color:#d9d6f5;font-size:17px}
   .whoami{margin-top:14px;font-size:14px;color:#cfcbf0}
-  .bazaar-banner{position:relative;z-index:1;margin-top:26px;padding-bottom:30px}
-  .bazaar-banner h2{font-size:22px;color:#fff}
+  .bazaar-banner{position:relative;z-index:1;margin-top:20px;padding-bottom:22px}
+  .bazaar-banner h2{font-size:18px;color:#fff}
   .bazaar-banner .sub{color:#d9d6f5;font-size:15px;margin-top:2px}
   .bazaar-banner .hit{color:#ffc9dc;font-weight:700}
-  .bzshow{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:16px;max-width:760px}
+  .bzshow{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,120px));justify-content:center;gap:12px;margin:14px auto 0}
   .bzshow figure{margin:0;text-align:center;cursor:pointer}
-  .bzshow .pic{height:170px}
-  .bzshow figcaption{margin-top:6px;font-weight:700;font-size:15px;color:#fff}
+  .bzshow .pic{height:100px;border-radius:14px}
+  .bzshow figcaption{margin-top:6px;font-weight:700;font-size:13px;color:#fff}
   .bzshow figcaption small{display:block;font-weight:600;color:#e9c46a;font-size:13px}
   .bzshow .mine .pic{box-shadow:0 0 0 3px #ffc9dc}
 
-  nav.tabs{display:flex;gap:4px;margin:22px 0 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+  nav.tabs{display:flex;justify-content:center;gap:4px;margin:22px 0 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
   nav.tabs button{border:0;background:none;padding:10px 16px 12px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-size:16px}
   nav.tabs button:hover{color:var(--ink)}
   nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--rose)}
@@ -141,7 +143,8 @@
   .modal .row{margin-bottom:12px}
   .bzrow{display:flex;gap:6px;margin-bottom:6px}
   .bzrow select{flex:2}.bzrow input{flex:1;min-width:0}
-  footer{margin-top:40px;font-size:13px;color:var(--muted);max-width:75ch}
+  footer{margin:auto auto 0;padding-top:56px;font-size:13px;color:var(--muted);max-width:80ch;text-align:center}
+  footer p:first-child{border-top:1px solid #0001;padding-top:22px}
   footer a{color:var(--teal)}
   .thumb{width:72px;height:72px;object-fit:contain;border-radius:12px;background:var(--soft);display:block}
   .ext{color:var(--teal);font-weight:700;text-decoration:none;font-size:14px}
@@ -205,19 +208,43 @@
   .backup{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .backup textarea{width:100%;min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
   @media (max-width:560px){ header.hero{padding:22px 18px 20px;border-radius:20px} .grid,.hgrid{grid-template-columns:1fr} .pic{height:240px} .bzshow{grid-template-columns:repeat(2,1fr)}
-    nav.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} nav.tabs button{white-space:nowrap;padding:10px 12px 12px}
+    nav.tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} nav.tabs button{white-space:nowrap;padding:10px 12px 12px}
     .toolbar #shareList{margin-left:0!important} .coins form{margin-left:0;width:100%} .coins input{width:100%}
     .row label.f{min-width:100%} .sharedhead h2{flex-basis:100%;font-size:26px}
     .summary{gap:18px} .stat .n{font-size:24px} .modal{padding:18px;border-radius:18px} .gallery{grid-template-columns:repeat(2,1fr)} .gallery .g .pic{height:150px} }
   @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+  /* simpler layout */
+  header.hero{padding-top:30px}
+  header.hero h1{font-size:clamp(32px,4vw,46px)}
+  header.hero p{font-size:16px}
+  .addcard h2{margin-bottom:10px}
+  .addrow{align-items:flex-end}
+  .addrow .btn{height:46px;padding-inline:26px}
+  details.more{margin-top:10px}
+  details.more summary{cursor:pointer;color:var(--muted);font-weight:600;font-size:14px;width:max-content}
+  details.more summary:hover{color:var(--ink)}
+  .coins{margin:14px 0 22px}
+  .coins .have{flex:1;min-width:220px}
+  .coins .tot{text-align:right;padding:0 18px;border-right:1px solid var(--line)}
+  .coins .tot b{display:block;font-size:20px}
+  .coins .tot span{font-size:13px;color:var(--muted)}
+  .coins form{margin-left:0}
+  .coins input{width:130px}
+  .listbar{align-items:center}
+  .listbar .ptabs{margin:0;flex:1}
+  .listbar select{width:auto}
+  .wish .lvl{color:var(--muted);font-weight:500}
+  .wish .pic[data-gal]{cursor:zoom-in}
+  .afford{font-size:13px;padding:6px 10px}
+  @media (max-width:560px){ .coins .tot{text-align:left;border:0;padding:0} .listbar .ptabs{flex-basis:100%} .addrow .btn{width:100%} .bzshow{grid-template-columns:repeat(4,1fr);gap:8px} .bzshow .pic{height:72px;border-radius:10px} .bzshow figcaption{font-size:11px} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
     <h1>Jorvik Wishlist</h1>
-    <p>The horses and coats we're saving up for, what they cost, where to buy them, and when the Bazaar last brought them to Jorvik.</p>
-    <div class="whoami" id="whoami">No sign-up needed. Your lists save in this browser.</div>
+    <p>Plan which Star Stable horses to save for, and see when the Bazaar brings them.</p>
+    <div class="whoami" id="whoami" hidden></div>
     <div class="bazaar-banner" id="banner" hidden></div>
   </header>
   <div id="status"></div>
@@ -231,43 +258,45 @@
 
   <!-- MY WISHLIST -->
   <section class="panel on" id="p-mine">
-    <form class="card" id="addForm">
-      <h2>Add a horse to your wishlist</h2>
-      <div class="row">
-        <label class="f" style="flex:2">Horse / breed
+    <form class="card addcard" id="addForm">
+      <h2>Add a horse</h2>
+      <div class="row addrow">
+        <label class="f" style="flex:3">Horse
           <select id="addBreed" required><option value="">Loading horses…</option></select>
         </label>
-        <label class="f" style="flex:2">Coat / color
-          <input id="addCoat" placeholder="e.g. Palomino, Rose Dapple Grey" maxlength="80">
-        </label>
-        <label class="f">Priority
+        <label class="f" style="flex:1.4">How much do you want it?
           <select id="addPrio"><option value="1">💖 Dream horse</option><option value="2" selected>⭐ Really want</option><option value="3">🤔 Maybe</option></select>
         </label>
+        <button class="btn" type="submit" id="addBtn">+ Add</button>
       </div>
       <div class="coatpick" id="addPick" aria-label="Pick a coat"></div>
-      <div class="row" style="margin-top:10px">
-        <label class="f" style="flex:2">Name idea (optional)
-          <input id="addName" placeholder="e.g. Moonbeam" maxlength="40">
-        </label>
-        <label class="f" style="flex:3">Note (optional)
-          <input id="addNote" placeholder="e.g. Saving for the Bazaar price" maxlength="140">
-        </label>
-        <button class="btn" type="submit" id="addBtn">+ Add to wishlist</button>
-      </div>
+      <details class="more">
+        <summary>Add a name idea or a note</summary>
+        <div class="row" style="margin-top:10px">
+          <label class="f" style="flex:2">Name idea
+            <input id="addName" placeholder="e.g. Moonbeam" maxlength="40">
+          </label>
+          <label class="f" style="flex:3">Note
+            <input id="addNote" placeholder="e.g. Saving for the Bazaar price" maxlength="140">
+          </label>
+          <label class="f" style="flex:2">Coat (if it's not in the pictures)
+            <input id="addCoat" placeholder="e.g. Palomino" maxlength="80">
+          </label>
+        </div>
+      </details>
     </form>
     <div class="coins" id="coins" hidden></div>
-    <div class="summary" id="summary"></div>
-    <div class="ptabs" id="ptabs" role="tablist" aria-label="Show wishes by priority"></div>
-    <div class="toolbar">
-      <select id="mineSort">
-        <option value="mine">Sort: my order (drag to rearrange)</option>
-        <option value="prio">Sort: priority</option>
-        <option value="price">Sort: price (low → high)</option>
-        <option value="bazaar">Sort: in Bazaar soonest/latest</option>
-        <option value="name">Sort: name</option>
+    <div class="summary" id="summary" hidden></div>
+    <div class="toolbar listbar">
+      <div class="ptabs" id="ptabs" role="tablist" aria-label="Show wishes by priority"></div>
+      <select id="mineSort" aria-label="Sort">
+        <option value="mine">My order</option>
+        <option value="prio">Priority</option>
+        <option value="price">Cheapest first</option>
+        <option value="bazaar">Next Bazaar</option>
+        <option value="name">A to Z</option>
       </select>
-      <label><input type="checkbox" id="showGot" checked> Show horses I already got</label>
-      <button class="btn small" type="button" id="shareList" style="margin-left:auto">🔗 Share my wishlist</button>
+      <button class="btn small" type="button" id="shareList">🔗 Share</button>
       <button class="btn small ghost" type="button" id="backupBtn" title="Move your lists to another device, or keep a copy">💾 Backup</button>
     </div>
     <div class="grid" id="mineList"></div>
@@ -501,10 +530,11 @@
     const list=$('#mineList');
     if(!S.loaded.mine){ list.innerHTML=`<div class="empty">Loading your wishlist…</div>`; return; }
     let items=[...S.myItems];
-    if(!$('#showGot').checked) items=items.filter(i=>!i.got);
-    const shown=items; const cnt=p=>shown.filter(i=>p==='all'||i.prio===p).length;
-    $('#ptabs').innerHTML=[['all','All'],[1,'💖 Dream'],[2,'⭐ Want'],[3,'🤔 Maybe']].map(([p,l])=>`<button type="button" role="tab" data-ptab="${p}" aria-selected="${String(prioTab)===String(p)}">${l}<span class="ct">${cnt(p)}</span></button>`).join('');
-    if(prioTab!=='all') items=items.filter(i=>i.prio===prioTab);
+    const cnt=p=>p==='got'?items.filter(i=>i.got).length:items.filter(i=>!i.got&&(p==='all'||i.prio===p)).length;
+    const tabs=[['all','All'],[1,'💖 Dream'],[2,'⭐ Want'],[3,'🤔 Maybe']]; if(cnt('got')) tabs.push(['got','🎉 Got']);
+    if(prioTab==='got'&&!cnt('got')) prioTab='all';
+    $('#ptabs').innerHTML=tabs.map(([p,l])=>`<button type="button" role="tab" data-ptab="${p}" aria-selected="${String(prioTab)===String(p)}">${l}<span class="ct">${cnt(p)}</span></button>`).join('');
+    items = prioTab==='got' ? items.filter(i=>i.got) : items.filter(i=>!i.got&&(prioTab==='all'||i.prio===prioTab));
     const sort=$('#mineSort').value;
     const ord=wishOrd;
     const price=i=>S.catalog[i.breed]?.price ?? 1e9;
@@ -516,13 +546,13 @@
     const full=open.reduce((s,i)=>s+(S.catalog[i.breed]?.price||0),0);
     const unknown=open.filter(i=>S.catalog[i.breed]?.price==null).length;
     const bzEst=open.reduce((s,i)=>{const b=bazaarInfo(i.breed); const p=(b.now||b.next||b.last)?.price; return s+(p||S.catalog[i.breed]?.price||0);},0);
-    $('#summary').innerHTML = `
+    renderCoins(); if(false) $('#summary').innerHTML = `
       <div class="stat"><div class="n">${open.length}</div><div class="l">horses still wanted</div></div>
       <div class="stat"><div class="n">${full.toLocaleString()} SC</div><div class="l">at full price${unknown?` (+${unknown} unknown)`:''}</div></div>
       <div class="stat"><div class="n">${bzEst.toLocaleString()} SC</div><div class="l">if bought at Bazaar prices*</div></div>
       <div class="stat"><div class="n">${S.myItems.length-open.length}</div><div class="l">got! 🎉</div></div>`;
     if(!items.length){
-      list.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="big">🐎</div>${S.myItems.length?'Nothing to show with this filter.':'Your wishlist is empty. Pick a horse above to add your first one!'}</div>`;
+      list.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="big">🐎</div>${S.myItems.length?'No horses here yet.':'Your wishlist is empty. Choose a horse above to add your first one!'}</div>`;
       return;
     }
     list.innerHTML = items.map(i=>{
@@ -531,24 +561,21 @@
       const [pl,pc]=PRIO[i.prio]||PRIO[2];
       const pid = i.img || c.img;
       return `<div class="wish ${i.got?'got':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
-        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
+        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`data-gal="${esc(i.breed)}" title="See all coats" role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
         <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
         <dl class="facts">
-          <dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not added yet</span>'}</dd>
-          <dt>Where</dt><dd>${c.location?esc(c.location):'<span class="unk">not added yet</span>'}${c.level?` · lvl ${esc(c.level)}`:''}</dd>
-          <dt>Last Bazaar</dt><dd>${bazaarText(b)}${b.now?dealHtml(i.breed,b.now.price):''}</dd>
-          ${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}${dealHtml(i.breed,b.next.price)}</dd>`:''}
-          ${bazaarHistory(i.breed).length?`<dt>Bazaar prices</dt><dd class="hist">${histHtml(i.breed)}</dd>`:''}
-          <dt>Coats</dt><dd>${hasCoats(c)&&!hasForms(c)?`<a class="ext" href="#" data-gal="${esc(i.breed)}">See all ${c.coatCount} coats</a> · `:''}<a class="ext" href="${esc(breedLink(i.breed))}" target="_blank" rel="noopener">starstable.com ↗</a></dd>
+          <dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not known yet</span>'}</dd>
+          <dt>Buy at</dt><dd>${c.location?esc(c.location):'<span class="unk">not known yet</span>'}${c.level?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
+          <dt>Bazaar</dt><dd${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
         <div class="actions">
           <button class="btn small ${i.got?'ghost':''}" data-act="got" data-id="${esc(i.id)}">${i.got?'↩︎ Still want':'✓ Got it!'}</button>
           <button class="btn small ghost" data-act="edit" data-id="${esc(i.id)}">Edit</button>
           ${S.assets?`<button class="btn small ghost" data-act="pic" data-id="${esc(i.id)}" title="Add your own picture of this coat">📷</button>`:''}
-          <button class="btn small ghost" data-act="del" data-id="${esc(i.id)}">Remove</button>
+          <button class="btn small ghost" data-act="del" data-id="${esc(i.id)}" style="margin-left:auto">Remove</button>
         </div>
       </div>`;
     }).join('');
@@ -620,7 +647,7 @@
   function openShared(id){ viewing=id; viewName=null; viewData=null; document.body.classList.add('viewing'); document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-shared')); $('#banner').hidden=true; renderShared(); }
   $('#sharedBack').onclick=()=>{ viewing=null; viewData=null; document.body.classList.remove('viewing'); showTab('mine'); renderBanner(); };
   let prioTab='all';
-  $('#ptabs').onclick=e=>{ const b=e.target.closest('[data-ptab]'); if(!b) return; prioTab = b.dataset.ptab==='all'?'all':Number(b.dataset.ptab); renderMine(); };
+  $('#ptabs').onclick=e=>{ const b=e.target.closest('[data-ptab]'); if(!b) return; prioTab = ['all','got'].includes(b.dataset.ptab)?b.dataset.ptab:Number(b.dataset.ptab); renderMine(); };
   let dragId=null;
   $('#mineList').addEventListener('dragstart',e=>{ const w=e.target.closest('.wish[draggable="true"]'); if(!w) return; dragId=w.dataset.wid; w.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; try{e.dataTransfer.setData('text/plain',dragId);}catch(_){} });
   $('#mineList').addEventListener('dragend',()=>{ dragId=null; document.querySelectorAll('.wish.dragging,.wish.dropbefore').forEach(x=>x.classList.remove('dragging','dropbefore')); });
@@ -650,7 +677,7 @@
         confirmBox('Replace the lists in this browser with this backup?',()=>{ S.myItems=d.items; S.me={sc:d.me?.sc??null,scAt:d.me?.scAt||null,owned:Array.isArray(d.me?.owned)?d.me.owned:[]}; saveMine(); saveMe(); renderAll(); toast('Backup restored'); });
       }catch(e){ toast('That code doesn\'t look right. Copy the whole thing and try again.'); } };
   };
-  $('#mineSort').onchange=renderMine; $('#showGot').onchange=renderMine;
+  $('#mineSort').onchange=renderMine;
 
   function saveMine(){
     if(!LS.set(K_WISH,S.myItems)) status('Your browser blocked saving (private mode?). Use Backup to keep a copy of your list.', true);
@@ -785,13 +812,15 @@
     const open=S.myItems.filter(i=>!i.got && wishPrice(i));
     const can=S.me.sc==null?0:open.filter(i=>S.me.sc>=wishPrice(i)).length;
     const dream=open.filter(i=>i.prio===1 && S.me.sc!=null && S.me.sc<wishPrice(i)).sort((a,b)=>wishPrice(a)-wishPrice(b))[0];
-    const sub = S.me.sc==null ? 'Type in how many Star Coins you have to see what you can afford.'
-      : [can?`You can afford ${can} horse${can>1?'s':''} on your list right now.`:'Nothing on your list is affordable yet. Keep saving!',
-         dream?`${(wishPrice(dream)-S.me.sc).toLocaleString()} SC to go for your ${esc(S.catalog[dream.breed]?.name||'dream horse')}${etaText(wishPrice(dream)-S.me.sc)}.`:'',
-         S.me.scAt?`Updated ${fmtDate(S.me.scAt)}.`:'', 'Time estimates count 100 SC a week.'].filter(Boolean).join(' ');
+    const all=S.myItems.filter(i=>!i.got); const total=all.reduce((t,i)=>t+(wishPrice(i)||0),0);
+    const sub = S.me.sc==null ? 'Type in your Star Coins to see what you can afford.'
+      : [all.length?(can?`You can afford ${can} of your ${all.length} horse${all.length>1?'s':''} now.`:'Nothing on your list is affordable yet. Keep saving!'):'',
+         dream?`${(wishPrice(dream)-S.me.sc).toLocaleString()} SC to go for your ${esc(S.catalog[dream.breed]?.name||'dream horse')}${etaText(wishPrice(dream)-S.me.sc)}.`:''].filter(Boolean).join(' ');
+    const tot = all.length?`<div class="tot"><b>${total.toLocaleString()} SC</b><span>for your whole list</span></div>`:'';
     el.innerHTML = `<div class="coin" aria-hidden="true">★</div>
-      <div><b>${S.me.sc==null?'? SC':S.me.sc.toLocaleString()+' SC'}</b><div class="sub">${sub}</div></div>
-      <form id="scForm"><label class="f" style="min-width:0;flex:none">I have<input id="scIn" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="Star Coins" value="${S.me.sc??''}"></label><button class="btn small" type="submit" style="align-self:flex-end">Update</button></form>`;
+      <div class="have"><b>${S.me.sc==null?'? SC':S.me.sc.toLocaleString()+' SC'}</b><div class="sub" title="Time estimates count 100 SC a week">${sub}</div></div>
+      ${tot}
+      <form id="scForm"><label class="f" style="min-width:0;flex:none">My Star Coins<input id="scIn" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="Star Coins" value="${S.me.sc??''}"></label><button class="btn small ghost" type="submit" style="align-self:flex-end">Save</button></form>`;
     $('#scForm').onsubmit=e=>{ e.preventDefault(); const num=v=>v===''?null:Math.max(0,Math.floor(Number(v)));
       const a=$('#scIn').value.trim(); const n=num(a);
       if(a!==''&&!Number.isFinite(n)) return;
