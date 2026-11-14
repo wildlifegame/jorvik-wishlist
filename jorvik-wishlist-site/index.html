@@ -312,6 +312,11 @@
   @media (min-width:2200px){:root{--z:1.2}}
   @media (min-width:2800px){:root{--z:1.4}}
   @media (min-width:3400px){:root{--z:1.65}}
+  .suggestline{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+  .suggestline span{font-size:15px;color:var(--ink)}
+  .sgform{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+  .sgform label.f{min-width:0}
+  .sgform textarea{width:100%;resize:vertical;font:inherit;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--soft)}
 </style>
 </head>
 <body>
@@ -387,7 +392,7 @@
     <div class="toolbar">
       <input id="hSearch" placeholder="Search breeds or places…">
       <select id="hSortSel" aria-label="Sort horses"><option value="name">Sort: name</option><option value="price">Sort: price</option><option value="location">Sort: where to buy</option><option value="last">Sort: last Bazaar</option><option value="next">Sort: next Bazaar</option></select>
-      <select id="hType"><option value="">All types</option><option>Horse</option><option>Pony</option><option>Hybrid</option><option>Magical</option></select>
+      <select id="hType"><option value="">All horses</option><option value="sale">For sale now</option><option>Horse</option><option>Pony</option><option>Hybrid</option><option value="Magical">Magical ✨</option><option value="Special">Special &amp; event ★</option><option value="old">Older generations</option><option value="retired">Not sold anymore</option></select>
       <button class="btn ghost" id="addHorseBtn">+ Add a horse</button>
     </div>
     <div class="hgrid" id="hBody"></div>
@@ -434,8 +439,9 @@
 
 
   <footer>
+    <p class="suggestline"><button class="btn" type="button" id="suggestBtn">💡 Leave a suggestion</button><span>Ideas, missing horses, wrong prices? Tell me!</span></p>
     <p><b>Unofficial fan-made site.</b> Not affiliated with or endorsed by Star Stable Entertainment AB. Star Stable, its horses and artwork belong to Star Stable Entertainment AB. This site is free and has no ads.</p>
-    <p>Your wishlist, stable and Star Coins are saved only in this browser. Nothing is sent to a server, and there are no accounts. Use 💾 Backup to move them to another device.</p>
+    <p>Your wishlist, stable and Star Coins are saved only in this browser. Nothing is sent to a server (except suggestions you choose to send), and there are no accounts. Use 💾 Backup to move them to another device.</p>
     <p>Data from official <a href="https://www.starstable.com/en/news">Star Stable news</a>, the <a href="https://pixel-ponies.com/sso-bazaars">Pixel-Ponies Bazaar tracker</a>, the <a href="https://starstable.wiki.gg/">Star Stable wiki</a> and the <a href="https://ssodb.bplaced.net/db/en/horses.html">Starstable Database</a>. Coat pictures from starstable.com; coat names from Pixel-Ponies and the Star Stable wiki; magical horse and Friesian Sport Horse pictures from the Starstable Database (photos by Abbie Starwatcher). Prices and shops can change, so always double-check in-game.</p>
   </footer>
 </div>
@@ -489,6 +495,15 @@
     const N=c.coatCount; i.style.backgroundPosition = (magic ? (1/(N-1)*100) : 0)+'% 0';
     t.textContent = magic ? '🐴 '+c.forms[0] : '✨ '+c.forms[1]; t.setAttribute('aria-label','Show '+(magic?c.forms[0]:c.forms[1]));
   }, true);
+  const isRetired = c => c && c.status==='retired';
+  const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':'';
+  const whereTxt = c => isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
+  const priceTxt = c => c.price ? (isRetired(c)?'Was ':'')+sc(c.price) : '<span class="unk">not known yet</span>';
+  function breedOptions(){
+    const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
+    const grp=[['For sale now',([,c])=>!isRetired(c)&&c.type!=='Magical'&&c.type!=='Special'],['Magical horses ✨',([,c])=>!isRetired(c)&&c.type==='Magical'],['Special & event horses ★',([,c])=>!isRetired(c)&&c.type==='Special'],['Older generations (not sold anymore)',([,c])=>isRetired(c)&&c.gen],['Retired horses (not sold anymore)',([,c])=>isRetired(c)&&!c.gen]];
+    return grp.map(([l,f])=>{ const o=all.filter(f); return o.length?`<optgroup label="${esc(l)}">${o.map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${badge(c)}</option>`).join('')}</optgroup>`:''; }).join('');
+  }
   const coatLabel = (n,c) => hasForms(c) ? '' : ((c && Array.isArray(c.coatNames) && c.coatNames[n-1]) || 'Coat '+String(n).padStart(2,'0'));
   function coatPicker(breedId, sel, onPick, box){
     const c=S.catalog[breedId];
@@ -601,8 +616,7 @@
 
   // ---------- render: my wishlist ----------
   function fillBreedSelect(){
-    const opts = Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name))
-      .map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${c.type==='Magical'?' ✨':''}</option>`).join('');
+    const opts = breedOptions();
     const sel=$('#addBreed'); const cur=sel.value;
     sel.innerHTML = `<option value="">Choose a horse…</option>${opts}`;
     if(cur) sel.value=cur;
@@ -643,13 +657,13 @@
       const pid = i.img || c.img;
       return `<div class="wish ${i.got?'got':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
         ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`data-gal="${esc(i.breed)}" title="See all coats" role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
-        <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
+        <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${badge(c)}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
         <div class="mprice">${wishPrice(i)?sc(wishPrice(i)):''}${!i.got&&S.me.sc!=null&&wishPrice(i)&&S.me.sc>=wishPrice(i)?' <span class="ok">✓</span>':''}${(()=>{const bb=bazaarInfo(i.breed);return bb.now?'<span class="mbz">Bazaar now</span>':bb.next?'<span class="mbz">Bazaar '+esc(new Date(bb.next.start+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'}))+'</span>':'';})()}</div>
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
         <dl class="facts">
-          <dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not known yet</span>'}</dd>
-          <dt>Buy at</dt><dd>${c.location?esc(c.location):'<span class="unk">not known yet</span>'}${c.level?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
+          <dt>Price</dt><dd>${priceTxt(c)}</dd>
+          <dt>Buy at</dt><dd>${whereTxt(c)}${c.level&&!isRetired(c)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
           <dt>Bazaar</dt><dd${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
@@ -717,8 +731,8 @@
     el.innerHTML = items.length ? items.map(i=>{ const c=S.catalog[i.breed]||{name:i.breed}; const b=bazaarInfo(i.breed); const [pl,pc]=PRIO[i.prio]||PRIO[2];
       return `<div class="wish ${i.got?'got':''}">
         ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h'):`<div class="nopic">🐴</div>`}
-        <div class="top"><div><h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><span class="prio ${pc}">${i.got?'✓ Got it':pl}</span></div>
-        <dl class="facts"><dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not added yet</span>'}</dd><dt>Where</dt><dd>${c.location?esc(c.location):'<span class="unk">not added yet</span>'}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
+        <div class="top"><div><h3>${esc(c.name)}${badge(c)}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><span class="prio ${pc}">${i.got?'✓ Got it':pl}</span></div>
+        <dl class="facts"><dt>Price</dt><dd>${priceTxt(c)}</dd><dt>Where</dt><dd>${whereTxt(c)}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
         ${i.plannedName?`<div class="pname" style="padding:0 4px">“${esc(i.plannedName)}”</div>`:''}
         ${!isMe&&!i.got?`<div class="actions">${mine.has(i.breed+':'+(i.coatNo||''))?'<span class="note" style="font-style:normal">♥ On your list too</span>':`<button class="btn small ghost" data-copywish="${esc(i.id)}">+ Add to my wishlist</button>`}</div>`:''}
@@ -810,24 +824,24 @@
     const q=$('#hSearch').value.toLowerCase().trim(), t=$('#hType').value;
     let rows=Object.entries(S.catalog).map(([id,c])=>({id,...c,bz:bazaarInfo(id)}));
     if(q) rows=rows.filter(r=>(r.name+' '+(r.location||'')).toLowerCase().includes(q));
-    if(t) rows=rows.filter(r=>r.type===t);
+    if(t) rows=rows.filter(r=> t==='sale'?!isRetired(r) : t==='old'?!!r.gen : t==='retired'?isRetired(r) : r.type===t&&(t==='Special'||!isRetired(r)));
     const {key,dir}=S.hSort;
     const val=r=> key==='price'?(r.price??1e9): key==='location'?(r.location||'~'): key==='last'?(r.bz.now?'9999':r.bz.last?.start||'0000'): key==='next'?(r.bz.next?.start||'9999'): r.name.toLowerCase();
     rows.sort((a,b)=>{const x=val(a),y=val(b); return (x<y?-1:x>y?1:0)*dir;});
     const mine=new Set(S.myItems.map(i=>i.breed));
     $('#hBody').innerHTML = rows.length ? rows.map(r=>`<article class="hcard">
       ${hasCoats(r)?coatHtml(r,1,'pic h',`data-gal="${esc(r.id)}" role="button" tabindex="0" aria-label="See all ${r.coatCount} ${esc(r.name)} coats"`):r.img?`<img class="pic" src="${esc(imgUrl(r.img))}" alt="${esc(r.name)}">`:`<div class="nopic">🐴</div>`}
-      <h3>${esc(r.name)}${r.type==='Magical'?' ✨':''}</h3>
+      <h3>${esc(r.name)}${badge(r)}</h3>
       ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
       <div class="meta">${esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
       <dl class="facts">
-        <dt>Price</dt><dd>${sc(r.price)||'<span class="unk">not added yet</span>'}</dd>
-        <dt>Where</dt><dd>${r.location?esc(r.location):'<span class="unk">not added yet</span>'}</dd>
+        <dt>Price</dt><dd>${priceTxt(r)}</dd>
+        <dt>Where</dt><dd>${whereTxt(r)}</dd>
         <dt>Last Bazaar</dt><dd>${bazaarText(r.bz)}</dd>
         ${r.bz.next?`<dt>Next</dt><dd>${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
         ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="hist">${histHtml(r.id)}</dd>`:''}
       </dl>
-      <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> <a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a></div>
+      <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a>`}</div>
     </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?'No horses match.':'Loading horses…'}</div></div>`;
   }
   $('#hSearch').oninput=renderHorses; $('#hType').onchange=renderHorses;
@@ -939,7 +953,7 @@
   function refreshOwnPicker(){ coatPicker($('#ownBreed').value, ownCoatNo, n=>{ownCoatNo=n;}, $('#ownPick')); }
   function renderStable(){
     const sel=$('#ownBreed'); const cur=sel.value;
-    sel.innerHTML=`<option value="">Choose a horse…</option>`+Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${c.type==='Magical'?' ✨':''}</option>`).join('');
+    sel.innerHTML=`<option value="">Choose a horse…</option>`+breedOptions();
     if(cur) sel.value=cur;
     const el=$('#stableList');
     if(!S.uid){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Sign in to keep track of your stable.</div>`; return; }
@@ -963,6 +977,36 @@
 
   // ---------- modals ----------
   const ov=$('#ov'), modal=$('#modal');
+  const SUGGEST_KEY='2f541bfa-f0f6-4ff8-a2cc-6c2ad94f5203';
+  function openSuggest(){
+    openModal(`<div class="sheethead"><h3>Leave a suggestion</h3><button class="x" type="button" id="sgX" aria-label="Close">✕</button></div>
+      <form id="sgForm" class="sgform">
+        <label class="f">Your suggestion or the mistake you spotted
+          <textarea id="sgMsg" required maxlength="2000" rows="5" placeholder="e.g. Please add … / The price of … is wrong, it should be …"></textarea></label>
+        <label class="f">Your in-game name <span class="muted">(optional)</span>
+          <input id="sgName" maxlength="60" autocomplete="off"></label>
+        <label class="f">Email, if you'd like a reply <span class="muted">(optional)</span>
+          <input id="sgEmail" type="email" maxlength="120" autocomplete="email"></label>
+        <input type="checkbox" id="sgBot" tabindex="-1" autocomplete="off" style="display:none">
+        <p class="muted" style="margin:0">Please don't include personal info like your real name, address or passwords.</p>
+        <div class="actions"><button class="btn" type="submit" id="sgSend">Send suggestion</button></div>
+      </form>`);
+    $('#sgX').onclick=closeModal;
+    if(!phone()) $('#sgMsg').focus();
+    $('#sgForm').onsubmit=async e=>{ e.preventDefault();
+      const msg=$('#sgMsg').value.trim(); if(!msg) return;
+      if($('#sgBot').checked){ closeModal(); return; }
+      const btn=$('#sgSend'); btn.disabled=true; btn.textContent='Sending…';
+      const body={access_key:SUGGEST_KEY, subject:'Jorvik Wishlist suggestion', from_name:'Jorvik Wishlist', message:msg, name:$('#sgName').value.trim()||'(no name)'};
+      const em=$('#sgEmail').value.trim(); if(em) body.email=em;
+      try{ const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});
+        const j=await r.json().catch(()=>({}));
+        if(r.ok && j.success!==false){ closeModal(); toast('Thanks! Your suggestion was sent 💜'); }
+        else throw new Error(j.message||'failed');
+      }catch(err){ btn.disabled=false; btn.textContent='Send suggestion'; toast('Sending didn’t work. Please try again in a minute.'); }
+    };
+  }
+  $('#suggestBtn').onclick=openSuggest;
   function openModal(html){ modal.innerHTML=html; ov.classList.add('on'); }
   function closeModal(){ ov.classList.remove('on'); modal.innerHTML=''; modal.classList.remove('wide'); }
   ov.onclick=e=>{ if(e.target===ov) closeModal(); };
