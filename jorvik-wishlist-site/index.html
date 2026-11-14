@@ -243,6 +243,22 @@
   .formprev{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted);font-weight:600}
   .formprev .coatbox{width:220px;height:176px;flex:none;border-radius:16px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3))}
   @media (max-width:560px){ .formprev{flex-direction:column;align-items:flex-start} .formprev .coatbox{width:100%;height:220px} }
+  .mprice{display:none}
+  @media (max-width:560px){
+    #mineList,#stableList{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    #mineList .wish,#stableList .wish{padding:5px 5px 8px;gap:3px;border-radius:14px}
+    #mineList .wish{cursor:pointer}
+    #mineList .pic,#stableList .pic{height:92px;border-radius:10px}
+    #mineList .formtog,#stableList .formtog{display:none}
+    #mineList .top,#stableList .top{padding:0 3px;display:block}
+    #mineList .top>div:last-child,#mineList .pname,#mineList .facts,#mineList .note,#mineList .actions,#mineList .afford,#mineList .owned{display:none!important}
+    #mineList h3,#stableList h3{font-size:13px;line-height:1.2;font-family:inherit;font-weight:700}
+    #mineList .coat,#stableList .coat{font-size:11px;line-height:1.25}
+    #mineList .mprice{display:block;padding:0 3px;font-size:12px;font-weight:700}
+    .mprice .ok{color:#2a7a62} .mprice .mbz{display:block;font-size:10.5px;color:#a8700c;font-weight:700}
+    #stableList .actions{padding:0 3px} #stableList .actions .btn{padding:2px 8px;font-size:11px;border:0;background:none;color:var(--muted);text-decoration:underline}
+    .modal .wish.full{border:0;padding:0} .modal .wish.full .grip{display:none} .modal .wish.full .pic{height:240px}
+  }
 </style>
 </head>
 <body>
@@ -569,6 +585,7 @@
       return `<div class="wish ${i.got?'got':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
         ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`data-gal="${esc(i.breed)}" title="See all coats" role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
         <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
+        <div class="mprice">${wishPrice(i)?sc(wishPrice(i)):''}${!i.got&&S.me.sc!=null&&wishPrice(i)&&S.me.sc>=wishPrice(i)?' <span class="ok">✓</span>':''}${(()=>{const bb=bazaarInfo(i.breed);return bb.now?'<span class="mbz">Bazaar now</span>':bb.next?'<span class="mbz">Bazaar '+esc(new Date(bb.next.start+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'}))+'</span>':'';})()}</div>
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
         <dl class="facts">
@@ -702,7 +719,16 @@
     $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=null; refreshAddPicker();
     saveMine(); toast('Added to your wishlist 💜');
   };
+  const phone=()=>matchMedia('(max-width:560px)').matches;
   $('#mineList').onclick=e=>{
+    if(phone() && !e.target.closest('button,a')){ const w=e.target.closest('.wish'); if(!w) return;
+      openModal(`<div class="wish full">${w.innerHTML}</div><div class="actions" style="margin-top:10px"><button class="btn ghost" type="button" id="dClose" style="margin-left:auto">Close</button></div>`);
+      $('#dClose').onclick=closeModal;
+      modal.querySelector('.wish').onclick=ev=>{ if(ev.target.closest('[data-form-toggle]')) return; const t=ev.target.closest('button[data-act],[data-gal],a[data-gal]'); if(!t) return; ev.preventDefault(); ev.stopPropagation(); closeModal(); mineAct(t); };
+      return; }
+    mineClick(e); };
+  function mineAct(t){ mineClick({target:t,preventDefault(){}}); }
+  function mineClick(e){
     const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
     const b=e.target.closest('button[data-act]'); if(!b) return;
     const i=S.myItems.find(x=>x.id===b.dataset.id); if(!i) return;
@@ -711,7 +737,7 @@
     else if(b.dataset.act==='del'){ confirmBox(`Remove ${esc(S.catalog[i.breed]?.name||'this horse')} from your wishlist?`,()=>{S.myItems=S.myItems.filter(x=>x!==i); saveMine();}); }
     else if(b.dataset.act==='edit'){ editItem(i); }
     else if(b.dataset.act==='pic'){ uploadPicked().then(id=>{ if(id){ i.img=id; saveMine(); toast('Picture added 📷'); } }); }
-  };
+  }
 
   // ---------- render: horse guide ----------
   function renderHorses(){
