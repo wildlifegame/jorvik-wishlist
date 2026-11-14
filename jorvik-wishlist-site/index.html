@@ -27,7 +27,7 @@
   h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em;font-variation-settings:"SOFT" 100,"WONK" 0}
   button,input,select,textarea{font:inherit;color:inherit}
   :focus-visible{outline:3px solid var(--rose);outline-offset:2px}
-  .wrap{max-width:1440px;margin:0 auto;padding:clamp(10px,2vw,28px) clamp(12px,3vw,48px) 32px;min-height:100vh;display:flex;flex-direction:column}
+  .wrap{max-width:1440px;margin:0 auto;padding:clamp(10px,2vw,28px) clamp(12px,3vw,48px) 32px;min-height:calc(100vh / var(--z));display:flex;flex-direction:column}
   .wrap>*{flex-shrink:0}
 
   /* hero: dusk sky over the moors */
@@ -305,6 +305,13 @@
     .listbar select{margin-left:auto;max-width:none!important;font-size:14px;padding:6px 10px;height:auto}
     .coinpill .pillsub{display:none}
   }
+  /* big monitors: scale the whole page up so it fills the screen */
+  :root{--z:1}
+  body{zoom:var(--z)}
+  @media (min-width:1800px){:root{--z:1.2}}
+  @media (min-width:2200px){:root{--z:1.4}}
+  @media (min-width:2800px){:root{--z:1.7}}
+  @media (min-width:3400px){:root{--z:2}}
 </style>
 </head>
 <body>
