@@ -244,6 +244,7 @@
   .formprev .coatbox{width:220px;height:176px;flex:none;border-radius:16px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3))}
   @media (max-width:560px){ .formprev{flex-direction:column;align-items:flex-start} .formprev .coatbox{width:100%;height:220px} }
   .mprice{display:none}
+  .summary[hidden]{display:none}
   @media (max-width:560px){
     #mineList,#stableList{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
     #mineList .wish,#stableList .wish{padding:5px 5px 8px;gap:3px;border-radius:14px}
@@ -292,11 +293,14 @@
     .topbar #shareList,.topbar #backupBtn{order:2;padding:8px 10px}
     .sheet{align-items:flex-end;padding:0}
     .sheet>.card{max-width:none;border-radius:22px 22px 0 0;max-height:88vh}
-    .listbar{flex-wrap:nowrap}
-    .listbar .ptabs{flex-basis:auto!important;flex:1;min-width:0}
-    .listbar .ptabs button{padding:6px 12px;font-size:14px}
+    .listbar{flex-wrap:wrap;gap:8px}
+    .listbar .ptabs{display:contents}
+    .listbar{gap:6px;margin-top:-4px}
+    .topbar{margin-bottom:12px}
+    .listbar .ptabs button{padding:6px 11px;font-size:14px}
+    .listbar .ptabs button .ct{margin-left:4px}
+    .listbar select{margin-left:auto;max-width:none!important;font-size:14px;padding:6px 10px;height:auto}
     .coinpill .pillsub{display:none}
-    .listbar select{flex:none;max-width:120px;padding-inline:10px}
   }
 </style>
 </head>
