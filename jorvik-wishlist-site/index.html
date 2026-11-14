@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorvik Wishlist – Star Stable horse wishlist & Bazaar tracker</title>
+<meta name="description" content="Make a wishlist of Star Stable Online horses and coats, see prices and where to buy them, track the Bazaar, and share your list with friends. Free, no sign-up.">
+<meta property="og:title" content="Jorvik Wishlist">
+<meta property="og:description" content="Make a Star Stable horse wishlist, track Bazaar prices, and share it with friends. Free, no sign-up.">
+<meta name="theme-color" content="#1f2547">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,0..100,0..1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eceef8; --card:#fbfbff; --ink:#1f2547; --muted:#5d6488; --line:#d9dcef;
+    --teal:#2e6f73; --teal-d:#21565a; --rose:#c84f78; --gold:#e3ac3a; --soft:#e3e6f5;
+    --sky1:#c9cdf0; --sky2:#f3dfe6; --sky3:#dfeee0;
+    --r:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141834; --card:#1d2246; --ink:#eef0ff; --muted:#a3a9cf; --line:#2f3566; --soft:#272d58;
+      --teal:#5fb3b3; --teal-d:#7cc7c6; --rose:#ef87a9; --sky1:#2a2f66; --sky2:#4a3560; --sky3:#25474a; }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;font-size:16px;line-height:1.5}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em;font-variation-settings:"SOFT" 100,"WONK" 0}
+  button,input,select,textarea{font:inherit;color:inherit}
+  :focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+  .wrap{max-width:none;margin:0 auto;padding:clamp(10px,2vw,28px) clamp(12px,3vw,48px) 64px}
+
+  /* hero: dusk sky over the moors */
+  header.hero{position:relative;overflow:hidden;border-radius:28px;padding:34px 34px 30px;color:#f4f2ff;
+    background:
+      radial-gradient(1.5px 1.5px at 12% 22%,#fff 60%,transparent),radial-gradient(1px 1px at 28% 12%,#fff 60%,transparent),
+      radial-gradient(1.5px 1.5px at 46% 30%,#fff9 60%,transparent),radial-gradient(1px 1px at 63% 14%,#fff 60%,transparent),
+      radial-gradient(1.5px 1.5px at 81% 26%,#fffc 60%,transparent),radial-gradient(1px 1px at 92% 9%,#fff 60%,transparent),
+      radial-gradient(120% 70% at 50% 120%,#3e7c72 0%,transparent 60%),
+      linear-gradient(180deg,#1b1f45 0%,#33366f 55%,#6b4e7f 100%)}
+  header.hero::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-1px;height:70px;background:var(--bg);
+    clip-path:polygon(0 70%,12% 45%,24% 62%,38% 30%,52% 55%,66% 35%,80% 58%,92% 40%,100% 52%,100% 100%,0 100%);opacity:.9}
+  header.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.05;font-weight:700}
+  header.hero p{margin:10px 0 0;max-width:56ch;color:#d9d6f5;font-size:17px}
+  .whoami{margin-top:14px;font-size:14px;color:#cfcbf0}
+  .bazaar-banner{position:relative;z-index:1;margin-top:26px;padding-bottom:30px}
+  .bazaar-banner h2{font-size:22px;color:#fff}
+  .bazaar-banner .sub{color:#d9d6f5;font-size:15px;margin-top:2px}
+  .bazaar-banner .hit{color:#ffc9dc;font-weight:700}
+  .bzshow{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:16px;max-width:760px}
+  .bzshow figure{margin:0;text-align:center;cursor:pointer}
+  .bzshow .pic{height:170px}
+  .bzshow figcaption{margin-top:6px;font-weight:700;font-size:15px;color:#fff}
+  .bzshow figcaption small{display:block;font-weight:600;color:#e9c46a;font-size:13px}
+  .bzshow .mine .pic{box-shadow:0 0 0 3px #ffc9dc}
+
+  nav.tabs{display:flex;gap:4px;margin:22px 0 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+  nav.tabs button{border:0;background:none;padding:10px 16px 12px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-size:16px}
+  nav.tabs button:hover{color:var(--ink)}
+  nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--rose)}
+  .panel{display:none}.panel.on{display:block}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  label.f{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;color:var(--muted);flex:1;min-width:150px}
+  input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:16px;font-weight:500}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+  .btn{border:0;border-radius:999px;padding:11px 20px;font-weight:700;cursor:pointer;background:var(--teal);color:#fff}
+  @media (prefers-color-scheme: dark){ .btn{color:#10233a} }
+  .btn:hover{background:var(--teal-d)}
+  .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--line)}
+  .btn.ghost:hover{background:var(--soft)}
+  .btn.small{padding:6px 13px;font-size:14px}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  #addForm h2{font-size:22px;margin-bottom:14px}
+
+  .summary{display:flex;gap:28px;flex-wrap:wrap;margin:22px 2px 18px}
+  .stat .n{font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;line-height:1.1}
+  .stat .l{font-size:14px;color:var(--muted)}
+
+  /* the arched stable window */
+  .pic{display:block;width:100%;height:280px;object-fit:contain;object-position:center 70%;
+    border-radius:18px;background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 62%,var(--sky3) 100%);border:1px solid var(--line)}
+  img.pic{padding:18px 10px 6px}
+  .nopic{height:140px;border-radius:18px;background:linear-gradient(180deg,var(--sky1),var(--sky2));display:flex;align-items:center;justify-content:center;font-size:40px}
+  .coatbox{display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .coatbox i{display:block;aspect-ratio:5/4;background-repeat:no-repeat;max-width:100%}
+  .coatbox.h i{height:92%}
+  .coatbox.w i{width:100%}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+  .wish{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px}
+  .wish.got{opacity:.62}
+  .wish .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;padding:0 4px}
+  .wish h3{font-size:23px}
+  .wish .coat{color:var(--rose);font-weight:700;font-size:15px}
+  .wish .facts,.wish .note,.wish .actions{padding:0 4px}
+  .prio{font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .p1{background:#fbdbe6;color:#9c2452}.p2{background:#dfe2f6;color:#2e3577}.p3{background:#dcecec;color:#245457}
+  .facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px;margin:0}
+  .facts dt{color:var(--muted)}
+  .facts dd{margin:0;font-weight:600}
+  .tag{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:1px 9px}
+  .tag.now{background:var(--teal);color:#fff}.tag.soon{background:var(--gold);color:#3a2a00}.tag.never{background:var(--soft);color:var(--muted)}
+  .note{font-size:14px;color:var(--muted);font-style:italic}
+  .actions{display:flex;gap:6px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
+  .empty{text-align:center;color:var(--muted);padding:40px 10px;font-size:17px}
+  .empty .big{font-size:44px}
+
+  /* horse guide */
+  .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px}
+  .hcard .pic{height:230px;cursor:zoom-in}
+  .hcard h3{font-size:20px;padding:0 4px}
+  .hcard .meta{font-size:14px;color:var(--muted);padding:0 4px}
+  .hcard .facts{font-size:14px;padding:0 4px}
+  .hcard .actions{padding:0 4px}
+  .hcard.empty{grid-column:1/-1}
+
+  .unk{color:var(--muted);font-weight:500;font-style:italic}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{background:var(--soft);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:600}
+  .bz{padding:16px 18px;margin-bottom:12px;background:var(--card);border-radius:var(--r);border:1px solid var(--line)}
+  .bz.future{border-color:var(--teal)}
+  .bz .d{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:18px}
+  #bzList h2{font-size:28px}
+  .person{margin-bottom:14px}
+  .person h3{font-size:21px;margin-bottom:10px}
+  .mini{display:flex;flex-wrap:wrap;gap:8px}
+  .mini span{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border-radius:999px;padding:4px 14px 4px 4px;font-size:14px;font-weight:600}
+  .mini span.noimg{padding-left:14px}
+  .mini .coatbox{width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,var(--sky1),var(--sky2))}
+  .mini span.got{text-decoration:line-through;opacity:.6}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+  .toolbar input{flex:1;min-width:200px}
+  .msg{padding:12px 16px;border-radius:14px;background:var(--soft);margin:14px 0;font-weight:600;font-size:15px}
+  .msg.warn{background:#fff1d0;color:#6b4b00}
+  .overlay{position:fixed;inset:0;background:rgba(15,17,45,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+  .overlay.on{display:flex}
+  .modal{background:var(--card);border-radius:24px;padding:24px;max-width:540px;width:100%;max-height:90vh;overflow:auto}
+  .modal.wide{max-width:920px}
+  .modal h2,.modal h3{margin-bottom:6px;font-size:26px}
+  .modal .row{margin-bottom:12px}
+  .bzrow{display:flex;gap:6px;margin-bottom:6px}
+  .bzrow select{flex:2}.bzrow input{flex:1;min-width:0}
+  footer{margin-top:40px;font-size:13px;color:var(--muted);max-width:75ch}
+  footer a{color:var(--teal)}
+  .thumb{width:72px;height:72px;object-fit:contain;border-radius:12px;background:var(--soft);display:block}
+  .ext{color:var(--teal);font-weight:700;text-decoration:none;font-size:14px}
+  .ext:hover{text-decoration:underline}
+  .coatpick{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 10px;margin-top:14px;align-items:flex-start}
+  .coatpick:empty{display:none}
+  .coatpick button{flex:0 0 auto;width:132px;border:2px solid transparent;border-radius:16px;background:none;padding:4px 4px 6px;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
+  .coatpick button .coatbox{width:100%;height:110px;border-radius:14px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3));margin-bottom:4px}
+  .coatpick button:hover{background:var(--soft)}
+  .coatpick button.on{border-color:var(--rose);color:var(--rose)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;max-height:66vh;overflow:auto;padding:4px;margin-top:12px}
+  .gallery .g{text-align:center;font-size:15px;font-weight:700}
+  .gallery .g .pic{height:200px;margin-bottom:8px}
+  .picprev{max-width:100%;max-height:200px;border-radius:14px;display:block;margin-bottom:8px}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:999px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+  .toast.on{opacity:1}
+  .bzshow figure,.coatbox,.hcard,.wish{min-width:0}
+  .toolbar input[type=checkbox],input[type=checkbox]{flex:none;min-width:0;width:18px;height:18px;padding:0;accent-color:var(--teal)}
+  .toolbar label{display:flex;gap:8px;align-items:center;font-weight:600;font-size:15px}
+  .tag{white-space:nowrap}
+  .modal .actions{align-items:center;justify-content:space-between}
+  .coins{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin:18px 0 0}
+  .coins .coin{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a6,var(--gold) 55%,#b98318);box-shadow:inset 0 0 0 3px #f7d77e,inset 0 -2px 0 3px #0002;flex:none;display:flex;align-items:center;justify-content:center;color:#fff8dc;font-size:22px;line-height:1;text-shadow:0 1px 0 #9a6a0f}
+  .coins b{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:600}
+  .coins .sub{color:var(--muted);font-size:14px}
+  .coins form{display:flex;gap:8px;align-items:center;margin-left:auto}
+  .coins input{width:140px}
+  .afford{font-size:14px;font-weight:700;border-radius:12px;padding:8px 10px;background:var(--soft)}
+  .afford.yes{background:#d9efe7;color:#1f5a4b}
+  .afford .bar{height:6px;border-radius:99px;background:#0001;margin-top:6px;overflow:hidden}
+  .afford .bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+  @media (prefers-color-scheme: dark){ .afford.yes{background:#1f4a44;color:#bdeee0} }
+  .owned{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px;background:#f6e6b8;color:#5e4300}
+  .stablegrid .wish .pic{height:220px}
+  .private{font-size:14px;color:var(--muted);margin:6px 2px 16px}
+  .sharedhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 18px}
+  .sharedhead h2{font-size:30px;flex:1}
+  .linkbox{display:flex;gap:8px;margin:12px 0}
+  .linkbox input{flex:1;min-width:0;font-size:14px}
+  body.viewing nav.tabs{display:none}
+  .coatbox{position:relative}
+  .formtog{position:absolute;right:10px;bottom:10px;border:0;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer;background:rgba(31,37,71,.82);color:#fff;backdrop-filter:blur(4px)}
+  .formtog.on{background:var(--rose)}
+  .formtog:focus-visible{outline:3px solid #fff}
+  .ptabs{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 14px}
+  .ptabs button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;color:var(--muted);font-size:15px}
+  .ptabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .ptabs button .ct{opacity:.7;font-weight:600;margin-left:6px}
+  .wish.dragging{opacity:.4}
+  .wish.dropbefore{box-shadow:-4px 0 0 0 var(--rose)}
+  .wish[draggable="true"]{cursor:grab}
+  .grip{color:var(--muted);font-size:18px;line-height:1;padding:2px 6px;border-radius:8px;user-select:none}
+  .pname{font-family:Fraunces,Georgia,serif;font-style:italic;color:var(--muted);font-size:16px}
+  .deal{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:1px 9px;background:#d9efe7;color:#1f5a4b;margin-left:4px}
+  .deal.best{background:var(--gold);color:#3a2a00}
+  .hist{font-size:14px;color:var(--muted)}
+  .hist b{color:var(--ink);font-weight:700}
+  @media (prefers-color-scheme: dark){ .deal{background:#1f4a44;color:#bdeee0} }
+  header.hero:has(#banner[hidden]){padding-bottom:84px}
+  #addHorseBtn,#addBazaarBtn,[data-edit],[data-bz],[data-act="pic"]{display:none!important}
+  .backup{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .backup textarea{width:100%;min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
+  @media (max-width:560px){ header.hero{padding:22px 18px 20px;border-radius:20px} .grid,.hgrid{grid-template-columns:1fr} .pic{height:240px} .bzshow{grid-template-columns:repeat(2,1fr)}
+    nav.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} nav.tabs button{white-space:nowrap;padding:10px 12px 12px}
+    .toolbar #shareList{margin-left:0!important} .coins form{margin-left:0;width:100%} .coins input{width:100%}
+    .row label.f{min-width:100%} .sharedhead h2{flex-basis:100%;font-size:26px}
+    .summary{gap:18px} .stat .n{font-size:24px} .modal{padding:18px;border-radius:18px} .gallery{grid-template-columns:repeat(2,1fr)} .gallery .g .pic{height:150px} }
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Jorvik Wishlist</h1>
+    <p>The horses and coats we're saving up for, what they cost, where to buy them, and when the Bazaar last brought them to Jorvik.</p>
+    <div class="whoami" id="whoami">No sign-up needed. Your lists save in this browser.</div>
+    <div class="bazaar-banner" id="banner" hidden></div>
+  </header>
+  <div id="status"></div>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="mine" aria-selected="true">My wishlist</button>
+    <button role="tab" data-tab="stable" aria-selected="false">My stable</button>
+    <button role="tab" data-tab="horses" aria-selected="false">Horse guide</button>
+    <button role="tab" data-tab="bazaar" aria-selected="false">Bazaar history</button>
+  </nav>
+
+  <!-- MY WISHLIST -->
+  <section class="panel on" id="p-mine">
+    <form class="card" id="addForm">
+      <h2>Add a horse to your wishlist</h2>
+      <div class="row">
+        <label class="f" style="flex:2">Horse / breed
+          <select id="addBreed" required><option value="">Loading horses…</option></select>
+        </label>
+        <label class="f" style="flex:2">Coat / color
+          <input id="addCoat" placeholder="e.g. Palomino, Rose Dapple Grey" maxlength="80">
+        </label>
+        <label class="f">Priority
+          <select id="addPrio"><option value="1">💖 Dream horse</option><option value="2" selected>⭐ Really want</option><option value="3">🤔 Maybe</option></select>
+        </label>
+      </div>
+      <div class="coatpick" id="addPick" aria-label="Pick a coat"></div>
+      <div class="row" style="margin-top:10px">
+        <label class="f" style="flex:2">Name idea (optional)
+          <input id="addName" placeholder="e.g. Moonbeam" maxlength="40">
+        </label>
+        <label class="f" style="flex:3">Note (optional)
+          <input id="addNote" placeholder="e.g. Saving for the Bazaar price" maxlength="140">
+        </label>
+        <button class="btn" type="submit" id="addBtn">+ Add to wishlist</button>
+      </div>
+    </form>
+    <div class="coins" id="coins" hidden></div>
+    <div class="summary" id="summary"></div>
+    <div class="ptabs" id="ptabs" role="tablist" aria-label="Show wishes by priority"></div>
+    <div class="toolbar">
+      <select id="mineSort">
+        <option value="mine">Sort: my order (drag to rearrange)</option>
+        <option value="prio">Sort: priority</option>
+        <option value="price">Sort: price (low → high)</option>
+        <option value="bazaar">Sort: in Bazaar soonest/latest</option>
+        <option value="name">Sort: name</option>
+      </select>
+      <label><input type="checkbox" id="showGot" checked> Show horses I already got</label>
+      <button class="btn small" type="button" id="shareList" style="margin-left:auto">🔗 Share my wishlist</button>
+      <button class="btn small ghost" type="button" id="backupBtn" title="Move your lists to another device, or keep a copy">💾 Backup</button>
+    </div>
+    <div class="grid" id="mineList"></div>
+  </section>
+
+  <!-- HORSE GUIDE -->
+  <section class="panel" id="p-horses">
+    <div class="toolbar">
+      <input id="hSearch" placeholder="Search breeds or places…">
+      <select id="hSortSel" aria-label="Sort horses"><option value="name">Sort: name</option><option value="price">Sort: price</option><option value="location">Sort: where to buy</option><option value="last">Sort: last Bazaar</option><option value="next">Sort: next Bazaar</option></select>
+      <select id="hType"><option value="">All types</option><option>Horse</option><option>Pony</option><option>Hybrid</option><option>Magical</option></select>
+      <button class="btn ghost" id="addHorseBtn">+ Add a horse</button>
+    </div>
+    <div class="hgrid" id="hBody"></div>
+    <p class="note" style="margin-top:8px">Prices are the regular Star Coin price; some coats cost a bit more or less. Shops move around sometimes, so if something here is out of date, hit Edit and fix it for everyone.</p>
+  </section>
+
+  <!-- BAZAAR HISTORY -->
+  <section class="panel" id="p-bazaar">
+    <div class="toolbar">
+      <div style="flex:1;font-weight:700;color:var(--muted)">The Bazaar sets up by the Moorland lighthouse for one week (Wednesday to Wednesday), usually about once a month.</div>
+      <button class="btn ghost" id="addBazaarBtn">+ Log a Bazaar</button>
+    </div>
+    <div id="bzList"></div>
+  </section>
+
+  <!-- SHARED WISHLIST (opened from a link) -->
+  <section class="panel" id="p-shared">
+    <div class="sharedhead">
+      <h2 id="sharedTitle">A Jorvik wishlist</h2>
+      <button class="btn small ghost" type="button" id="sharedBack">← Back to my wishlist</button>
+    </div>
+    <div class="grid" id="sharedList"></div>
+  </section>
+
+  <!-- MY STABLE -->
+  <section class="panel" id="p-stable">
+    <form class="card" id="ownForm">
+      <h2>Add a horse you own</h2>
+      <div class="row">
+        <label class="f" style="flex:2">Horse / breed
+          <select id="ownBreed" required><option value="">Loading horses…</option></select>
+        </label>
+        <label class="f" style="flex:2">Name (optional)
+          <input id="ownName" placeholder="e.g. Moonbeam" maxlength="40">
+        </label>
+        <button class="btn" type="submit">+ Add to my stable</button>
+      </div>
+      <div class="coatpick" id="ownPick" aria-label="Pick the coat"></div>
+    </form>
+    <p class="private">🔒 Only you can see your stable and your Star Coins.</p>
+    <div class="grid stablegrid" id="stableList"></div>
+  </section>
+
+
+  <footer>
+    <p><b>Unofficial fan-made site.</b> Not affiliated with or endorsed by Star Stable Entertainment AB. Star Stable, its horses and artwork belong to Star Stable Entertainment AB. This site is free and has no ads.</p>
+    <p>Your wishlist, stable and Star Coins are saved only in this browser. Nothing is sent to a server, and there are no accounts. Use 💾 Backup to move them to another device.</p>
+    <p>Data from official <a href="https://www.starstable.com/en/news">Star Stable news</a>, the <a href="https://pixel-ponies.com/sso-bazaars">Pixel-Ponies Bazaar tracker</a>, the <a href="https://starstable.wiki.gg/">Star Stable wiki</a> and the <a href="https://ssodb.bplaced.net/db/en/horses.html">Starstable Database</a>. Coat pictures from starstable.com; coat names from Pixel-Ponies and the Star Stable wiki; magical horse and Friesian Sport Horse pictures from the Starstable Database (photos by Abbie Starwatcher). Prices and shops can change, so always double-check in-game.</p>
+  </footer>
+</div>
+
+<div class="overlay" id="ov"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  // ---------- state ----------
+  const S = {
+    db:null, user:null, uid:null, canWrite:null,
+    catalog:{}, bazaars:[], myItems:[], everyone:[], me:{sc:null,scAt:null,perWeek:null,owned:[]}, meLoaded:false,
+    loaded:{catalog:false,bazaars:false,mine:false},
+    hSort:{key:'name',dir:1}
+  };
+  const $ = s => document.querySelector(s);
+  const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const today = (() => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); })();
+  const fmtDate = iso => { if(!iso) return ''; const [y,m,d]=iso.split('-').map(Number); return new Date(y,m-1,d).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}); };
+  const addDays = (iso,n) => { const [y,m,d]=iso.split('-').map(Number); const t=new Date(y,m-1,d+n); return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); };
+  const sc = n => (n==null||n==='') ? null : Number(n).toLocaleString()+' SC';
+  const slug = s => String(s).toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-').slice(0,60) || ('h'+Date.now());
+  const uidGen = () => Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+  const imgUrl = p => String(p||'');
+  // ---------- local storage (everything stays in this browser) ----------
+  const LS = { get(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } },
+               set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } } };
+  const K_WISH='jorvikWishlist.items.v1', K_ME='jorvikWishlist.me.v1';
+  // breed pages confirmed on starstable.com; others fall back to the breed index unless a link is saved
+  const OFFICIAL = {connemara:'connemara',ardennes:'ardennes',marwari:'marwari',chincoteague:'chincoteague',mule:'mule',appaloosa:'appaloosa',pintabian:'pintabian',arabian:'arabian'};
+  const breedLink = id => { const c=S.catalog[id]; if(c?.link && /^https:\/\//.test(c.link)) return c.link; return OFFICIAL[id] ? 'https://www.starstable.com/horses/breeds/'+OFFICIAL[id] : 'https://www.starstable.com/horses/breeds'; };
+  // official coat pictures: one strip per breed (coatStrip asset, coatCount tiles of 300x240, in starstable.com order)
+  const wishOrd = i => typeof i.order==='number' ? i.order : (i.prio*1e13 + (Date.parse(i.addedAt)||0)/1e3);
+  const hasCoats = c => !!(c && c.coatStrip && c.coatCount>0);
+  // magical horses: one coat with two forms (tiles 1 and 2 of the strip), switched with a toggle button
+  const hasForms = c => !!(c && Array.isArray(c.forms) && c.forms.length>1);
+  const coatTotal = c => hasForms(c) ? 1 : (c?.coatCount||0);
+  const coatHtml = (c, n, cls, extra='') => {
+    const N=c.coatCount, k=hasForms(c) ? 1 : Math.min(Math.max(1,n||1),N);
+    const pos = N>1 ? ((k-1)/(N-1)*100) : 0;
+    const tog = hasForms(c) && /\bpic\b/.test(cls) ? `<button type="button" class="formtog" data-form-toggle data-n="${N}" aria-label="Show ${esc(c.forms[1])}">✨ ${esc(c.forms[1])}</button>` : '';
+    return `<div class="coatbox ${cls}" ${extra}><i style="background-image:url('${esc(imgUrl(c.coatStrip))}');background-size:${N*100}% 100%;background-position:${pos}% 0"></i>${tog}</div>`;
+  };
+  document.addEventListener('click', e=>{
+    const t=e.target.closest('[data-form-toggle]'); if(!t) return;
+    e.stopPropagation(); e.preventDefault();
+    const box=t.closest('.coatbox'); const i=box&&box.querySelector('i'); if(!i) return;
+    const c=Object.values(S.catalog).find(x=>i.style.backgroundImage.includes(x.coatStrip)); if(!c||!hasForms(c)) return;
+    const magic=!t.classList.contains('on'); t.classList.toggle('on',magic);
+    const N=c.coatCount; i.style.backgroundPosition = (magic ? (1/(N-1)*100) : 0)+'% 0';
+    t.textContent = magic ? '🐴 '+c.forms[0] : '✨ '+c.forms[1]; t.setAttribute('aria-label','Show '+(magic?c.forms[0]:c.forms[1]));
+  }, true);
+  const coatLabel = (n,c) => hasForms(c) ? '' : ((c && Array.isArray(c.coatNames) && c.coatNames[n-1]) || 'Coat '+String(n).padStart(2,'0'));
+  function coatPicker(breedId, sel, onPick, box){
+    const c=S.catalog[breedId];
+    if(!hasCoats(c)){ box.innerHTML=''; return; }
+    box.innerHTML = hasForms(c) ? '' : Array.from({length:c.coatCount},(_,j)=>`<button type="button" data-n="${j+1}" class="${sel===j+1?'on':''}" title="${coatLabel(j+1,c)}">${coatHtml(c,j+1,'h')}${coatLabel(j+1,c)}</button>`).join('');
+    box.onclick=e=>{ const b=e.target.closest('button[data-n]'); if(!b) return; const n=Number(b.dataset.n); const now = b.classList.contains('on') ? null : n;
+      box.querySelectorAll('button').forEach(x=>x.classList.toggle('on', Number(x.dataset.n)===now)); onPick(now); };
+  }
+  function showGallery(id){
+    const c=S.catalog[id]; if(!hasCoats(c)) return;
+    openModal(`<h3>${esc(c.name)} coats</h3><p class="note" style="font-style:normal">${c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
+      <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
+      <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on starstable.com ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
+    $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
+    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=Number(b.dataset.gw); { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); $('#addCoat').focus(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo,c)+' picked – hit Add'); };
+  }
+  let addCoatNo=null;
+  let autoCoat='';
+  function refreshAddPicker(){ coatPicker($('#addBreed').value, addCoatNo, n=>{ addCoatNo=n; const c=S.catalog[$('#addBreed').value]; const nm=n&&c&&Array.isArray(c.coatNames)?c.coatNames[n-1]:'';
+    const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } }, $('#addPick')); }
+  const filePick =Object.assign(document.createElement('input'),{type:'file',accept:'image/*'});
+  function pickImage(){
+    return new Promise(res=>{ filePick.value=''; filePick.onchange=()=>res(filePick.files[0]||null); filePick.click(); });
+  }
+  async function uploadPicked(){
+    if(!S.assets){ toast('Picture uploads need edit access'); return null; }
+    const f=await pickImage(); if(!f) return null;
+    if(!/^image\//.test(f.type)){ toast('Please choose an image'); return null; }
+    if(f.size>20*1024*1024){ toast('That image is over 20 MB'); return null; }
+    toast('Uploading picture…');
+    try{ const r=await S.assets.upload(f); return r.id; }
+    catch(e){ status('Couldn\'t upload the picture: '+esc(e?.message||e?.code||'error'), true); return null; }
+  }
+  const PRIO = {1:['💖 Dream','p1'],2:['⭐ Want','p2'],3:['🤔 Maybe','p3']};
+
+  function toast(t){ const el=$('#toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('on'),1800); }
+  function status(html, warn){ $('#status').innerHTML = html ? `<div class="msg ${warn?'warn':''}">${html}</div>` : ''; }
+
+  // ---------- tabs ----------
+  function showTab(name){
+    document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===name));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+name));
+    if(location.hash.slice(1)!==name) history.replaceState(null,'',pageBase()+'#'+name);
+  }
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+  const startHash = location.hash.slice(1);
+  const SHARE_RE=/^w=([zj][A-Za-z0-9_-]+)$/;
+  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','bazaar'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
+  route(startHash);
+  addEventListener('hashchange',()=>route(location.hash.slice(1)));
+
+  // ---------- bazaar logic ----------
+  function bazaarInfo(breedId){
+    let last=null, next=null, now=null;
+    for(const b of S.bazaars){
+      const h=(b.horses||[]).find(x=>x.breed===breedId); if(!h) continue;
+      const end=b.end||addDays(b.start,6);
+      if(b.start<=today && end>=today) now={...b,end,price:h.price};
+      if(b.start<=today){ if(!last||b.start>last.start) last={...b,end,price:h.price}; }
+      else { if(!next||b.start<next.start) next={...b,end,price:h.price}; }
+    }
+    return {last,next,now};
+  }
+  // Bazaar price history for one breed: Bazaars with a price, newest first
+  function bazaarHistory(breedId){
+    return S.bazaars.map(b=>{ const h=(b.horses||[]).find(x=>x.breed===breedId); return h&&h.price?{start:b.start,price:h.price}:null; })
+      .filter(Boolean).sort((a,b)=>a.start<b.start?1:-1);
+  }
+  function histHtml(breedId){
+    const h=bazaarHistory(breedId); if(!h.length) return '';
+    const low=Math.min(...h.map(x=>x.price));
+    return h.slice(0,5).map(x=>`<span title="${esc(fmtDate(x.start))}">${x.price===low?'<b>':''}${x.price.toLocaleString()}${x.price===low?'</b>':''} <small>(${esc(new Date(x.start+'T12:00').toLocaleDateString(undefined,{month:'short',year:'2-digit'}))})</small></span>`).join(' · ')+(h.length>1?` <small>· lowest ${low.toLocaleString()} SC</small>`:'');
+  }
+  function dealHtml(breedId, price){
+    const c=S.catalog[breedId]; if(!price) return '';
+    const h=bazaarHistory(breedId); const low=h.length?Math.min(...h.map(x=>x.price)):price;
+    const save = c&&c.price ? c.price-price : 0;
+    return `${save>0?`<span class="deal">save ${save.toLocaleString()} SC</span>`:''}${h.length>1&&price<=low?'<span class="deal best">lowest price yet</span>':''}`;
+  }
+  function bazaarText(info){
+    if(info.now) return `<span class="tag now">In the Bazaar now!</span> until ${fmtDate(info.now.end)}${info.now.price?` · ${sc(info.now.price)}`:''}`;
+    if(info.last) return `${fmtDate(info.last.start)}${info.last.price?` · <b>${sc(info.last.price)}</b>`:''}`;
+    return `<span class="tag never">Not in a Bazaar yet</span>`;
+  }
+  function nextText(info){
+    if(info.next) return `<span class="tag soon">Coming ${fmtDate(info.next.start)}</span>`;
+    return '';
+  }
+
+  // ---------- render: banner ----------
+  function renderBanner(){
+    const cur = S.bazaars.find(b=>b.start<=today && (b.end||addDays(b.start,6))>=today);
+    const up = S.bazaars.filter(b=>b.start>today).sort((a,b)=>a.start<b.start?-1:1)[0];
+    const show = cur||up;
+    const el=$('#banner');
+    if(!show || viewing){ el.hidden=true; return; }
+    const mine = new Set(S.myItems.filter(i=>!i.got).map(i=>i.breed));
+    const end = show.end||addDays(show.start,6);
+    const chips = (show.horses||[]).map(h=>{
+      const c=S.catalog[h.breed]; const nm=c?c.name:h.breed;
+      const pic = hasCoats(c) ? coatHtml(c,1,'pic h') : (c&&c.img) ? `<img class="pic" src="${esc(imgUrl(c.img))}" alt="">` : `<div class="nopic">🐴</div>`;
+      return `<figure class="${mine.has(h.breed)?'mine':''}" data-gal="${esc(h.breed)}">${pic}<figcaption>${mine.has(h.breed)?'💖 ':''}${esc(nm)}${h.price?`<small>${sc(h.price)}</small>`:''}</figcaption></figure>`;
+    }).join('');
+    const hits=(show.horses||[]).filter(h=>mine.has(h.breed)).length;
+    el.innerHTML = `<h2>${cur?'The Bazaar is open now':'Coming to the next Bazaar'}</h2>
+      <div class="sub">${fmtDate(show.start)} to ${fmtDate(end)}, by the Moorland lighthouse${hits?` <span class="hit">· ${hits} of these ${hits>1?'are':'is'} on your wishlist</span>`:''}</div>
+      <div class="bzshow">${chips}</div>`;
+    el.hidden=false;
+  }
+
+  // ---------- render: my wishlist ----------
+  function fillBreedSelect(){
+    const opts = Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name))
+      .map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${c.type==='Magical'?' ✨':''}</option>`).join('');
+    const sel=$('#addBreed'); const cur=sel.value;
+    sel.innerHTML = `<option value="">Choose a horse…</option>${opts}`;
+    if(cur) sel.value=cur;
+  }
+  function renderMine(){
+    const list=$('#mineList');
+    if(!S.loaded.mine){ list.innerHTML=`<div class="empty">Loading your wishlist…</div>`; return; }
+    let items=[...S.myItems];
+    if(!$('#showGot').checked) items=items.filter(i=>!i.got);
+    const shown=items; const cnt=p=>shown.filter(i=>p==='all'||i.prio===p).length;
+    $('#ptabs').innerHTML=[['all','All'],[1,'💖 Dream'],[2,'⭐ Want'],[3,'🤔 Maybe']].map(([p,l])=>`<button type="button" role="tab" data-ptab="${p}" aria-selected="${String(prioTab)===String(p)}">${l}<span class="ct">${cnt(p)}</span></button>`).join('');
+    if(prioTab!=='all') items=items.filter(i=>i.prio===prioTab);
+    const sort=$('#mineSort').value;
+    const ord=wishOrd;
+    const price=i=>S.catalog[i.breed]?.price ?? 1e9;
+    const bzKey=i=>{const b=bazaarInfo(i.breed); return b.now?'0':b.next?'1'+b.next.start:'2'+(b.last?b.last.start:'0000');};
+    items.sort((a,b)=> sort==='price'? price(a)-price(b) : sort==='name'? (S.catalog[a.breed]?.name||'').localeCompare(S.catalog[b.breed]?.name||'') : sort==='bazaar'? (bzKey(a)<bzKey(b)?-1:1) : sort==='mine'? ord(a)-ord(b) : (a.prio-b.prio)||(a.addedAt<b.addedAt?-1:1));
+    const canDrag = sort==='mine';
+    // summary
+    const open=S.myItems.filter(i=>!i.got);
+    const full=open.reduce((s,i)=>s+(S.catalog[i.breed]?.price||0),0);
+    const unknown=open.filter(i=>S.catalog[i.breed]?.price==null).length;
+    const bzEst=open.reduce((s,i)=>{const b=bazaarInfo(i.breed); const p=(b.now||b.next||b.last)?.price; return s+(p||S.catalog[i.breed]?.price||0);},0);
+    $('#summary').innerHTML = `
+      <div class="stat"><div class="n">${open.length}</div><div class="l">horses still wanted</div></div>
+      <div class="stat"><div class="n">${full.toLocaleString()} SC</div><div class="l">at full price${unknown?` (+${unknown} unknown)`:''}</div></div>
+      <div class="stat"><div class="n">${bzEst.toLocaleString()} SC</div><div class="l">if bought at Bazaar prices*</div></div>
+      <div class="stat"><div class="n">${S.myItems.length-open.length}</div><div class="l">got! 🎉</div></div>`;
+    if(!items.length){
+      list.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="big">🐎</div>${S.myItems.length?'Nothing to show with this filter.':'Your wishlist is empty. Pick a horse above to add your first one!'}</div>`;
+      return;
+    }
+    list.innerHTML = items.map(i=>{
+      const c=S.catalog[i.breed]||{name:i.breed};
+      const b=bazaarInfo(i.breed);
+      const [pl,pc]=PRIO[i.prio]||PRIO[2];
+      const pid = i.img || c.img;
+      return `<div class="wish ${i.got?'got':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
+        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
+        <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
+        ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
+        ${affordHtml(i)}
+        <dl class="facts">
+          <dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not added yet</span>'}</dd>
+          <dt>Where</dt><dd>${c.location?esc(c.location):'<span class="unk">not added yet</span>'}${c.level?` · lvl ${esc(c.level)}`:''}</dd>
+          <dt>Last Bazaar</dt><dd>${bazaarText(b)}${b.now?dealHtml(i.breed,b.now.price):''}</dd>
+          ${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}${dealHtml(i.breed,b.next.price)}</dd>`:''}
+          ${bazaarHistory(i.breed).length?`<dt>Bazaar prices</dt><dd class="hist">${histHtml(i.breed)}</dd>`:''}
+          <dt>Coats</dt><dd>${hasCoats(c)&&!hasForms(c)?`<a class="ext" href="#" data-gal="${esc(i.breed)}">See all ${c.coatCount} coats</a> · `:''}<a class="ext" href="${esc(breedLink(i.breed))}" target="_blank" rel="noopener">starstable.com ↗</a></dd>
+        </dl>
+        ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
+        <div class="actions">
+          <button class="btn small ${i.got?'ghost':''}" data-act="got" data-id="${esc(i.id)}">${i.got?'↩︎ Still want':'✓ Got it!'}</button>
+          <button class="btn small ghost" data-act="edit" data-id="${esc(i.id)}">Edit</button>
+          ${S.assets?`<button class="btn small ghost" data-act="pic" data-id="${esc(i.id)}" title="Add your own picture of this coat">📷</button>`:''}
+          <button class="btn small ghost" data-act="del" data-id="${esc(i.id)}">Remove</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  // ---------- share link: opens a read-only view of this wishlist (no coins, no stable) ----------
+  // share link = this page + #w=<the wishlist, compressed into the link>
+  const b64u = bytes => btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  const unb64u = str => Uint8Array.from(atob(str.replace(/-/g,'+').replace(/_/g,'/')), c=>c.charCodeAt(0));
+  async function pack(obj){
+    const raw=new TextEncoder().encode(JSON.stringify(obj));
+    if(window.CompressionStream){ try{ const cs=new Blob([raw]).stream().pipeThrough(new CompressionStream('deflate-raw')); return 'z'+b64u(new Uint8Array(await new Response(cs).arrayBuffer())); }catch(e){} }
+    return 'j'+b64u(raw);
+  }
+  async function unpack(code){
+    let bytes=unb64u(code.slice(1));
+    if(code[0]==='z'){ const ds=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw')); bytes=new Uint8Array(await new Response(ds).arrayBuffer()); }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+  // compact form: [breed, coatNo, prio, coat, plannedName, note, got]
+  const toShare = (items,name) => ({v:1,n:name||'',i:items.map(i=>[i.breed,i.coatNo||0,i.prio,i.coat||'',i.plannedName||'',i.note||'',i.got?1:0])});
+  const fromShare = d => ({name:String(d.n||'').slice(0,40), items:(d.i||[]).slice(0,300).map((x,k)=>({id:'s'+k,breed:String(x[0]),coatNo:Number(x[1])||undefined,prio:[1,2,3].includes(x[2])?x[2]:2,coat:String(x[3]||'').slice(0,80),plannedName:String(x[4]||'').slice(0,40),note:String(x[5]||'').slice(0,140),got:!!x[6]}))});
+  const pageBase = () => location.href.split('#')[0];
+  async function shareLink(name){ return pageBase()+'#w='+await pack(toShare([...S.myItems].sort((a,b)=>wishOrd(a)-wishOrd(b)),name)); }
+  function listText(items){
+    return 'My Jorvik wishlist 🐴\n'+items.map(i=>{ const c=S.catalog[i.breed]||{name:i.breed}; const coat=[i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(', ');
+      return `${(PRIO[i.prio]||PRIO[2])[0].split(' ')[0]} ${c.name}${coat?' – '+coat:''}${c.price?` (${sc(c.price)})`:''}`; }).join('\n');
+  }
+  async function copyText(t, msg){ try{ await navigator.clipboard.writeText(t); toast(msg); return true; }catch(e){ return false; } }
+  $('#shareList').onclick=async()=>{
+    if(!S.myItems.length){ toast('Add a horse first, then share'); return; }
+    const savedName=LS.get('jorvikWishlist.shareName','');
+    let link=await shareLink(savedName);
+    openModal(`<h2>Share your wishlist</h2>
+      <p>Anyone who opens this link sees the horses on your wishlist. They don't see your Star Coins or your stable.</p>
+      <div class="row"><label class="f">Your name on the list (optional)<input id="shName" maxlength="40" placeholder="e.g. Amber" value="${esc(savedName)}"></label></div>
+      <div class="linkbox"><input id="shLink" readonly value="${esc(link)}" aria-label="Share link"><button class="btn small" type="button" id="shCopy">Copy link</button></div>
+      <p class="note" style="font-style:normal">The link is a snapshot. If you change your wishlist later, share a new link.</p>
+      <div class="actions" style="justify-content:space-between;align-items:center"><button class="btn small ghost" type="button" id="shText">Copy as text instead</button><button class="btn ghost" type="button" id="mNo">Done</button></div>`);
+    $('#mNo').onclick=closeModal;
+    $('#shName').onchange=async()=>{ const nm=$('#shName').value.trim(); LS.set('jorvikWishlist.shareName',nm); link=await shareLink(nm); const el=$('#shLink'); if(el) el.value=link; };
+    $('#shLink').onclick=e=>e.target.select();
+    $('#shCopy').onclick=async()=>{ if(!await copyText(link,'Link copied 🔗')){ $('#shLink').select(); toast('Press Ctrl+C / ⌘C to copy'); } };
+    $('#shText').onclick=async()=>{ const open=[...S.myItems].filter(i=>!i.got).sort((a,b)=>a.prio-b.prio); const t=listText(open)+'\n'+link; if(!await copyText(t,'Wishlist copied 💌')){ $('#shLink').value=t; $('#shLink').select(); } };
+  };
+  let viewing=null, viewName=null, viewData=null;
+  async function renderShared(){
+    if(!viewing) return;
+    const el=$('#sharedList');
+    if(!S.loaded.mine || !S.loaded.catalog){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Loading this wishlist…</div>`; return; }
+    if(viewData===null){ try{ viewData=fromShare(await unpack(viewing)); }catch(e){ viewData=false; } }
+    const p=viewData;
+    if(!p){ $('#sharedTitle').textContent='Wishlist not found'; el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">🔍</div>This link looks broken. It may have been cut off when it was copied. Ask for the link again.</div>`; return; }
+    const isMe=false;
+    $('#sharedTitle').textContent = p.name ? `${p.name}'s wishlist` : 'A Jorvik wishlist';
+    const items=[...(p.items||[])].sort((a,b)=>(a.got-b.got)||(a.prio-b.prio));
+    const mine=new Set(S.myItems.map(i=>i.breed+':'+(i.coatNo||'')));
+    el.innerHTML = items.length ? items.map(i=>{ const c=S.catalog[i.breed]||{name:i.breed}; const b=bazaarInfo(i.breed); const [pl,pc]=PRIO[i.prio]||PRIO[2];
+      return `<div class="wish ${i.got?'got':''}">
+        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h'):`<div class="nopic">🐴</div>`}
+        <div class="top"><div><h3>${esc(c.name)}${c.type==='Magical'?' ✨':''}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><span class="prio ${pc}">${i.got?'✓ Got it':pl}</span></div>
+        <dl class="facts"><dt>Price</dt><dd>${sc(c.price)||'<span class="unk">not added yet</span>'}</dd><dt>Where</dt><dd>${c.location?esc(c.location):'<span class="unk">not added yet</span>'}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
+        ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
+        ${i.plannedName?`<div class="pname" style="padding:0 4px">“${esc(i.plannedName)}”</div>`:''}
+        ${!isMe&&!i.got?`<div class="actions">${mine.has(i.breed+':'+(i.coatNo||''))?'<span class="note" style="font-style:normal">♥ On your list too</span>':`<button class="btn small ghost" data-copywish="${esc(i.id)}">+ Add to my wishlist</button>`}</div>`:''}
+      </div>`; }).join('') : `<div class="empty" style="grid-column:1/-1">This wishlist is empty right now.</div>`;
+    el.onclick=e=>{ const bt=e.target.closest('[data-copywish]'); if(!bt) return; const src=items.find(x=>x.id===bt.dataset.copywish); if(!src) return;
+      S.myItems.push({id:uidGen(),breed:src.breed,coat:src.coat||'',...(src.coatNo?{coatNo:src.coatNo}:{}),prio:2,note:'',got:false,addedAt:new Date().toISOString()}); saveMine(); renderShared(); toast('Added to your wishlist 💜'); };
+  }
+  function openShared(id){ viewing=id; viewName=null; viewData=null; document.body.classList.add('viewing'); document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-shared')); $('#banner').hidden=true; renderShared(); }
+  $('#sharedBack').onclick=()=>{ viewing=null; viewData=null; document.body.classList.remove('viewing'); showTab('mine'); renderBanner(); };
+  let prioTab='all';
+  $('#ptabs').onclick=e=>{ const b=e.target.closest('[data-ptab]'); if(!b) return; prioTab = b.dataset.ptab==='all'?'all':Number(b.dataset.ptab); renderMine(); };
+  let dragId=null;
+  $('#mineList').addEventListener('dragstart',e=>{ const w=e.target.closest('.wish[draggable="true"]'); if(!w) return; dragId=w.dataset.wid; w.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; try{e.dataTransfer.setData('text/plain',dragId);}catch(_){} });
+  $('#mineList').addEventListener('dragend',()=>{ dragId=null; document.querySelectorAll('.wish.dragging,.wish.dropbefore').forEach(x=>x.classList.remove('dragging','dropbefore')); });
+  $('#mineList').addEventListener('dragover',e=>{ if(!dragId) return; const w=e.target.closest('.wish'); if(!w||w.dataset.wid===dragId) return; e.preventDefault(); document.querySelectorAll('.wish.dropbefore').forEach(x=>x.classList.remove('dropbefore')); w.classList.add('dropbefore'); });
+  $('#mineList').addEventListener('drop',e=>{ if(!dragId) return; e.preventDefault(); const w=e.target.closest('.wish'); if(!w||w.dataset.wid===dragId) return;
+    const all=[...S.myItems].sort((a,b)=>wishOrd(a)-wishOrd(b)); const from=all.findIndex(x=>x.id===dragId); const moved=all.splice(from,1)[0];
+    const to=all.findIndex(x=>x.id===w.dataset.wid); all.splice(to,0,moved); all.forEach((x,k)=>x.order=k);
+    dragId=null; saveMine(); toast('Order saved'); });
+  $('#backupBtn').onclick=async()=>{
+    const code=await pack({v:1,items:S.myItems,me:{sc:S.me.sc,scAt:S.me.scAt,owned:S.me.owned}});
+    openModal(`<h2>Backup & move devices</h2>
+      <p>Your wishlist, stable and Star Coins are saved in this browser only. To keep a copy or move them to another phone or computer, copy this code and paste it there.</p>
+      <div class="backup"><textarea id="bkOut" readonly aria-label="Your backup code">${esc(code)}</textarea>
+        <button class="btn small" type="button" id="bkCopy">Copy code</button><button class="btn small ghost" type="button" id="bkFile">Download as a file</button></div>
+      <h3 style="font-size:20px;margin-top:18px">Restore a backup</h3>
+      <p class="note" style="font-style:normal">This replaces the lists in this browser.</p>
+      <div class="backup"><textarea id="bkIn" placeholder="Paste a backup code here" aria-label="Backup code to restore"></textarea>
+        <button class="btn small" type="button" id="bkLoad">Restore</button><label class="btn small ghost" style="cursor:pointer">Open a file<input type="file" id="bkPick" accept=".txt,text/plain" hidden></label></div>
+      <div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn ghost" type="button" id="mNo">Done</button></div>`);
+    $('#mNo').onclick=closeModal;
+    $('#bkOut').onclick=e=>e.target.select();
+    $('#bkCopy').onclick=async()=>{ if(!await copyText(code,'Backup code copied')){ $('#bkOut').select(); toast('Press Ctrl+C / ⌘C to copy'); } };
+    $('#bkFile').onclick=()=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([code],{type:'text/plain'})); a.download='jorvik-wishlist-backup.txt'; document.body.append(a); a.click(); a.remove(); };
+    $('#bkPick').onchange=async e=>{ const f=e.target.files[0]; if(f) $('#bkIn').value=(await f.text()).trim(); };
+    $('#bkLoad').onclick=async()=>{ const t=$('#bkIn').value.trim(); if(!t) return;
+      try{ const d=await unpack(t); if(!d||!Array.isArray(d.items)) throw 0;
+        confirmBox('Replace the lists in this browser with this backup?',()=>{ S.myItems=d.items; S.me={sc:d.me?.sc??null,scAt:d.me?.scAt||null,owned:Array.isArray(d.me?.owned)?d.me.owned:[]}; saveMine(); saveMe(); renderAll(); toast('Backup restored'); });
+      }catch(e){ toast('That code doesn\'t look right. Copy the whole thing and try again.'); } };
+  };
+  $('#mineSort').onchange=renderMine; $('#showGot').onchange=renderMine;
+
+  function saveMine(){
+    if(!LS.set(K_WISH,S.myItems)) status('Your browser blocked saving (private mode?). Use Backup to keep a copy of your list.', true);
+    renderMine(); renderBanner();
+  }
+  $('#addBreed').onchange=()=>{ addCoatNo=null; refreshAddPicker(); };
+  $('#addForm').onsubmit=e=>{
+    e.preventDefault();
+    const breed=$('#addBreed').value; if(!breed) return;
+    if(addCoatNo && ownsCoat(breed,addCoatNo) && !e.submitter?.dataset.force){
+      confirmBox(`You already own ${esc(S.catalog[breed]?.name||'this horse')} ${coatLabel(addCoatNo,S.catalog[breed])}. Add it to your wishlist anyway?`,()=>{ const f=document.createElement('button'); f.dataset.force='1'; f.type='submit'; f.hidden=true; $('#addForm').append(f); f.click(); f.remove(); });
+      return;
+    }
+    S.myItems.push({id:uidGen(),breed,coat:$('#addCoat').value.trim(),prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-Date.now(),...(addCoatNo?{coatNo:addCoatNo}:{}),...($('#addName').value.trim()?{plannedName:$('#addName').value.trim()}:{})});
+    $('#addName').value='';
+    $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=null; refreshAddPicker();
+    saveMine(); toast('Added to your wishlist 💜');
+  };
+  $('#mineList').onclick=e=>{
+    const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
+    const b=e.target.closest('button[data-act]'); if(!b) return;
+    const i=S.myItems.find(x=>x.id===b.dataset.id); if(!i) return;
+    if(b.dataset.act==='got'){ i.got=!i.got; saveMine();
+      if(i.got){ if(S.uid&&S.meLoaded&&!(i.coatNo?ownsCoat(i.breed,i.coatNo):false)){ S.me.owned.push({id:uidGen(),breed:i.breed,...(i.coatNo?{coatNo:i.coatNo}:{}),addedAt:new Date().toISOString()}); saveMe(); renderStable(); renderHorses(); toast('Congrats! Added to your stable 🎉'); } else toast('Congrats on your new horse! 🎉'); } }
+    else if(b.dataset.act==='del'){ confirmBox(`Remove ${esc(S.catalog[i.breed]?.name||'this horse')} from your wishlist?`,()=>{S.myItems=S.myItems.filter(x=>x!==i); saveMine();}); }
+    else if(b.dataset.act==='edit'){ editItem(i); }
+    else if(b.dataset.act==='pic'){ uploadPicked().then(id=>{ if(id){ i.img=id; saveMine(); toast('Picture added 📷'); } }); }
+  };
+
+  // ---------- render: horse guide ----------
+  function renderHorses(){
+    const q=$('#hSearch').value.toLowerCase().trim(), t=$('#hType').value;
+    let rows=Object.entries(S.catalog).map(([id,c])=>({id,...c,bz:bazaarInfo(id)}));
+    if(q) rows=rows.filter(r=>(r.name+' '+(r.location||'')).toLowerCase().includes(q));
+    if(t) rows=rows.filter(r=>r.type===t);
+    const {key,dir}=S.hSort;
+    const val=r=> key==='price'?(r.price??1e9): key==='location'?(r.location||'~'): key==='last'?(r.bz.now?'9999':r.bz.last?.start||'0000'): key==='next'?(r.bz.next?.start||'9999'): r.name.toLowerCase();
+    rows.sort((a,b)=>{const x=val(a),y=val(b); return (x<y?-1:x>y?1:0)*dir;});
+    const mine=new Set(S.myItems.map(i=>i.breed));
+    $('#hBody').innerHTML = rows.length ? rows.map(r=>`<article class="hcard">
+      ${hasCoats(r)?coatHtml(r,1,'pic h',`data-gal="${esc(r.id)}" role="button" tabindex="0" aria-label="See all ${r.coatCount} ${esc(r.name)} coats"`):r.img?`<img class="pic" src="${esc(imgUrl(r.img))}" alt="${esc(r.name)}">`:`<div class="nopic">🐴</div>`}
+      <h3>${esc(r.name)}${r.type==='Magical'?' ✨':''}</h3>
+      ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
+      <div class="meta">${esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
+      <dl class="facts">
+        <dt>Price</dt><dd>${sc(r.price)||'<span class="unk">not added yet</span>'}</dd>
+        <dt>Where</dt><dd>${r.location?esc(r.location):'<span class="unk">not added yet</span>'}</dd>
+        <dt>Last Bazaar</dt><dd>${bazaarText(r.bz)}</dd>
+        ${r.bz.next?`<dt>Next</dt><dd>${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
+        ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="hist">${histHtml(r.id)}</dd>`:''}
+      </dl>
+      <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> <a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a></div>
+    </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?'No horses match.':'Loading horses…'}</div></div>`;
+  }
+  $('#hSearch').oninput=renderHorses; $('#hType').onchange=renderHorses;
+  $('#hSortSel').onchange=()=>{ const k=$('#hSortSel').value; S.hSort={key:k,dir:(k==='last')?-1:1}; renderHorses(); };
+  $('#hBody').onkeydown=e=>{ const g=e.target.closest('[data-gal]'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); showGallery(g.dataset.gal); } };
+  $('#banner').onclick=e=>{ const g=e.target.closest('[data-gal]'); if(g) showGallery(g.dataset.gal); };
+  document.querySelectorAll('th[data-sort]').forEach(th=>th.onclick=()=>{const k=th.dataset.sort; S.hSort = S.hSort.key===k?{key:k,dir:-S.hSort.dir}:{key:k,dir:1}; renderHorses();});
+  $('#hBody').onclick=e=>{
+    const w=e.target.closest('[data-wish]'), ed=e.target.closest('[data-edit]');
+    const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
+    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=null; refreshAddPicker(); showTab('mine'); $('#addCoat').focus(); toast('Pick a coat, then hit Add'); }
+    if(ed){ editHorse(ed.dataset.edit); }
+  };
+  $('#addHorseBtn').onclick=()=>editHorse(null);
+
+  // ---------- render: bazaar history ----------
+  function renderBazaars(){
+    const el=$('#bzList');
+    if(!S.bazaars.length){ el.innerHTML=`<div class="empty">${S.loaded.bazaars?'No Bazaars logged yet.':'Loading…'}</div>`; return; }
+    const sorted=[...S.bazaars].sort((a,b)=>a.start<b.start?1:-1);
+    let year=null;
+    el.innerHTML = sorted.map(b=>{
+      const y=b.start.slice(0,4); const head = y!==year ? `<h2 style="margin:18px 0 8px">${y}</h2>` : ''; year=y;
+      const end=b.end||addDays(b.start,6);
+      const fut=b.start>today, now=b.start<=today&&end>=today;
+      return head+`<div class="bz ${fut?'future':''}">
+        <div class="d">${fmtDate(b.start)} – ${fmtDate(end)} ${now?'<span class="tag now">Open now</span>':fut?'<span class="tag soon">Upcoming</span>':''}
+          <button class="btn small ghost" style="float:right" data-bz="${esc(b.id)}">✏️</button></div>
+        <div class="chips">${(b.horses||[]).map(h=>`<span class="chip">${esc(S.catalog[h.breed]?.name||h.breed)}${h.price?` · ${sc(h.price)}`:''}</span>`).join('')}</div>
+        ${b.note?`<div class="note">${esc(b.note)}</div>`:''}
+      </div>`;
+    }).join('');
+  }
+  $('#bzList').onclick=e=>{const b=e.target.closest('[data-bz]'); if(b) editBazaar(S.bazaars.find(x=>x.id===b.dataset.bz));};
+  $('#addBazaarBtn').onclick=()=>editBazaar(null);
+
+  // ---------- render: everyone ----------
+  async function renderEveryone(){
+    const el=$('#evList');
+    const people=S.everyone.filter(p=>(p.items||[]).length);
+    if(!people.length){ el.innerHTML=`<div class="empty"><div class="big">👯</div>No wishlists yet. Share this page with friends (invite them as Editors) so they can make their own!</div>`; return; }
+    let names={};
+    try{ if(S.user?.profiles) names = await S.user.profiles(people.map(p=>p.id)) || {}; }catch(e){}
+    const mineSet=new Set(S.myItems.map(i=>i.breed));
+    el.innerHTML = people.map(p=>{
+      const nm = p.id===S.uid ? 'You' : ((names[p.id]&&names[p.id].name)||'A Jorvik rider');
+      const items=[...p.items].sort((a,b)=>a.prio-b.prio);
+      const shared=items.filter(i=>mineSet.has(i.breed)&&p.id!==S.uid).length;
+      return `<div class="card person"><h3>${esc(nm)} <span class="note" style="font-style:normal">· ${items.filter(i=>!i.got).length} wanted${shared?` · ${shared} in common with you 💞`:''}</span></h3>
+        <div class="mini">${items.map(i=>{ const c=S.catalog[i.breed]; const lab=[i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(', ');
+          return `<span class="${i.got?'got':''} ${hasCoats(c)?'':'noimg'}" title="${esc(i.note||'')}">${hasCoats(c)?coatHtml(c,i.coatNo,'h'):''}${(PRIO[i.prio]||PRIO[2])[0].split(' ')[0]} ${esc(c?.name||i.breed)}${lab?` – ${esc(lab)}`:''}</span>`; }).join('')}</div></div>`;
+    }).join('');
+  }
+
+  // ---------- private: star coins + my stable (data/users/<id>/me, readable only by that person) ----------
+  function saveMe(){
+    if(!LS.set(K_ME,{sc:S.me.sc, scAt:S.me.scAt, owned:S.me.owned})) status('Your browser blocked saving (private mode?).', true);
+  }
+  const ownsBreed = id => S.me.owned.filter(o=>o.breed===id);
+  const ownsCoat = (id,n) => n ? S.me.owned.some(o=>o.breed===id && o.coatNo===n) : false;
+  const wishPrice = i => { const b=bazaarInfo(i.breed); return (b.now&&b.now.price) || S.catalog[i.breed]?.price || null; };
+  function affordHtml(i){
+    if(S.me.sc==null || i.got) return '';
+    const p=wishPrice(i); if(!p) return '';
+    const b=bazaarInfo(i.breed); const at = (b.now&&b.now.price) ? ' at the Bazaar price' : '';
+    if(S.me.sc>=p) return `<div class="afford yes">✓ You can afford this now${at}</div>`;
+    const pct=Math.max(2,Math.round(S.me.sc/p*100));
+    return `<div class="afford">${(p-S.me.sc).toLocaleString()} SC to go${at}${etaText(p-S.me.sc)}<div class="bar"><i style="width:${pct}%"></i></div></div>`;
+  }
+  const WEEKLY_SC=100; // everyone earns 100 Star Coins a week
+  function etaText(need){
+    const w=WEEKLY_SC; if(need<=0) return '';
+    const weeks=Math.ceil(need/w); const d=new Date(); d.setDate(d.getDate()+weeks*7);
+    return ` · about ${weeks} week${weeks>1?'s':''} (${d.toLocaleDateString(undefined,{month:'short',day:'numeric'})})`;
+  }
+  function renderCoins(){
+    const el=$('#coins');
+    if(!S.uid || !S.meLoaded){ el.hidden=true; return; }
+    el.hidden=false;
+    const open=S.myItems.filter(i=>!i.got && wishPrice(i));
+    const can=S.me.sc==null?0:open.filter(i=>S.me.sc>=wishPrice(i)).length;
+    const dream=open.filter(i=>i.prio===1 && S.me.sc!=null && S.me.sc<wishPrice(i)).sort((a,b)=>wishPrice(a)-wishPrice(b))[0];
+    const sub = S.me.sc==null ? 'Type in how many Star Coins you have to see what you can afford.'
+      : [can?`You can afford ${can} horse${can>1?'s':''} on your list right now.`:'Nothing on your list is affordable yet. Keep saving!',
+         dream?`${(wishPrice(dream)-S.me.sc).toLocaleString()} SC to go for your ${esc(S.catalog[dream.breed]?.name||'dream horse')}${etaText(wishPrice(dream)-S.me.sc)}.`:'',
+         S.me.scAt?`Updated ${fmtDate(S.me.scAt)}.`:'', 'Time estimates count 100 SC a week.'].filter(Boolean).join(' ');
+    el.innerHTML = `<div class="coin" aria-hidden="true">★</div>
+      <div><b>${S.me.sc==null?'? SC':S.me.sc.toLocaleString()+' SC'}</b><div class="sub">${sub}</div></div>
+      <form id="scForm"><label class="f" style="min-width:0;flex:none">I have<input id="scIn" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="Star Coins" value="${S.me.sc??''}"></label><button class="btn small" type="submit" style="align-self:flex-end">Update</button></form>`;
+    $('#scForm').onsubmit=e=>{ e.preventDefault(); const num=v=>v===''?null:Math.max(0,Math.floor(Number(v)));
+      const a=$('#scIn').value.trim(); const n=num(a);
+      if(a!==''&&!Number.isFinite(n)) return;
+      if(n!==S.me.sc) S.me.scAt=today; S.me.sc=n; saveMe(); renderCoins(); renderMine(); toast('Saved'); };
+  }
+  let ownCoatNo=null;
+  function refreshOwnPicker(){ coatPicker($('#ownBreed').value, ownCoatNo, n=>{ownCoatNo=n;}, $('#ownPick')); }
+  function renderStable(){
+    const sel=$('#ownBreed'); const cur=sel.value;
+    sel.innerHTML=`<option value="">Choose a horse…</option>`+Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${c.type==='Magical'?' ✨':''}</option>`).join('');
+    if(cur) sel.value=cur;
+    const el=$('#stableList');
+    if(!S.uid){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Sign in to keep track of your stable.</div>`; return; }
+    if(!S.meLoaded){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Loading your stable…</div>`; return; }
+    if(!S.me.owned.length){ el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">🏡</div>Your stable is empty. Add the horses you already own above, and they'll be marked in the Horse guide.</div>`; return; }
+    const list=[...S.me.owned].sort((a,b)=>(S.catalog[a.breed]?.name||a.breed).localeCompare(S.catalog[b.breed]?.name||b.breed));
+    el.innerHTML=list.map(o=>{ const c=S.catalog[o.breed]||{name:o.breed};
+      return `<div class="wish">${hasCoats(c)?coatHtml(c,o.coatNo,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">🐴</div>`}
+        <div class="top"><div><h3>${esc(o.name||c.name)}</h3><div class="coat">${esc([o.name?c.name:'', o.coatNo&&hasCoats(c)?coatLabel(o.coatNo,c):''].filter(Boolean).join(' · '))}</div></div></div>
+        <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
+  }
+  $('#ownBreed').onchange=()=>{ ownCoatNo=null; refreshOwnPicker(); };
+  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed) return;
+    if(!S.uid){ toast('Sign in to save your stable'); return; }
+    S.me.owned.push({id:uidGen(),breed,...(ownCoatNo?{coatNo:ownCoatNo}:{}),...($('#ownName').value.trim()?{name:$('#ownName').value.trim()}:{}),addedAt:new Date().toISOString()});
+    $('#ownName').value=''; ownCoatNo=null; refreshOwnPicker(); saveMe(); renderStable(); renderHorses(); renderMine(); toast('Added to your stable 🏡'); };
+  $('#stableList').onclick=e=>{ const b=e.target.closest('[data-own-del]'); if(!b) return; const o=S.me.owned.find(x=>x.id===b.dataset.ownDel); if(!o) return;
+    confirmBox(`Remove ${esc(o.name||S.catalog[o.breed]?.name||'this horse')} from your stable?`,()=>{ S.me.owned=S.me.owned.filter(x=>x!==o); saveMe(); renderStable(); renderHorses(); renderMine(); }); };
+
+  function renderAll(){ fillBreedSelect(); refreshAddPicker(); renderBanner(); renderCoins(); renderMine(); renderStable(); refreshOwnPicker(); renderHorses(); renderBazaars(); renderShared(); if(viewing) $('#banner').hidden=true; }
+
+  // ---------- modals ----------
+  const ov=$('#ov'), modal=$('#modal');
+  function openModal(html){ modal.innerHTML=html; ov.classList.add('on'); }
+  function closeModal(){ ov.classList.remove('on'); modal.innerHTML=''; modal.classList.remove('wide'); }
+  ov.onclick=e=>{ if(e.target===ov) closeModal(); };
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+  function confirmBox(text,onYes){
+    openModal(`<h2>Are you sure?</h2><p>${text}</p><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">Yes</button></div>`);
+    $('#mNo').onclick=closeModal; $('#mYes').onclick=()=>{closeModal(); onYes();};
+  }
+
+  function editItem(i){
+    const opts=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,c])=>`<option value="${esc(id)}" ${id===i.breed?'selected':''}>${esc(c.name)}</option>`).join('');
+    openModal(`<h2>Edit wish</h2>
+      <div class="row"><label class="f">Horse<select id="eB">${opts}</select></label></div>
+      <div class="row"><label class="f">Coat / color<input id="eC" value="${esc(i.coat)}" maxlength="80"></label></div>
+      <div class="coatpick" id="ePick"></div>
+      <div class="row"><label class="f">Priority<select id="eP"><option value="1">💖 Dream horse</option><option value="2">⭐ Really want</option><option value="3">🤔 Maybe</option></select></label></div>
+      <div class="row"><label class="f">Name idea<input id="eNm" value="${esc(i.plannedName||'')}" maxlength="40" placeholder="e.g. Moonbeam"></label></div>
+      <div class="row"><label class="f">Note<input id="eN" value="${esc(i.note)}" maxlength="140"></label></div>
+      ${i.img?`<div class="row" style="align-items:center"><img class="thumb" src="${esc(imgUrl(i.img))}" alt=""><label style="display:flex;gap:6px;align-items:center;font-weight:700"><input type="checkbox" id="eX"> Remove my picture</label></div>`:''}
+      <div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">Save</button></div>`);
+    $('#eP').value=String(i.prio);
+    let eNo=i.coatNo||null;
+    const drawE=()=>coatPicker($('#eB').value, eNo, n=>{eNo=n;}, $('#ePick'));
+    $('#eB').onchange=()=>{ eNo=null; drawE(); }; drawE();
+    $('#mNo').onclick=closeModal;
+    $('#mYes').onclick=()=>{ i.breed=$('#eB').value; if(eNo) i.coatNo=eNo; else delete i.coatNo; i.coat=$('#eC').value.trim(); i.prio=Number($('#eP').value); i.note=$('#eN').value.trim(); { const nm=$('#eNm').value.trim(); if(nm) i.plannedName=nm; else delete i.plannedName; } if($('#eX')?.checked) delete i.img; closeModal(); saveMine(); };
+  }
+
+  function editHorse(id){
+    const c = id ? S.catalog[id] : {name:'',type:'Horse',price:'',level:'',location:''};
+    openModal(`<h2>${id?'Edit '+esc(c.name):'Add a horse'}</h2>
+      <p class="note" style="font-style:normal">Changes here update the guide for everyone using this page.</p>
+      <div class="row"><label class="f">Name<input id="hN" value="${esc(c.name)}" maxlength="60" ${id?'':'placeholder="e.g. Brabant or a magical horse"'}></label>
+        <label class="f">Type<select id="hT"><option>Horse</option><option>Pony</option><option>Hybrid</option><option>Magical</option></select></label></div>
+      <div class="row"><label class="f">Full price (Star Coins)<input id="hP" type="number" min="0" step="1" value="${esc(c.price??'')}"></label>
+        <label class="f">Level needed<input id="hL" type="number" min="1" max="99" value="${esc(c.level??'')}"></label></div>
+      <div class="row"><label class="f">Where to buy<input id="hW" value="${esc(c.location||'')}" maxlength="80" placeholder="e.g. Starshine Ranch"></label></div>
+      <div class="row"><label class="f">Official coat page (starstable.com link)<input id="hU" value="${esc(c.link||'')}" maxlength="200" placeholder="https://www.starstable.com/horses/breeds/…"></label></div>
+      <div class="f" style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-bottom:6px">Picture (shown for everyone)</div>
+      <div id="hPicBox" style="margin-bottom:10px"></div>
+      <div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">Save</button></div>`);
+    $('#hT').value=c.type||'Horse';
+    let picId = c.img || null;
+    const drawPic = () => { $('#hPicBox').innerHTML = (picId?`<img class="picprev" src="${esc(imgUrl(picId))}" alt="">`:'') +
+      (S.assets?`<button class="btn small ghost" type="button" id="hPicUp">📷 ${picId?'Change':'Add'} picture</button> ${picId?'<button class="btn small ghost" type="button" id="hPicRm">Remove</button>':''}`:'<span class="note">Picture uploads need edit access.</span>');
+      $('#hPicUp')&&($('#hPicUp').onclick=async()=>{ const id=await uploadPicked(); if(id){ picId=id; drawPic(); } });
+      $('#hPicRm')&&($('#hPicRm').onclick=()=>{ picId=null; drawPic(); }); };
+    drawPic();
+    $('#mNo').onclick=closeModal;
+    $('#mYes').onclick=async()=>{
+      const name=$('#hN').value.trim(); if(!name){ $('#hN').focus(); return; }
+      const p=$('#hP').value, l=$('#hL').value;
+      const body={name,type:$('#hT').value,price:p===''?null:Number(p),level:l===''?null:Number(l),location:$('#hW').value.trim()};
+      const link=$('#hU').value.trim(); if(link){ if(!/^https:\/\//.test(link)){ toast('Link must start with https://'); return; } body.link=link; }
+      if(picId) body.img=picId;
+      if(hasCoats(c)){ body.coatStrip=c.coatStrip; body.coatCount=c.coatCount; if(c.coatNames) body.coatNames=c.coatNames; if(c.coatSource) body.coatSource=c.coatSource; if(c.forms) body.forms=c.forms; }
+      const docId = id || slug(name);
+      if(!id && S.catalog[docId]){ toast('That horse is already in the guide'); return; }
+      closeModal();
+      try{ await S.db.doc('catalog/'+docId).set(body); toast('Saved for everyone ✨'); }
+      catch(e){ status('Couldn\'t save that change: '+esc(e?.message||e?.code||'error'), true); }
+    };
+  }
+
+  function editBazaar(b){
+    const isNew=!b; b = b || {start:'',horses:[{breed:'',price:''}],note:''};
+    const opts = sel => `<option value="">Choose…</option>`+Object.entries(S.catalog).sort((a,c)=>a[1].name.localeCompare(c[1].name)).map(([id,c])=>`<option value="${esc(id)}" ${id===sel?'selected':''}>${esc(c.name)}</option>`).join('');
+    const rowHtml = h => `<div class="bzrow"><select class="bzB">${opts(h.breed)}</select><input class="bzP" type="number" min="0" placeholder="SC price" value="${esc(h.price??'')}"><button class="btn small ghost bzX" type="button">✕</button></div>`;
+    openModal(`<h2>${isNew?'Log a Bazaar':'Edit Bazaar'}</h2>
+      <div class="row"><label class="f">Start date (Wednesday)<input id="bS" type="date" value="${esc(b.start)}"></label></div>
+      <div class="f" style="margin-bottom:6px;font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase">Horses &amp; Bazaar prices</div>
+      <div id="bRows">${(b.horses||[]).map(rowHtml).join('')}</div>
+      <button class="btn small ghost" id="bAdd" type="button">+ another horse</button>
+      <div class="row" style="margin-top:10px"><label class="f">Note (optional)<input id="bNote" value="${esc(b.note||'')}" maxlength="140"></label></div>
+      <div class="row" style="justify-content:space-between">${isNew?'<span></span>':'<button class="btn ghost" id="bDel">Delete</button>'}<span><button class="btn ghost" id="mNo">Cancel</button> <button class="btn" id="mYes">Save</button></span></div>`);
+    $('#bAdd').onclick=()=>$('#bRows').insertAdjacentHTML('beforeend',rowHtml({breed:'',price:''}));
+    $('#bRows').onclick=e=>{ if(e.target.closest('.bzX')) e.target.closest('.bzrow').remove(); };
+    $('#mNo').onclick=closeModal;
+    if(!isNew) $('#bDel').onclick=()=>confirmBox('Delete this Bazaar from the history?',async()=>{ try{ await S.db.doc('bazaars/'+b.id).delete(); }catch(e){ status('Couldn\'t delete: '+esc(e?.code||''),true);} });
+    $('#mYes').onclick=async()=>{
+      const start=$('#bS').value; if(!start){ $('#bS').focus(); return; }
+      const horses=[...document.querySelectorAll('#bRows .bzrow')].map(r=>({breed:r.querySelector('.bzB').value, price:r.querySelector('.bzP').value===''?null:Number(r.querySelector('.bzP').value)})).filter(h=>h.breed);
+      if(!horses.length){ toast('Add at least one horse'); return; }
+      const body={start,end:addDays(start,6),horses,note:$('#bNote').value.trim()};
+      closeModal();
+      try{
+        if(!isNew && b.id!==start) await S.db.doc('bazaars/'+b.id).delete();
+        await S.db.doc('bazaars/'+start).set(body); toast('Bazaar saved ⛺');
+      }catch(e){ status('Couldn\'t save the Bazaar: '+esc(e?.message||e?.code||'error'), true); }
+    };
+  }
+
+  // ---------- start: load horse data, then this browser's lists ----------
+  S.uid='local';
+  S.myItems=LS.get(K_WISH,[]); S.loaded.mine=true;
+  { const m=LS.get(K_ME,null); if(m) S.me={sc:m.sc??null, scAt:m.scAt||null, owned:Array.isArray(m.owned)?m.owned:[]}; S.meLoaded=true; }
+  renderAll();
+  (async()=>{
+    try{
+      const [cat,baz]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json())]);
+      S.catalog=cat; S.bazaars=baz.map(b=>({id:b.start,...b})); S.loaded.catalog=true; S.loaded.bazaars=true;
+      renderAll();
+    }catch(e){ status('Couldn\'t load the horse list. Check your connection and refresh the page.', true); }
+  })();
+})();
+</script>
+</body>
+</html>

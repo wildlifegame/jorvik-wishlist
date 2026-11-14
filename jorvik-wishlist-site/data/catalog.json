@@ -1,0 +1,1145 @@
+{
+ "akhal-teke": {
+  "name": "Akhal-Teke",
+  "type": "Horse",
+  "price": 850,
+  "level": 13,
+  "location": "Silverglade Vineyard",
+  "coatCount": 8,
+  "coatStrip": "img/coats/akhal-teke.webp",
+  "link": "https://www.starstable.com/horses/breeds/akhal-teke",
+  "coatNames": [
+   "Perlino",
+   "Sooty Dapple Bay",
+   "Golden Buckskin",
+   "Buttermilk Buckskin",
+   "Cremello",
+   "Dapple Grey",
+   "Palomino",
+   "Black"
+  ]
+ },
+ "american-paint-horse": {
+  "name": "American Paint Horse",
+  "type": "Horse",
+  "price": 850,
+  "level": 7,
+  "location": "Starshine Ranch",
+  "coatCount": 11,
+  "coatStrip": "img/coats/american-paint-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/american-paint",
+  "coatNames": [
+   "Bay Tobiano",
+   "Chestnut Overo",
+   "Black Tovero",
+   "Dappled Buckskin Tobiano",
+   "Grullo Tobiano",
+   "Dapple Grey Tobiano",
+   "Flaxen Chestnut Tobiano",
+   "Bay Tobiano",
+   "Black Overo",
+   "Chestnut Medicine Hat",
+   "Palomino Tobiano"
+  ]
+ },
+ "american-quarter-horse": {
+  "name": "American Quarter Horse",
+  "type": "Horse",
+  "price": 950,
+  "level": 5,
+  "location": "Starshine Ranch",
+  "coatCount": 10,
+  "coatStrip": "img/coats/american-quarter-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/american-quarter-horse",
+  "coatNames": [
+   "Palomino Roan",
+   "Chestnut Splash",
+   "Jet Black",
+   "Blood Bay",
+   "Buttermilk Buckskin",
+   "Grullo",
+   "Reverse Brindle Bay",
+   "Bay",
+   "Black Splashed White",
+   "Red Roan"
+  ]
+ },
+ "american-saddlebred": {
+  "name": "American Saddlebred",
+  "type": "Horse",
+  "price": 900,
+  "level": 8,
+  "location": "Starshine Ranch",
+  "coatCount": 11,
+  "coatStrip": "img/coats/american-saddlebred.webp",
+  "link": "https://www.starstable.com/horses/breeds/american-saddlebred",
+  "coatNames": [
+   "Black",
+   "Flaxen Liver Chestnut Overo",
+   "Palomino",
+   "Sooty Bay",
+   "Rose Dapple Grey",
+   "Bay Tovero",
+   "Buttermilk Buckskin",
+   "Chestnut",
+   "Bay",
+   "Amber/Classic Champagne Mosaic",
+   "Sooty Liver Chestnut"
+  ]
+ },
+ "andalusian": {
+  "name": "Andalusian",
+  "type": "Horse",
+  "price": 950,
+  "level": 5,
+  "location": "Jorvik Stables",
+  "coatCount": 10,
+  "coatStrip": "img/coats/andalusian.webp",
+  "link": "https://www.starstable.com/horses/breeds/andalusian",
+  "coatNames": [
+   "Rose Dapple Grey",
+   "Light Grey",
+   "Black",
+   "Buckskin",
+   "Buckskin Pearl",
+   "Bay",
+   "Dark Bay Splashed White",
+   "Chestnut",
+   "Buckskin Pearl",
+   "Smokey Black"
+  ]
+ },
+ "appaloosa": {
+  "name": "Appaloosa",
+  "type": "Horse",
+  "price": 900,
+  "level": 11,
+  "location": "Starshine Ranch",
+  "coatCount": 13,
+  "coatStrip": "img/coats/appaloosa.webp",
+  "link": "https://www.starstable.com/horses/breeds/appaloosa",
+  "coatNames": [
+   "Black Leopard",
+   "Flaxen Chestnut Peacock Leopard Blanket",
+   "Black Extended Snowcap",
+   "Sun Bleached Black Extended Blanket",
+   "Bay Extended Blanket",
+   "Chestnut Varnish Roan Extended Blanket",
+   "Black Varnish Roan Leopard",
+   "Red Dun Lacing Blanket",
+   "Black Blanket",
+   "Black Few Spots",
+   "Black Snowflake Extended Blanket",
+   "Cremello Leopard",
+   "Buckskin Pintaloosa"
+  ]
+ },
+ "arabian": {
+  "name": "Arabian",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "Goldspur Farm",
+  "coatCount": 10,
+  "coatStrip": "img/coats/arabian.webp",
+  "link": "https://www.starstable.com/horses/breeds/arabian",
+  "coatNames": [
+   "Light Grey",
+   "Black",
+   "Bay",
+   "Palomino",
+   "Dapple Grey",
+   "Liver Chestnut",
+   "Flaxen Chestnut Rabicano",
+   "Fleabitten Grey",
+   "Black Rabicano Sabino",
+   "Chestnut"
+  ]
+ },
+ "ardennes": {
+  "name": "Ardennes",
+  "type": "Horse",
+  "price": 900,
+  "level": 5,
+  "location": "Valedale",
+  "coatCount": 10,
+  "coatStrip": "img/coats/ardennes.webp",
+  "link": "https://www.starstable.com/horses/breeds/ardennes",
+  "coatNames": [
+   "Bay Pangare",
+   "Bay Roan",
+   "Flaxen Chestnut Pangare",
+   "Blue Roan",
+   "Silver Black",
+   "Seal Bay",
+   "Dapple Grey",
+   "Strawberry Roan",
+   "Black",
+   "Light Grey"
+  ]
+ },
+ "belgian-warmblood": {
+  "name": "Belgian Warmblood",
+  "type": "Horse",
+  "price": 850,
+  "level": 8,
+  "location": "Goldenleaf Stables",
+  "coatCount": 13,
+  "coatStrip": "img/coats/belgian-warmblood.webp",
+  "link": "https://www.starstable.com/horses/breeds/belgian-warmblood",
+  "coatNames": [
+   "Black",
+   "Light Grey",
+   "Buckskin",
+   "Chestnut",
+   "Dark Bay",
+   "Sooty Bay",
+   "Dark Chestnut",
+   "Light Grey",
+   "Dapple Grey",
+   "Palomino",
+   "Liver Chestnut Tobiano",
+   "Black Tovero",
+   "Light Bay"
+  ]
+ },
+ "black-forest-horse": {
+  "name": "Black Forest Horse",
+  "type": "Horse",
+  "price": 900,
+  "level": 7,
+  "location": "Valedale",
+  "coatCount": 8,
+  "coatStrip": "img/coats/black-forest-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/black-forest-horse",
+  "coatNames": [
+   "Flaxen Liver Chestnut",
+   "Flaxen Sandy Chestnut",
+   "Flaxen Chestnut",
+   "Flaxen Sooty Chestnut",
+   "Flaxen Black Chestnut with Aging Spots",
+   "Flaxen Black Chestnut",
+   "Flaxen Chestnut with Aging Spots",
+   "Bay"
+  ]
+ },
+ "brabant": {
+  "name": "Brabant",
+  "type": "Horse",
+  "price": 850,
+  "level": 7,
+  "location": "Steve's Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/brabant.webp",
+  "link": "https://www.starstable.com/horses/breeds/brabant",
+  "coatNames": [
+   "Bay",
+   "Black",
+   "Flaxen Chestnut Pangaré",
+   "Dapple Grey",
+   "Bay Roan Pangeré",
+   "Flaxen Red Roan",
+   "Blue Roan"
+  ]
+ },
+ "calder": {
+  "name": "Calder",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 2,
+  "coatStrip": "img/coats/calder.webp",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "coatSource": "ssodb"
+ },
+ "chincoteague": {
+  "name": "Chincoteague Pony",
+  "type": "Pony",
+  "price": 700,
+  "level": 7,
+  "location": "South Hoof Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/chincoteague.webp",
+  "link": "https://www.starstable.com/horses/breeds/chincoteague",
+  "coatNames": [
+   "Flaxen Chestnut Tobiano",
+   "Cremello",
+   "Smoky Black Pinto",
+   "Bay Tobiano",
+   "Palomino",
+   "Flaxen Roan Sabino",
+   "Buckskin"
+  ]
+ },
+ "clydesdale": {
+  "name": "Clydesdale",
+  "type": "Horse",
+  "price": 750,
+  "level": 12,
+  "location": "Dundull",
+  "coatCount": 7,
+  "coatStrip": "img/coats/clydesdale.webp",
+  "link": "https://www.starstable.com/horses/breeds/clydesdale",
+  "coatNames": [
+   "Blue Roan Sabino",
+   "Black",
+   "Light Bay Sabino",
+   "Dark Bay Sabino",
+   "Dapple Rose Grey",
+   "Black Extensive Sabino",
+   "Flaxen Chestnut Pangare"
+  ]
+ },
+ "connemara": {
+  "name": "Connemara",
+  "type": "Pony",
+  "price": 850,
+  "level": 5,
+  "location": "Steve's Farm",
+  "coatCount": 9,
+  "coatStrip": "img/coats/connemara.webp",
+  "link": "https://www.starstable.com/horses/breeds/connemara",
+  "coatNames": [
+   "Fleabitten Grey",
+   "Dark Dapple Grey",
+   "Rose Grey",
+   "Palomino",
+   "Bay Roan",
+   "Sooty Buckskin",
+   "Chestnut",
+   "Black",
+   "Bay"
+  ]
+ },
+ "criollo": {
+  "name": "Criollo",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "South Hoof Farm",
+  "coatCount": 10,
+  "coatStrip": "img/coats/criollo.webp",
+  "link": "https://www.starstable.com/horses/breeds/criollo",
+  "coatNames": [
+   "Liver Chestnut Marble Sabino",
+   "Bay Dun",
+   "Black Extensive Sabino",
+   "Seal Brown Roan",
+   "Chestnut Brindle",
+   "Black Overo",
+   "Grullo",
+   "Bay Manchado",
+   "Dark Bay Overo",
+   "Buckskin Splashed White"
+  ]
+ },
+ "curly-horse": {
+  "name": "Curly Horse",
+  "type": "Horse",
+  "price": 850,
+  "level": 6,
+  "location": "New Hillcrest",
+  "coatCount": 7,
+  "coatStrip": "img/coats/curly-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/curly-horse",
+  "coatNames": [
+   "Chestnut",
+   "Bay Dun Tovero",
+   "Grey",
+   "Palomino",
+   "Bay Tobiano",
+   "Flaxen Chestnut",
+   "Black"
+  ]
+ },
+ "dartmoor": {
+  "name": "Dartmoor Pony",
+  "type": "Pony",
+  "price": 850,
+  "level": 9,
+  "location": "Steve's Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/dartmoor.webp",
+  "link": "https://www.starstable.com/horses/breeds/dartmoor-pony",
+  "coatNames": [
+   "Sooty Dark Bay",
+   "Red Roan",
+   "Seal Bay",
+   "Black",
+   "Bay",
+   "Light Grey",
+   "Bay Pangare"
+  ]
+ },
+ "dorcha": {
+  "name": "Dorcha (Peacock Butterfly)",
+  "type": "Magical",
+  "price": 850,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 2,
+  "coatStrip": "img/coats/dorcha.webp",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "coatSource": "ssodb"
+ },
+ "dutch-warmblood": {
+  "name": "Dutch Warmblood",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "Silverglade Manor",
+  "coatCount": 10,
+  "coatStrip": "img/coats/dutch-warmblood.webp",
+  "link": "https://www.starstable.com/horses/breeds/dutch-warmblood",
+  "coatNames": [
+   "Seal Bay",
+   "Dapple Grey",
+   "Chestnut",
+   "Liver Chestnut",
+   "Bay",
+   "Black",
+   "Cremello",
+   "Dark Bay Tobiano",
+   "Grey Tovero",
+   "Buckskin"
+  ]
+ },
+ "english-thoroughbred": {
+  "name": "English Thoroughbred",
+  "type": "Horse",
+  "price": 850,
+  "level": 1,
+  "location": "Marley's Farm",
+  "coatCount": 10,
+  "coatStrip": "img/coats/english-thoroughbred.webp",
+  "link": "https://www.starstable.com/horses/breeds/english-thoroughbred",
+  "coatNames": [
+   "Dark Bay",
+   "Black",
+   "Dominant White",
+   "Light Bay",
+   "Seal Bay",
+   "Steel Grey",
+   "Palomino Sabino",
+   "Fleabitten Grey",
+   "Perlino",
+   "Chestnut"
+  ]
+ },
+ "ephyra": {
+  "name": "Ephyra",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 2,
+  "coatStrip": "img/coats/ephyra.webp",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "coatSource": "ssodb"
+ },
+ "finnhorse": {
+  "name": "Finnhorse",
+  "type": "Horse",
+  "price": 850,
+  "level": 6,
+  "location": "Firgrove",
+  "coatCount": 9,
+  "coatStrip": "img/coats/finnhorse.webp",
+  "link": "https://www.starstable.com/horses/breeds/finnhorse",
+  "coatNames": [
+   "Liver Chestnut",
+   "Flaxen Chestnut Pangare",
+   "Chestnut",
+   "Light Chestnut",
+   "Palomino",
+   "Black",
+   "Bay Pangare",
+   "Dapple Grey",
+   "Black/Chestnut Mosaic"
+  ]
+ },
+ "fjord": {
+  "name": "Norwegian Fjord Horse",
+  "type": "Horse",
+  "price": 900,
+  "level": 6,
+  "location": "Valedale",
+  "coatCount": 7,
+  "coatStrip": "img/coats/fjord.webp",
+  "link": "https://www.starstable.com/horses/breeds/norwegian-fjord-horse",
+  "coatNames": [
+   "Brunblakk",
+   "Light Brunblakk",
+   "Rødblakk",
+   "Grå",
+   "Ulsblakk",
+   "Gulblakk",
+   "Kvit"
+  ]
+ },
+ "friesian": {
+  "name": "Friesian",
+  "type": "Horse",
+  "price": 950,
+  "level": 9,
+  "location": "Jorvik Stables",
+  "coatCount": 7,
+  "coatStrip": "img/coats/friesian.webp",
+  "link": "https://www.starstable.com/horses/breeds/friesian",
+  "coatNames": [
+   "Jet Black",
+   "Bleached Black",
+   "Black",
+   "Liver Chestnut",
+   "Flaxen Chestnut",
+   "Aged Black",
+   "Black Star"
+  ]
+ },
+ "friesian-sport-horse": {
+  "name": "Friesian Sport Horse",
+  "type": "Horse",
+  "price": 950,
+  "level": 9,
+  "location": "Medieval Camp",
+  "coatCount": 5,
+  "coatStrip": "img/coats/friesian-sport-horse.webp",
+  "coatSource": "ssodb"
+ },
+ "gotland-pony": {
+  "name": "Gotland Pony",
+  "type": "Pony",
+  "price": 750,
+  "level": 7,
+  "location": "South Hoof Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/gotland-pony.webp",
+  "link": "https://www.starstable.com/horses/breeds/gotland-pony",
+  "coatNames": [
+   "Bay Pangare",
+   "Bay",
+   "Flaxen Chestnut Pangare",
+   "Black",
+   "Buckskin",
+   "Splashed White Black",
+   "Splashed White Chestnut"
+  ]
+ },
+ "haflinger": {
+  "name": "Haflinger",
+  "type": "Horse",
+  "price": 900,
+  "level": 11,
+  "location": "Fort Pinta",
+  "coatCount": 7,
+  "coatStrip": "img/coats/haflinger.webp",
+  "link": "https://www.starstable.com/horses/breeds/haflinger",
+  "coatNames": [
+   "Flaxen Chestnut",
+   "Dapple Flaxen Chestnut Pangare",
+   "Flaxen Chestnut Pangare",
+   "Honey Flaxen Chestnut Pangare",
+   "Liver Flaxen Chestnut",
+   "Liver Flaxen Chestnut Pangare",
+   "Gold Flaxen Chestnut Pangare"
+  ]
+ },
+ "hanoverian": {
+  "name": "Hanoverian",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "Jorvik Stables",
+  "coatCount": 7,
+  "coatStrip": "img/coats/hanoverian.webp",
+  "link": "https://www.starstable.com/horses/breeds/hanoverian",
+  "coatNames": [
+   "Cherry Bay",
+   "Seal Bay",
+   "Sooty Bay",
+   "Chestnut",
+   "Liver Chestnut",
+   "Black",
+   "Light Grey"
+  ]
+ },
+ "icelandic": {
+  "name": "Icelandic Horse",
+  "type": "Horse",
+  "price": 950,
+  "level": 15,
+  "location": "New Hillcrest",
+  "coatCount": 7,
+  "coatStrip": "img/coats/icelandic.webp",
+  "link": "https://www.starstable.com/horses/breeds/icelandic",
+  "coatNames": [
+   "Silver Dapple",
+   "Ýruskjóttur Bay Dun",
+   "Flaxen Chestnut",
+   "Grullo",
+   "Black Pinto",
+   "Sun Bleached Black",
+   "Light Grey"
+  ]
+ },
+ "irish-cob": {
+  "name": "Irish Cob",
+  "type": "Horse",
+  "price": 850,
+  "level": 6,
+  "location": "Valedale",
+  "coatCount": 9,
+  "coatStrip": "img/coats/irish-cob.webp",
+  "link": "https://www.starstable.com/horses/breeds/irish-cob",
+  "coatNames": [
+   "Black Tobiano",
+   "Chestnut Tovero",
+   "Silver Dapple Pinto",
+   "Palomino Sabino",
+   "Dark Bay Tobiano",
+   "Buckskin",
+   "Dapple Grey",
+   "Black Sabino",
+   "Chestnut"
+  ]
+ },
+ "jorvik-andalusian": {
+  "name": "Jorvik Andalusian",
+  "type": "Horse",
+  "price": 665,
+  "level": 5,
+  "location": "Marley's Vintage Barn",
+  "coatCount": 8,
+  "coatStrip": "img/coats/jorvik-andalusian.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-andalusian",
+  "coatNames": [
+   "Dapple Rose Grey",
+   "Chestnut",
+   "Light Grey",
+   "Perlino",
+   "Black Pearl",
+   "Black",
+   "Bay",
+   "Buckskin"
+  ]
+ },
+ "jorvik-friesian": {
+  "name": "Jorvik Friesian",
+  "type": "Horse",
+  "price": 665,
+  "level": 8,
+  "location": "Marley's Vintage Barn",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvik-friesian.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-friesian",
+  "coatNames": [
+   "Jet Black",
+   "Liver Chestnut",
+   "Bay Leopard",
+   "Black With Socks",
+   "Grey",
+   "Black Extended Blanket",
+   "Black Pinto"
+  ]
+ },
+ "jorvik-mountain-horse": {
+  "name": "Jorvik Mountain Horse",
+  "type": "Horse",
+  "price": 900,
+  "level": 6,
+  "location": "Firgrove",
+  "coatCount": 8,
+  "coatStrip": "img/coats/jorvik-mountain-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-mountain-horse",
+  "coatNames": [
+   "Silver Black",
+   "Silver Buckskin",
+   "Dapple Silver Black",
+   "Blue Roan",
+   "Silver Amber Champagne",
+   "Red Roan",
+   "Silver Bay",
+   "Mahogany Bay Rabicano"
+  ]
+ },
+ "jorvik-pony": {
+  "name": "Jorvik Pony",
+  "type": "Pony",
+  "price": null,
+  "level": null,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvik-pony.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-pony",
+  "coatNames": [
+   "Light Dapple Grey",
+   "Liver Chestnut",
+   "Chestnut Leopard",
+   "Dapple Grey Tobiano",
+   "Blue Roan",
+   "Buckskin Pinto",
+   "Silver Black"
+  ]
+ },
+ "jorvik-warmblood": {
+  "name": "Jorvik Warmblood",
+  "type": "Horse",
+  "price": 750,
+  "level": 5,
+  "location": "Crescent Moon Village",
+  "coatCount": 8,
+  "coatStrip": "img/coats/jorvik-warmblood.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-warmblood",
+  "coatNames": [
+   "Sooty Buckskin Spotted Blanket",
+   "Blue Roan",
+   "Liver Chestnut",
+   "Palomino Pintaloosa",
+   "Black",
+   "Bay Overo",
+   "Sooty Buckskin",
+   "Chestnut Overo"
+  ]
+ },
+ "jorvik-wild-horse": {
+  "name": "Jorvik Wild Horse",
+  "type": "Magical",
+  "price": 975,
+  "level": 9,
+  "location": "Redwood Point",
+  "coatCount": 12,
+  "coatStrip": "img/coats/jorvik-wild-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/jorvik-wild-horse",
+  "coatNames": [
+   "Mantle Palomino",
+   "Mantle Silver Bay",
+   "Mantle Silver Dapple",
+   "Mantle Bay Dun",
+   "Mantle Striped Buckskin",
+   "Mantle Ember Black",
+   "Sapphire White",
+   "Sapphire Dapple Gray",
+   "Sapphire Blue Roan",
+   "Black Warped Brindle (Soul Steed)",
+   "Embermane",
+   "Red Roan Pintaloosa"
+  ]
+ },
+ "keima": {
+  "name": "Keima",
+  "type": "Magical",
+  "price": 950,
+  "level": 9,
+  "location": "Medieval Camp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/keima.webp",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "coatSource": "ssodb"
+ },
+ "knabstrupper": {
+  "name": "Knabstrupper",
+  "type": "Horse",
+  "price": 750,
+  "level": 10,
+  "location": "Crescent Moon Village",
+  "coatCount": 8,
+  "coatStrip": "img/coats/knabstrupper.webp",
+  "link": "https://www.starstable.com/horses/breeds/knabstrupper",
+  "coatNames": [
+   "Black Varnish Roan Near Leopard",
+   "Chestnut Few Spot Leopard",
+   "Bay Extended Blanket",
+   "Chestnut Leopard",
+   "Bay Snowflake",
+   "Black Blanket",
+   "Black Few Spot Leopard",
+   "Chestnut Blanket"
+  ]
+ },
+ "lipizzaner": {
+  "name": "Lipizzaner",
+  "type": "Horse",
+  "price": 950,
+  "level": 12,
+  "location": "Jorvik Stables",
+  "coatCount": 7,
+  "coatStrip": "img/coats/lipizzaner.webp",
+  "link": "https://www.starstable.com/horses/breeds/lipizzaner",
+  "coatNames": [
+   "Light Grey",
+   "Fleabitten Grey",
+   "Light Dapple Grey",
+   "Rose Grey",
+   "Dark Dapple Grey",
+   "Mahogany Bay",
+   "Black"
+  ]
+ },
+ "lusitano": {
+  "name": "Lusitano",
+  "type": "Horse",
+  "price": 949,
+  "level": 7,
+  "location": "Silverglade Manor",
+  "coatCount": 10,
+  "coatStrip": "img/coats/lusitano.webp",
+  "link": "https://www.starstable.com/horses/breeds/lusitano",
+  "coatNames": [
+   "Light Grey",
+   "Bay",
+   "Pearl",
+   "Sooty Dapple Buckskin",
+   "Black",
+   "Palomino",
+   "Dapple Grey",
+   "Fleabitten Grey",
+   "Cremello",
+   "Liver Chestnut"
+  ]
+ },
+ "marwari": {
+  "name": "Marwari",
+  "type": "Horse",
+  "price": 950,
+  "level": 12,
+  "location": "Goldenleaf Stables",
+  "coatCount": 1,
+  "coatStrip": "img/coats/marwari.webp",
+  "link": "https://www.starstable.com/horses/breeds/marwari",
+  "coatNames": [
+   "Bay"
+  ]
+ },
+ "morgan": {
+  "name": "Morgan",
+  "type": "Horse",
+  "price": 850,
+  "level": 9,
+  "location": "Firgrove",
+  "coatCount": 7,
+  "coatStrip": "img/coats/morgan.webp",
+  "link": "https://www.starstable.com/horses/breeds/morgan",
+  "coatNames": [
+   "Splashed White Bay",
+   "Buckskin Sabino",
+   "Bay",
+   "Flaxen Liver Chestnut",
+   "Smokey Cream",
+   "Silver Black",
+   "Black Rabicano"
+  ]
+ },
+ "mule": {
+  "name": "Mule",
+  "type": "Hybrid",
+  "price": 850,
+  "level": 7,
+  "location": "Steve's Farm",
+  "coatCount": 8,
+  "coatStrip": "img/coats/mule.webp",
+  "link": "https://www.starstable.com/horses/breeds/mule",
+  "coatNames": [
+   "Sooty Bay Dun Pangaré",
+   "Sooty Bay Dun Spotted Blanket",
+   "Black Tobiano",
+   "Bay Leopard",
+   "Flaxen Chestnut Pangare",
+   "Dapple Grey",
+   "Grullo",
+   "Dunskin Pangaré"
+  ]
+ },
+ "mustang": {
+  "name": "Mustang",
+  "type": "Horse",
+  "price": 900,
+  "level": 7,
+  "location": "Firgrove",
+  "coatCount": 8,
+  "coatStrip": "img/coats/mustang.webp",
+  "link": "https://www.starstable.com/horses/breeds/mustang",
+  "coatNames": [
+   "Bay Dun",
+   "Black Leopard",
+   "Black",
+   "Bay Tobiano",
+   "Grullo Overo",
+   "Bay Roan",
+   "Palomino",
+   "Buckskin"
+  ]
+ },
+ "noriker": {
+  "name": "Noriker",
+  "type": "Horse",
+  "price": 900,
+  "level": 6,
+  "location": "Silverglade Manor",
+  "coatCount": 8,
+  "coatStrip": "img/coats/noriker.webp",
+  "link": "https://www.starstable.com/horses/breeds/noriker",
+  "coatNames": [
+   "Black Leopard Varnish Roan",
+   "Blue Roan",
+   "Black Leopard",
+   "Bay Near Leopard",
+   "Black",
+   "Bay",
+   "Flaxen Liver Chestnut",
+   "Black Varnish Roan Blanket"
+  ]
+ },
+ "north-swedish-horse": {
+  "name": "North Swedish Horse",
+  "type": "Horse",
+  "price": 749,
+  "level": 8,
+  "location": "Dundull",
+  "coatCount": 8,
+  "coatStrip": "img/coats/north-swedish-horse.webp",
+  "link": "https://www.starstable.com/horses/breeds/north-swedish-horse",
+  "coatNames": [
+   "Dapple Bay Pangare",
+   "Palomino",
+   "Flaxen Chestnut",
+   "Dapple Seal Brown",
+   "Sun Bleached Black",
+   "Cremello",
+   "Light Bay",
+   "Texas Bluebell"
+  ]
+ },
+ "paso-fino": {
+  "name": "Paso Fino",
+  "type": "Horse",
+  "price": 950,
+  "level": 9,
+  "location": "Steve's Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/paso-fino.webp",
+  "link": "https://www.starstable.com/horses/breeds/paso-fino",
+  "coatNames": [
+   "Dapple Rose Grey",
+   "Amber Champagne",
+   "Sooty Dapple Bay",
+   "Bay Dun",
+   "Flaxen Chestnut",
+   "Black Pinto",
+   "Black"
+  ]
+ },
+ "percheron": {
+  "name": "Percheron",
+  "type": "Horse",
+  "price": 850,
+  "level": 7,
+  "location": "Marley's Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/percheron.webp",
+  "link": "https://www.starstable.com/horses/breeds/percheron",
+  "coatNames": [
+   "Dapple Grey",
+   "Light Grey",
+   "Black",
+   "Steel Grey",
+   "Seal Bay",
+   "Flaxen Chestnut",
+   "Bay Pangare"
+  ]
+ },
+ "pintabian": {
+  "name": "Pintabian",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "Goldspur Farm",
+  "coatCount": 6,
+  "coatStrip": "img/coats/pintabian.webp",
+  "link": "https://www.starstable.com/horses/breeds/pintabian",
+  "coatNames": [
+   "Bay Tobiano",
+   "Black Tovero",
+   "Flaxen Chestnut Tovero",
+   "Steel Grey Tobiano",
+   "Dapple Palomino Tovero",
+   "Buckskin Tovero"
+  ]
+ },
+ "ryume": {
+  "name": "Ryume",
+  "type": "Magical",
+  "price": 950,
+  "level": 9,
+  "location": "Medieval Camp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/ryume.webp",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "coatSource": "ssodb"
+ },
+ "selle-francais": {
+  "name": "Selle Français",
+  "type": "Horse",
+  "price": 900,
+  "level": 6,
+  "location": "Silverglade Manor",
+  "coatCount": 7,
+  "coatStrip": "img/coats/selle-francais.webp",
+  "link": "https://www.starstable.com/horses/breeds/selle-francais",
+  "coatNames": [
+   "Flaxen Chestnut",
+   "Bay",
+   "Fleabitten Grey",
+   "Black",
+   "Chestnut Tobiano",
+   "Sooty Buckskin Tovero",
+   "Steel Grey"
+  ]
+ },
+ "shire": {
+  "name": "Shire",
+  "type": "Horse",
+  "price": 900,
+  "level": 8,
+  "location": "Steve's Farm",
+  "coatCount": 7,
+  "coatStrip": "img/coats/shire.webp",
+  "link": "https://www.starstable.com/horses/breeds/shire",
+  "coatNames": [
+   "Black Minimum Tobiano",
+   "Light Grey",
+   "Steel Grey",
+   "Light Chestnut",
+   "Dark Bay Sabino",
+   "Seal Bay",
+   "Light Bay"
+  ]
+ },
+ "swedish-warmblood": {
+  "name": "Swedish Warmblood",
+  "type": "Horse",
+  "price": 950,
+  "level": 7,
+  "location": "Jorvik Stables",
+  "coatCount": 9,
+  "coatStrip": "img/coats/swedish-warmblood.webp",
+  "link": "https://www.starstable.com/horses/breeds/swedish-warmblood",
+  "coatNames": [
+   "Steel Grey Splashed White",
+   "Palomino Tobiano",
+   "Bay",
+   "Sunbleached Black",
+   "Chestnut",
+   "Grey",
+   "Seal Bay",
+   "Chestnut Tobiano",
+   "Black Tovero"
+  ]
+ },
+ "tennessee-walker": {
+  "name": "Tennessee Walking Horse",
+  "type": "Horse",
+  "price": 950,
+  "level": 11,
+  "location": "Starshine Ranch",
+  "coatCount": 7,
+  "coatStrip": "img/coats/tennessee-walker.webp",
+  "link": "https://www.starstable.com/horses/breeds/tennessee-walker",
+  "coatNames": [
+   "Sooty Buckskin",
+   "Red Roan Pinto",
+   "Blue Roan",
+   "Black Overo",
+   "Black",
+   "Amber Champagne",
+   "Dapple Grey"
+  ]
+ },
+ "trakehner": {
+  "name": "Trakehner",
+  "type": "Horse",
+  "price": 750,
+  "level": 9,
+  "location": "Goldenleaf Stables",
+  "coatCount": 7,
+  "coatStrip": "img/coats/trakehner.webp",
+  "link": "https://www.starstable.com/horses/breeds/trakehner",
+  "coatNames": [
+   "Black Tobiano",
+   "Bay",
+   "Dapple Grey",
+   "Chestnut",
+   "Black",
+   "Seal Bay",
+   "Bay Tobiano"
+  ]
+ },
+ "welsh-pony": {
+  "name": "Welsh Pony",
+  "type": "Pony",
+  "price": 800,
+  "level": 7,
+  "location": "South Hoof",
+  "coatCount": 7,
+  "coatStrip": "img/coats/welsh-pony.webp",
+  "link": "https://www.starstable.com/horses/breeds/welsh-pony",
+  "coatNames": [
+   "Light Grey",
+   "Palomino Sabino",
+   "Flaxen Chestnut",
+   "Black",
+   "Liver Chestnut",
+   "Bay Roan",
+   "Dapple Grey"
+  ]
+ },
+ "westphalian": {
+  "name": "Westphalian",
+  "type": "Horse",
+  "price": 900,
+  "level": 6,
+  "location": "Silverglade Manor",
+  "coatCount": 8,
+  "coatStrip": "img/coats/westphalian.webp",
+  "link": "https://www.starstable.com/horses/breeds/westphalian",
+  "coatNames": [
+   "Bay",
+   "Dapple Gray Blood Shoulder",
+   "Fleabitten Grey",
+   "Chestnut",
+   "Seal Bay",
+   "Sooty Palomino",
+   "Sooty Buckskin",
+   "Liver Chestnut Tobiano"
+  ]
+ },
+ "zony": {
+  "name": "Zony",
+  "type": "Hybrid",
+  "price": null,
+  "level": null,
+  "location": "",
+  "coatCount": 2,
+  "coatStrip": "img/coats/zony.webp",
+  "link": "https://www.starstable.com/horses/breeds/zony",
+  "coatNames": [
+   null,
+   "Vega"
+  ]
+ }
+}
