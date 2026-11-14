@@ -338,6 +338,18 @@
   @media (max-width:560px){ .hpgrid{grid-template-columns:repeat(3,minmax(0,1fr));max-height:38vh} .hpt{height:64px} .hpchosen .hpt{width:96px;height:77px} }
   small.cw{display:block;font-size:10.5px;font-weight:700;color:#a8700c;line-height:1.2;margin-top:2px}
   .coathint{font-size:13px;color:var(--muted);margin:10px 0 -6px}
+  .hptop{display:flex;gap:8px;align-items:center}
+  .hptop .hpq{flex:1;min-width:0}
+  .hptop .btn{white-space:nowrap;width:auto!important;flex:none;height:auto!important;padding:8px 12px!important;font-size:13px}
+  .hpmsel{font-size:13px;color:var(--muted);margin:8px 0 0}
+  .linkbtn{border:0;background:none;color:var(--rose);font:inherit;font-weight:700;cursor:pointer;padding:0 4px}
+  .hpitem.on{border-color:var(--rose);box-shadow:0 0 0 2px var(--rose) inset;position:relative}
+  .hpitem.on::after{content:"✓";position:absolute;top:6px;right:6px;background:var(--rose);color:#fff;width:22px;height:22px;border-radius:50%;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .mrow{margin-top:10px}
+  .mrowh{font-weight:700;font-size:14px}
+  .mrow .coatpick{margin-top:4px}
+  .mrow .coatpick button{width:104px}
+  .mrow .coatpick button .coatbox{height:84px}
 </style>
 </head>
 <body>
@@ -377,7 +389,7 @@
         </label>
         <button class="btn" type="submit" id="addBtn">+ Add</button>
       </div>
-      <p class="coathint" id="addHint" hidden>Pick one or more coats (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
+      <div id="addMulti"></div><p class="coathint" id="addHint" hidden>Pick one or more coats (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
       <details class="more">
         <summary>Add a name idea or a note</summary>
         <div class="row" style="margin-top:10px">
@@ -452,7 +464,7 @@
         </label>
         <button class="btn" type="submit">+ Add to my stable</button>
       </div>
-      <div class="coatpick" id="ownPick" aria-label="Pick the coat"></div>
+      <div id="ownMulti"></div><div class="coatpick" id="ownPick" aria-label="Pick the coat"></div>
     </form></div>
     <p class="private">🔒 Only you can see your stable and your Star Coins.</p>
     <div class="grid stablegrid" id="stableList"></div>
@@ -532,7 +544,8 @@
   const HP_GROUPS=[['sale','Gen 3',([,c])=>c.type!=='Magical'&&!isOldGen(c)],['magic','Magical ✨',([,c])=>c.type==='Magical'],['gone','Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)]];
   function mountHP(sel){
     const box=document.createElement('div'); box.className='hp'; sel.after(box); sel.classList.add('vh'); sel.tabIndex=-1;
-    let cat='sale', q='';
+    let cat='sale', q='', multi=false; const picks=new Set();
+    sel._picks=()=>multi?[...picks]:[]; sel._hpReset=()=>{ multi=false; picks.clear(); render(); sel.dispatchEvent(new Event('hpmulti')); };
     const tile=c=>hasCoats(c)?coatHtml(c,1,'hpt h'):'<div class="hpt nopic">🐴</div>';
     function render(){
       const id=sel.value, c=S.catalog[id];
@@ -541,20 +554,33 @@
       const groups=HP_GROUPS.map(g=>[g,all.filter(g[2]).length]).filter(x=>x[1]);
       if(!groups.some(([g])=>g[0]===cat)) cat=groups[0]?.[0][0]||'sale';
       const list=q?all.filter(([,c])=>c.name.toLowerCase().includes(q)):all.filter(HP_GROUPS.find(g=>g[0]===cat)[2]);
-      box.innerHTML=`<input type="search" class="hpq" placeholder="Search all horses…" value="${esc(q)}" aria-label="Search horses">
+      box.innerHTML=`<div class="hptop"><input type="search" class="hpq" placeholder="Search all horses…" value="${esc(q)}" aria-label="Search horses"><button type="button" class="btn small ${multi?'':'ghost'}" data-hpmulti aria-pressed="${multi}">${multi?'✓ Picking several':'Pick several'}</button></div>
+        ${multi?`<p class="hpmsel">${picks.size?`<b>${picks.size} selected:</b> ${[...picks].map(i=>esc(S.catalog[i]?.name||i)).join(', ')} <button type="button" class="linkbtn" data-hpclear>Clear</button>`:'Tap all the horses you want, then press Add. You can pick coats later with Edit.'}</p>`:''}
         ${q||groups.length<2?'':`<div class="hpcats" role="tablist">${groups.map(([g,n])=>`<button type="button" role="tab" data-hpcat="${g[0]}" aria-selected="${g[0]===cat}">${g[1]} <span class="ct">${n}</span></button>`).join('')}</div>`}
-        <div class="hpgrid">${list.map(([i,c])=>`<button type="button" class="hpitem" data-hpid="${esc(i)}">${tile(c)}<span>${esc(c.name)}${badge(c)}</span></button>`).join('')||'<p class="muted">No horses match.</p>'}</div>`;
+        <div class="hpgrid">${list.map(([i,c])=>`<button type="button" class="hpitem ${multi&&picks.has(i)?'on':''}" data-hpid="${esc(i)}">${tile(c)}<span>${esc(c.name)}${badge(c)}</span></button>`).join('')||'<p class="muted">No horses match.</p>'}</div>`;
       const qi=box.querySelector('.hpq');
       qi.oninput=()=>{ q=qi.value.toLowerCase().trim(); const pos=qi.selectionStart; render(); const n=box.querySelector('.hpq'); n.focus(); try{n.setSelectionRange(pos,pos);}catch(e){} };
       qi.onkeydown=e=>{ if(e.key==='Enter') e.preventDefault(); };
     }
-    box.addEventListener('click',e=>{ const t=e.target.closest('[data-hpcat],[data-hpid],[data-hpchange]'); if(!t) return; e.preventDefault();
+    box.addEventListener('click',e=>{ const t=e.target.closest('[data-hpcat],[data-hpid],[data-hpchange],[data-hpmulti],[data-hpclear]'); if(!t) return; e.preventDefault();
+      if(t.hasAttribute('data-hpmulti')){ multi=!multi; picks.clear(); render(); sel.dispatchEvent(new Event('hpmulti')); return; }
+      if(t.hasAttribute('data-hpclear')){ picks.clear(); render(); sel.dispatchEvent(new Event('hpmulti')); return; }
+      if(multi && t.dataset.hpid){ const id=t.dataset.hpid; if(picks.has(id)) picks.delete(id); else picks.add(id); const st=box.querySelector('.hpgrid').scrollTop; render(); box.querySelector('.hpgrid').scrollTop=st; sel.dispatchEvent(new Event('hpmulti')); return; }
       if(t.dataset.hpcat){ cat=t.dataset.hpcat; render(); box.querySelector('.hpgrid').scrollTop=0; }
       else if(t.dataset.hpid){ sel.value=t.dataset.hpid; q=''; sel.dispatchEvent(new Event('change')); render(); }
       else { sel.value=''; sel.dispatchEvent(new Event('change')); render(); setTimeout(()=>{ if(!phone()) box.querySelector('.hpq')?.focus(); },0); }
     });
     sel._hpRender=render; render();
   }
+  // when several horses are picked: one row of coat choices per horse
+  function multiCoats(sel, box, store){
+    const picks=sel._picks?sel._picks():[];
+    for(const k of Object.keys(store)) if(!picks.includes(k)) delete store[k];
+    if(!picks.length){ box.innerHTML=''; return; }
+    box.innerHTML=`<p class="coathint">Pick coats for each horse (optional). No coat picked means "any coat".</p>`+picks.map(b=>`<div class="mrow"><div class="mrowh">${esc(S.catalog[b]?.name||b)}${badge(S.catalog[b])}</div><div class="coatpick" data-mb="${esc(b)}"></div></div>`).join('');
+    box.querySelectorAll('[data-mb]').forEach(el=>{ const b=el.dataset.mb; coatPicker(b, store[b]||[], arr=>{ store[b]=arr; sel.dispatchEvent(new Event('hpcount')); }, el); });
+  }
+  const multiItems = (sel, store) => (sel._picks?sel._picks():[]).flatMap(b=>(store[b]&&store[b].length)?store[b].map(n=>[b,n]):[[b,null]]);
   const coatLabel = (n,c) => hasForms(c) ? '' : ((c && Array.isArray(c.coatNames) && c.coatNames[n-1]) || 'Coat '+String(n).padStart(2,'0'));
   function coatPicker(breedId, sel, onPick, box){
     const c=S.catalog[breedId];
@@ -839,7 +865,17 @@
     renderMine(); renderBanner();
   }
   $('#addBreed').onchange=()=>{ addCoatNo=[]; refreshAddPicker(); };
+  const addMulti={};
+  const addCount=()=>{ const n=multiItems($('#addBreed'),addMulti).length; $('#addBtn').textContent = n>1?`+ Add ${n}`:'+ Add'; };
+  $('#addBreed').addEventListener('hpmulti',()=>{ multiCoats($('#addBreed'),$('#addMulti'),addMulti); addCount(); });
+  $('#addBreed').addEventListener('hpcount',addCount);
   $('#addForm').onsubmit=e=>{
+    const picks=$('#addBreed')._picks?$('#addBreed')._picks():[];
+    if(!$('#addBreed').value && picks.length){ e.preventDefault(); const t0=Date.now(), prio=Number($('#addPrio').value), note=$('#addNote').value.trim();
+      const its=multiItems($('#addBreed'),addMulti);
+      its.forEach(([b,n],k)=>S.myItems.push({id:uidGen(),breed:b,coat:'',prio,note,got:false,addedAt:new Date().toISOString(),order:-(t0+its.length-k),...(n?{coatNo:n}:{})}));
+      for(const k of Object.keys(addMulti)) delete addMulti[k];
+      $('#addNote').value=''; $('#addBreed')._hpReset(); saveMine(); closeSheet('addSheet'); toast(`Added ${its.length} to your wishlist 💜`); return; }
     if(!$('#addBreed').value){ e.preventDefault(); toast('Pick a horse first'); return; }
     e.preventDefault();
     const breed=$('#addBreed').value; if(!breed) return;
@@ -1012,6 +1048,8 @@
       if(n!==S.me.sc) S.me.scAt=today; S.me.sc=n; saveMe(); renderCoins(); renderMine(); openCoins(); toast('Saved'); };
   }
   let ownCoatNo=[];
+  const ownMulti={};
+  $('#ownBreed').addEventListener('hpmulti',()=>multiCoats($('#ownBreed'),$('#ownMulti'),ownMulti));
   function refreshOwnPicker(){ $('#ownBreed')._hpRender?.(); coatPicker($('#ownBreed').value, ownCoatNo, arr=>{ownCoatNo=arr;}, $('#ownPick')); }
   function renderStable(){
     const sel=$('#ownBreed'); const cur=sel.value;
@@ -1029,7 +1067,11 @@
         <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
   }
   $('#ownBreed').onchange=()=>{ ownCoatNo=[]; refreshOwnPicker(); };
-  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value; if(!breed){ toast('Pick a horse first'); return; }
+  $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value;
+    const opicks=$('#ownBreed')._picks?$('#ownBreed')._picks():[];
+    if(!breed && opicks.length){ const its=multiItems($('#ownBreed'),ownMulti); const doAll=()=>{ its.forEach(([b,n])=>S.me.owned.push({id:uidGen(),breed:b,...(n?{coatNo:n}:{}),addedAt:new Date().toISOString()})); for(const k of Object.keys(ownMulti)) delete ownMulti[k]; $('#ownBreed')._hpReset(); closeSheet('ownSheet'); saveMe(); renderStable(); renderHorses(); renderMine(); toast(`Added ${its.length} to your stable 🏡`); };
+      const dupes=[...new Set(its.filter(([b,n])=>n?ownsCoat(b,n):ownsBreed(b).length).map(([b])=>b))]; if(dupes.length) confirmBox(`You already added ${dupes.map(b=>esc(S.catalog[b]?.name||b)).join(', ')} to your stable. Are you sure you want another?`,doAll); else doAll(); return; }
+    if(!breed){ toast('Pick a horse first'); return; }
     const cc=S.catalog[breed]; const list=ownCoatNo.length?ownCoatNo:[null];
     const dup=list.filter(n=>n?ownsCoat(breed,n):ownsBreed(breed).length);
     const doAdd=()=>{ closeSheet('ownSheet');
