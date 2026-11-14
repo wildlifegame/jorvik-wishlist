@@ -308,10 +308,10 @@
   /* big monitors: scale the whole page up so it fills the screen */
   :root{--z:1}
   body{zoom:var(--z)}
-  @media (min-width:1800px){:root{--z:1.2}}
-  @media (min-width:2200px){:root{--z:1.4}}
-  @media (min-width:2800px){:root{--z:1.7}}
-  @media (min-width:3400px){:root{--z:2}}
+  @media (min-width:1800px){:root{--z:1.08} .wrap{max-width:1640px} .grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}}
+  @media (min-width:2200px){:root{--z:1.2}}
+  @media (min-width:2800px){:root{--z:1.4}}
+  @media (min-width:3400px){:root{--z:1.65}}
 </style>
 </head>
 <body>
