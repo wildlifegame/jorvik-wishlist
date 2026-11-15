@@ -248,7 +248,7 @@
   @media (max-width:560px){ .formprev{flex-direction:column;align-items:flex-start} .formprev .coatbox{width:100%;height:220px} }
   .mprice{display:none}
   .summary[hidden]{display:none}
-  #eHrow[hidden],#eHmagic[hidden]{display:none}
+  #eHrow[hidden],#eHmagic[hidden],#addHairL[hidden]{display:none}
   @media (max-width:560px){
     #mineList,#stableList{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
     #mineList .wish,#stableList .wish{padding:5px 5px 8px;gap:3px;border-radius:14px}
@@ -415,10 +415,13 @@
       </div>
       <div id="addMulti"></div><p class="coathint" id="addHint" hidden>Pick one or more coats (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
       <details class="more">
-        <summary>Add a name idea or a note</summary>
+        <summary>Add a name idea, mane style or a note</summary>
         <div class="row" style="margin-top:10px">
           <label class="f" style="flex:2">Name idea
             <input id="addName" placeholder="e.g. Moonbeam" maxlength="40">
+          </label>
+          <label class="f" style="flex:2" id="addHairL">Mane style
+            <input id="addHair" placeholder="e.g. Button braids" maxlength="60">
           </label>
           <label class="f" style="flex:3">Note
             <input id="addNote" placeholder="e.g. Saving for the Bazaar price" maxlength="140">
@@ -642,7 +645,8 @@
   }
   let addCoatNo=[];
   let autoCoat='';
-  function refreshAddPicker(){ $('#addBreed')._hpRender?.(); coatPicker($('#addBreed').value, addCoatNo, arr=>{ addCoatNo=arr; const c=S.catalog[$('#addBreed').value]; const nm=arr.length===1&&c&&Array.isArray(c.coatNames)?c.coatNames[arr[0]-1]:'';
+  function refreshAddPicker(){ { const m=S.catalog[$('#addBreed').value]?.type==='Magical'; const l=$('#addHairL'); if(l) l.hidden=m; }
+    $('#addBreed')._hpRender?.(); coatPicker($('#addBreed').value, addCoatNo, arr=>{ addCoatNo=arr; const c=S.catalog[$('#addBreed').value]; const nm=arr.length===1&&c&&Array.isArray(c.coatNames)?c.coatNames[arr[0]-1]:'';
     const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; }
     $('#addHint').hidden=!$('#addPick').children.length||hasForms(S.catalog[$('#addBreed').value]); $('#addBtn').textContent = arr.length>1 ? `+ Add ${arr.length}` : '+ Add'; }, $('#addPick')); $('#addHint').hidden=!$('#addPick').children.length||hasForms(S.catalog[$('#addBreed').value]); $('#addBtn').textContent = addCoatNo.length>1 ? `+ Add ${addCoatNo.length}` : '+ Add'; }
   const filePick =Object.assign(document.createElement('input'),{type:'file',accept:'image/*'});
@@ -921,9 +925,9 @@
     const picks=$('#addBreed')._picks?$('#addBreed')._picks():[];
     if(!$('#addBreed').value && picks.length){ e.preventDefault(); const t0=Date.now(), prio=Number($('#addPrio').value), note=$('#addNote').value.trim();
       const its=multiItems($('#addBreed'),addMulti);
-      its.forEach(([b,n],k)=>S.myItems.push({id:uidGen(),breed:b,coat:'',prio,note,got:false,addedAt:new Date().toISOString(),order:-(t0+its.length-k),...(n?{coatNo:n}:{})}));
+      const hair=$('#addHair').value.trim(); its.forEach(([b,n],k)=>S.myItems.push({id:uidGen(),breed:b,coat:'',prio,note,got:false,addedAt:new Date().toISOString(),order:-(t0+its.length-k),...(n?{coatNo:n}:{}),...(hair&&S.catalog[b]?.type!=='Magical'?{hair}:{})}));
       for(const k of Object.keys(addMulti)) delete addMulti[k];
-      $('#addNote').value=''; $('#addBreed')._hpReset(); saveMine(); closeSheet('addSheet'); toast(`Added ${its.length} to your wishlist 💜`); return; }
+      $('#addNote').value=''; $('#addHair').value=''; $('#addBreed')._hpReset(); saveMine(); closeSheet('addSheet'); toast(`Added ${its.length} to your wishlist 💜`); return; }
     if(!$('#addBreed').value){ e.preventDefault(); toast('Pick a horse first'); return; }
     e.preventDefault();
     const breed=$('#addBreed').value; if(!breed) return;
@@ -933,8 +937,8 @@
       return;
     }
     const list=addCoatNo.length?addCoatNo:[null]; const t0=Date.now();
-    list.forEach((n,k)=>S.myItems.push({id:uidGen(),breed,coat:list.length===1?$('#addCoat').value.trim():'',prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-(t0+list.length-k),...(n?{coatNo:n}:{}),...($('#addName').value.trim()&&list.length===1?{plannedName:$('#addName').value.trim()}:{})}));
-    $('#addName').value='';
+    list.forEach((n,k)=>S.myItems.push({id:uidGen(),breed,coat:list.length===1?$('#addCoat').value.trim():'',prio:Number($('#addPrio').value),note:$('#addNote').value.trim(),got:false,addedAt:new Date().toISOString(),order:-(t0+list.length-k),...(n?{coatNo:n}:{}),...($('#addName').value.trim()&&list.length===1?{plannedName:$('#addName').value.trim()}:{}),...($('#addHair').value.trim()&&S.catalog[breed]?.type!=='Magical'?{hair:$('#addHair').value.trim()}:{})}));
+    $('#addName').value=''; $('#addHair').value='';
     $('#addCoat').value=''; $('#addNote').value=''; addCoatNo=[]; $('#addBreed').value=''; refreshAddPicker();
     saveMine(); closeSheet('addSheet'); toast(list.length>1?`Added ${list.length} coats to your wishlist 💜`:'Added to your wishlist 💜');
   };
