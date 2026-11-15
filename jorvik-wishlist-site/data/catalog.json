@@ -488,10 +488,10 @@
    "Bay",
    "Black",
    "Cremello",
-   "Dark Bay Tobiano",
-   "Grey Tovero",
+   "Dark Bay Pinto",
+   "Light Grey Pinto",
    "Buckskin",
-   null,
+   "Chestnut (Star Stable Horses app)",
    "Bay Pinto"
   ],
   "coatWhere": [
@@ -502,8 +502,8 @@
    null,
    null,
    null,
-   null,
-   null,
+   "Equestrian Festival event",
+   "Equestrian Festival event",
    null,
    "Smartphone App",
    "Equestrian Festival event"
@@ -516,8 +516,8 @@
    null,
    null,
    null,
-   null,
-   null,
+   665,
+   665,
    null,
    null,
    665
