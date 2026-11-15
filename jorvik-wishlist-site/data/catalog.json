@@ -232,7 +232,7 @@
   "price": 850,
   "level": 8,
   "location": "Goldenleaf Stables",
-  "coatCount": 14,
+  "coatCount": 15,
   "coatStrip": "img/coats/belgian-warmblood.webp",
   "link": "https://www.starstable.com/horses/breeds/belgian-warmblood",
   "coatNames": [
@@ -249,7 +249,8 @@
    "Liver Chestnut Tobiano",
    "Black Tovero",
    "Light Bay",
-   "H&M All In (Bay)"
+   "H&M All In (Bay)",
+   "H&M Indiana (Copper Bay)"
   ],
   "coatWhere": [
    null,
@@ -265,6 +266,7 @@
    null,
    null,
    null,
+   "H&M collaboration gift",
    "H&M collaboration gift"
   ]
  },
@@ -692,7 +694,7 @@
   "price": 950,
   "level": 7,
   "location": "Jorvik Stables",
-  "coatCount": 9,
+  "coatCount": 10,
   "coatStrip": "img/coats/hanoverian.webp",
   "link": "https://www.starstable.com/horses/breeds/hanoverian",
   "coatNames": [
@@ -704,7 +706,8 @@
    "Black",
    "Light Grey",
    "Palomino",
-   "Dapple Grey"
+   "Dapple Grey",
+   "Black Tobiano (15th Birthday)"
   ],
   "coatWhere": [
    null,
@@ -715,7 +718,8 @@
    null,
    null,
    "Equestrian Festival event",
-   "Equestrian Festival event"
+   "Equestrian Festival event",
+   "Free 15th Birthday gift (in shops Feb 2027, 950 SC)"
   ],
   "coatPrice": [
    null,
@@ -726,7 +730,8 @@
    null,
    null,
    665,
-   665
+   665,
+   null
   ],
   "since": "2025-03-15"
  },
