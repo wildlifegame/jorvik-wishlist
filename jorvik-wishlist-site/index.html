@@ -58,6 +58,9 @@
   nav.tabs{display:flex;justify-content:center;gap:4px;margin:22px 0 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
   nav.tabs button{border:0;background:none;padding:10px 16px 12px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-size:16px}
   nav.tabs button:hover{color:var(--ink)}
+  nav.tabs .ts{display:none}
+  @media (max-width:560px){ nav.tabs .tl{display:none} nav.tabs .ts{display:inline} nav.tabs{justify-content:space-between!important;gap:0} nav.tabs button{padding:10px 6px 12px!important;font-size:15px} }
+  @media (max-width:360px){ nav.tabs button{padding:10px 4px 12px!important;font-size:13.5px} }
   nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--rose)}
   .panel{display:none}.panel.on{display:block}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
@@ -367,6 +370,8 @@
   .evitem small{font-weight:500;color:var(--muted);font-size:11px}
   .evpic{width:100%;height:86px;border-radius:10px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3));margin-bottom:4px}
   @media (max-width:560px){ .evgrid{grid-template-columns:repeat(3,minmax(0,1fr))} .evpic{height:70px} }
+  .ptotal{text-align:center;font-size:14.5px;color:var(--muted);margin:-4px 0 12px}
+  .ptotal b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -380,11 +385,11 @@
   <div id="status"></div>
 
   <nav class="tabs" role="tablist">
-    <button role="tab" data-tab="mine" aria-selected="true">My wishlist</button>
-    <button role="tab" data-tab="stable" aria-selected="false">My stable</button>
-    <button role="tab" data-tab="horses" aria-selected="false">Horse guide</button>
+    <button role="tab" data-tab="mine" aria-selected="true"><span class="tl">My wishlist</span><span class="ts">Wishlist</span></button>
+    <button role="tab" data-tab="stable" aria-selected="false"><span class="tl">My stable</span><span class="ts">Stable</span></button>
+    <button role="tab" data-tab="horses" aria-selected="false"><span class="tl">Horse guide</span><span class="ts">Horses</span></button>
     <button role="tab" data-tab="events" aria-selected="false">Events</button>
-    <button role="tab" data-tab="bazaar" aria-selected="false">Bazaar history</button>
+    <button role="tab" data-tab="bazaar" aria-selected="false"><span class="tl">Bazaar history</span><span class="ts">Bazaars</span></button>
   </nav>
 
   <!-- MY WISHLIST -->
@@ -427,6 +432,7 @@
     <div class="summary" id="summary" hidden></div>
     <div class="toolbar listbar">
       <div class="ptabs" id="ptabs" role="tablist" aria-label="Show wishes by priority"></div>
+      <div class="ptotal" id="ptotal" hidden></div>
       <select id="mineSort" aria-label="Sort">
         <option value="mine">My order</option>
         <option value="prio">Priority</option>
@@ -739,6 +745,11 @@
     if(prioTab==='got'&&!cnt('got')) prioTab='all';
     $('#ptabs').innerHTML=tabs.map(([p,l])=>`<button type="button" role="tab" data-ptab="${p}" aria-selected="${String(prioTab)===String(p)}">${l}<span class="ct">${cnt(p)}</span></button>`).join('');
     items = prioTab==='got' ? items.filter(i=>i.got) : items.filter(i=>!i.got&&(prioTab==='all'||i.prio===prioTab));
+    { const el=$('#ptotal'); if(prioTab==='got'||!items.length){ el.hidden=true; } else {
+        const tot=items.reduce((t,i)=>t+(wishPrice(i)||0),0); const unk=items.filter(i=>!wishPrice(i)).length;
+        const lbl=prioTab==='all'?'Whole wishlist':({1:'💖 Dream horses',2:'⭐ Really want',3:'🤔 Maybe'})[prioTab];
+        const have=S.me.sc; const need=have==null?null:Math.max(0,tot-have);
+        el.hidden=false; el.innerHTML=`${lbl} (${items.length}): <b>${tot.toLocaleString()} SC</b>${unk?` <span class="lvl">(+${unk} with no price)</span>`:''}${need==null?'':need?` · you need <b>${need.toLocaleString()} SC</b> more`:' · you can afford all of them! 🎉'}`; } }
     const sort=$('#mineSort').value;
     const ord=wishOrd;
     const price=i=>S.catalog[i.breed]?.price ?? 1e9;
