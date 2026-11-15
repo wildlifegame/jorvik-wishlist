@@ -248,6 +248,7 @@
   @media (max-width:560px){ .formprev{flex-direction:column;align-items:flex-start} .formprev .coatbox{width:100%;height:220px} }
   .mprice{display:none}
   .summary[hidden]{display:none}
+  #eHrow[hidden],#eHmagic[hidden]{display:none}
   @media (max-width:560px){
     #mineList,#stableList{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
     #mineList .wish,#stableList .wish{padding:5px 5px 8px;gap:3px;border-radius:14px}
@@ -795,6 +796,7 @@
           <dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd>
           <dt>Buy at</dt><dd>${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
           ${(()=>{ const ev=eventFor(c,i.coatNo); if(!ev) return ''; const w=eventWindow(ev); return `<dt>Event</dt><dd>${ev.emoji} ${esc(ev.name)}${w?` <span class="lvl">(${w.start<=today&&w.end>=today?'on now!':(w.confirmed?'':'usually ')+monthDay(w.start)})</span>`:''}</dd>`; })()}
+          ${c.type==='Magical'?`<dt>Mane</dt><dd><span class="unk">Magical horses usually can't have their mane style changed</span></dd>`:i.hair?`<dt>Mane</dt><dd>${esc(i.hair)}</dd>`:''}
           <dt>Bazaar</dt>${coatWhere(c,i.coatNo)?`<dd><span class="unk">Bazaars usually don't include special coats like this one</span></dd>`:''}<dd${coatWhere(c,i.coatNo)?' hidden':''}${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
@@ -822,8 +824,8 @@
     return JSON.parse(new TextDecoder().decode(bytes));
   }
   // compact form: [breed, coatNo, prio, coat, plannedName, note, got]
-  const toShare = (items,name) => ({v:1,n:name||'',i:items.map(i=>[i.breed,i.coatNo||0,i.prio,i.coat||'',i.plannedName||'',i.note||'',i.got?1:0])});
-  const fromShare = d => ({name:String(d.n||'').slice(0,40), items:(d.i||[]).slice(0,300).map((x,k)=>({id:'s'+k,breed:String(x[0]),coatNo:Number(x[1])||undefined,prio:[1,2,3].includes(x[2])?x[2]:2,coat:String(x[3]||'').slice(0,80),plannedName:String(x[4]||'').slice(0,40),note:String(x[5]||'').slice(0,140),got:!!x[6]}))});
+  const toShare = (items,name) => ({v:1,n:name||'',i:items.map(i=>[i.breed,i.coatNo||0,i.prio,i.coat||'',i.plannedName||'',i.note||'',i.got?1:0,i.hair||''])});
+  const fromShare = d => ({name:String(d.n||'').slice(0,40), items:(d.i||[]).slice(0,300).map((x,k)=>({id:'s'+k,breed:String(x[0]),coatNo:Number(x[1])||undefined,prio:[1,2,3].includes(x[2])?x[2]:2,coat:String(x[3]||'').slice(0,80),plannedName:String(x[4]||'').slice(0,40),note:String(x[5]||'').slice(0,140),got:!!x[6],...(x[7]?{hair:String(x[7]).slice(0,60)}:{})}))});
   const pageBase = () => location.href.split('#')[0];
   async function shareLink(name){ return pageBase()+'#w='+await pack(toShare([...S.myItems].sort((a,b)=>wishOrd(a)-wishOrd(b)),name)); }
   function listText(items){
@@ -1240,15 +1242,18 @@
       <div class="coatpick" id="ePick"></div>
       <div class="row"><label class="f">Priority<select id="eP"><option value="1">💖 Dream horse</option><option value="2">⭐ Really want</option><option value="3">🤔 Maybe</option></select></label></div>
       <div class="row"><label class="f">Name idea<input id="eNm" value="${esc(i.plannedName||'')}" maxlength="40" placeholder="e.g. Moonbeam"></label></div>
+      <div class="row" id="eHrow"><label class="f">Mane style<input id="eH" value="${esc(i.hair||'')}" maxlength="60" placeholder="e.g. Button braids"></label></div>
+      <p class="muted" id="eHmagic" style="margin:-4px 0 8px;font-size:13.5px">✨ Magical horses usually can't have their mane style changed.</p>
       <div class="row"><label class="f">Note<input id="eN" value="${esc(i.note)}" maxlength="140"></label></div>
       ${i.img?`<div class="row" style="align-items:center"><img class="thumb" src="${esc(imgUrl(i.img))}" alt=""><label style="display:flex;gap:6px;align-items:center;font-weight:700"><input type="checkbox" id="eX"> Remove my picture</label></div>`:''}
       <div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">Save</button></div>`);
     $('#eP').value=String(i.prio);
     let eNo=i.coatNo||null;
     const drawE=()=>coatPicker($('#eB').value, eNo, n=>{eNo=n;}, $('#ePick'));
-    $('#eB').onchange=()=>{ eNo=null; drawE(); }; drawE();
+    const hairVis=()=>{ const m=S.catalog[$('#eB').value]?.type==='Magical'; $('#eHrow').hidden=m; $('#eHmagic').hidden=!m; };
+    $('#eB').onchange=()=>{ eNo=null; drawE(); hairVis(); }; drawE(); hairVis();
     $('#mNo').onclick=closeModal;
-    $('#mYes').onclick=()=>{ i.breed=$('#eB').value; if(eNo) i.coatNo=eNo; else delete i.coatNo; i.coat=$('#eC').value.trim(); i.prio=Number($('#eP').value); i.note=$('#eN').value.trim(); { const nm=$('#eNm').value.trim(); if(nm) i.plannedName=nm; else delete i.plannedName; } if($('#eX')?.checked) delete i.img; closeModal(); saveMine(); };
+    $('#mYes').onclick=()=>{ i.breed=$('#eB').value; if(eNo) i.coatNo=eNo; else delete i.coatNo; i.coat=$('#eC').value.trim(); i.prio=Number($('#eP').value); i.note=$('#eN').value.trim(); { const h=$('#eH').value.trim(); if(h&&S.catalog[i.breed]?.type!=='Magical') i.hair=h; else delete i.hair; } { const nm=$('#eNm').value.trim(); if(nm) i.plannedName=nm; else delete i.plannedName; } if($('#eX')?.checked) delete i.img; closeModal(); saveMine(); };
   }
 
   function editHorse(id){

@@ -582,7 +582,7 @@
  },
  "fjord": {
   "name": "Norwegian Fjord Horse",
-  "type": "Horse",
+  "type": "Pony",
   "price": 900,
   "level": 6,
   "location": "Valedale",
@@ -671,7 +671,7 @@
  },
  "haflinger": {
   "name": "Haflinger",
-  "type": "Horse",
+  "type": "Pony",
   "price": 900,
   "level": 11,
   "location": "Fort Pinta",
