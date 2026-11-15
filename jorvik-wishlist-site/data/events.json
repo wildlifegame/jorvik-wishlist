@@ -1,0 +1,91 @@
+[
+ {
+  "id": "equestrian-festival",
+  "name": "Equestrian Festival",
+  "emoji": "🏆",
+  "usual": [
+   "04-15",
+   "05-20"
+  ],
+  "where": "Moorland & Jorvik Stables",
+  "match": [
+   "Equestrian Festival event"
+  ],
+  "about": "Spring show season. Sells special festival coats of warmbloods and sport horses (usually 665 SC) and a magical horse."
+ },
+ {
+  "id": "summer-daze",
+  "name": "Summer Daze",
+  "emoji": "☀️",
+  "usual": [
+   "06-14",
+   "07-15"
+  ],
+  "where": "Moorland",
+  "match": [
+   "Summer Daze event"
+  ],
+  "about": "Summer festival where the summer magical horses come back."
+ },
+ {
+  "id": "camp-western",
+  "name": "Camp Western",
+  "emoji": "🤠",
+  "usual": [
+   "07-29",
+   "08-26"
+  ],
+  "where": "Starshine Ranch",
+  "match": [
+   "Camp Western event"
+  ],
+  "about": "Western-themed event with special Mustang, Saddlebred and Mule coats."
+ },
+ {
+  "id": "birthday",
+  "name": "Star Stable Birthday",
+  "emoji": "🎂",
+  "usual": [
+   "08-26",
+   "09-23"
+  ],
+  "where": "Moorland",
+  "match": [
+   "Birthday",
+   "Special event"
+  ],
+  "about": "Anniversary celebration, sometimes with a free gift horse."
+ },
+ {
+  "id": "halloween",
+  "name": "Halloween",
+  "emoji": "🎃",
+  "usual": [
+   "10-14",
+   "11-04"
+  ],
+  "where": "Moorland & Galloper's Keep",
+  "match": [
+   "Halloween event"
+  ],
+  "about": "Spooky season. All the Halloween magical horses come back."
+ },
+ {
+  "id": "winter-village",
+  "name": "Winter Village",
+  "emoji": "❄️",
+  "usual": [
+   "12-03",
+   "01-07"
+  ],
+  "where": "Winter Village (take any sleigh)",
+  "match": [
+   "Winter Village event"
+  ],
+  "about": "Winter festival. Previous years' winter magical horses come back, plus special winter coats.",
+  "extra": [
+   "sp-snowdancer",
+   "sp-shadowshield"
+  ]
+ }
+]

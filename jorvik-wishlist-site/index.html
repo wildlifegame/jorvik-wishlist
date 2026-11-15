@@ -350,6 +350,21 @@
   .mrow .coatpick{margin-top:4px}
   .mrow .coatpick button{width:104px}
   .mrow .coatpick button .coatbox{height:84px}
+  .evintro{color:var(--muted);margin:0 0 14px}
+  .ev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:14px}
+  .ev.now{border-color:var(--gold);box-shadow:0 0 0 2px #e3ac3a33}
+  .evhead{display:flex;gap:12px;align-items:center}
+  .evemoji{font-size:30px}
+  .evhead h3{margin:0;font-size:20px}
+  .evdate{font-size:14px;color:var(--muted);margin-top:2px}
+  .evabout{margin:8px 0 6px;font-size:14px}
+  .evsub{margin:10px 0 0;font-size:13px;color:var(--muted);font-weight:700}
+  .evmine{margin:6px 0;font-weight:700;color:var(--rose);font-size:14px}
+  .evgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:8px}
+  .evitem{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:12.5px;font-weight:700;line-height:1.2}
+  .evitem small{font-weight:500;color:var(--muted);font-size:11px}
+  .evpic{width:100%;height:86px;border-radius:10px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3));margin-bottom:4px}
+  @media (max-width:560px){ .evgrid{grid-template-columns:repeat(3,minmax(0,1fr))} .evpic{height:70px} }
 </style>
 </head>
 <body>
@@ -366,6 +381,7 @@
     <button role="tab" data-tab="mine" aria-selected="true">My wishlist</button>
     <button role="tab" data-tab="stable" aria-selected="false">My stable</button>
     <button role="tab" data-tab="horses" aria-selected="false">Horse guide</button>
+    <button role="tab" data-tab="events" aria-selected="false">Events</button>
     <button role="tab" data-tab="bazaar" aria-selected="false">Bazaar history</button>
   </nav>
 
@@ -439,6 +455,11 @@
       <button class="btn ghost" id="addBazaarBtn">+ Log a Bazaar</button>
     </div>
     <div id="bzList"></div>
+  </section>
+
+  <section class="panel" id="p-events">
+    <p class="evintro">Seasonal events and the horses and coats sold at them in past years. Dates are estimates until Star Stable announces them, and the horse lists aren't official: most come back each year, but Star Stable can change things and new horses get added when they're announced.</p>
+    <div id="evList"></div>
   </section>
 
   <!-- SHARED WISHLIST (opened from a link) -->
@@ -627,12 +648,13 @@
   function showTab(name){
     document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===name));
     document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+name));
+    if(name==='events') renderEvents();
     if(location.hash.slice(1)!==name) history.replaceState(null,'',pageBase()+'#'+name);
   }
   document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
   const startHash = location.hash.slice(1);
   const SHARE_RE=/^w=([zj][A-Za-z0-9_-]+)$/;
-  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','bazaar'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
+  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','bazaar','events'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
   route(startHash);
   addEventListener('hashchange',()=>route(location.hash.slice(1)));
 
@@ -749,7 +771,8 @@
         <dl class="facts">
           <dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd>
           <dt>Buy at</dt><dd>${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
-          <dt>Bazaar</dt><dd${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
+          ${(()=>{ const ev=eventFor(c,i.coatNo); if(!ev) return ''; const w=eventWindow(ev); return `<dt>Event</dt><dd>${ev.emoji} ${esc(ev.name)}${w?` <span class="lvl">(${w.start<=today&&w.end>=today?'on now!':(w.confirmed?'':'usually ')+monthDay(w.start)})</span>`:''}</dd>`; })()}
+          <dt>Bazaar</dt>${coatWhere(c,i.coatNo)?`<dd><span class="unk">Bazaars usually don't include special coats like this one</span></dd>`:''}<dd${coatWhere(c,i.coatNo)?' hidden':''}${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
         <div class="actions">
@@ -1082,7 +1105,49 @@
   $('#stableList').onclick=e=>{ const b=e.target.closest('[data-own-del]'); if(!b) return; const o=S.me.owned.find(x=>x.id===b.dataset.ownDel); if(!o) return;
     confirmBox(`Remove ${esc(o.name||S.catalog[o.breed]?.name||'this horse')} from your stable?`,()=>{ S.me.owned=S.me.owned.filter(x=>x!==o); saveMe(); renderStable(); renderHorses(); renderMine(); }); };
 
-  function renderAll(){ fillBreedSelect(); refreshAddPicker(); renderBanner(); renderCoins(); renderMine(); renderStable(); refreshOwnPicker(); renderHorses(); renderBazaars(); renderShared(); if(viewing) $('#banner').hidden=true; }
+  // ---------- events ----------
+  function eventWindow(e){
+    // next (or current) occurrence; confirmed dates win over the usual window
+    if(e.start && e.end && e.end>=today) return {start:e.start,end:e.end,confirmed:true};
+    const y=Number(today.slice(0,4));
+    for(const yy of [y-1,y,y+1]){
+      const st=`${yy}-${e.usual[0]}`; const en=`${e.usual[1]<e.usual[0]?yy+1:yy}-${e.usual[1]}`;
+      if(en>=today) return {start:st,end:en,confirmed:false};
+    }
+  }
+  function eventFor(c,n){
+    const w=(coatWhere(c,n)||'')+'|'+(c?.type==='Magical'?(c.location||''):'');
+    return (S.events||[]).find(e=>e.match.some(m=>w.includes(m)) || (c?.type==='Magical' && (e.extra||[]).includes(Object.keys(S.catalog).find(k=>S.catalog[k]===c))));
+  }
+  function eventItems(e){
+    const out=[];
+    for(const [id,c] of Object.entries(S.catalog)){
+      if(c.type==='Magical' && (e.match.some(m=>(c.location||'').includes(m)) || (e.extra||[]).includes(id))) out.push({id,c,n:1,magic:true});
+      (c.coatWhere||[]).forEach((w,i)=>{ if(w && e.match.some(m=>w.includes(m))) out.push({id,c,n:i+1}); });
+    }
+    return out;
+  }
+  const monthDay = d => new Date(d+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});
+  function renderEvents(){
+    const el=$('#evList'); if(!el) return;
+    if(!S.events){ el.innerHTML='<div class="empty">Loading…</div>'; return; }
+    const evs=S.events.map(e=>({e,w:eventWindow(e)})).filter(x=>x.w).sort((a,b)=>a.w.start<b.w.start?-1:1);
+    const wished=new Set(S.myItems.filter(i=>!i.got).map(i=>i.breed+'#'+(i.coatNo||'')));
+    el.innerHTML=evs.map(({e,w})=>{
+      const now=w.start<=today&&w.end>=today;
+      const days=Math.round((new Date(w.start)-new Date(today))/864e5);
+      const items=eventItems(e);
+      const mine=items.filter(it=>wished.has(it.id+'#'+it.n)||wished.has(it.id+'#'));
+      return `<div class="ev ${now?'now':''}">
+        <div class="evhead"><span class="evemoji">${e.emoji}</span><div><h3>${esc(e.name)}</h3>
+          <div class="evdate">${now?'<span class="tag now">On now</span>':`<span class="tag soon">${days<=1?'Starting soon':days<45?`In ${days} days`:`In about ${Math.round(days/30)} months`}</span>`} ${w.confirmed?'':'Usually '}${monthDay(w.start)} – ${monthDay(w.end)}${w.confirmed?'':' (estimate)'} · ${esc(e.where)}</div></div></div>
+        <p class="evabout">${esc(e.about)}</p>
+        ${mine.length?`<p class="evmine">💖 ${mine.length} on your wishlist might come back: ${mine.map(it=>esc(it.c.name)+(it.magic?'':' '+esc(coatLabel(it.n,it.c)))).join(', ')}</p>`:''}
+        ${items.length?`<p class="evsub">${items.some(it=>it.magic)?'Sold at past events (magical horses usually all come back):':'Sold at past events (these have come back before, but it isn\'t guaranteed):'}</p><div class="evgrid">${items.map(it=>`<div class="evitem" title="${esc(it.c.name)}${it.magic?'':' – '+esc(coatLabel(it.n,it.c))}">${coatHtml(it.c,it.n,'evpic h')}<span>${esc(it.c.name)}${it.magic?' ✨':''}</span>${it.magic?'':`<small>${esc(coatLabel(it.n,it.c))}</small>`}</div>`).join('')}</div>`:'<p class="muted">No horses from this event on the site yet.</p>'}
+      </div>`;
+    }).join('');
+  }
+  function renderAll(){ renderEvents(); fillBreedSelect(); refreshAddPicker(); renderBanner(); renderCoins(); renderMine(); renderStable(); refreshOwnPicker(); renderHorses(); renderBazaars(); renderShared(); if(viewing) $('#banner').hidden=true; }
 
   // ---------- modals ----------
   const ov=$('#ov'), modal=$('#modal');
@@ -1216,7 +1281,8 @@
   renderAll();
   (async()=>{
     try{
-      const [cat,baz]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json())]);
+      const [cat,baz,ev]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/events.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[])]);
+      S.events=ev;
       S.catalog=cat; S.bazaars=baz.map(b=>({id:b.start,...b})); S.loaded.catalog=true; S.loaded.bazaars=true;
       renderAll();
     }catch(e){ status('Couldn\'t load the horse list. Check your connection and refresh the page.', true); }
