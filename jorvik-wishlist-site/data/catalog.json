@@ -25,7 +25,7 @@
   "price": 850,
   "level": 7,
   "location": "Starshine Ranch",
-  "coatCount": 11,
+  "coatCount": 12,
   "coatStrip": "img/coats/american-paint-horse.webp",
   "link": "https://www.starstable.com/horses/breeds/american-paint",
   "coatNames": [
@@ -39,7 +39,8 @@
    "Bay Tobiano",
    "Black Overo",
    "Chestnut Medicine Hat",
-   "Palomino Tobiano"
+   "Palomino Tobiano",
+   "Chestnut Dun Sabino"
   ]
  },
  "american-quarter-horse": {
@@ -71,7 +72,7 @@
   "price": 900,
   "level": 8,
   "location": "Starshine Ranch",
-  "coatCount": 11,
+  "coatCount": 12,
   "coatStrip": "img/coats/american-saddlebred.webp",
   "link": "https://www.starstable.com/horses/breeds/american-saddlebred",
   "coatNames": [
@@ -85,7 +86,22 @@
    "Chestnut",
    "Bay",
    "Amber/Classic Champagne Mosaic",
-   "Sooty Liver Chestnut"
+   "Sooty Liver Chestnut",
+   null
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App"
   ],
   "since": "2024-05-18"
  },
@@ -143,7 +159,7 @@
   "price": 950,
   "level": 7,
   "location": "Goldspur Farm",
-  "coatCount": 10,
+  "coatCount": 11,
   "coatStrip": "img/coats/arabian.webp",
   "link": "https://www.starstable.com/horses/breeds/arabian",
   "coatNames": [
@@ -156,7 +172,21 @@
    "Flaxen Chestnut Rabicano",
    "Fleabitten Grey",
    "Black Rabicano Sabino",
-   "Chestnut"
+   "Chestnut",
+   "Bloody Shoulder Grey"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Special event"
   ]
  },
  "ardennes": {
@@ -165,7 +195,7 @@
   "price": 900,
   "level": 5,
   "location": "Valedale",
-  "coatCount": 10,
+  "coatCount": 11,
   "coatStrip": "img/coats/ardennes.webp",
   "link": "https://www.starstable.com/horses/breeds/ardennes",
   "coatNames": [
@@ -178,7 +208,21 @@
    "Dapple Grey",
    "Strawberry Roan",
    "Black",
-   "Light Grey"
+   "Light Grey",
+   null
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App"
   ],
   "since": "2024-01-13"
  },
@@ -188,7 +232,7 @@
   "price": 850,
   "level": 8,
   "location": "Goldenleaf Stables",
-  "coatCount": 13,
+  "coatCount": 14,
   "coatStrip": "img/coats/belgian-warmblood.webp",
   "link": "https://www.starstable.com/horses/breeds/belgian-warmblood",
   "coatNames": [
@@ -204,7 +248,24 @@
    "Palomino",
    "Liver Chestnut Tobiano",
    "Black Tovero",
-   "Light Bay"
+   "Light Bay",
+   "H&M All In (Bay)"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "H&M collaboration gift"
   ]
  },
  "black-forest-horse": {
@@ -370,7 +431,7 @@
   "price": 850,
   "level": 9,
   "location": "Steve's Farm",
-  "coatCount": 7,
+  "coatCount": 8,
   "coatStrip": "img/coats/dartmoor.webp",
   "link": "https://www.starstable.com/horses/breeds/dartmoor-pony",
   "coatNames": [
@@ -380,7 +441,18 @@
    "Black",
    "Bay",
    "Light Grey",
-   "Bay Pangare"
+   "Bay Pangare",
+   null
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App"
   ]
  },
  "dorcha": {
@@ -403,7 +475,7 @@
   "price": 950,
   "level": 7,
   "location": "Silverglade Manor",
-  "coatCount": 10,
+  "coatCount": 12,
   "coatStrip": "img/coats/dutch-warmblood.webp",
   "link": "https://www.starstable.com/horses/breeds/dutch-warmblood",
   "coatNames": [
@@ -416,7 +488,37 @@
    "Cremello",
    "Dark Bay Tobiano",
    "Grey Tovero",
-   "Buckskin"
+   "Buckskin",
+   null,
+   "Bay Pinto"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App",
+   "Equestrian Festival event"
+  ],
+  "coatPrice": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   665
   ]
  },
  "english-thoroughbred": {
@@ -541,7 +643,7 @@
   "price": 750,
   "level": 7,
   "location": "South Hoof Farm",
-  "coatCount": 7,
+  "coatCount": 8,
   "coatStrip": "img/coats/gotland-pony.webp",
   "link": "https://www.starstable.com/horses/breeds/gotland-pony",
   "coatNames": [
@@ -551,7 +653,18 @@
    "Black",
    "Buckskin",
    "Splashed White Black",
-   "Splashed White Chestnut"
+   "Splashed White Chestnut",
+   "Bay Pangaré Splashed White"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Medieval Camp"
   ]
  },
  "haflinger": {
@@ -579,7 +692,7 @@
   "price": 950,
   "level": 7,
   "location": "Jorvik Stables",
-  "coatCount": 7,
+  "coatCount": 9,
   "coatStrip": "img/coats/hanoverian.webp",
   "link": "https://www.starstable.com/horses/breeds/hanoverian",
   "coatNames": [
@@ -589,7 +702,31 @@
    "Chestnut",
    "Liver Chestnut",
    "Black",
-   "Light Grey"
+   "Light Grey",
+   "Palomino",
+   "Dapple Grey"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Equestrian Festival event",
+   "Equestrian Festival event"
+  ],
+  "coatPrice": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   665,
+   665
   ],
   "since": "2025-03-15"
  },
@@ -901,7 +1038,7 @@
   "price": 850,
   "level": 9,
   "location": "Firgrove",
-  "coatCount": 7,
+  "coatCount": 9,
   "coatStrip": "img/coats/morgan.webp",
   "link": "https://www.starstable.com/horses/breeds/morgan",
   "coatNames": [
@@ -911,7 +1048,20 @@
    "Flaxen Liver Chestnut",
    "Smokey Cream",
    "Silver Black",
-   "Black Rabicano"
+   "Black Rabicano",
+   "Silver Bay",
+   null
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App"
   ]
  },
  "mule": {
@@ -920,7 +1070,7 @@
   "price": 850,
   "level": 7,
   "location": "Steve's Farm",
-  "coatCount": 8,
+  "coatCount": 10,
   "coatStrip": "img/coats/mule.webp",
   "link": "https://www.starstable.com/horses/breeds/mule",
   "coatNames": [
@@ -931,7 +1081,33 @@
    "Flaxen Chestnut Pangare",
    "Dapple Grey",
    "Grullo",
-   "Dunskin Pangaré"
+   "Dunskin Pangaré",
+   "False Dunskin Pinto",
+   "Chestnut Varnish Roan"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Camp Western event",
+   "Camp Western event"
+  ],
+  "coatPrice": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   725,
+   725
   ],
   "since": "2025-05-23"
  },
@@ -993,7 +1169,7 @@
   "price": 900,
   "level": 6,
   "location": "Silverglade Manor",
-  "coatCount": 8,
+  "coatCount": 10,
   "coatStrip": "img/coats/noriker.webp",
   "link": "https://www.starstable.com/horses/breeds/noriker",
   "coatNames": [
@@ -1004,7 +1180,9 @@
    "Black",
    "Bay",
    "Flaxen Liver Chestnut",
-   "Black Varnish Roan Blanket"
+   "Black Varnish Roan Blanket",
+   "Bay Pangaré Pinto",
+   "Light Dapple Grey"
   ],
   "since": "2024-11-13"
  },
@@ -1034,7 +1212,7 @@
   "price": 950,
   "level": 9,
   "location": "Steve's Farm",
-  "coatCount": 7,
+  "coatCount": 9,
   "coatStrip": "img/coats/paso-fino.webp",
   "link": "https://www.starstable.com/horses/breeds/paso-fino",
   "coatNames": [
@@ -1044,7 +1222,20 @@
    "Bay Dun",
    "Flaxen Chestnut",
    "Black Pinto",
-   "Black"
+   "Black",
+   "Liver Chestnut Sabino",
+   "Seal Brown Reverse Dapple"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App",
+   null
   ]
  },
  "percheron": {
@@ -1141,7 +1332,7 @@
   "price": 900,
   "level": 8,
   "location": "Steve's Farm",
-  "coatCount": 7,
+  "coatCount": 10,
   "coatStrip": "img/coats/shire.webp",
   "link": "https://www.starstable.com/horses/breeds/shire",
   "coatNames": [
@@ -1151,7 +1342,22 @@
    "Light Chestnut",
    "Dark Bay Sabino",
    "Seal Bay",
-   "Light Bay"
+   "Light Bay",
+   "Dapple Grey",
+   "Chestnut Draft-Type Sabino",
+   "Buckskin"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Winter Village event",
+   "Medieval Camp",
+   "Medieval Camp"
   ]
  },
  "swedish-warmblood": {
@@ -1182,7 +1388,7 @@
   "price": 950,
   "level": 11,
   "location": "Starshine Ranch",
-  "coatCount": 7,
+  "coatCount": 10,
   "coatStrip": "img/coats/tennessee-walker.webp",
   "link": "https://www.starstable.com/horses/breeds/tennessee-walker",
   "coatNames": [
@@ -1192,7 +1398,22 @@
    "Black Overo",
    "Black",
    "Amber Champagne",
-   "Dapple Grey"
+   "Dapple Grey",
+   null,
+   null,
+   "Bay"
+  ],
+  "coatWhere": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   "Smartphone App",
+   null,
+   null
   ]
  },
  "trakehner": {
@@ -1220,7 +1441,7 @@
   "price": 800,
   "level": 7,
   "location": "South Hoof",
-  "coatCount": 7,
+  "coatCount": 10,
   "coatStrip": "img/coats/welsh-pony.webp",
   "link": "https://www.starstable.com/horses/breeds/welsh-pony",
   "coatNames": [
@@ -1230,7 +1451,10 @@
    "Black",
    "Liver Chestnut",
    "Bay Roan",
-   "Dapple Grey"
+   "Dapple Grey",
+   "Buckskin",
+   "Bay",
+   "Cremello"
   ]
  },
  "westphalian": {
@@ -1268,204 +1492,6 @@
    "Vega"
   ]
  },
- "jorvegian-fjord": {
-  "name": "Jorvegian Fjord Horse",
-  "type": "Horse",
-  "price": 850,
-  "level": 6,
-  "location": "Valedale",
-  "coatCount": 8,
-  "coatStrip": "img/coats/jorvegian-fjord.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "jorvegian-quarter-horse": {
-  "name": "Jorvegian Quarter Horse",
-  "type": "Horse",
-  "price": 665,
-  "level": 1,
-  "location": "Marley's Vintage Barn",
-  "coatCount": 11,
-  "coatStrip": "img/coats/jorvegian-quarter-horse.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "jorvik-connemara": {
-  "name": "Jorvik Connemara",
-  "type": "Pony",
-  "price": 570,
-  "level": 12,
-  "location": "Marley's Vintage Barn",
-  "coatCount": 7,
-  "coatStrip": "img/coats/jorvik-connemara.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "jorvik-starter-pony": {
-  "name": "Jorvik Starter Pony",
-  "type": "Pony",
-  "price": 350,
-  "level": 1,
-  "location": "Fort Pinta",
-  "coatCount": 7,
-  "coatStrip": "img/coats/jorvik-starter-pony.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "galaxy": {
-  "name": "Galaxy",
-  "type": "Horse",
-  "price": 900,
-  "level": 1,
-  "location": "Fort Pinta",
-  "coatCount": 1,
-  "coatStrip": "img/coats/galaxy.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "soul-steed": {
-  "name": "Soul Steed",
-  "type": "Horse",
-  "price": 600,
-  "level": 1,
-  "location": "Fort Pinta",
-  "coatCount": 1,
-  "coatStrip": "img/coats/soul-steed.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-solas": {
-  "name": "Solas",
-  "type": "Magical",
-  "price": 850,
-  "level": 1,
-  "location": "Gary Goldtooth",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-solas.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-fendwurm": {
-  "name": "Fendwurm",
-  "type": "Magical",
-  "price": 950,
-  "level": 9,
-  "location": "Marchenghast",
-  "coatCount": 3,
-  "coatStrip": "img/coats/sp-fendwurm.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-nottsoren": {
-  "name": "Nottsoren",
-  "type": "Magical",
-  "price": 900,
-  "level": 1,
-  "location": "The Veiled Hamlet",
-  "coatCount": 2,
-  "coatStrip": "img/coats/sp-nottsoren.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-serenus": {
-  "name": "Serenus",
-  "type": "Magical",
-  "price": 699,
-  "level": 1,
-  "location": "Summer Daze event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-serenus.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-bronte": {
-  "name": "Bronte",
-  "type": "Magical",
-  "price": 699,
-  "level": 1,
-  "location": "Summer Daze event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-bronte.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-fawncy": {
-  "name": "Fawncy",
-  "type": "Magical",
-  "price": 429,
-  "level": 1,
-  "location": "Winter Village event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-fawncy.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-mani": {
-  "name": "Máni",
-  "type": "Magical",
-  "price": 950,
-  "level": 1,
-  "location": "Winter Village event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-mani.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-sol": {
-  "name": "Sól",
-  "type": "Magical",
-  "price": 950,
-  "level": 1,
-  "location": "Winter Village event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-sol.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-songsorrow": {
-  "name": "Songsorrow",
-  "type": "Magical",
-  "price": 519,
-  "level": 1,
-  "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-songsorrow.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-duskgrim": {
-  "name": "Duskgrim",
-  "type": "Magical",
-  "price": 519,
-  "level": 1,
-  "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-duskgrim.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-bolt": {
-  "name": "Bolt",
-  "type": "Magical",
-  "price": 699,
-  "level": 1,
-  "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-bolt.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
- "sp-calliope": {
-  "name": "Calliope",
-  "type": "Magical",
-  "price": 699,
-  "level": 1,
-  "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-calliope.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
  "sp-lycan": {
   "name": "Lycan",
   "type": "Magical",
@@ -1485,6 +1511,17 @@
   "location": "Halloween event",
   "coatCount": 1,
   "coatStrip": "img/coats/sp-pharao.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-nottsoren": {
+  "name": "Nottsoren",
+  "type": "Magical",
+  "price": 900,
+  "level": 1,
+  "location": "The Veiled Hamlet",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-nottsoren.webp",
   "coatSource": "ssodb",
   "status": "available"
  },
@@ -1521,6 +1558,39 @@
   "coatSource": "ssodb",
   "status": "available"
  },
+ "sp-fendwurm": {
+  "name": "Fendwurm",
+  "type": "Magical",
+  "price": 950,
+  "level": 9,
+  "location": "Marchenghast",
+  "coatCount": 3,
+  "coatStrip": "img/coats/sp-fendwurm.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-mani": {
+  "name": "Máni",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-mani.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-sol": {
+  "name": "Sól",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-sol.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
  "sp-galvatair": {
   "name": "Galvatair",
   "type": "Magical",
@@ -1543,17 +1613,6 @@
   "coatSource": "ssodb",
   "status": "available"
  },
- "sp-luna": {
-  "name": "Luna",
-  "type": "Magical",
-  "price": 764,
-  "level": 1,
-  "location": "Summer Daze event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-luna.webp",
-  "coatSource": "ssodb",
-  "status": "available"
- },
  "sp-monarch": {
   "name": "Monarch",
   "type": "Magical",
@@ -1565,41 +1624,602 @@
   "coatSource": "ssodb",
   "status": "available"
  },
- "mustang-2g": {
-  "name": "Mustang (2G)",
+ "sp-luna": {
+  "name": "Luna",
+  "type": "Magical",
+  "price": 764,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-luna.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-hjortensia": {
+  "name": "Hjortensia",
+  "type": "Magical",
+  "price": 769,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-hjortensia.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-earik": {
+  "name": "Earik",
+  "type": "Magical",
+  "price": 769,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-earik.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-bolt": {
+  "name": "Bolt",
+  "type": "Magical",
+  "price": 699,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-bolt.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-calliope": {
+  "name": "Calliope",
+  "type": "Magical",
+  "price": 699,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-calliope.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-bronte": {
+  "name": "Bronte",
+  "type": "Magical",
+  "price": 699,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-bronte.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-serenus": {
+  "name": "Serenus",
+  "type": "Magical",
+  "price": 699,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-serenus.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-tynan": {
+  "name": "Tynan",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Valedale",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-tynan.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-phoebe": {
+  "name": "Phoebe",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Valedale",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-phoebe.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-vetle": {
+  "name": "Vetle",
+  "type": "Magical",
+  "price": 679,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-vetle.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-lebkuchen": {
+  "name": "Lebkuchen",
+  "type": "Magical",
+  "price": 699,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-lebkuchen.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-audra": {
+  "name": "Audra",
+  "type": "Magical",
+  "price": 639,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-audra.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-alvirah": {
+  "name": "Alvirah",
+  "type": "Magical",
+  "price": 669,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-alvirah.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-prisma": {
+  "name": "Prisma",
+  "type": "Magical",
+  "price": 494,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-prisma.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-tenebri": {
+  "name": "Tenebri",
+  "type": "Magical",
+  "price": 494,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-tenebri.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-katur": {
+  "name": "Kátur",
+  "type": "Magical",
+  "price": 669,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-katur.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-sylvan-unicorn": {
+  "name": "Sylvan Unicorn",
+  "type": "Magical",
+  "price": 669,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-sylvan-unicorn.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-laverna": {
+  "name": "Laverna",
+  "type": "Magical",
+  "price": 499,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-laverna.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-nemain": {
+  "name": "Nemain",
+  "type": "Magical",
+  "price": 529,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-nemain.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "jorvegian-fjord": {
+  "name": "Jorvegian Fjord Horse",
   "type": "Horse",
-  "price": 485,
-  "level": 7,
-  "location": "",
+  "price": 850,
+  "level": 6,
+  "location": "Valedale",
+  "coatCount": 8,
+  "coatStrip": "img/coats/jorvegian-fjord.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "jorvegian-quarter-horse": {
+  "name": "Jorvegian Quarter Horse",
+  "type": "Horse",
+  "price": 665,
+  "level": 1,
+  "location": "Marley's Vintage Barn",
   "coatCount": 11,
-  "coatStrip": "img/coats/mustang-2g.webp",
+  "coatStrip": "img/coats/jorvegian-quarter-horse.webp",
   "coatSource": "ssodb",
-  "status": "retired",
-  "gen": "2G"
+  "status": "available"
  },
- "icelandic-2g": {
-  "name": "Icelandic Horse (2G)",
+ "galaxy": {
+  "name": "Galaxy",
   "type": "Horse",
-  "price": 490,
-  "level": 16,
+  "price": 900,
+  "level": 1,
+  "location": "Fort Pinta",
+  "coatCount": 1,
+  "coatStrip": "img/coats/galaxy.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-hemera": {
+  "name": "Hemera",
+  "type": "Magical",
+  "price": 450,
+  "level": 1,
+  "location": "Hollow Woods",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-hemera.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-antheia": {
+  "name": "Antheia",
+  "type": "Magical",
+  "price": 450,
+  "level": 1,
+  "location": "Hollow Woods",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-antheia.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "jorvik-connemara": {
+  "name": "Jorvik Connemara",
+  "type": "Pony",
+  "price": 570,
+  "level": 12,
+  "location": "Marley's Vintage Barn",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvik-connemara.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-proteus": {
+  "name": "Proteus",
+  "type": "Magical",
+  "price": 434,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-proteus.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-sedna": {
+  "name": "Sedna",
+  "type": "Magical",
+  "price": 434,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-sedna.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-birkir": {
+  "name": "Birkir",
+  "type": "Magical",
+  "price": 850,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-birkir.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-hanami": {
+  "name": "Hanami",
+  "type": "Magical",
+  "price": 850,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-hanami.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-shadowshield": {
+  "name": "Shadowshield",
+  "type": "Magical",
+  "price": 569,
+  "level": 1,
+  "location": "Icengate",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-shadowshield.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-snowdancer": {
+  "name": "Snowdancer",
+  "type": "Magical",
+  "price": 569,
+  "level": 1,
+  "location": "Icengate",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-snowdancer.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-songsorrow": {
+  "name": "Songsorrow",
+  "type": "Magical",
+  "price": 519,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-songsorrow.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-duskgrim": {
+  "name": "Duskgrim",
+  "type": "Magical",
+  "price": 519,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-duskgrim.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "soul-steed": {
+  "name": "Soul Steed",
+  "type": "Horse",
+  "price": 600,
+  "level": 1,
+  "location": "Fort Pinta",
+  "coatCount": 1,
+  "coatStrip": "img/coats/soul-steed.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-aldrach": {
+  "name": "Aldrach",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Medieval Camp",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-aldrach.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-faramawr": {
+  "name": "Faramawr",
+  "type": "Magical",
+  "price": 950,
+  "level": 1,
+  "location": "Medieval Camp",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-faramawr.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-petra": {
+  "name": "Petra",
+  "type": "Magical",
+  "price": 750,
+  "level": null,
+  "location": "Gary Goldtooth",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-petra.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-erinys": {
+  "name": "Erinys",
+  "type": "Magical",
+  "price": 750,
+  "level": 9,
+  "location": "Gary Goldtooth",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-erinys.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-heidrun": {
+  "name": "Heidrun",
+  "type": "Magical",
+  "price": 469,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-heidrun.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-tombhoof": {
+  "name": "Tombhoof",
+  "type": "Magical",
+  "price": 649,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-tombhoof.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-solas": {
+  "name": "Solas",
+  "type": "Magical",
+  "price": 850,
+  "level": 1,
+  "location": "Gary Goldtooth",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-solas.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "north-swedish-rune-runner": {
+  "name": "North Swedish Rune Runner",
+  "type": "Horse",
+  "price": null,
+  "level": 9,
+  "location": "Reward / gift",
+  "coatCount": 1,
+  "coatStrip": "img/coats/north-swedish-rune-runner.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-kampos": {
+  "name": "Kampos",
+  "type": "Magical",
+  "price": 419,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-kampos.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-tellina": {
+  "name": "Tellina",
+  "type": "Magical",
+  "price": 419,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-tellina.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-umbra": {
+  "name": "Umbra",
+  "type": "Magical",
+  "price": 469,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-umbra.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-ayla": {
+  "name": "Ayla",
+  "type": "Magical",
+  "price": 469,
+  "level": 1,
+  "location": "Summer Daze event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-ayla.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-fawncy": {
+  "name": "Fawncy",
+  "type": "Magical",
+  "price": 429,
+  "level": 1,
+  "location": "Winter Village event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-fawncy.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-woodear": {
+  "name": "Woodear",
+  "type": "Magical",
+  "price": 449,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-woodear.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-pepita": {
+  "name": "Pepita",
+  "type": "Magical",
+  "price": 449,
+  "level": 1,
+  "location": "Halloween event",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-pepita.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-barkhart": {
+  "name": "Barkhart",
+  "type": "Magical",
+  "price": 150,
+  "level": 1,
   "location": "",
-  "coatCount": 10,
-  "coatStrip": "img/coats/icelandic-2g.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-barkhart.webp",
+  "coatSource": "ssodb",
+  "status": "retired"
+ },
+ "hanoverian-2g": {
+  "name": "Hanoverian (2G)",
+  "type": "Horse",
+  "price": 890,
+  "level": 14,
+  "location": "",
+  "coatCount": 6,
+  "coatStrip": "img/coats/hanoverian-2g.webp",
   "coatSource": "ssodb",
   "status": "retired",
   "gen": "2G"
  },
- "shire-2g": {
-  "name": "Shire (2G)",
+ "lipizzaner-2g": {
+  "name": "Lipizzaner (2G)",
   "type": "Horse",
   "price": 475,
-  "level": 8,
+  "level": 9,
   "location": "",
-  "coatCount": 8,
-  "coatStrip": "img/coats/shire-2g.webp",
+  "coatCount": 7,
+  "coatStrip": "img/coats/lipizzaner-2g.webp",
   "coatSource": "ssodb",
   "status": "retired",
-  "gen": "2G"
+  "gen": "2G",
+  "priceNote": "Prices varied: 475 SC, 949 SC"
+ },
+ "sp-brinicle": {
+  "name": "Brinicle",
+  "type": "Magical",
+  "price": 299,
+  "level": 1,
+  "location": "Icengate",
+  "coatCount": 1,
+  "coatStrip": "img/coats/sp-brinicle.webp",
+  "coatSource": "ssodb",
+  "status": "available"
+ },
+ "sp-whinfell": {
+  "name": "Whinfell",
+  "type": "Magical",
+  "price": 299,
+  "level": 1,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/sp-whinfell.webp",
+  "coatSource": "ssodb",
+  "status": "retired"
  },
  "morgan-2g": {
   "name": "Morgan (2G)",
@@ -1613,27 +2233,25 @@
   "status": "retired",
   "gen": "2G"
  },
- "american-paint-horse-2g": {
-  "name": "American Paint Horse (2G)",
-  "type": "Horse",
-  "price": 450,
-  "level": null,
-  "location": "",
-  "coatCount": 5,
-  "coatStrip": "img/coats/american-paint-horse-2g.webp",
+ "jorvik-starter-pony": {
+  "name": "Jorvik Starter Pony",
+  "type": "Pony",
+  "price": 350,
+  "level": 1,
+  "location": "Fort Pinta",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvik-starter-pony.webp",
   "coatSource": "ssodb",
-  "status": "retired",
-  "gen": "2G",
-  "priceNote": "Prices varied: 225 SC, 450 SC"
+  "status": "available"
  },
- "appaloosa-2g": {
-  "name": "Appaloosa (2G)",
+ "mustang-2g": {
+  "name": "Mustang (2G)",
   "type": "Horse",
-  "price": 450,
-  "level": null,
+  "price": 485,
+  "level": 7,
   "location": "",
-  "coatCount": 2,
-  "coatStrip": "img/coats/appaloosa-2g.webp",
+  "coatCount": 11,
+  "coatStrip": "img/coats/mustang-2g.webp",
   "coatSource": "ssodb",
   "status": "retired",
   "gen": "2G"
@@ -1651,16 +2269,389 @@
   "gen": "2G",
   "priceNote": "Prices varied: 405 SC, 810 SC"
  },
- "hanoverian-2g": {
-  "name": "Hanoverian (2G)",
+ "pintabian-2g": {
+  "name": "Pintabian (2G)",
   "type": "Horse",
-  "price": 890,
-  "level": 14,
+  "price": 485,
+  "level": 11,
   "location": "",
   "coatCount": 6,
-  "coatStrip": "img/coats/hanoverian-2g.webp",
+  "coatStrip": "img/coats/pintabian-2g.webp",
   "coatSource": "ssodb",
   "status": "retired",
   "gen": "2G"
+ },
+ "friesian-sport-horse-2g": {
+  "name": "Friesian Sport Horse (2G)",
+  "type": "Horse",
+  "price": 500,
+  "level": 8,
+  "location": "",
+  "coatCount": 6,
+  "coatStrip": "img/coats/friesian-sport-horse-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "arabian-thoroughbred": {
+  "name": "Arabian Thoroughbred",
+  "type": "Horse",
+  "price": 250,
+  "level": 10,
+  "location": "",
+  "coatCount": 15,
+  "coatStrip": "img/coats/arabian-thoroughbred.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "priceNote": "Prices varied: 250 SC, 485 SC",
+  "gen": "1G"
+ },
+ "spirit": {
+  "name": "Spirit",
+  "type": "Horse",
+  "price": 699,
+  "level": null,
+  "location": "",
+  "coatCount": 1,
+  "coatStrip": "img/coats/spirit.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "icelandic-2g": {
+  "name": "Icelandic Horse (2G)",
+  "type": "Horse",
+  "price": 490,
+  "level": 16,
+  "location": "",
+  "coatCount": 10,
+  "coatStrip": "img/coats/icelandic-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "american-paint-horse-2g": {
+  "name": "American Paint Horse (2G)",
+  "type": "Horse",
+  "price": 450,
+  "level": null,
+  "location": "",
+  "coatCount": 5,
+  "coatStrip": "img/coats/american-paint-horse-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G",
+  "priceNote": "Prices varied: 225 SC, 450 SC"
+ },
+ "jorvegian-fjord-1g": {
+  "name": "Jorvegian Fjord Horse (1G)",
+  "type": "Horse",
+  "price": 780,
+  "level": 15,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvegian-fjord-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G",
+  "priceNote": "Prices varied: 780 SC, 1425 SC"
+ },
+ "welsh-pony-2g": {
+  "name": "Welsh Pony (2G)",
+  "type": "Pony",
+  "price": 390,
+  "level": null,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/welsh-pony-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "english-thoroughbred-2g": {
+  "name": "English Thoroughbred (2G)",
+  "type": "Horse",
+  "price": 425,
+  "level": null,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/english-thoroughbred-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "shire-2g": {
+  "name": "Shire (2G)",
+  "type": "Horse",
+  "price": 475,
+  "level": 8,
+  "location": "",
+  "coatCount": 8,
+  "coatStrip": "img/coats/shire-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "jorvegian-quarter-horse-2g": {
+  "name": "Jorvegian Quarter Horse (2G)",
+  "type": "Horse",
+  "price": 475,
+  "level": null,
+  "location": "",
+  "coatCount": 7,
+  "coatStrip": "img/coats/jorvegian-quarter-horse-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "jorvik-friesian-2g": {
+  "name": "Jorvik Friesian (2G)",
+  "type": "Horse",
+  "price": 500,
+  "level": 12,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/jorvik-friesian-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "sp-nixie": {
+  "name": "Nixie",
+  "type": "Magical",
+  "price": 399,
+  "level": 1,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/sp-nixie.webp",
+  "coatSource": "ssodb",
+  "status": "retired"
+ },
+ "super-shire": {
+  "name": "Super Shire",
+  "type": "Horse",
+  "price": 25,
+  "level": null,
+  "location": "",
+  "coatCount": 1,
+  "coatStrip": "img/coats/super-shire.webp",
+  "coatSource": "ssodb",
+  "status": "retired"
+ },
+ "appaloosa-2g": {
+  "name": "Appaloosa (2G)",
+  "type": "Horse",
+  "price": 450,
+  "level": null,
+  "location": "",
+  "coatCount": 2,
+  "coatStrip": "img/coats/appaloosa-2g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "2G"
+ },
+ "chincoteague-1g": {
+  "name": "Chincoteague Pony (1G)",
+  "type": "Pony",
+  "price": 230,
+  "level": 1,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/chincoteague-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "selle-francais-1g": {
+  "name": "Selle Français (1G)",
+  "type": "Horse",
+  "price": 300,
+  "level": null,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/selle-francais-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "morgan-1g": {
+  "name": "Morgan (1G)",
+  "type": "Horse",
+  "price": 260,
+  "level": null,
+  "location": "",
+  "coatCount": 4,
+  "coatStrip": "img/coats/morgan-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "morab": {
+  "name": "Morab",
+  "type": "Horse",
+  "price": 590,
+  "level": null,
+  "location": "",
+  "coatCount": 4,
+  "coatStrip": "img/coats/morab.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "north-swedish-horse-1g": {
+  "name": "North Swedish Horse (1G)",
+  "type": "Horse",
+  "price": 300,
+  "level": 8,
+  "location": "",
+  "coatCount": 6,
+  "coatStrip": "img/coats/north-swedish-horse-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "irish-cob-1g": {
+  "name": "Irish Cob (1G)",
+  "type": "Horse",
+  "price": 280,
+  "level": 6,
+  "location": "",
+  "coatCount": 6,
+  "coatStrip": "img/coats/irish-cob-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "american-paint-horse-1g": {
+  "name": "American Paint Horse (1G)",
+  "type": "Horse",
+  "price": 280,
+  "level": null,
+  "location": "",
+  "coatCount": 5,
+  "coatStrip": "img/coats/american-paint-horse-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "friesian-sport-horse-1g": {
+  "name": "Friesian Sport Horse (1G)",
+  "type": "Horse",
+  "price": 300,
+  "level": 8,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/friesian-sport-horse-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "danish-warmblood": {
+  "name": "Danish Warmblood",
+  "type": "Horse",
+  "price": 300,
+  "level": null,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/danish-warmblood.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "oldenburg": {
+  "name": "Oldenburg",
+  "type": "Horse",
+  "price": 300,
+  "level": null,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/oldenburg.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "jorvik-friesian-1g": {
+  "name": "Jorvik Friesian (1G)",
+  "type": "Horse",
+  "price": 300,
+  "level": 12,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/jorvik-friesian-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "dutch-warmblood-1g": {
+  "name": "Dutch Warmblood (1G)",
+  "type": "Horse",
+  "price": 390,
+  "level": null,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/dutch-warmblood-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "appaloosa-1g": {
+  "name": "Appaloosa (1G)",
+  "type": "Horse",
+  "price": 680,
+  "level": null,
+  "location": "",
+  "coatCount": 2,
+  "coatStrip": "img/coats/appaloosa-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "akhal-teke-1g": {
+  "name": "Akhal-Teke (1G)",
+  "type": "Horse",
+  "price": 280,
+  "level": null,
+  "location": "",
+  "coatCount": 2,
+  "coatStrip": "img/coats/akhal-teke-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "jorvik-andalusian-1g": {
+  "name": "Jorvik Andalusian (1G)",
+  "type": "Horse",
+  "price": 320,
+  "level": 8,
+  "location": "",
+  "coatCount": 6,
+  "coatStrip": "img/coats/jorvik-andalusian-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "english-thoroughbred-1g": {
+  "name": "English Thoroughbred (1G)",
+  "type": "Horse",
+  "price": 280,
+  "level": null,
+  "location": "",
+  "coatCount": 3,
+  "coatStrip": "img/coats/english-thoroughbred-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
+ },
+ "westphalian-1g": {
+  "name": "Westphalian (1G)",
+  "type": "Horse",
+  "price": 690,
+  "level": null,
+  "location": "",
+  "coatCount": 1,
+  "coatStrip": "img/coats/westphalian-1g.webp",
+  "coatSource": "ssodb",
+  "status": "retired",
+  "gen": "1G"
  }
 }
