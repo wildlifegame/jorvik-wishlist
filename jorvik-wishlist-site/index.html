@@ -373,6 +373,19 @@
   @media (max-width:560px){ .evgrid{grid-template-columns:repeat(3,minmax(0,1fr))} .evpic{height:70px} }
   .ptotal{text-align:center;font-size:14.5px;color:var(--muted);margin:-4px 0 12px}
   .ptotal b{color:var(--ink)}
+
+  .wfacts .sh{display:none}
+  @media (min-width:561px){
+    #mineList .wfacts{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 0;align-content:flex-start}
+    #mineList .wfacts dt,#mineList .wfacts .f-dupe,#mineList .wfacts dd[hidden]{display:none}
+    #mineList .wfacts dd{margin:0;font-size:12.5px;line-height:1.35;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--bg);font-style:normal}
+    #mineList .wfacts dd .unk,#mineList .wfacts dd .lvl{font-style:normal}
+    #mineList .wfacts .lg{display:none} #mineList .wfacts .sh{display:inline}
+    #mineList .wfacts .f-price::before{content:"🪙 "} #mineList .wfacts .f-where::before{content:"📍 "}
+    #mineList .wfacts .f-mane::before{content:"✂️ "} #mineList .wfacts .f-bz::before{content:"🏷️ "}
+    #mineList .wfacts .f-bz .unk:not(.lg){font-style:normal}
+    #mineList .wish .actions .btn{padding:6px 11px;font-size:13px}
+  }
 </style>
 </head>
 <body>
@@ -796,12 +809,12 @@
         <div class="mprice">${wishPrice(i)?sc(wishPrice(i)):''}${!i.got&&S.me.sc!=null&&wishPrice(i)&&S.me.sc>=wishPrice(i)?' <span class="ok">✓</span>':''}${(()=>{const bb=bazaarInfo(i.breed);return bb.now?'<span class="mbz">Bazaar now</span>':bb.next?'<span class="mbz">Bazaar '+esc(new Date(bb.next.start+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'}))+'</span>':'';})()}</div>
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
-        <dl class="facts">
-          <dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd>
-          <dt>Buy at</dt><dd>${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
-          ${(()=>{ const ev=eventFor(c,i.coatNo); if(!ev) return ''; const w=eventWindow(ev); return `<dt>Event</dt><dd>${ev.emoji} ${esc(ev.name)}${w?` <span class="lvl">(${w.start<=today&&w.end>=today?'on now!':(w.confirmed?'':'usually ')+monthDay(w.start)})</span>`:''}</dd>`; })()}
-          ${c.type==='Magical'?`<dt>Mane</dt><dd><span class="unk">Magical horses usually can't have their mane style changed</span></dd>`:i.hair?`<dt>Mane</dt><dd>${esc(i.hair)}</dd>`:''}
-          <dt>Bazaar</dt>${coatWhere(c,i.coatNo)?`<dd><span class="unk">Bazaars usually don't include special coats like this one</span></dd>`:''}<dd${coatWhere(c,i.coatNo)?' hidden':''}${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
+        <dl class="facts wfacts">
+          <dt>Price</dt><dd class="f-price">${priceTxt(c,i.coatNo)}</dd>
+          <dt>Buy at</dt><dd class="f-where${eventFor(c,i.coatNo)?' f-dupe':''}">${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
+          ${(()=>{ const ev=eventFor(c,i.coatNo); if(!ev) return ''; const w=eventWindow(ev); return `<dt>Event</dt><dd class="f-event">${ev.emoji} ${esc(ev.name)}${w?` <span class="lvl">(${w.start<=today&&w.end>=today?'on now!':`<span class="lg">${w.confirmed?'':'usually '}</span>`+monthDay(w.start)})</span>`:''}</dd>`; })()}
+          ${c.type==='Magical'?`<dt>Mane</dt><dd class="f-mane" title="Magical horses usually can't have their mane style changed"><span class="unk lg">Magical horses usually can't have their mane style changed</span><span class="sh">Mane can't be changed</span></dd>`:i.hair?`<dt>Mane</dt><dd class="f-mane">${esc(i.hair)}</dd>`:''}
+          <dt>Bazaar</dt>${coatWhere(c,i.coatNo)?`<dd class="f-bz" title="Bazaars usually don't include special coats like this one"><span class="unk lg">Bazaars usually don't include special coats like this one</span><span class="sh">Not in Bazaars</span></dd>`:''}<dd class="f-bz"${coatWhere(c,i.coatNo)?' hidden':''}${bazaarHistory(i.breed).length?` title="Past Bazaar prices: ${esc(bazaarHistory(i.breed).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"`:''}>${b.now?`${bazaarText(b)}${dealHtml(i.breed,b.now.price)}`:b.next?`${nextText(b)}${dealHtml(i.breed,b.next.price)}`:b.last?`Last there ${fmtDate(b.last.start)}${b.last.price?` for ${sc(b.last.price)}`:''}`:'<span class="unk">Not in a Bazaar yet</span>'}</dd>
         </dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
         <div class="actions">
