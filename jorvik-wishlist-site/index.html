@@ -123,6 +123,15 @@
   .hcard .facts{font-size:14px;padding:0 4px}
   .hcard .actions{padding:0 4px}
   .hcard.empty{grid-column:1/-1}
+  .hfacts .pl{display:none}
+  .hcard .hfacts{display:flex;flex-wrap:wrap;gap:5px;align-content:flex-start;padding:0 2px}
+  .hcard .hfacts dt{display:none}
+  .hcard .hfacts dd{margin:0;font-size:12.5px;line-height:1.35;border:1px solid var(--line);border-radius:12px;padding:3px 10px;background:var(--bg)}
+  .hcard .hfacts .pl{display:inline;color:var(--muted)}
+  .hcard .hfacts dd .tag{padding:0;background:none;font-size:inherit}
+  .hcard .hfacts .f-price::before{content:"🪙 "} .hcard .hfacts .f-where::before{content:"📍 "} .hcard .hfacts .f-bz::before{content:"🏷️ "} .hcard .hfacts .f-next::before{content:"📅 "} .hcard .hfacts .f-hist::before{content:"📈 "}
+  .hcard .hfacts .f-hist span{margin-right:4px}
+  .hcard .actions .btn{padding:6px 11px;font-size:13px}
 
   .unk{color:var(--muted);font-weight:500;font-style:italic}
   .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
@@ -1013,12 +1022,12 @@
       <h3>${esc(r.name)}${badge(r)}</h3>
       ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
       <div class="meta">${esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
-      <dl class="facts">
-        <dt>Price</dt><dd>${priceTxt(r)}</dd>
-        <dt>Where</dt><dd>${whereTxt(r)}</dd>
-        <dt>Last Bazaar</dt><dd>${bazaarText(r.bz)}</dd>
-        ${r.bz.next?`<dt>Next</dt><dd>${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
-        ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="hist">${histHtml(r.id)}</dd>`:''}
+      <dl class="facts hfacts">
+        <dt>Price</dt><dd class="f-price">${priceTxt(r)}</dd>
+        <dt>Where</dt><dd class="f-where">${whereTxt(r)}</dd>
+        ${r.bz.next?`<dt>Next</dt><dd class="f-next">${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
+        <dt>Last Bazaar</dt><dd class="f-bz">${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
+        ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="f-hist" title="Past Bazaar prices: ${esc(bazaarHistory(r.id).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"><span class="pl">Lowest Bazaar price </span><b>${sc(Math.min(...bazaarHistory(r.id).map(x=>x.price)))}</b></dd>`:''}
       </dl>
       <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a>`}</div>
     </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?'No horses match.':'Loading horses…'}</div></div>`;
