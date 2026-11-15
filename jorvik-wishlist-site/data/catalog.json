@@ -656,7 +656,7 @@
    "Buckskin",
    "Splashed White Black",
    "Splashed White Chestnut",
-   "Bay Pangaré Splashed White"
+   "Buckskin Splashed White"
   ],
   "coatWhere": [
    null,
@@ -1087,7 +1087,7 @@
    "Dapple Grey",
    "Grullo",
    "Dunskin Pangaré",
-   "False Dunskin Pinto",
+   "False Dunskin Pinto (Buckskin Tobiano)",
    "Chestnut Varnish Roan"
   ],
   "coatWhere": [
@@ -1186,7 +1186,7 @@
    "Bay",
    "Flaxen Liver Chestnut",
    "Black Varnish Roan Blanket",
-   "Bay Pangaré Pinto",
+   "Bay Pangaré Pinto (Bay Tobiano)",
    "Light Dapple Grey"
   ],
   "since": "2024-11-13"
