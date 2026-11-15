@@ -97,6 +97,10 @@
   .wish .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;padding:0 4px}
   .wish h3{font-size:23px}
   .wish .coat{color:var(--rose);font-weight:700;font-size:15px}
+  #mineList .wish .coat,#stableList .wish .coat{white-space:nowrap;overflow:hidden}
+  #mineList .wish .coat.clip,#stableList .wish .coat.clip{text-overflow:ellipsis}
+  #mineList .wish .coat.wrap,#stableList .wish .coat.wrap{white-space:normal}
+  .wish .top>div:first-child{min-width:0;flex:1}
   .wish .facts,.wish .note,.wish .actions{padding:0 4px}
   .prio{font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
   .p1{background:#fbdbe6;color:#9c2452}.p2{background:#dfe2f6;color:#2e3577}.p3{background:#dcecec;color:#245457}
@@ -827,7 +831,17 @@
         </div>
       </div>`;
     }).join('');
+    fitCoats(list);
   }
+  function fitCoats(root){
+    requestAnimationFrame(()=>root.querySelectorAll('.wish .coat').forEach(el=>{
+      el.style.fontSize=''; el.classList.remove('clip','wrap'); el.title='';
+      let fs=parseFloat(getComputedStyle(el).fontSize); const min=Math.max(9.5,fs*0.7);
+      while(el.scrollWidth>el.clientWidth+1 && fs>min){ fs-=0.5; el.style.fontSize=fs+'px'; }
+      if(el.scrollWidth>el.clientWidth+1){ if(phone()){ el.classList.add('wrap'); } else { el.classList.add('clip'); el.title=el.textContent; } }
+    }));
+  }
+  let fitT; addEventListener('resize',()=>{ clearTimeout(fitT); fitT=setTimeout(()=>{ fitCoats($('#mineList')); fitCoats($('#stableList')); },150); });
   // ---------- share link: opens a read-only view of this wishlist (no coins, no stable) ----------
   // share link = this page + #w=<the wishlist, compressed into the link>
   const b64u = bytes => btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
@@ -1143,7 +1157,7 @@
     el.innerHTML=list.map(o=>{ const c=S.catalog[o.breed]||{name:o.breed};
       return `<div class="wish">${hasCoats(c)?coatHtml(c,o.coatNo,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">🐴</div>`}
         <div class="top"><div><h3>${esc(o.name||c.name)}</h3><div class="coat">${esc([o.name?c.name:'', o.coatNo&&hasCoats(c)?coatLabel(o.coatNo,c):''].filter(Boolean).join(' · '))}</div></div></div>
-        <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
+        <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join(''); fitCoats(el);
   }
   let stTab='all';
   try{ const v=localStorage.getItem('jorvikWishlist.stableSort'); if(v) $('#stableSort').value=v; }catch(e){}
