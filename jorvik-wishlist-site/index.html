@@ -361,7 +361,9 @@
   .evsub{margin:10px 0 0;font-size:13px;color:var(--muted);font-weight:700}
   .evmine{margin:6px 0;font-weight:700;color:var(--rose);font-size:14px}
   .evgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:8px}
-  .evitem{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:12.5px;font-weight:700;line-height:1.2}
+  .evitem{cursor:pointer;border-radius:12px;padding:2px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;font-size:12.5px;font-weight:700;line-height:1.2}
+  .evitem:hover .evpic,.evitem:focus-visible .evpic{outline:2px solid var(--rose);outline-offset:1px}
   .evitem small{font-weight:500;color:var(--muted);font-size:11px}
   .evpic{width:100%;height:86px;border-radius:10px;background:linear-gradient(180deg,var(--sky1),var(--sky2) 65%,var(--sky3));margin-bottom:4px}
   @media (max-width:560px){ .evgrid{grid-template-columns:repeat(3,minmax(0,1fr))} .evpic{height:70px} }
@@ -1143,10 +1145,12 @@
           <div class="evdate">${now?'<span class="tag now">On now</span>':`<span class="tag soon">${days<=1?'Starting soon':days<45?`In ${days} days`:`In about ${Math.round(days/30)} months`}</span>`} ${w.confirmed?'':'Usually '}${monthDay(w.start)} – ${monthDay(w.end)}${w.confirmed?'':' (estimate)'} · ${esc(e.where)}</div></div></div>
         <p class="evabout">${esc(e.about)}</p>
         ${mine.length?`<p class="evmine">💖 ${mine.length} on your wishlist might come back: ${mine.map(it=>esc(it.c.name)+(it.magic?'':' '+esc(coatLabel(it.n,it.c)))).join(', ')}</p>`:''}
-        ${items.length?`<p class="evsub">${items.some(it=>it.magic)?'Sold at past events (magical horses usually all come back):':'Sold at past events (these have come back before, but it isn\'t guaranteed):'}</p><div class="evgrid">${items.map(it=>`<div class="evitem" title="${esc(it.c.name)}${it.magic?'':' – '+esc(coatLabel(it.n,it.c))}">${coatHtml(it.c,it.n,'evpic h')}<span>${esc(it.c.name)}${it.magic?' ✨':''}</span>${it.magic?'':`<small>${esc(coatLabel(it.n,it.c))}</small>`}</div>`).join('')}</div>`:'<p class="muted">No horses from this event on the site yet.</p>'}
+        ${items.length?`<p class="evsub">${items.some(it=>it.magic)?'Sold at past events (magical horses usually all come back):':'Sold at past events (these have come back before, but it isn\'t guaranteed):'}</p><div class="evgrid">${items.map(it=>`<div class="evitem" role="button" tabindex="0" data-gal="${esc(it.id)}" title="${esc(it.c.name)}${it.magic?'':' – '+esc(coatLabel(it.n,it.c))}">${coatHtml(it.c,it.n,'evpic h')}<span>${esc(it.c.name)}${it.magic?' ✨':''}</span>${it.magic?'':`<small>${esc(coatLabel(it.n,it.c))}</small>`}</div>`).join('')}</div>`:'<p class="muted">No horses from this event on the site yet.</p>'}
       </div>`;
     }).join('');
   }
+  $('#evList').onclick=e=>{ const g=e.target.closest('[data-gal]'); if(g) showGallery(g.dataset.gal); };
+  $('#evList').onkeydown=e=>{ const g=e.target.closest('[data-gal]'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); showGallery(g.dataset.gal); } };
   function renderAll(){ renderEvents(); fillBreedSelect(); refreshAddPicker(); renderBanner(); renderCoins(); renderMine(); renderStable(); refreshOwnPicker(); renderHorses(); renderBazaars(); renderShared(); if(viewing) $('#banner').hidden=true; }
 
   // ---------- modals ----------
