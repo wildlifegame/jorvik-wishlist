@@ -496,6 +496,16 @@
       <div id="ownMulti"></div><div class="coatpick" id="ownPick" aria-label="Pick the coat"></div>
     </form></div>
     <p class="private">🔒 Only you can see your stable and your Star Coins.</p>
+    <div class="toolbar listbar" id="stableBar" hidden>
+      <div class="ptabs" id="stTabs" role="tablist" aria-label="Show horses by type"></div>
+      <select id="stableSort" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="breed">Breed A to Z</option>
+        <option value="name">Horse name A to Z</option>
+        <option value="price">Most expensive first</option>
+      </select>
+    </div>
     <div class="grid stablegrid" id="stableList"></div>
   </section>
 
@@ -1095,13 +1105,29 @@
     const el=$('#stableList');
     if(!S.uid){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Sign in to keep track of your stable.</div>`; return; }
     if(!S.meLoaded){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Loading your stable…</div>`; return; }
-    if(!S.me.owned.length){ el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">🏡</div>Your stable is empty. Add the horses you already own above, and they'll be marked in the Horse guide.</div>`; return; }
-    const list=[...S.me.owned].sort((a,b)=>(S.catalog[a.breed]?.name||a.breed).localeCompare(S.catalog[b.breed]?.name||b.breed));
+    if(!S.me.owned.length){ $('#stableBar').hidden=true; el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">🏡</div>Your stable is empty. Add the horses you already own above, and they'll be marked in the Horse guide.</div>`; return; }
+    const bar=$('#stableBar'); bar.hidden=false;
+    const kind=o=>{ const c=S.catalog[o.breed]||{}; return c.type==='Magical'?'magic':isOldGen(c)?'old':(c.type==='Pony'?'pony':'horse'); };
+    const cnt=k=>k==='all'?S.me.owned.length:S.me.owned.filter(o=>kind(o)===k).length;
+    const tabs=[['all','All'],['horse','🐎 Horses'],['pony','🐴 Ponies'],['magic','✨ Magical'],['old','Older gens']].filter(([k])=>k==='all'||cnt(k));
+    if(!tabs.some(([k])=>k===stTab)) stTab='all';
+    $('#stTabs').innerHTML=tabs.map(([k,l])=>`<button type="button" role="tab" data-sttab="${k}" aria-selected="${stTab===k}">${l}<span class="ct">${cnt(k)}</span></button>`).join('');
+    const sort=$('#stableSort').value; try{ localStorage.setItem('jorvikWishlist.stableSort',sort); }catch(e){}
+    const bn=o=>S.catalog[o.breed]?.name||o.breed, nm=o=>(o.name||bn(o)), pr=o=>{ const c=S.catalog[o.breed]; return (c&&coatPriceOf(c,o.coatNo))||c?.price||0; };
+    const list=S.me.owned.map((o,i)=>({o,i})).filter(({o})=>stTab==='all'||kind(o)===stTab).sort((A,B)=>{ const a=A.o,b=B.o;
+      if(sort==='new') return B.i-A.i; if(sort==='old') return A.i-B.i;
+      if(sort==='name') return nm(a).localeCompare(nm(b));
+      if(sort==='price') return pr(b)-pr(a) || bn(a).localeCompare(bn(b));
+      return bn(a).localeCompare(bn(b)) || (a.coatNo||0)-(b.coatNo||0); }).map(x=>x.o);
     el.innerHTML=list.map(o=>{ const c=S.catalog[o.breed]||{name:o.breed};
       return `<div class="wish">${hasCoats(c)?coatHtml(c,o.coatNo,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">🐴</div>`}
         <div class="top"><div><h3>${esc(o.name||c.name)}</h3><div class="coat">${esc([o.name?c.name:'', o.coatNo&&hasCoats(c)?coatLabel(o.coatNo,c):''].filter(Boolean).join(' · '))}</div></div></div>
         <div class="actions"><button class="btn small ghost" data-own-del="${esc(o.id)}">Remove</button></div></div>`; }).join('');
   }
+  let stTab='all';
+  try{ const v=localStorage.getItem('jorvikWishlist.stableSort'); if(v) $('#stableSort').value=v; }catch(e){}
+  $('#stableSort').onchange=renderStable;
+  $('#stTabs').onclick=e=>{ const b=e.target.closest('[data-sttab]'); if(b){ stTab=b.dataset.sttab; renderStable(); } };
   $('#ownBreed').onchange=()=>{ ownCoatNo=[]; refreshOwnPicker(); };
   $('#ownForm').onsubmit=e=>{ e.preventDefault(); const breed=$('#ownBreed').value;
     const opicks=$('#ownBreed')._picks?$('#ownBreed')._picks():[];
