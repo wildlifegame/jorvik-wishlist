@@ -19,8 +19,8 @@
  "pet-squirrel": {
   "name": "Squirrel",
   "kind": "squirrel",
-  "price": null,
-  "location": "Doreen",
+  "price": 249,
+  "location": "Doreen, Greendale race start by Goldspur Farm",
   "variants": 3,
   "note": "Walking pet",
   "src": "https://www.starstable.com/article/5296"
@@ -28,17 +28,18 @@
  "pet-orla": {
   "name": "Orla (fluffy cat)",
   "kind": "cat",
-  "price": null,
+  "price": 350,
   "location": "Black Tie and Tails, Silverglade Equestrian Center",
   "src": "https://www.starstable.com/article/a-connemara-comeback"
  },
  "pet-corgi": {
-  "name": "Corgi",
+  "name": "Corgi (Eira, Dagny, Karma)",
   "kind": "dog",
-  "price": null,
-  "location": "Star Stable Birthday event",
+  "price": 350,
+  "location": "Steve's Farm",
   "variants": 3,
-  "src": "https://www.starstable.com/article/bring-on-the-birthday-bash"
+  "src": "https://www.starstable.com/article/bring-on-the-birthday-bash",
+  "note": "Permanent. Also at the Birthday hub during the festival"
  },
  "pet-panda-ray": {
   "name": "Pandoric Manta Ray",
@@ -58,13 +59,13 @@
   "src": "https://starstable.com/article/12446"
  },
  "pet-loch-theia": {
-  "name": "Loch and Theia",
-  "kind": "magic",
-  "price": null,
-  "location": "Gary Goldtooth",
+  "name": "Loch and Theia (cats)",
+  "kind": "cat",
+  "price": 350,
+  "location": "Silverglade Equestrian Center pet shop",
   "variants": 2,
   "note": "Companions of Calder and Ephyra",
-  "src": "https://www.starstable.com/horses/magic/calder-ephyra"
+  "src": "https://api.starstable.com/article/the-benevolent-brabant"
  },
  "pet-ranch-chicken": {
   "name": "Ranch Chicken",
@@ -136,5 +137,49 @@
   "status": "retired",
   "note": "Riding Club United reward. Might come to shops later",
   "src": "https://help.starstable.com/hc/en-us/articles/38327826794002-Riding-Club-United"
+ },
+ "pet-gull-owl": {
+  "name": "Deep-Sea Gull and Dreamy Dawn Owl",
+  "kind": "bird",
+  "price": 350,
+  "location": "Pet shop by Ydris' circus tent",
+  "variants": 2,
+  "note": "Companions of Dorcha and Solas",
+  "src": "https://www.starstable.com/article/the-benevolent-brabant"
+ },
+ "pet-hollow-companions": {
+  "name": "Nanny, Sterling and Noctara",
+  "kind": "magic",
+  "price": 350,
+  "location": "Valedale",
+  "variants": 3,
+  "note": "Goat, squirrel and owl companions of Phoebe and Tynan",
+  "src": "https://www.starstable.com/article/unicorns-of-the-hollow-woods"
+ },
+ "pet-baby-dragons": {
+  "name": "Baby Dragons (Onyx and Bronwyn)",
+  "kind": "dragon",
+  "price": 450,
+  "location": "Medieval Camp",
+  "variants": 2,
+  "note": "Companions of Aldrach and Faramawr",
+  "src": "https://www.starstable.com/article/day-of-dragons"
+ },
+ "pet-volt": {
+  "name": "Volt (flying owl)",
+  "kind": "bird",
+  "price": 350,
+  "location": "Halloween event",
+  "note": "Flying pet",
+  "src": "https://www.starstable.com/article/haunting-halloween"
+ },
+ "pet-mistfox": {
+  "name": "Mistfox",
+  "kind": "fox",
+  "price": null,
+  "location": "Kit Shorthouse, Dundull",
+  "variants": 3,
+  "note": "Walking pet",
+  "src": "https://starstable.com/article/4928"
  }
 }

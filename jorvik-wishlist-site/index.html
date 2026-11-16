@@ -609,7 +609,7 @@
   const isRetired = c => c && c.status==='retired';
   const isOldGen = c => c && (c.gen==='1G'||c.gen==='2G');
   const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':c?.type==='Pet'?' 🐾':'';
-  const PET_ICONS={moth:'🦋',cat:'🐱',dog:'🐶',bird:'🐦',squirrel:'🐿️',ray:'🐟',bunny:'🐰',chicken:'🐔',magic:'✨',secret:'🎁',bat:'🦇'};
+  const PET_ICONS={dragon:'🐉',fox:'🦊',moth:'🦋',cat:'🐱',dog:'🐶',bird:'🐦',squirrel:'🐿️',ray:'🐟',bunny:'🐰',chicken:'🐔',magic:'✨',secret:'🎁',bat:'🦇'};
   const petIcon = c => c?.type==='Pet' ? `<span class="petph">${PET_ICONS[c.kind]||'🐾'}<small>Picture coming soon</small></span>` : '🐴';
   const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
   const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
