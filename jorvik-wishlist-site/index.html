@@ -403,7 +403,7 @@
   }
   .petcard .f-bz{display:none!important}
   .nopic{font-size:64px}
-  body.petmode #hType,body.petmode #addHorseBtn{display:none}
+  body.petmode #ptotal{display:none!important}
   .petph{display:flex;flex-direction:column;align-items:center;gap:6px;line-height:1}
   .petph small{font-size:15px;font-weight:700;color:var(--muted)}
   .hpt .petph small{font-size:10px}
@@ -421,9 +421,9 @@
 
   <nav class="tabs" role="tablist">
     <button role="tab" data-tab="mine" aria-selected="true"><span class="tl">My wishlist</span><span class="ts">Wishlist</span></button>
+    <button role="tab" data-tab="pets" aria-selected="false"><span class="tl">My pets</span><span class="ts">Pets</span></button>
     <button role="tab" data-tab="stable" aria-selected="false"><span class="tl">My stable</span><span class="ts">Stable</span></button>
-    <button role="tab" data-tab="horses" aria-selected="false"><span class="tl">Horse guide</span><span class="ts">Horses</span></button>
-    <button role="tab" data-tab="pets" aria-selected="false">Pets</button>
+    <button role="tab" data-tab="horses" aria-selected="false">Browse</button>
     <button role="tab" data-tab="events" aria-selected="false">Events</button>
     <button role="tab" data-tab="bazaar" aria-selected="false"><span class="tl">Bazaar history</span><span class="ts">Bazaars</span></button>
   </nav>
@@ -488,7 +488,7 @@
     <div class="toolbar">
       <input id="hSearch" placeholder="Search breeds or places…">
       <select id="hSortSel" aria-label="Sort horses"><option value="name">Sort: name</option><option value="price">Sort: price</option><option value="location">Sort: where to buy</option><option value="last">Sort: last Bazaar</option><option value="next">Sort: next Bazaar</option></select>
-      <select id="hType"><option value="">All horses</option><option value="sale">Gen 3</option><option value="Magical">Magical ✨</option><option value="retired">Older gens</option><option value="Pet" hidden>Pets</option><option>Horse</option><option>Pony</option><option>Hybrid</option></select>
+      <select id="hType"><option value="">All horses</option><option value="sale">Gen 3</option><option value="Magical">Magical ✨</option><option value="retired">Older gens</option><option value="Pet">Pets 🐾</option><option>Horse</option><option>Pony</option><option>Hybrid</option></select>
       <button class="btn ghost" id="addHorseBtn">+ Add a horse</button>
     </div>
     <div class="hgrid" id="hBody"></div>
@@ -630,11 +630,11 @@
     function render(){
       const id=sel.value, c=S.catalog[id];
       if(id&&c){ box.innerHTML=`<div class="hpchosen">${tile(c)}<b>${esc(c.name)}${badge(c)}</b><button type="button" class="btn small ghost" data-hpchange>Change</button></div>`; return; }
-      const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
+      const all=Object.entries(S.catalog).filter(([,c])=>sel.id!=='addBreed'||(c.type==='Pet')===PETMODE).sort((a,b)=>a[1].name.localeCompare(b[1].name));
       const groups=HP_GROUPS.map(g=>[g,all.filter(g[2]).length]).filter(x=>x[1]);
       if(!groups.some(([g])=>g[0]===cat)) cat=groups[0]?.[0][0]||'sale';
       const list=q?all.filter(([,c])=>c.name.toLowerCase().includes(q)):all.filter(HP_GROUPS.find(g=>g[0]===cat)[2]);
-      box.innerHTML=`<div class="hptop"><input type="search" class="hpq" placeholder="Search all horses…" value="${esc(q)}" aria-label="Search horses"><button type="button" class="btn small ${multi?'':'ghost'}" data-hpmulti aria-pressed="${multi}">${multi?'✓ Picking several':'Pick several'}</button></div>
+      box.innerHTML=`<div class="hptop"><input type="search" class="hpq" placeholder="${sel.id==='addBreed'&&PETMODE?'Search pets…':'Search all horses…'}" value="${esc(q)}" aria-label="Search"><button type="button" class="btn small ${multi?'':'ghost'}" data-hpmulti aria-pressed="${multi}">${multi?'✓ Picking several':'Pick several'}</button></div>
         ${multi?`<p class="hpmsel">${picks.size?`<b>${picks.size} selected:</b> ${[...picks].map(i=>esc(S.catalog[i]?.name||i)).join(', ')} <button type="button" class="linkbtn" data-hpclear>Clear</button>`:'Tap all the horses you want, then press Add. You can pick coats later with Edit.'}</p>`:''}
         ${q||groups.length<2?'':`<div class="hpcats" role="tablist">${groups.map(([g,n])=>`<button type="button" role="tab" data-hpcat="${g[0]}" aria-selected="${g[0]===cat}">${g[1]} <span class="ct">${n}</span></button>`).join('')}</div>`}
         <div class="hpgrid">${list.map(([i,c])=>`<button type="button" class="hpitem ${multi&&picks.has(i)?'on':''}" data-hpid="${esc(i)}">${tile(c)}<span>${esc(c.name)}${badge(c)}</span></button>`).join('')||'<p class="muted">No horses match.</p>'}</div>`;
@@ -679,7 +679,7 @@
       <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}${whereTag(c,j+1)}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
       <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on starstable.com ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
     $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
-    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } refreshAddPicker(); showTab('mine'); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
+    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } showTab('mine'); $('#addBreed').value=id; refreshAddPicker(); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
   }
   let addCoatNo=[];
   let autoCoat='';
@@ -708,9 +708,9 @@
   // ---------- tabs ----------
   function showTab(name){
     document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===name));
-    const panel=name==='pets'?'horses':name;
+    const panel=name==='pets'?'mine':name;
+    if(name==='pets'||name==='mine'){ PETMODE=name==='pets'; document.body.classList.toggle('petmode',PETMODE); $('#openAdd').textContent=PETMODE?'+ Add a pet':'+ Add a horse'; const h=$('#addSheet h2'); if(h) h.textContent=PETMODE?'Add a pet':'Add a horse'; $('#addBreed').value=''; $('#addBreed')._hpReset?.(); renderMine(); }
     document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+panel));
-    if(name==='pets'||name==='horses'){ const was=$('#hType').value; const want=name==='pets'?'Pet':(was==='Pet'?'':was); document.body.classList.toggle('petmode',name==='pets'); $('#hType').value=want; $('#hSearch').placeholder=name==='pets'?'Search pets or places…':'Search breeds or places…'; renderHorses(); }
     if(name==='events') renderEvents();
     if(location.hash.slice(1)!==name) history.replaceState(null,'',pageBase()+'#'+name);
   }
@@ -791,10 +791,11 @@
     if(cur) sel.value=cur;
     if(!sel._hpRender) mountHP(sel); else sel._hpRender();
   }
+  let PETMODE=false; const isPetItem=i=>S.catalog[i.breed]?.type==='Pet';
   function renderMine(){
     const list=$('#mineList');
     if(!S.loaded.mine){ list.innerHTML=`<div class="empty">Loading your wishlist…</div>`; return; }
-    let items=[...S.myItems];
+    let items=S.myItems.filter(i=>isPetItem(i)===PETMODE);
     const cnt=p=>p==='got'?items.filter(i=>i.got).length:items.filter(i=>!i.got&&(p==='all'||i.prio===p)).length;
     const tabs=[['all','All'],[1,'💖 Dream'],[2,'⭐ Want'],[3,'🤔 Maybe']]; if(cnt('got')) tabs.push(['got','🎉 Got']);
     if(prioTab==='got'&&!cnt('got')) prioTab='all';
@@ -822,7 +823,7 @@
       <div class="stat"><div class="n">${bzEst.toLocaleString()} SC</div><div class="l">if bought at Bazaar prices*</div></div>
       <div class="stat"><div class="n">${S.myItems.length-open.length}</div><div class="l">got! 🎉</div></div>`;
     if(!items.length){
-      list.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="big">🐎</div>${S.myItems.length?'No horses here yet.':'Your wishlist is empty. Choose a horse above to add your first one!'}</div>`;
+      list.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="big">🐎</div>${PETMODE?'No pets on your list yet. Press + Add a pet to add one.':S.myItems.length?'No horses here yet.':'Your wishlist is empty. Choose a horse above to add your first one!'}</div>`;
       return;
     }
     list.innerHTML = items.map(i=>{
@@ -1053,7 +1054,7 @@
   $('#hBody').onclick=e=>{
     const w=e.target.closest('[data-wish]'), ed=e.target.closest('[data-edit]');
     const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); return; }
-    if(w){ $('#addBreed').value=w.dataset.wish; addCoatNo=[]; refreshAddPicker(); showTab('mine'); openAdd(); toast('Pick a coat, then hit Add'); }
+    if(w){ const pet=S.catalog[w.dataset.wish]?.type==='Pet'; showTab(pet?'pets':'mine'); $('#addBreed').value=w.dataset.wish; addCoatNo=[]; refreshAddPicker(); openAdd(); toast(pet?'Hit Add to put it on your list':'Pick a coat, then hit Add'); }
     if(ed){ editHorse(ed.dataset.edit); }
   };
   $('#addHorseBtn').onclick=()=>editHorse(null);
