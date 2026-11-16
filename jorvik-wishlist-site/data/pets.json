@@ -1,0 +1,140 @@
+{
+ "pet-shorthair-cat": {
+  "name": "Short-haired Cat",
+  "kind": "cat",
+  "price": 350,
+  "location": "Pet Shop Girls, Fort Pinta",
+  "variants": 3,
+  "src": "https://starstable.com/article/7544"
+ },
+ "pet-seagull": {
+  "name": "Seagull",
+  "kind": "bird",
+  "price": 350,
+  "location": "Selah, Fort Pinta",
+  "variants": 3,
+  "note": "Flying pet",
+  "src": "https://www.starstable.com/article/5884"
+ },
+ "pet-squirrel": {
+  "name": "Squirrel",
+  "kind": "squirrel",
+  "price": null,
+  "location": "Doreen",
+  "variants": 3,
+  "note": "Walking pet",
+  "src": "https://www.starstable.com/article/5296"
+ },
+ "pet-orla": {
+  "name": "Orla (fluffy cat)",
+  "kind": "cat",
+  "price": null,
+  "location": "Black Tie and Tails, Silverglade Equestrian Center",
+  "src": "https://www.starstable.com/article/a-connemara-comeback"
+ },
+ "pet-corgi": {
+  "name": "Corgi",
+  "kind": "dog",
+  "price": null,
+  "location": "Star Stable Birthday event",
+  "variants": 3,
+  "src": "https://www.starstable.com/article/bring-on-the-birthday-bash"
+ },
+ "pet-panda-ray": {
+  "name": "Pandoric Manta Ray",
+  "kind": "ray",
+  "price": 400,
+  "location": "Summer Daze event",
+  "variants": 2,
+  "note": "Pearly and Shimmery. Flying pet, sold with Kampos and Tellina",
+  "src": "https://starstable.com/article/8654"
+ },
+ "pet-happy-bunny": {
+  "name": "Happy-go-lucky Bunny",
+  "kind": "bunny",
+  "price": null,
+  "location": "Gary Goldtooth",
+  "note": "Runestone pet, sold with Petra and Erinys",
+  "src": "https://starstable.com/article/12446"
+ },
+ "pet-loch-theia": {
+  "name": "Loch and Theia",
+  "kind": "magic",
+  "price": null,
+  "location": "Gary Goldtooth",
+  "variants": 2,
+  "note": "Companions of Calder and Ephyra",
+  "src": "https://www.starstable.com/horses/magic/calder-ephyra"
+ },
+ "pet-ranch-chicken": {
+  "name": "Ranch Chicken",
+  "kind": "chicken",
+  "price": null,
+  "priceText": "3,333 Gold Nuggets",
+  "location": "Camp Western event",
+  "variants": 2,
+  "src": "https://www.starstable.com/article/still-camp-western"
+ },
+ "pet-atlas-kerfuffle": {
+  "name": "Atlas and Kerfuffle",
+  "kind": "secret",
+  "price": null,
+  "location": "Camp Western event",
+  "variants": 2,
+  "note": "Last year's secret pets, now for sale",
+  "src": "https://www.starstable.com/article/still-camp-western"
+ },
+ "pet-kaiser-fay": {
+  "name": "Kaiser and Fay",
+  "kind": "magic",
+  "price": 350,
+  "location": "Summer Daze event",
+  "variants": 2,
+  "note": "Companions of Luna and Monarch",
+  "src": "https://www.starstable.com/article/beautiful-butterflies"
+ },
+ "pet-thalasso-scintilla": {
+  "name": "Thalasso and Scintilla",
+  "kind": "magic",
+  "price": null,
+  "location": "Summer Daze event",
+  "variants": 2,
+  "note": "Companions of Pelagos and Perla",
+  "src": "https://www.starstable.com/article/the-beach-comes-alive"
+ },
+ "pet-scarlet": {
+  "name": "Scarlet (goat)",
+  "kind": "magic",
+  "price": 350,
+  "location": "Halloween event",
+  "note": "Companion of Bixbite",
+  "src": "https://www.starstable.com/article/haunting-halloween"
+ },
+ "pet-tempest-fenn": {
+  "name": "Tempest and Fenn",
+  "kind": "magic",
+  "price": 350,
+  "location": "Halloween event",
+  "variants": 2,
+  "note": "Spooky companions",
+  "src": "https://www.starstable.com/article/13829"
+ },
+ "pet-mahr-nidae": {
+  "name": "Nidae (Mahr)",
+  "kind": "moth",
+  "price": null,
+  "location": "",
+  "status": "retired",
+  "note": "Invite a Friend reward",
+  "src": "https://www.starstable.com/article/puzzles-and-ponies"
+ },
+ "pet-mahr-rcu": {
+  "name": "Black and White Mahr",
+  "kind": "moth",
+  "price": null,
+  "location": "",
+  "status": "retired",
+  "note": "Riding Club United reward. Might come to shops later",
+  "src": "https://help.starstable.com/hc/en-us/articles/38327826794002-Riding-Club-United"
+ }
+}

@@ -59,8 +59,8 @@
   nav.tabs button{border:0;background:none;padding:10px 16px 12px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-size:16px}
   nav.tabs button:hover{color:var(--ink)}
   nav.tabs .ts{display:none}
-  @media (max-width:560px){ nav.tabs .tl{display:none} nav.tabs .ts{display:inline} nav.tabs{justify-content:space-between!important;gap:0} nav.tabs button{padding:10px 6px 12px!important;font-size:15px} }
-  @media (max-width:360px){ nav.tabs button{padding:10px 4px 12px!important;font-size:13.5px} }
+  @media (max-width:560px){ nav.tabs .tl{display:none} nav.tabs .ts{display:inline} nav.tabs{justify-content:space-between!important;gap:0} nav.tabs button{padding:10px 4px 12px!important;font-size:14.5px} }
+  @media (max-width:360px){ nav.tabs button{padding:10px 2px 12px!important;font-size:12.5px} }
   nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--rose)}
   .panel{display:none}.panel.on{display:block}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
@@ -401,6 +401,12 @@
     #mineList .wish{position:relative}
     #mineList .wish:not(:has(.nopic)) .top .prio{position:absolute;top:258px;left:22px;box-shadow:0 1px 3px #0002}
   }
+  .petcard .f-bz{display:none!important}
+  .nopic{font-size:64px}
+  body.petmode #hType,body.petmode #addHorseBtn{display:none}
+  .petph{display:flex;flex-direction:column;align-items:center;gap:6px;line-height:1}
+  .petph small{font-size:12px;font-weight:700;color:var(--muted)}
+  .hpt .petph small{display:none}
 </style>
 </head>
 <body>
@@ -417,6 +423,7 @@
     <button role="tab" data-tab="mine" aria-selected="true"><span class="tl">My wishlist</span><span class="ts">Wishlist</span></button>
     <button role="tab" data-tab="stable" aria-selected="false"><span class="tl">My stable</span><span class="ts">Stable</span></button>
     <button role="tab" data-tab="horses" aria-selected="false"><span class="tl">Horse guide</span><span class="ts">Horses</span></button>
+    <button role="tab" data-tab="pets" aria-selected="false">Pets</button>
     <button role="tab" data-tab="events" aria-selected="false">Events</button>
     <button role="tab" data-tab="bazaar" aria-selected="false"><span class="tl">Bazaar history</span><span class="ts">Bazaars</span></button>
   </nav>
@@ -481,7 +488,7 @@
     <div class="toolbar">
       <input id="hSearch" placeholder="Search breeds or places…">
       <select id="hSortSel" aria-label="Sort horses"><option value="name">Sort: name</option><option value="price">Sort: price</option><option value="location">Sort: where to buy</option><option value="last">Sort: last Bazaar</option><option value="next">Sort: next Bazaar</option></select>
-      <select id="hType"><option value="">All horses</option><option value="sale">Gen 3</option><option value="Magical">Magical ✨</option><option value="retired">Older gens</option><option>Horse</option><option>Pony</option><option>Hybrid</option></select>
+      <select id="hType"><option value="">All horses</option><option value="sale">Gen 3</option><option value="Magical">Magical ✨</option><option value="retired">Older gens</option><option value="Pet" hidden>Pets</option><option>Horse</option><option>Pony</option><option>Hybrid</option></select>
       <button class="btn ghost" id="addHorseBtn">+ Add a horse</button>
     </div>
     <div class="hgrid" id="hBody"></div>
@@ -585,9 +592,9 @@
   const hasForms = c => !!(c && Array.isArray(c.forms) && c.forms.length>1);
   const coatTotal = c => hasForms(c) ? 1 : (c?.coatCount||0);
   const coatHtml = (c, n, cls, extra='') => {
-    const N=c.coatCount, k=hasForms(c) ? 1 : Math.min(Math.max(1,n||1),N);
+    const N=c.coatCount, k=hasForms(c) ? N : Math.min(Math.max(1,n||1),N);
     const pos = N>1 ? ((k-1)/(N-1)*100) : 0;
-    const tog = hasForms(c) && /\bpic\b/.test(cls) ? `<button type="button" class="formtog" data-form-toggle data-n="${N}" aria-label="Show ${esc(c.forms[1])}">✨ ${esc(c.forms[1])}</button>` : '';
+    const tog = hasForms(c) && /\bpic\b/.test(cls) ? `<button type="button" class="formtog on" data-form-toggle data-n="${N}" aria-label="Show ${esc(c.forms[0])}">🐴 ${esc(c.forms[0])}</button>` : '';
     return `<div class="coatbox ${cls}" ${extra}><i style="background-image:url('${esc(imgUrl(c.coatStrip))}');background-size:${N*100}% 100%;background-position:${pos}% 0"></i>${tog}</div>`;
   };
   document.addEventListener('click', e=>{
@@ -601,23 +608,25 @@
   }, true);
   const isRetired = c => c && c.status==='retired';
   const isOldGen = c => c && (c.gen==='1G'||c.gen==='2G');
-  const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':'';
+  const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':c?.type==='Pet'?' 🐾':'';
+  const PET_ICONS={moth:'🦋',cat:'🐱',dog:'🐶',bird:'🐦',squirrel:'🐿️',ray:'🐟',bunny:'🐰',chicken:'🐔',magic:'✨',secret:'🎁',bat:'🦇'};
+  const petIcon = c => c?.type==='Pet' ? `<span class="petph">${PET_ICONS[c.kind]||'🐾'}<small>Picture coming soon</small></span>` : '🐴';
   const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
   const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
   const whereTxt = (c,n) => coatWhere(c,n) ? esc(coatWhere(c,n)) : isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
-  const priceTxt = (c,n) => c?.free ? 'Free' : coatPriceOf(c,n) ? (isRetired(c)&&!coatWhere(c,n)?'Was ':'')+sc(coatPriceOf(c,n)) : '<span class="unk">not known yet</span>';
+  const priceTxt = (c,n) => c?.free ? 'Free' : c?.priceText ? esc(c.priceText) : coatPriceOf(c,n) ? (isRetired(c)&&!coatWhere(c,n)?'Was ':'')+sc(coatPriceOf(c,n)) : '<span class="unk">not known yet</span>';
   const whereTag = (c,n) => coatWhere(c,n) ? `<small class="cw">${esc(coatWhere(c,n))}</small>` : '';
   function breedOptions(){
     const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
     const grp=[['Gen 3',([,c])=>c.type!=='Magical'&&!isOldGen(c)],['Magical horses ✨',([,c])=>c.type==='Magical'],['Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)]];
     return grp.map(([l,f])=>{ const o=all.filter(f); return o.length?`<optgroup label="${esc(l)}">${o.map(([id,c])=>`<option value="${esc(id)}">${esc(c.name)}${badge(c)}</option>`).join('')}</optgroup>`:''; }).join('');
   }
-  const HP_GROUPS=[['sale','Gen 3',([,c])=>c.type!=='Magical'&&!isOldGen(c)],['magic','Magical ✨',([,c])=>c.type==='Magical'],['gone','Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)]];
+  const HP_GROUPS=[['sale','Gen 3',([,c])=>c.type!=='Magical'&&c.type!=='Pet'&&!isOldGen(c)],['magic','Magical ✨',([,c])=>c.type==='Magical'],['gone','Older gens',([,c])=>c.type!=='Magical'&&isOldGen(c)],['pet','Pets 🐾',([,c])=>c.type==='Pet']];
   function mountHP(sel){
     const box=document.createElement('div'); box.className='hp'; sel.after(box); sel.classList.add('vh'); sel.tabIndex=-1;
     let cat='sale', q='', multi=false; const picks=new Set();
     sel._picks=()=>multi?[...picks]:[]; sel._hpReset=()=>{ multi=false; picks.clear(); render(); sel.dispatchEvent(new Event('hpmulti')); };
-    const tile=c=>hasCoats(c)?coatHtml(c,1,'hpt h'):'<div class="hpt nopic">🐴</div>';
+    const tile=c=>hasCoats(c)?coatHtml(c,1,'hpt h'):`<div class="hpt nopic">${petIcon(c)}</div>`;
     function render(){
       const id=sel.value, c=S.catalog[id];
       if(id&&c){ box.innerHTML=`<div class="hpchosen">${tile(c)}<b>${esc(c.name)}${badge(c)}</b><button type="button" class="btn small ghost" data-hpchange>Change</button></div>`; return; }
@@ -699,14 +708,16 @@
   // ---------- tabs ----------
   function showTab(name){
     document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===name));
-    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+name));
+    const panel=name==='pets'?'horses':name;
+    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+panel));
+    if(name==='pets'||name==='horses'){ const was=$('#hType').value; const want=name==='pets'?'Pet':(was==='Pet'?'':was); document.body.classList.toggle('petmode',name==='pets'); $('#hType').value=want; $('#hSearch').placeholder=name==='pets'?'Search pets or places…':'Search breeds or places…'; renderHorses(); }
     if(name==='events') renderEvents();
     if(location.hash.slice(1)!==name) history.replaceState(null,'',pageBase()+'#'+name);
   }
   document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
   const startHash = location.hash.slice(1);
   const SHARE_RE=/^w=([zj][A-Za-z0-9_-]+)$/;
-  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','bazaar','events'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
+  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','pets','bazaar','events'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
   route(startHash);
   addEventListener('hashchange',()=>route(location.hash.slice(1)));
 
@@ -762,7 +773,7 @@
     const end = show.end||addDays(show.start,6);
     const chips = (show.horses||[]).map(h=>{
       const c=S.catalog[h.breed]; const nm=c?c.name:h.breed;
-      const pic = hasCoats(c) ? coatHtml(c,1,'pic h') : (c&&c.img) ? `<img class="pic" src="${esc(imgUrl(c.img))}" alt="">` : `<div class="nopic">🐴</div>`;
+      const pic = hasCoats(c) ? coatHtml(c,1,'pic h') : (c&&c.img) ? `<img class="pic" src="${esc(imgUrl(c.img))}" alt="">` : `<div class="nopic">${petIcon(c)}</div>`;
       return `<figure class="${mine.has(h.breed)?'mine':''}" data-gal="${esc(h.breed)}">${pic}<figcaption>${mine.has(h.breed)?'💖 ':''}${esc(nm)}${h.price?`<small>${sc(h.price)}</small>`:''}</figcaption></figure>`;
     }).join('');
     const hits=(show.horses||[]).filter(h=>mine.has(h.breed)).length;
@@ -819,8 +830,8 @@
       const b=bazaarInfo(i.breed);
       const [pl,pc]=PRIO[i.prio]||PRIO[2];
       const pid = i.img || c.img;
-      return `<div class="wish ${i.got?'got':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
-        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`data-gal="${esc(i.breed)}" title="See all coats" role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">🐴</div>`}
+      return `<div class="wish ${i.got?'got':''}${c.type==='Pet'?' petcard':''}" data-wid="${esc(i.id)}" ${canDrag?'draggable="true" title="Drag to rearrange"':''}>
+        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="${esc(c.name+' '+(i.coat||''))}">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h',`data-gal="${esc(i.breed)}" title="See all coats" role="img" aria-label="${esc(c.name+' '+(i.coatNo?coatLabel(i.coatNo,c):''))}"`) : pid?`<img class="pic" src="${esc(imgUrl(pid))}" alt="${esc(c.name)}">`:`<div class="nopic">${petIcon(c)}</div>`}
         <div class="top"><div>${i.plannedName?`<div class="pname">“${esc(i.plannedName)}”</div>`:''}<h3>${esc(c.name)}${badge(c)}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><div style="display:flex;gap:4px;align-items:center"><span class="prio ${pc}">${pl}</span>${canDrag?`<span class="grip" aria-hidden="true">⠿</span>`:''}</div></div>
         <div class="mprice">${wishPrice(i)?sc(wishPrice(i)):''}${!i.got&&S.me.sc!=null&&wishPrice(i)&&S.me.sc>=wishPrice(i)?' <span class="ok">✓</span>':''}${(()=>{const bb=bazaarInfo(i.breed);return bb.now?'<span class="mbz">Bazaar now</span>':bb.next?'<span class="mbz">Bazaar '+esc(new Date(bb.next.start+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'}))+'</span>':'';})()}</div>
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
@@ -906,7 +917,7 @@
     const mine=new Set(S.myItems.map(i=>i.breed+':'+(i.coatNo||'')));
     el.innerHTML = items.length ? items.map(i=>{ const c=S.catalog[i.breed]||{name:i.breed}; const b=bazaarInfo(i.breed); const [pl,pc]=PRIO[i.prio]||PRIO[2];
       return `<div class="wish ${i.got?'got':''}">
-        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h'):`<div class="nopic">🐴</div>`}
+        ${i.img?`<img class="pic" src="${esc(imgUrl(i.img))}" alt="">`: hasCoats(c)?coatHtml(c,i.coatNo,'pic h'):`<div class="nopic">${petIcon(c)}</div>`}
         <div class="top"><div><h3>${esc(c.name)}${badge(c)}</h3>${(i.coat||i.coatNo)?`<div class="coat">${esc([i.coat, i.coatNo&&hasCoats(c)?coatLabel(i.coatNo,c):''].filter((x,k,a)=>x&&a.findIndex(y=>y&&y.toLowerCase()===x.toLowerCase())===k).join(' · '))}</div>`:''}</div><span class="prio ${pc}">${i.got?'✓ Got it':pl}</span></div>
         <dl class="facts"><dt>Price</dt><dd>${priceTxt(c,i.coatNo)}</dd><dt>Where</dt><dd>${whereTxt(c,i.coatNo)}</dd><dt>Last Bazaar</dt><dd>${bazaarText(b)}</dd>${b.next&&!b.now?`<dt>Next</dt><dd>${nextText(b)}</dd>`:''}</dl>
         ${i.note?`<div class="note">“${esc(i.note)}”</div>`:''}
@@ -1013,25 +1024,26 @@
     const q=$('#hSearch').value.toLowerCase().trim(), t=$('#hType').value;
     let rows=Object.entries(S.catalog).map(([id,c])=>({id,...c,bz:bazaarInfo(id)}));
     if(q) rows=rows.filter(r=>(r.name+' '+(r.location||'')).toLowerCase().includes(q));
-    if(t) rows=rows.filter(r=> t==='sale'?r.type!=='Magical'&&!isOldGen(r) : t==='retired'?r.type!=='Magical'&&isOldGen(r) : t==='Magical'?r.type==='Magical' : r.type===t&&!isRetired(r));
+    rows=rows.filter(r=> t==='Pet' ? r.type==='Pet' : r.type!=='Pet');
+    if(t&&t!=='Pet') rows=rows.filter(r=> t==='sale'?r.type!=='Magical'&&!isOldGen(r) : t==='retired'?r.type!=='Magical'&&isOldGen(r) : t==='Magical'?r.type==='Magical' : r.type===t&&!isRetired(r));
     const {key,dir}=S.hSort;
     const val=r=> key==='price'?(r.price??1e9): key==='location'?(r.location||'~'): key==='last'?(r.bz.now?'9999':r.bz.last?.start||'0000'): key==='next'?(r.bz.next?.start||'9999'): r.name.toLowerCase();
     rows.sort((a,b)=>{const x=val(a),y=val(b); return (x<y?-1:x>y?1:0)*dir;});
     const mine=new Set(S.myItems.map(i=>i.breed));
     $('#hBody').innerHTML = rows.length ? rows.map(r=>`<article class="hcard">
-      ${hasCoats(r)?coatHtml(r,1,'pic h',`data-gal="${esc(r.id)}" role="button" tabindex="0" aria-label="See all ${r.coatCount} ${esc(r.name)} coats"`):r.img?`<img class="pic" src="${esc(imgUrl(r.img))}" alt="${esc(r.name)}">`:`<div class="nopic">🐴</div>`}
+      ${hasCoats(r)?coatHtml(r,1,'pic h',`data-gal="${esc(r.id)}" role="button" tabindex="0" aria-label="See all ${r.coatCount} ${esc(r.name)} coats"`):r.img?`<img class="pic" src="${esc(imgUrl(r.img))}" alt="${esc(r.name)}">`:`<div class="nopic">${petIcon(r)}</div>`}
       <h3>${esc(r.name)}${badge(r)}</h3>
       ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
-      <div class="meta">${esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
+      <div class="meta">${r.type==='Pet'?esc(r.note||'Pet')+(r.variants>1?` · ${r.variants} kinds`:''):esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
       <dl class="facts hfacts">
         <dt>Price</dt><dd class="f-price">${priceTxt(r)}</dd>
         <dt>Where</dt><dd class="f-where">${whereTxt(r)}</dd>
         ${r.bz.next?`<dt>Next</dt><dd class="f-next">${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
-        <dt>Last Bazaar</dt><dd class="f-bz"${r.free?' hidden':''}>${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
+        <dt>Last Bazaar</dt><dd class="f-bz"${r.free||r.type==='Pet'?' hidden':''}>${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
         ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="f-hist" title="Past Bazaar prices: ${esc(bazaarHistory(r.id).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"><span class="pl">Lowest Bazaar price </span><b>${sc(Math.min(...bazaarHistory(r.id).map(x=>x.price)))}</b></dd>`:''}
       </dl>
       <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a>`}</div>
-    </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?'No horses match.':'Loading horses…'}</div></div>`;
+    </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?($('#hType').value==='Pet'?'No pets match.':'No horses match.'):'Loading horses…'}</div></div>`;
   }
   $('#hSearch').oninput=renderHorses; $('#hType').onchange=renderHorses;
   $('#hSortSel').onchange=()=>{ const k=$('#hSortSel').value; S.hSort={key:k,dir:(k==='last')?-1:1}; renderHorses(); };
@@ -1152,9 +1164,9 @@
     if(!S.meLoaded){ el.innerHTML=`<div class="empty" style="grid-column:1/-1">Loading your stable…</div>`; return; }
     if(!S.me.owned.length){ $('#stableBar').hidden=true; el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">🏡</div>Your stable is empty. Add the horses you already own above, and they'll be marked in the Horse guide.</div>`; return; }
     const bar=$('#stableBar'); bar.hidden=false;
-    const kind=o=>{ const c=S.catalog[o.breed]||{}; return c.type==='Magical'?'magic':isOldGen(c)?'old':(c.type==='Pony'?'pony':'horse'); };
+    const kind=o=>{ const c=S.catalog[o.breed]||{}; return c.type==='Pet'?'pet':c.type==='Magical'?'magic':isOldGen(c)?'old':(c.type==='Pony'?'pony':'horse'); };
     const cnt=k=>k==='all'?S.me.owned.length:S.me.owned.filter(o=>kind(o)===k).length;
-    const tabs=[['all','All'],['horse','🐎 Horses'],['pony','🐴 Ponies'],['magic','✨ Magical'],['old','Older gens']].filter(([k])=>k==='all'||cnt(k));
+    const tabs=[['all','All'],['horse','🐎 Horses'],['pony','🐴 Ponies'],['magic','✨ Magical'],['old','Older gens'],['pet','🐾 Pets']].filter(([k])=>k==='all'||cnt(k));
     if(!tabs.some(([k])=>k===stTab)) stTab='all';
     $('#stTabs').innerHTML=tabs.map(([k,l])=>`<button type="button" role="tab" data-sttab="${k}" aria-selected="${stTab===k}">${l}<span class="ct">${cnt(k)}</span></button>`).join('');
     const sort=$('#stableSort').value; try{ localStorage.setItem('jorvikWishlist.stableSort',sort); }catch(e){}
@@ -1165,7 +1177,7 @@
       if(sort==='price') return pr(b)-pr(a) || bn(a).localeCompare(bn(b));
       return bn(a).localeCompare(bn(b)) || (a.coatNo||0)-(b.coatNo||0); }).map(x=>x.o);
     el.innerHTML=list.map(o=>{ const c=S.catalog[o.breed]||{name:o.breed};
-      return `<div class="wish">${hasCoats(c)?coatHtml(c,o.coatNo,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">🐴</div>`}
+      return `<div class="wish">${hasCoats(c)?coatHtml(c,o.coatNo,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">${petIcon(c)}</div>`}
         <div class="top"><div><h3>${esc(o.name||c.name)}</h3><div class="coat">${esc([o.name?c.name:'', o.coatNo&&hasCoats(c)?coatLabel(o.coatNo,c):''].filter(Boolean).join(' · '))}</div></div></div>
         <div class="actions"><button class="btn small ghost" data-own-edit="${esc(o.id)}">Edit</button><button class="btn small ghost" data-own-del="${esc(o.id)}" style="margin-left:auto">Remove</button></div></div>`; }).join(''); fitCoats(el);
   }
@@ -1207,6 +1219,7 @@
   function eventItems(e){
     const out=[];
     for(const [id,c] of Object.entries(S.catalog)){
+      if(c.type==='Pet' && e.match.some(m=>(c.location||'').includes(m))) out.push({id,c,n:1,magic:true,pet:true});
       if(c.type==='Magical' && (e.match.some(m=>(c.location||'').includes(m)) || (e.extra||[]).includes(id))) out.push({id,c,n:1,magic:true});
       (c.coatWhere||[]).forEach((w,i)=>{ if(w && e.match.some(m=>w.includes(m))) out.push({id,c,n:i+1}); });
     }
@@ -1388,8 +1401,8 @@
   renderAll();
   (async()=>{
     try{
-      const [cat,baz,ev]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/events.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[])]);
-      S.events=ev;
+      const [cat,baz,ev,pets]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/events.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]), fetch('data/pets.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+      S.events=ev; for(const [k,v] of Object.entries(pets||{})) cat[k]={type:'Pet',link:v.src,...v};
       S.catalog=cat; S.bazaars=baz.map(b=>({id:b.start,...b})); S.loaded.catalog=true; S.loaded.bazaars=true;
       renderAll();
     }catch(e){ status('Couldn\'t load the horse list. Check your connection and refresh the page.', true); }

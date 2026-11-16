@@ -1503,10 +1503,14 @@
   "price": 900,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-lycan.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-pharao": {
   "name": "Pharao",
@@ -1514,10 +1518,14 @@
   "price": 850,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-pharao.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-nottsoren": {
   "name": "Nottsoren",
@@ -1536,10 +1544,14 @@
   "price": 900,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-pelagos.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-perla": {
   "name": "Perla",
@@ -1547,10 +1559,14 @@
   "price": 950,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-perla.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-kyria": {
   "name": "Kyria",
@@ -1558,10 +1574,14 @@
   "price": 950,
   "level": 1,
   "location": "Equestrian Festival event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-kyria.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-fendwurm": {
   "name": "Fendwurm",
@@ -1580,10 +1600,14 @@
   "price": 950,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-mani.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-sol": {
   "name": "Sól",
@@ -1591,10 +1615,14 @@
   "price": 950,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-sol.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-galvatair": {
   "name": "Galvatair",
@@ -1602,10 +1630,14 @@
   "price": 839,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-galvatair.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-bixbite": {
   "name": "Bixbite",
@@ -1613,10 +1645,14 @@
   "price": 799,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-bixbite.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-monarch": {
   "name": "Monarch",
@@ -1624,10 +1660,14 @@
   "price": 714,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-monarch.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-luna": {
   "name": "Luna",
@@ -1635,10 +1675,14 @@
   "price": 764,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-luna.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-hjortensia": {
   "name": "Hjortensia",
@@ -1646,10 +1690,14 @@
   "price": 769,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-hjortensia.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-earik": {
   "name": "Earik",
@@ -1657,10 +1705,14 @@
   "price": 769,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-earik.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-bolt": {
   "name": "Bolt",
@@ -1668,10 +1720,14 @@
   "price": 699,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-bolt.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-calliope": {
   "name": "Calliope",
@@ -1679,10 +1735,14 @@
   "price": 699,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-calliope.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-bronte": {
   "name": "Bronte",
@@ -1690,10 +1750,14 @@
   "price": 699,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-bronte.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-serenus": {
   "name": "Serenus",
@@ -1701,10 +1765,14 @@
   "price": 699,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-serenus.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-tynan": {
   "name": "Tynan",
@@ -1712,10 +1780,14 @@
   "price": 950,
   "level": 1,
   "location": "Valedale",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-tynan.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-phoebe": {
   "name": "Phoebe",
@@ -1723,10 +1795,14 @@
   "price": 950,
   "level": 1,
   "location": "Valedale",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-phoebe.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-vetle": {
   "name": "Vetle",
@@ -1734,10 +1810,14 @@
   "price": 679,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-vetle.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-lebkuchen": {
   "name": "Lebkuchen",
@@ -1745,10 +1825,14 @@
   "price": 699,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-lebkuchen.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-audra": {
   "name": "Audra",
@@ -1756,10 +1840,14 @@
   "price": 639,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-audra.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-alvirah": {
   "name": "Alvirah",
@@ -1767,10 +1855,14 @@
   "price": 669,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-alvirah.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-prisma": {
   "name": "Prisma",
@@ -1778,10 +1870,14 @@
   "price": 494,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-prisma.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-tenebri": {
   "name": "Tenebri",
@@ -1789,10 +1885,14 @@
   "price": 494,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-tenebri.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-katur": {
   "name": "Kátur",
@@ -1800,10 +1900,14 @@
   "price": 669,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-katur.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-sylvan-unicorn": {
   "name": "Sylvan Unicorn",
@@ -1811,10 +1915,14 @@
   "price": 669,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-sylvan-unicorn.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-laverna": {
   "name": "Laverna",
@@ -1822,10 +1930,14 @@
   "price": 499,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-laverna.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-nemain": {
   "name": "Nemain",
@@ -1833,10 +1945,14 @@
   "price": 529,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-nemain.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "jorvegian-fjord": {
   "name": "Jorvegian Fjord Horse",
@@ -1877,10 +1993,14 @@
   "price": 450,
   "level": 1,
   "location": "Hollow Woods",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-hemera.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-antheia": {
   "name": "Antheia",
@@ -1888,10 +2008,14 @@
   "price": 450,
   "level": 1,
   "location": "Hollow Woods",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-antheia.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "jorvik-connemara": {
   "name": "Jorvik Connemara",
@@ -1910,10 +2034,14 @@
   "price": 434,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-proteus.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-sedna": {
   "name": "Sedna",
@@ -1921,10 +2049,14 @@
   "price": 434,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-sedna.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-birkir": {
   "name": "Birkir",
@@ -1932,10 +2064,14 @@
   "price": 850,
   "level": 1,
   "location": "Gary Goldtooth",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-birkir.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-hanami": {
   "name": "Hanami",
@@ -1943,10 +2079,14 @@
   "price": 850,
   "level": 1,
   "location": "Gary Goldtooth",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-hanami.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-shadowshield": {
   "name": "Shadowshield",
@@ -1954,10 +2094,14 @@
   "price": 569,
   "level": 1,
   "location": "Icengate",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-shadowshield.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-snowdancer": {
   "name": "Snowdancer",
@@ -1965,10 +2109,14 @@
   "price": 569,
   "level": 1,
   "location": "Icengate",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-snowdancer.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-songsorrow": {
   "name": "Songsorrow",
@@ -1976,10 +2124,14 @@
   "price": 519,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-songsorrow.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-duskgrim": {
   "name": "Duskgrim",
@@ -1987,10 +2139,14 @@
   "price": 519,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-duskgrim.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "soul-steed": {
   "name": "Soul Steed",
@@ -2009,10 +2165,14 @@
   "price": 950,
   "level": 1,
   "location": "Medieval Camp",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-aldrach.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-faramawr": {
   "name": "Faramawr",
@@ -2020,10 +2180,14 @@
   "price": 950,
   "level": 1,
   "location": "Medieval Camp",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-faramawr.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-petra": {
   "name": "Petra",
@@ -2075,10 +2239,14 @@
   "price": 850,
   "level": 1,
   "location": "Gary Goldtooth",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-solas.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "north-swedish-rune-runner": {
   "name": "North Swedish Rune Runner",
@@ -2097,10 +2265,14 @@
   "price": 419,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-kampos.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-tellina": {
   "name": "Tellina",
@@ -2108,10 +2280,14 @@
   "price": 419,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-tellina.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-umbra": {
   "name": "Umbra",
@@ -2130,10 +2306,14 @@
   "price": 469,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-ayla.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-fawncy": {
   "name": "Fawncy",
@@ -2210,10 +2390,14 @@
   "price": 299,
   "level": 1,
   "location": "Icengate",
-  "coatCount": 1,
+  "coatCount": 2,
   "coatStrip": "img/coats/sp-brinicle.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ]
  },
  "sp-whinfell": {
   "name": "Whinfell",
