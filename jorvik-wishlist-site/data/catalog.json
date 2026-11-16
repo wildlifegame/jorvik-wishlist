@@ -2664,12 +2664,27 @@
   "type": "Horse",
   "free": true,
   "level": 1,
-  "location": "Your first horse, free when you start",
-  "coatCount": 1,
+  "location": "Your first horse, free when you start (you also pick 1 of 10 mane colors)",
+  "coatCount": 15,
   "coatStrip": "img/coats/jorvik-warmblood-starter.webp",
   "coatNames": [
-   "Your own colors"
+   "Brown",
+   "Brown Pinto",
+   "Cream Pinto",
+   "Dappled Brown with Stripe",
+   "Dappled Grey",
+   "Dark Brown with Star and Anklets",
+   "Golden with Stripe, Snip and Full Socks",
+   "Red with Star and Half-Pasterns",
+   "Light Brown",
+   "Light Brown with Blaze",
+   "Light Grey",
+   "Light Red with Blaze and Anklets",
+   "Liver with Half Socks",
+   "Rabicano Red",
+   "Seal"
   ],
-  "link": "https://www.starstable.com/horses/breeds/jorvik-warmblood"
+  "link": "https://www.starstable.com/horses/breeds/jorvik-warmblood",
+  "credit": "Pictures and coat names from the <a class=\"ext\" href=\"https://starstable.wiki.gg/wiki/Jorvik_Warmblood\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>. You also pick one of 10 mane colors."
  }
 }
