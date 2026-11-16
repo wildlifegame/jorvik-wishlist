@@ -125,7 +125,7 @@
   .hcard.empty{grid-column:1/-1}
   .hfacts .pl{display:none}
   .hcard .hfacts{display:flex;flex-wrap:wrap;gap:5px;align-content:flex-start;padding:0 2px}
-  .hcard .hfacts dt{display:none}
+  .hcard .hfacts dt,.hcard .hfacts dd[hidden]{display:none}
   .hcard .hfacts dd{margin:0;font-size:12.5px;line-height:1.35;border:1px solid var(--line);border-radius:12px;padding:3px 10px;background:var(--bg)}
   .hcard .hfacts .pl{display:inline;color:var(--muted)}
   .hcard .hfacts dd .tag{padding:0;background:none;font-size:inherit}
@@ -605,7 +605,7 @@
   const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
   const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
   const whereTxt = (c,n) => coatWhere(c,n) ? esc(coatWhere(c,n)) : isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
-  const priceTxt = (c,n) => coatPriceOf(c,n) ? (isRetired(c)&&!coatWhere(c,n)?'Was ':'')+sc(coatPriceOf(c,n)) : '<span class="unk">not known yet</span>';
+  const priceTxt = (c,n) => c?.free ? 'Free' : coatPriceOf(c,n) ? (isRetired(c)&&!coatWhere(c,n)?'Was ':'')+sc(coatPriceOf(c,n)) : '<span class="unk">not known yet</span>';
   const whereTag = (c,n) => coatWhere(c,n) ? `<small class="cw">${esc(coatWhere(c,n))}</small>` : '';
   function breedOptions(){
     const all=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name));
@@ -1027,7 +1027,7 @@
         <dt>Price</dt><dd class="f-price">${priceTxt(r)}</dd>
         <dt>Where</dt><dd class="f-where">${whereTxt(r)}</dd>
         ${r.bz.next?`<dt>Next</dt><dd class="f-next">${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}
-        <dt>Last Bazaar</dt><dd class="f-bz">${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
+        <dt>Last Bazaar</dt><dd class="f-bz"${r.free?' hidden':''}>${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
         ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="f-hist" title="Past Bazaar prices: ${esc(bazaarHistory(r.id).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"><span class="pl">Lowest Bazaar price </span><b>${sc(Math.min(...bazaarHistory(r.id).map(x=>x.price)))}</b></dd>`:''}
       </dl>
       <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a>`}</div>

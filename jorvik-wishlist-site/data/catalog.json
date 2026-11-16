@@ -2658,5 +2658,18 @@
   "coatSource": "ssodb",
   "status": "retired",
   "gen": "1G"
+ },
+ "jorvik-warmblood-starter": {
+  "name": "Starter Horse (Jorvik Warmblood)",
+  "type": "Horse",
+  "free": true,
+  "level": 1,
+  "location": "Your first horse, free when you start",
+  "coatCount": 1,
+  "coatStrip": "img/coats/jorvik-warmblood-starter.webp",
+  "coatNames": [
+   "Your own colors"
+  ],
+  "link": "https://www.starstable.com/horses/breeds/jorvik-warmblood"
  }
 }
