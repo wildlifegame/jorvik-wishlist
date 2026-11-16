@@ -405,8 +405,8 @@
   .nopic{font-size:64px}
   body.petmode #hType,body.petmode #addHorseBtn{display:none}
   .petph{display:flex;flex-direction:column;align-items:center;gap:6px;line-height:1}
-  .petph small{font-size:12px;font-weight:700;color:var(--muted)}
-  .hpt .petph small{display:none}
+  .petph small{font-size:15px;font-weight:700;color:var(--muted)}
+  .hpt .petph small{font-size:10px}
 </style>
 </head>
 <body>
@@ -610,7 +610,7 @@
   const isOldGen = c => c && (c.gen==='1G'||c.gen==='2G');
   const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':c?.type==='Pet'?' 🐾':'';
   const PET_ICONS={dragon:'🐉',fox:'🦊',moth:'🦋',cat:'🐱',dog:'🐶',bird:'🐦',squirrel:'🐿️',ray:'🐟',bunny:'🐰',chicken:'🐔',magic:'✨',secret:'🎁',bat:'🦇'};
-  const petIcon = c => c?.type==='Pet' ? `<span class="petph">${PET_ICONS[c.kind]||'🐾'}<small>Picture coming soon</small></span>` : '🐴';
+  const petIcon = c => c?.type==='Pet' ? `<span class="petph"><small>Coming soon</small></span>` : '🐴';
   const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
   const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
   const whereTxt = (c,n) => coatWhere(c,n) ? esc(coatWhere(c,n)) : isRetired(c) ? '<span class="unk">Not sold anymore</span>' : c.location?esc(c.location):'<span class="unk">not known yet</span>';
