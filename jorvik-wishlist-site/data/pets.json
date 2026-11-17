@@ -240,16 +240,18 @@
   "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-mahr-rcu": {
-  "name": "Black and White Mahr",
+  "name": "Unity (black and white Mahr)",
   "kind": "moth",
-  "location": "",
   "status": "retired",
-  "note": "Riding Club United reward. Might come to shops later",
-  "src": "https://help.starstable.com/hc/en-us/articles/38327826794002-Riding-Club-United",
+  "note": "Final reward of the Riding Club United event at the 15th birthday. Not sold in shops",
+  "src": "https://www.starstable.com/en/article/a-stylish-party",
   "variants": 1,
   "coatNames": [
-   "Black and White Mahr"
-  ]
+   "Unity"
+  ],
+  "coatStrip": "img/pets/pet-mahr-rcu.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-gull-owl": {
   "name": "Deep-Sea Gull and Dreamy Dawn Owl",
@@ -356,20 +358,6 @@
   ],
   "coatStrip": "img/pets/pet-bat-event-halloween-8471.webp",
   "coatCount": 4,
-  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
- },
- "pet-mahr-event-sso-anniversary-8532": {
-  "name": "Unity",
-  "kind": "mahr",
-  "location": "Quest reward, SSO Anniversary event",
-  "variants": 1,
-  "src": "https://ssodb.bplaced.net/db/en/pets.html",
-  "note": "Reward pet, not sold in a shop",
-  "coatNames": [
-   "Unity"
-  ],
-  "coatStrip": "img/pets/pet-mahr-event-sso-anniversary-8532.webp",
-  "coatCount": 1,
   "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-terrier-event-camp-western-8371": {
