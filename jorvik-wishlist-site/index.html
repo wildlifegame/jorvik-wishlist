@@ -755,7 +755,7 @@
   function showTab(name){
     document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===name));
     const panel=name==='pets'?'mine':name;
-    if(name==='pets'||name==='mine'){ PETMODE=name==='pets'; document.body.classList.toggle('petmode',PETMODE); $('#openAdd').textContent=PETMODE?'+ Add a pet':'+ Add a horse'; const h=$('#addSheet h2'); if(h) h.textContent=PETMODE?'Add a pet':'Add a horse'; $('#addBreed').value=''; $('#addBreed')._hpReset?.(); renderMine(); }
+    if(name==='pets'||name==='mine'){ PETMODE=name==='pets'; document.body.classList.toggle('petmode',PETMODE); $('#openAdd').textContent=PETMODE?'+ Add a pet':'+ Add a horse'; { const o=$('#addPrio option[value="1"]'); if(o) o.textContent=PETMODE?'💖 Dream pet':'💖 Dream horse'; } const h=$('#addSheet h2'); if(h) h.textContent=PETMODE?'Add a pet':'Add a horse'; $('#addBreed').value=''; $('#addBreed')._hpReset?.(); renderMine(); }
     document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+panel));
     if(name==='events') renderEvents();
     if(location.hash.slice(1)!==name) history.replaceState(null,'',pageBase()+'#'+name);
@@ -849,7 +849,7 @@
     items = prioTab==='got' ? items.filter(i=>i.got) : items.filter(i=>!i.got&&(prioTab==='all'||i.prio===prioTab));
     { const el=$('#ptotal'); if(prioTab==='got'||!items.length){ el.hidden=true; } else {
         const tot=items.reduce((t,i)=>t+(wishPrice(i)||0),0); const unk=items.filter(i=>!wishPrice(i)).length;
-        const lbl=prioTab==='all'?'Whole wishlist':({1:'💖 Dream horses',2:'⭐ Really want',3:'🤔 Maybe'})[prioTab];
+        const lbl=prioTab==='all'?'Whole wishlist':({1:PETMODE?'💖 Dream pets':'💖 Dream horses',2:'⭐ Really want',3:'🤔 Maybe'})[prioTab];
         const have=S.me.sc; const need=have==null?null:Math.max(0,tot-have);
         el.hidden=false; el.innerHTML=`${lbl} (${items.length}): <b>${tot.toLocaleString()} SC</b>${unk?` <span class="lvl">(+${unk} with no price)</span>`:''}${need==null?'':need?` · you need <b>${need.toLocaleString()} SC</b> more`:' · you can afford all of them! 🎉'}`; } }
     const sort=$('#mineSort').value;
@@ -1358,10 +1358,10 @@
   function editItem(i){
     const opts=Object.entries(S.catalog).sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,c])=>`<option value="${esc(id)}" ${id===i.breed?'selected':''}>${esc(c.name)}</option>`).join('');
     openModal(`<h2>Edit wish</h2>
-      <div class="row"><label class="f">Horse<select id="eB">${opts}</select></label></div>
-      <div class="row"><label class="f">Coat / color<input id="eC" value="${esc(i.coat)}" maxlength="80"></label></div>
+      <div class="row"><label class="f">${isPetItem(i)?'Pet':'Horse'}<select id="eB">${opts}</select></label></div>
+      <div class="row"><label class="f">${isPetItem(i)?'Which one':'Coat / color'}<input id="eC" value="${esc(i.coat)}" maxlength="80"></label></div>
       <div class="coatpick" id="ePick"></div>
-      <div class="row"><label class="f">Priority<select id="eP"><option value="1">💖 Dream horse</option><option value="2">⭐ Really want</option><option value="3">🤔 Maybe</option></select></label></div>
+      <div class="row"><label class="f">Priority<select id="eP"><option value="1">💖 Dream ${isPetItem(i)?'pet':'horse'}</option><option value="2">⭐ Really want</option><option value="3">🤔 Maybe</option></select></label></div>
       <div class="row"><label class="f">Name idea<input id="eNm" value="${esc(i.plannedName||'')}" maxlength="40" placeholder="e.g. Moonbeam"></label></div>
       <div class="row" id="eHrow"><label class="f">Mane style<input id="eH" value="${esc(i.hair||'')}" maxlength="60" placeholder="e.g. Button braids"></label></div>
       <p class="muted" id="eHmagic" style="margin:-4px 0 8px;font-size:13.5px">✨ Magical horses usually can't have their mane style changed.</p>
