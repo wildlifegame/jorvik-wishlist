@@ -1,0 +1,777 @@
+{
+ "note": "Unlock steps come from the Star Stable Wiki and Star Stable help pages. Quests change over time, so treat them as a guide.",
+ "regions": [
+  {
+   "id": "marchenghast",
+   "name": "Marchenghast",
+   "x": 175,
+   "y": 115,
+   "r": 92,
+   "seed": 3,
+   "color": "#8f7bc0",
+   "blurb": "A foggy, blighted forest and castle trapped in time, home to the Saltus Witches.",
+   "unlock": [
+    "Star Rider",
+    "Access to Goldenhills Valley first (level 12 and the South Iron Gate key)"
+   ],
+   "quests": [
+    "The Blight (teaches you the lantern and leads you to the Veiled Hamlet)",
+    "Meet Martha, Meet Betty and Meet Mercy",
+    "The petrified prison (free the trapped Mahrs)",
+    "Ilwedrisch, a special Mahr",
+    "A friend in need (needs Liked with the Castle and the Saltus witches)",
+    "Dailies: Guiding the Waldfenggen, Blighted Nicchus"
+   ],
+   "places": [
+    "The Veiled Hamlet (witches' village)",
+    "Beast Bonds pet shop (Mahrs)",
+    "Coven Salon",
+    "Marchenghast Castle and Outer Bailey",
+    "Marchenghast Forest",
+    "The Lonely Beacon",
+    "Trude's Hut"
+   ],
+   "subs": [
+    {
+     "n": "The Veiled Hamlet",
+     "dx": -40,
+     "dy": -30
+    },
+    {
+     "n": "Marchenghast Castle",
+     "dx": 35,
+     "dy": 25
+    }
+   ],
+   "match": [
+    "Marchenghast",
+    "Veiled Hamlet",
+    "Beast Bonds"
+   ]
+  },
+  {
+   "id": "goldenhills",
+   "name": "Goldenhills Valley",
+   "x": 185,
+   "y": 265,
+   "r": 86,
+   "seed": 7,
+   "color": "#d9b56a",
+   "blurb": "Golden fields between Silverglade and Marchenghast, with Goldenleaf Stable and a fishing village.",
+   "unlock": [
+    "Level 12",
+    "Finish the Silverglade main story",
+    "Mysteries of the Circus and The Meeting in Sacred Grove",
+    "The Key is Ready: forge the key and open the South Iron Gate"
+   ],
+   "quests": [
+    "The Key is Ready (opens the gate)",
+    "The red little mystery fox, a hidden 7-day questline (starts with a mushroom in Aideen's Whisper)",
+    "Halloween events around Goldenleaf Forest and Scarecrow Hill"
+   ],
+   "places": [
+    "Goldenleaf Stable (horse shop, hotel, two racetracks)",
+    "Cape West Fishing Village",
+    "Scarecrow Hill",
+    "The Golden Road",
+    "South Iron Gate"
+   ],
+   "subs": [
+    {
+     "n": "Goldenleaf Stable",
+     "dx": -45,
+     "dy": -25
+    },
+    {
+     "n": "Cape West Fishing Village",
+     "dx": -50,
+     "dy": 30
+    },
+    {
+     "n": "Scarecrow Hill",
+     "dx": 20,
+     "dy": 45
+    }
+   ],
+   "match": [
+    "Goldenleaf",
+    "Cape West",
+    "Goldenhills"
+   ]
+  },
+  {
+   "id": "medieval",
+   "name": "Medieval Camp",
+   "x": 215,
+   "y": 405,
+   "r": 62,
+   "seed": 11,
+   "color": "#c98b6b",
+   "blurb": "Knights, jousting and dragon horses in the Forgotten Fields.",
+   "unlock": [
+    "Finish repairing the bridge to the Harvest Counties in Nilmer's Highland"
+   ],
+   "quests": [
+    "Reconcile the feuding Medieval Houses (Blue Oaks, Yellow Wolves, Knights Errant, Cerise Unicorns)",
+    "Face the Black Knight",
+    "Jousting for your House's lance and shield",
+    "Target Practice with Robyn the Good of Aim"
+   ],
+   "places": [
+    "Horse market with exclusive coats",
+    "Magical horse market (Aldrach, Faramawr, Ryume, Keima)",
+    "Beasts' Lair pet shop (baby dragons)",
+    "Medieval clothing and tack shop",
+    "Hair stylist",
+    "Races: The Gauntlet and The Gauntlet Reversed"
+   ],
+   "subs": [
+    {
+     "n": "Forgotten Fields",
+     "dx": -15,
+     "dy": 30
+    }
+   ],
+   "match": [
+    "Medieval Camp",
+    "Beasts' Lair",
+    "Forgotten Fields"
+   ]
+  },
+  {
+   "id": "silverglade",
+   "name": "Silverglade",
+   "x": 420,
+   "y": 290,
+   "r": 105,
+   "seed": 2,
+   "color": "#7fb77e",
+   "blurb": "The heart of Jorvik: Silverglade Village, the Equestrian Center, the Manor and Steve's Farm.",
+   "unlock": [
+    "Star Rider",
+    "Help Thomas Moorland get back Moorland Stables' stolen ownership papers"
+   ],
+   "quests": [
+    "The main story continues here",
+    "Mysteries of the Circus and The Meeting in Sacred Grove (both needed for Goldenhills Valley)"
+   ],
+   "places": [
+    "Silverglade Village",
+    "Silverglade Equestrian Center (Black Tie and Tails pet shop)",
+    "Silverglade Manor",
+    "Steve's Farm (Steve's Little Buddies: Corgis)",
+    "Silverglade Vineyard",
+    "Silverglade Castle",
+    "Riding Arena",
+    "The Everwind Fields",
+    "Northlink"
+   ],
+   "subs": [
+    {
+     "n": "Silverglade Village",
+     "dx": -10,
+     "dy": 15
+    },
+    {
+     "n": "Equestrian Center",
+     "dx": -70,
+     "dy": -10
+    },
+    {
+     "n": "Steve's Farm",
+     "dx": 50,
+     "dy": 30
+    },
+    {
+     "n": "Silverglade Manor",
+     "dx": -40,
+     "dy": 60
+    },
+    {
+     "n": "Everwind Fields",
+     "dx": 10,
+     "dy": -60
+    }
+   ],
+   "match": [
+    "Silverglade",
+    "Steve's Farm",
+    "Steve's Little",
+    "Black Tie and Tails"
+   ]
+  },
+  {
+   "id": "moorland",
+   "name": "Moorland",
+   "x": 420,
+   "y": 465,
+   "r": 72,
+   "seed": 5,
+   "color": "#9cc59a",
+   "blurb": "Where everyone starts. Moorland Stables, the lighthouse and the Bazaar live here.",
+   "unlock": [
+    "Open from the start, even for free players"
+   ],
+   "quests": [
+    "The first story quests at Moorland Stables",
+    "Gary Goldtooth's magical horses and pets show up by the lighthouse",
+    "The Traveling Bazaar and festivals set up here"
+   ],
+   "places": [
+    "Moorland Stables",
+    "Moorland lighthouse (Gary Goldtooth)",
+    "Nilmer's Highland (the circus)",
+    "Old Man Jasper's house",
+    "Mrs. Holdsworth's house",
+    "Festival grounds"
+   ],
+   "subs": [
+    {
+     "n": "Moorland Stables",
+     "dx": -20,
+     "dy": -10
+    },
+    {
+     "n": "Lighthouse",
+     "dx": 40,
+     "dy": 30
+    },
+    {
+     "n": "Nilmer's Highland",
+     "dx": -55,
+     "dy": -35
+    }
+   ],
+   "match": [
+    "Moorland",
+    "Gary Goldtooth",
+    "Nilmer's Highland",
+    "Ydris"
+   ],
+   "buyNote": "Gary Goldtooth's magical horses and pets only visit for a few weeks at a time."
+  },
+  {
+   "id": "fortpinta",
+   "name": "Fort Pinta",
+   "x": 545,
+   "y": 545,
+   "r": 56,
+   "seed": 9,
+   "color": "#e3a37f",
+   "blurb": "The harbor town with the beach, ferries and the bus to Jorvik City.",
+   "unlock": [
+    "Open from the start, even for free players"
+   ],
+   "quests": [
+    "James gives you the quest that opens South Hoof Peninsula (level 7)",
+    "Fort Pinta Championship on the beach"
+   ],
+   "places": [
+    "Pet Shop Girls (pets and your first saddlebag)",
+    "Selah's seagulls",
+    "Beauty on the Beach salon",
+    "Notary (rename your horse)",
+    "Fort Pinta Beach and café",
+    "Disco (Fri and Sat from 8 PM server time)",
+    "Ferries to Cape West, Jarlaheim and South Hoof",
+    "Bus to Jorvik City",
+    "Races: Mayor Peanut's Fitness Circuit, Fort Pinta Scenic Circuit"
+   ],
+   "subs": [
+    {
+     "n": "Fort Pinta Beach",
+     "dx": 20,
+     "dy": 30
+    }
+   ],
+   "match": [
+    "Fort Pinta",
+    "Selah",
+    "Pet Shop Girls"
+   ]
+  },
+  {
+   "id": "hollowwoods",
+   "name": "Hollow Woods",
+   "x": 560,
+   "y": 185,
+   "r": 70,
+   "seed": 13,
+   "color": "#5f9e7d",
+   "blurb": "A huge magical forest in Valedale, home of the druids and the unicorns.",
+   "unlock": [
+    "Part of Valedale"
+   ],
+   "quests": [
+    "Meet Wynna Sunbeam at the magic runestone to start druidism",
+    "Path of Whimsy (collect Light from fireflies and wisps)",
+    "Path of Runeology (rune puzzles)",
+    "Path of Terra"
+   ],
+   "places": [
+    "On a Whim shop (Mistfoxes)",
+    "Phoebe and Tynan, the unicorns",
+    "Hollowbloom Hideaway",
+    "Luminous Falls",
+    "Mossroot Grove",
+    "Races: Hollow Woods Race, Firefly's Folly"
+   ],
+   "subs": [
+    {
+     "n": "Luminous Falls",
+     "dx": -25,
+     "dy": -20
+    },
+    {
+     "n": "Mossroot Grove",
+     "dx": 25,
+     "dy": 20
+    }
+   ],
+   "match": [
+    "Hollow Woods",
+    "On a Whim"
+   ]
+  },
+  {
+   "id": "valedale",
+   "name": "Valedale",
+   "x": 690,
+   "y": 215,
+   "r": 72,
+   "seed": 17,
+   "color": "#6fa8b8",
+   "blurb": "A druid village by the Silversong River and Valedale Lake.",
+   "unlock": [
+    "Star Rider",
+    "Follow the Silverglade main story"
+   ],
+   "quests": [
+    "Lots of main story quests",
+    "Soul Riding with Rhiannon at the Druid Paddock (leads to a free Rune Runner horse)",
+    "Elizabeth Sunbeam, who later opens the road to the Valley of the Hidden Dinosaur"
+   ],
+   "places": [
+    "Valedale Village",
+    "Druid Paddock",
+    "Farah's shop (druid fashion)",
+    "Spy Master's Hideout",
+    "Valedale Lake",
+    "Secret Stone Circle"
+   ],
+   "subs": [
+    {
+     "n": "Valedale Village",
+     "dx": -15,
+     "dy": -15
+    },
+    {
+     "n": "Valedale Lake",
+     "dx": 35,
+     "dy": 30
+    }
+   ],
+   "match": [
+    "Valedale"
+   ]
+  },
+  {
+   "id": "dino",
+   "name": "Valley of the Hidden Dinosaur",
+   "x": 810,
+   "y": 85,
+   "r": 82,
+   "seed": 19,
+   "color": "#b9c7de",
+   "blurb": "A frozen valley with Nic Stoneground's fossil camp and no stable or village.",
+   "unlock": [
+    "Level 15",
+    "Liked reputation with Valedale",
+    "Meet Nic Stoneground in the Everwind Fields and finish his quests"
+   ],
+   "quests": [
+    "Check whether the valley entrance has thawed for Elizabeth Sunbeam",
+    "The Frozen Road",
+    "Help set up Nic's camp and hunt for fossils",
+    "Fix Nic's hot air balloon"
+   ],
+   "places": [
+    "Nic Stoneground's Camp",
+    "The Ice Forest",
+    "The crater and ice cave"
+   ],
+   "subs": [
+    {
+     "n": "Nic's Camp",
+     "dx": -20,
+     "dy": 10
+    }
+   ],
+   "match": [
+    "Dino Valley",
+    "Hidden Dinosaur"
+   ]
+  },
+  {
+   "id": "firgrove",
+   "name": "Firgrove",
+   "x": 770,
+   "y": 345,
+   "r": 66,
+   "seed": 23,
+   "color": "#8db58a",
+   "blurb": "A mountain village on the way to Mistfall.",
+   "unlock": [
+    "Star Rider",
+    "Follow the Silverglade main story"
+   ],
+   "quests": [
+    "The tourists Helga, Gretchen and Gunther",
+    "Mrs. Packard's rental invoice (opens Mistfall)",
+    "A hidden quest in the mountains"
+   ],
+   "places": [
+    "Firgrove Village",
+    "Firgrove Pet Store",
+    "Bear Cave and Mountaineer's Hut (secret)",
+    "Red String Trail Ride"
+   ],
+   "subs": [
+    {
+     "n": "Firgrove Village",
+     "dx": -10,
+     "dy": 5
+    }
+   ],
+   "match": [
+    "Firgrove"
+   ]
+  },
+  {
+   "id": "starshine",
+   "name": "Starshine Ranch",
+   "x": 680,
+   "y": 440,
+   "r": 56,
+   "seed": 29,
+   "color": "#e0b07a",
+   "blurb": "The only western-riding place in Jorvik, and home of Camp Western.",
+   "unlock": [
+    "Star Rider",
+    "Help Thomas Moorland get back Moorland Stables' stolen ownership papers"
+   ],
+   "quests": [
+    "Mary's Lost Animals",
+    "The Tumbleweed Rodeo",
+    "Dances with Chickens",
+    "Scouting with Josh"
+   ],
+   "places": [
+    "Home stable",
+    "Western shops",
+    "Western Games: pole bending, barrel racing, Josh's Western Race",
+    "Camp Western event"
+   ],
+   "subs": [],
+   "match": [
+    "Starshine Ranch",
+    "Camp Western",
+    "Western Festival"
+   ]
+  },
+  {
+   "id": "mistfall",
+   "name": "Mistfall",
+   "x": 890,
+   "y": 450,
+   "r": 72,
+   "seed": 31,
+   "color": "#7b9fc0",
+   "blurb": "Misty forests around the Viking-style town of Dundull.",
+   "unlock": [
+    "Star Rider",
+    "Level 12",
+    "Mrs. Packard in Firgrove gives you her rental invoice"
+   ],
+   "quests": [
+    "Help Kit deliver Mistfoxes so you can buy one",
+    "Jorvik Ranger training",
+    "Search and Rescue orienteering"
+   ],
+   "places": [
+    "Dundull",
+    "Kit's Cuddle Cottage (Mistfoxes)",
+    "South Mistfall Ranger Station",
+    "Mistfall Lake",
+    "Races: South Mistfall Forest, Bramble Gorge"
+   ],
+   "subs": [
+    {
+     "n": "Dundull",
+     "dx": 15,
+     "dy": 25
+    }
+   ],
+   "match": [
+    "Dundull",
+    "Mistfall",
+    "Kit Shorthouse",
+    "Kit's Cuddle"
+   ]
+  },
+  {
+   "id": "wildwoods",
+   "name": "Wildwoods",
+   "x": 910,
+   "y": 285,
+   "r": 78,
+   "seed": 37,
+   "color": "#4f8a62",
+   "blurb": "Untouched forest where the three Jorvik Wild Horse herds live.",
+   "unlock": [
+    "Star Rider",
+    "Level 12 and access to Mistfall",
+    "Finish Big Bonny's questline",
+    "Then speak to Rania: Open Wildwoods - An Impossible Expedition"
+   ],
+   "quests": [
+    "Open Wildwoods - An Impossible Expedition",
+    "The first ranger expedition (opens the north)",
+    "The Lignos lead you over the Sentinel Tree bridge"
+   ],
+   "places": [
+    "Redwood Point",
+    "Tailtop Village",
+    "Sentinel Tree",
+    "Foresters' woods, Mystics' swamp, Warriors' highland"
+   ],
+   "subs": [
+    {
+     "n": "Redwood Point",
+     "dx": -20,
+     "dy": 30
+    },
+    {
+     "n": "Tailtop Village",
+     "dx": 15,
+     "dy": -30
+    }
+   ],
+   "match": [
+    "Redwood Point",
+    "Tailtop",
+    "Wildwoods"
+   ]
+  },
+  {
+   "id": "harvest",
+   "name": "The Harvest Counties",
+   "x": 195,
+   "y": 575,
+   "r": 92,
+   "seed": 41,
+   "color": "#c2b36a",
+   "blurb": "Farmland with Jarlaheim, Jorvik Stables and Greendale.",
+   "unlock": [
+    "Star Rider",
+    "Opens through the main story (the bridge from Nilmer's Highland)"
+   ],
+   "quests": [
+    "Jack Goldspur's search for a new mayor",
+    "Herman on Vacation and the GED quests",
+    "Reputation with the Jarlasson and Goldspur families (all needed for Epona)"
+   ],
+   "places": [
+    "Jarlaheim",
+    "Jorvik Stables and arena",
+    "Greendale and Goldspur Farm (Doreen's squirrels)",
+    "Wolf Hall Inn",
+    "Stablebucks Café",
+    "The Unfortunate Dews' Farm",
+    "Graydew Mountains"
+   ],
+   "subs": [
+    {
+     "n": "Jarlaheim",
+     "dx": -40,
+     "dy": -20
+    },
+    {
+     "n": "Jorvik Stables",
+     "dx": 30,
+     "dy": -30
+    },
+    {
+     "n": "Greendale",
+     "dx": 20,
+     "dy": 35
+    }
+   ],
+   "match": [
+    "Jorvik Stables",
+    "Goldspur",
+    "Greendale",
+    "Jarlaheim",
+    "Doreen"
+   ]
+  },
+  {
+   "id": "epona",
+   "name": "Epona",
+   "x": 215,
+   "y": 735,
+   "r": 78,
+   "seed": 43,
+   "color": "#a7c07e",
+   "blurb": "The southern island with New Hillcrest, Crescent Moon Village and Fort Maria.",
+   "unlock": [
+    "Star Rider",
+    "Level 14",
+    "Jack Goldspur's mayor questline",
+    "Friendly with Jorvik Stables, the GED Jarlaheim Office, the Jarlasson family and the Goldspur family",
+    "Ends with the GED quest A step up in your career?"
+   ],
+   "quests": [
+    "The unlock questline starts with a text from Herman",
+    "Professor Hayden and Alberta's spiderlings (gives a spider pet)",
+    "Fort Maria story quests"
+   ],
+   "places": [
+    "New Hillcrest",
+    "Crescent Moon Village",
+    "Fort Maria"
+   ],
+   "subs": [
+    {
+     "n": "New Hillcrest",
+     "dx": 30,
+     "dy": -15
+    },
+    {
+     "n": "Crescent Moon Village",
+     "dx": -30,
+     "dy": 20
+    }
+   ],
+   "match": [
+    "New Hillcrest",
+    "Crescent Moon",
+    "Fort Maria",
+    "Epona"
+   ]
+  },
+  {
+   "id": "ridingcamp",
+   "name": "Jorvik Riding Camp",
+   "x": 400,
+   "y": 620,
+   "r": 34,
+   "seed": 47,
+   "color": "#d7a0b8",
+   "blurb": "A small island made to welcome new players.",
+   "unlock": [
+    "For new players"
+   ],
+   "quests": [],
+   "places": [
+    "Starting area for new players"
+   ],
+   "subs": [],
+   "match": [
+    "Riding Camp"
+   ]
+  },
+  {
+   "id": "southhoof",
+   "name": "South Hoof Peninsula",
+   "x": 580,
+   "y": 725,
+   "r": 76,
+   "seed": 53,
+   "color": "#d3c27f",
+   "blurb": "A rescue ranch, a hermit and wild horses down south.",
+   "unlock": [
+    "Level 7",
+    "Get the quest from James in Fort Pinta",
+    "Take the ferry (or the bridge from New Hillcrest once it's built)"
+   ],
+   "quests": [
+    "Quests to set up the three shops",
+    "Rescue Ranch tasks",
+    "Befriend the Hermit to buy the Welsh Pony"
+   ],
+   "places": [
+    "South Hoof Farm (Rolph's terriers)",
+    "South Hoof Rescue Ranch",
+    "Hermit's Cottage",
+    "Horse market",
+    "Ancient Tree stone circle"
+   ],
+   "subs": [
+    {
+     "n": "South Hoof Farm",
+     "dx": -20,
+     "dy": -10
+    },
+    {
+     "n": "Rescue Ranch",
+     "dx": 30,
+     "dy": 15
+    }
+   ],
+   "match": [
+    "South Hoof",
+    "Rolph"
+   ]
+  },
+  {
+   "id": "jorvikcity",
+   "name": "Jorvik City",
+   "x": 930,
+   "y": 640,
+   "r": 56,
+   "seed": 59,
+   "color": "#9a9fd0",
+   "blurb": "The capital, east of Silverglade. You get there by bus.",
+   "unlock": [
+    "Take the bus from Fort Pinta (no longer needs Star Rider)"
+   ],
+   "quests": [
+    "Go with Rania Varanger to Jorvik City Mall"
+   ],
+   "places": [
+    "Jorvik City Mall",
+    "Aideen's Plaza",
+    "Governor's Fall",
+    "Pier 13",
+    "Jorvik City Museum",
+    "Jorvik City University",
+    "Crow's Nest"
+   ],
+   "subs": [
+    {
+     "n": "Mall",
+     "dx": -15,
+     "dy": 10
+    }
+   ],
+   "match": [
+    "Jorvik City",
+    "Governor's Fall",
+    "Pier 13"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "fortpinta",
+   "jorvikcity",
+   "Bus"
+  ],
+  [
+   "fortpinta",
+   "southhoof",
+   "Ferry"
+  ]
+ ]
+}
