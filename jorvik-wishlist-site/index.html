@@ -436,6 +436,24 @@
   .mreg.hot ellipse{fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-opacity:0;stroke-width:4;stroke-dasharray:10 8;cursor:pointer;transition:fill-opacity .15s,stroke-opacity .15s}
   .mreg.hot:hover ellipse,.mreg.hot:focus ellipse{fill-opacity:.16;stroke-opacity:.9}
   .mreg.hot.sel ellipse{fill:#ef87a9;fill-opacity:.18;stroke:#ef87a9;stroke-opacity:1;stroke-dasharray:none;stroke-width:5}
+  .mapbox{touch-action:none}
+  .mapbox.out{touch-action:pan-y}
+  .maphint{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:#1d2550cc;color:#fff;font-size:12px;font-weight:600;border-radius:999px;padding:5px 12px;white-space:nowrap;pointer-events:none}
+  .mapjump{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0 0}
+  .mapjump button{all:unset;cursor:pointer;background:#ffffff;color:#2b2f5e;border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700}
+  .mapjump button[aria-pressed="true"]{background:#ef87a9;color:#fff}
+  .mapjump button:focus-visible{outline:2px solid #ef87a9;outline-offset:2px}
+  .mapwrap.full{position:fixed;inset:0;z-index:50;background:#151d44;grid-template-columns:minmax(0,1fr) 380px;gap:0;padding:0}
+  .mapwrap.full .mapbox{border-radius:0;height:100vh;height:100dvh}
+  .mapwrap.full #mapSvg{height:100%;aspect-ratio:auto}
+  .mapwrap.full .mapside{position:static;max-height:100vh;max-height:100dvh;border-radius:0;height:100%;box-sizing:border-box}
+  body.mapfull{overflow:hidden}
+  @media (max-width:900px){
+    .mapwrap.full{grid-template-columns:1fr;grid-template-rows:1fr auto}
+    .mapwrap.full .mapbox{height:auto;min-height:0}
+    .mapwrap.full .mapside{max-height:42vh;max-height:42dvh;overflow:auto;border-radius:20px 20px 0 0;height:auto}
+    .maphint{font-size:11px;bottom:8px}
+  }
   .mtick{pointer-events:none}
   .mpoi{pointer-events:auto;cursor:pointer}
   .mpoi text.msub{font-size:10.5px}
@@ -602,11 +620,13 @@
     <div class="mapwrap">
       <div class="mapbox" id="mapBox">
         <svg id="mapSvg" viewBox="0 0 1199 1312" role="group" aria-label="Map of Jorvik"></svg>
-        <div class="mapctl"><button type="button" class="btn small ghost" data-mz="in" aria-label="Zoom in">+</button><button type="button" class="btn small ghost" data-mz="out" aria-label="Zoom out">−</button><button type="button" class="btn small ghost" data-mz="reset">Reset</button></div>
+        <div class="mapctl"><button type="button" class="btn small ghost" data-mz="in" aria-label="Zoom in">+</button><button type="button" class="btn small ghost" data-mz="out" aria-label="Zoom out">−</button><button type="button" class="btn small ghost" data-mz="reset">Reset</button><button type="button" class="btn small ghost" data-mz="full" aria-pressed="false">⛶ Full screen</button></div>
+        <div class="maphint">Drag to move · double-tap or scroll to zoom · tap an area for info</div>
         <div class="mapprog" id="mapProg"></div>
       </div>
       <aside class="mapside" id="mapSide" aria-live="polite"></aside>
     </div>
+    <div class="mapjump" id="mapJump" aria-label="Jump to an area"></div>
     <div class="maplegend" aria-hidden="true"><span><svg width="20" height="18" viewBox="-10 -9 20 18"><path d="M-9,1 L0,-8 L9,1 L9,8 L-9,8 Z" fill="#ef87a9" stroke="#1d2550" stroke-width="1.5"/></svg>Home stable</span><span><svg width="20" height="18" viewBox="-10 -9 20 18"><path d="M-9,1 L0,-8 L9,1 L9,8 L-9,8 Z" fill="#fff" stroke="#1d2550" stroke-width="1.5"/></svg>Other stable</span><span><svg width="22" height="16" viewBox="-11 -8 22 16"><rect x="-9" y="-6" width="15" height="10" rx="2.5" fill="#f2c94c" stroke="#1d2550" stroke-width="1.5"/></svg>Horse trailer</span><span><svg width="18" height="18" viewBox="-9 -9 18 18"><circle r="7" fill="#4cc38a" stroke="#fff" stroke-width="2"/></svg>Area you've unlocked</span></div>
     <p class="note" id="mapNote"></p>
   </section>
@@ -1426,32 +1446,44 @@
       <h4>Horses and pets sold here${items.length?` (${items.length})`:''}</h4>${r.buyNote?`<p class="mempty" style="margin:0 0 8px">${esc(r.buyNote)}</p>`:''}${items.length?`<div class="mbuy">${tiles}</div>`:'<p class="mempty">None on our list right now.</p>'}`;
     $('#mHave').onchange=e=>{ const a=new Set(mapHave()); e.target.checked?a.add(r.id):a.delete(r.id); LS.set(K_MAP,[...a]); drawMap(); };
   }
-  function applyView(){ const v=mapView; $('#mapSvg').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`); $('#mapSvg').classList.toggle('zoomed',v.w<MW*0.72); }
-  function zoomMap(f,cx,cy){ const v=mapView; const nw=Math.min(MW,Math.max(220,v.w*f)), k=nw/v.w; cx??=v.x+v.w/2; cy??=v.y+v.h/2;
-    mapView={x:cx-(cx-v.x)*k,y:cy-(cy-v.y)*k,w:nw,h:v.h*k}; clampView(); applyView(); }
-  function clampView(){ const v=mapView; v.x=Math.min(MW-v.w*0.3,Math.max(-v.w*0.7,v.x)); v.y=Math.min(MH-v.h*0.3,Math.max(-v.h*0.7,v.y)); }
-  function selectRegion(id){ mapSel=id; $('#mapSvg').querySelectorAll('.mreg').forEach(g=>g.classList.toggle('sel',g.dataset.reg===id)); mapSide();
-    if(innerWidth<=900) $('#mapSide').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function applyView(){ const v=mapView; $('#mapSvg').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`); $('#mapSvg').classList.toggle('zoomed',v.w<MW*0.72); $('#mapBox').classList.toggle('out',v.w>=MW-1); }
+  let mapAnim=0;
+  function animateView(t){ cancelAnimationFrame(mapAnim); const f={...mapView}; const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; const t0=performance.now(), D=reduce?0:320;
+    const step=now=>{ const k=D?Math.min(1,(now-t0)/D):1, e=1-Math.pow(1-k,3); mapView={x:f.x+(t.x-f.x)*e,y:f.y+(t.y-f.y)*e,w:f.w+(t.w-f.w)*e,h:f.h+(t.h-f.h)*e}; applyView(); if(k<1) mapAnim=requestAnimationFrame(step); };
+    mapAnim=requestAnimationFrame(step); }
+  function zoomTarget(f,cx,cy){ const v=mapView; const nw=Math.min(MW,Math.max(MW/6,v.w*f)), k=nw/v.w; cx??=v.x+v.w/2; cy??=v.y+v.h/2; const t={x:cx-(cx-v.x)*k,y:cy-(cy-v.y)*k,w:nw,h:v.h*k}; return clampV(t); }
+  function clampV(v){ v.x=Math.max(0,Math.min(MW-v.w,v.x)); v.y=Math.max(0,Math.min(MH-v.h,v.y)); return v; }
+  function focusRegion(r){ if(!r?.hot) return; const [cx,cy,rx,ry]=r.hot; const w=Math.min(MW,Math.max(MW/4,Math.max(rx*2*1.6,ry*2*1.6*MW/MH))); animateView(clampV({x:cx-w/2,y:cy-w*MH/MW/2,w,h:w*MH/MW})); }
+  function zoomMap(f,cx,cy,anim){ const t=zoomTarget(f,cx,cy); if(anim) animateView(t); else { mapView=t; applyView(); } }
+  function clampView(){ clampV(mapView); }
+  function selectRegion(id,zoom){ mapSel=id; $('#mapSvg').querySelectorAll('.mreg').forEach(g=>g.classList.toggle('sel',g.dataset.reg===id)); document.querySelectorAll('#mapJump button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.j===id)); mapSide(); if(zoom) focusRegion(MAP.regions.find(r=>r.id===id));
+    if(innerWidth<=900&&!$('.mapwrap').classList.contains('full')) $('#mapSide').scrollIntoView({behavior:'smooth',block:'nearest'}); }
   async function renderMap(){
     if(!MAP){ try{ MAP=await fetch('data/map.json',{cache:'no-cache'}).then(r=>r.json()); }catch(e){ $('#mapSide').textContent='Couldn\'t load the map. Check your connection and refresh.'; return; }
-      [MW,MH]=MAP.bg?[MAP.bg.w,MAP.bg.h]:(MAP.size||[1040,820]); mapView={x:0,y:0,w:MW,h:MH}; $('#mapNote').textContent=[MAP.bg?.credit,MAP.note].filter(Boolean).join(' '); wireMap(); }
+      [MW,MH]=MAP.bg?[MAP.bg.w,MAP.bg.h]:(MAP.size||[1040,820]); mapView={x:0,y:0,w:MW,h:MH}; $('#mapNote').textContent=[MAP.bg?.credit,MAP.note].filter(Boolean).join(' ');
+      $('#mapJump').innerHTML=[...MAP.regions].sort((a,b)=>a.name.localeCompare(b.name)).map(r=>`<button type="button" data-j="${r.id}" aria-pressed="false">${esc(r.name)}</button>`).join(''); wireMap(); }
     drawMap(); mapSide();
   }
   function wireMap(){
     const svg=$('#mapSvg'); const pts=new Map(); let moved=0, start=null, pinch=null;
-    const toSvg=(cx,cy)=>{ const b=svg.getBoundingClientRect(), v=mapView; return [v.x+(cx-b.left)/b.width*v.w, v.y+(cy-b.top)/b.height*v.h]; };
-    svg.addEventListener('pointerdown',e=>{ pts.set(e.pointerId,[e.clientX,e.clientY]); svg.setPointerCapture(e.pointerId); moved=0; start={x:e.clientX,y:e.clientY,v:{...mapView},target:e.target};
+    const toSvg=(cx,cy)=>{ const p=new DOMPoint(cx,cy).matrixTransform(svg.getScreenCTM().inverse()); return [p.x,p.y]; };
+    svg.addEventListener('pointerdown',e=>{ pts.set(e.pointerId,[e.clientX,e.clientY]); svg.setPointerCapture(e.pointerId); moved=0; start={x:e.clientX,y:e.clientY,v:{...mapView},target:e.target,scale:svg.getScreenCTM().a};
       if(pts.size===2){ const [a,b]=[...pts.values()]; pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),w:mapView.w}; } });
     svg.addEventListener('pointermove',e=>{ if(!pts.has(e.pointerId)) return; pts.set(e.pointerId,[e.clientX,e.clientY]);
       if(pts.size===2&&pinch){ const [a,b]=[...pts.values()]; const d=Math.hypot(a[0]-b[0],a[1]-b[1]); const [cx,cy]=toSvg((a[0]+b[0])/2,(a[1]+b[1])/2); zoomMap((pinch.w*pinch.d/d)/mapView.w,cx,cy); moved=99; return; }
       const dx=e.clientX-start.x, dy=e.clientY-start.y; moved=Math.max(moved,Math.hypot(dx,dy)); if(moved<5) return;
-      svg.classList.add('drag'); const b=svg.getBoundingClientRect(); mapView={...mapView,x:start.v.x-dx/b.width*start.v.w,y:start.v.y-dy/b.height*start.v.h}; clampView(); applyView(); });
+      svg.classList.add('drag'); const sc=start.scale; mapView={...mapView,x:start.v.x-dx/sc,y:start.v.y-dy/sc}; clampView(); applyView(); });
     const up=e=>{ if(!pts.has(e.pointerId)) return; pts.delete(e.pointerId); if(pts.size<2) pinch=null; svg.classList.remove('drag');
       if(moved<5&&pts.size===0){ const g=start.target.closest?.('.mreg,.mpoi'); if(g) selectRegion(g.dataset.reg); } };
+    window.toggleMapFull=on=>{ const w=$('.mapwrap'); const v=on??!w.classList.contains('full'); w.classList.toggle('full',v); document.body.classList.toggle('mapfull',v); $('[data-mz="full"]').textContent=v?'✕ Close':'⛶ Full screen'; $('[data-mz="full"]').setAttribute('aria-pressed',v); };
     svg.addEventListener('pointerup',up); svg.addEventListener('pointercancel',up);
-    svg.addEventListener('wheel',e=>{ e.preventDefault(); const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(e.deltaY>0?1.15:1/1.15,cx,cy); },{passive:false});
-    svg.addEventListener('keydown',e=>{ const g=e.target.closest('.mreg'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); selectRegion(g.dataset.reg); } });
-    $('#mapBox').querySelector('.mapctl').onclick=e=>{ const b=e.target.closest('[data-mz]'); if(!b) return; const z=b.dataset.mz; if(z==='reset'){ mapView={x:0,y:0,w:MW,h:MH}; applyView(); } else zoomMap(z==='in'?1/1.3:1.3); };
+    svg.addEventListener('wheel',e=>{ if(e.deltaY>0&&mapView.w>=MW-1&&!$('.mapwrap').classList.contains('full')) return; e.preventDefault(); const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(e.deltaY>0?1.15:1/1.15,cx,cy); },{passive:false});
+    svg.addEventListener('dblclick',e=>{ e.preventDefault(); const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(1/1.8,cx,cy,true); });
+    let lastTap=0; svg.addEventListener('pointerup',e=>{ if(e.pointerType!=='touch'||moved>=5) return; const n=Date.now(); if(n-lastTap<300){ const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(1/1.8,cx,cy,true); lastTap=0; } else lastTap=n; });
+    svg.addEventListener('keydown',e=>{ const g=e.target.closest('.mreg'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); selectRegion(g.dataset.reg,true); } });
+    $('#mapBox').querySelector('.mapctl').onclick=e=>{ const b=e.target.closest('[data-mz]'); if(!b) return; const z=b.dataset.mz; if(z==='reset'){ animateView({x:0,y:0,w:MW,h:MH}); } else if(z==='full'){ toggleMapFull(); } else zoomMap(z==='in'?1/1.5:1.5,undefined,undefined,true); };
+    $('#mapJump').onclick=e=>{ const b=e.target.closest('[data-j]'); if(b) selectRegion(b.dataset.j,true); };
+    addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('.mapwrap').classList.contains('full')&&!document.querySelector('#ov.on')) toggleMapFull(false); });
     $('#mapSide').onclick=e=>{ const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); } };
     $('#mapSide').onkeydown=e=>{ const g=e.target.closest('[data-gal]'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); showGallery(g.dataset.gal); } };
   }
