@@ -54,6 +54,12 @@
   .bzshow figcaption{margin-top:6px;font-weight:700;font-size:13px;color:#fff}
   .bzshow figcaption small{display:block;font-weight:600;color:#e9c46a;font-size:13px}
   .bzshow .mine .pic{box-shadow:0 0 0 3px #ffc9dc}
+  .bzshow .have .pic{box-shadow:0 0 0 4px #4cc38a}
+  .bzshow .mine.have .pic{box-shadow:0 0 0 4px #4cc38a,0 0 0 7px #ffc9dc}
+  .ownt{display:inline-block;margin-top:3px;white-space:nowrap;background:#4cc38a;color:#fff;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700}
+  .bzshow .ownt{display:table;margin:4px auto 0}
+  .chip.have{background:#e3f6ec;box-shadow:inset 0 0 0 2px #4cc38a;color:#1d6b45}
+  .gallery .g.have .pic{box-shadow:0 0 0 4px #4cc38a}
 
   nav.tabs{display:flex;justify-content:center;gap:4px;margin:22px 0 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
   nav.tabs button{border:0;background:none;padding:10px 16px 12px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-size:16px}
@@ -722,7 +728,7 @@
   function showGallery(id){
     const c=S.catalog[id]; if(!hasCoats(c)) return;
     openModal(`<h3>${esc(c.name)}${c.type==='Pet'?'':' coats'}</h3><p class="note" style="font-style:normal">${c.credit?c.credit+'</p><p hidden>':''}${c.coatSource!=='ssodb'&&c.coatWhere?'Official pictures from starstable.com, plus extra coats from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a> (photos by Abbie Starwatcher).':c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
-      <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}${whereTag(c,j+1)}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
+      <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g ${ownsCoat(id,j+1)?'have':''}">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?'<br><span class="ownt">✓ In your stable</span>':''}${whereTag(c,j+1)}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
       <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on ${esc(linkHost(breedLink(id)))} ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
     $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
     $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); if(c.type==='Pet'){ showTab('pets'); } $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } showTab(c.type==='Pet'?'pets':'mine'); $('#addBreed').value=id; refreshAddPicker(); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
@@ -820,7 +826,8 @@
     const chips = (show.horses||[]).map(h=>{
       const c=S.catalog[h.breed]; const nm=c?c.name:h.breed;
       const pic = hasCoats(c) ? coatHtml(c,1,'pic h') : (c&&c.img) ? `<img class="pic" src="${esc(imgUrl(c.img))}" alt="">` : `<div class="nopic">${petIcon(c)}</div>`;
-      return `<figure class="${mine.has(h.breed)?'mine':''}" data-gal="${esc(h.breed)}">${pic}<figcaption>${mine.has(h.breed)?'💖 ':''}${esc(nm)}${h.price?`<small>${sc(h.price)}</small>`:''}</figcaption></figure>`;
+      const own=ownsBreed(h.breed).length;
+      return `<figure class="${mine.has(h.breed)?'mine':''} ${own?'have':''}" data-gal="${esc(h.breed)}" title="${own?`You have ${own} in your stable. Tap to see which coats`:''}">${pic}<figcaption>${mine.has(h.breed)?'💖 ':''}${esc(nm)}${h.price?`<small>${sc(h.price)}</small>`:''}${own?`<span class="ownt">✓ You have ${own}</span>`:''}</figcaption></figure>`;
     }).join('');
     const hits=(show.horses||[]).filter(h=>mine.has(h.breed)).length;
     el.innerHTML = `<div class="bzbox"><h2>${cur?'The Bazaar is open now':'Coming to the next Bazaar'}</h2>
@@ -1120,7 +1127,7 @@
       return head+`<div class="bz ${fut?'future':''}">
         <div class="d">${fmtDate(b.start)} – ${fmtDate(end)} ${now?'<span class="tag now">Open now</span>':fut?'<span class="tag soon">Upcoming</span>':''}
           <button class="btn small ghost" style="float:right" data-bz="${esc(b.id)}">✏️</button></div>
-        <div class="chips">${(b.horses||[]).map(h=>`<span class="chip">${esc(S.catalog[h.breed]?.name||h.breed)}${h.price?` · ${sc(h.price)}`:''}</span>`).join('')}</div>
+        <div class="chips">${(b.horses||[]).map(h=>{ const own=ownsBreed(h.breed).length; return `<span class="chip ${own?'have':''}" ${own?`title="You have ${own} in your stable"`:''}>${own?'✓ ':''}${esc(S.catalog[h.breed]?.name||h.breed)}${h.price?` · ${sc(h.price)}`:''}</span>`; }).join('')}</div>
         ${b.note?`<div class="note">${esc(b.note)}</div>`:''}
       </div>`;
     }).join('');
@@ -1149,6 +1156,7 @@
   // ---------- private: star coins + my stable (data/users/<id>/me, readable only by that person) ----------
   function saveMe(){
     if(!LS.set(K_ME,{sc:S.me.sc, scAt:S.me.scAt, owned:S.me.owned})) status('Your browser blocked saving (private mode?).', true);
+    try{ renderBanner(); renderBazaars(); }catch(e){}
   }
   const ownsBreed = id => S.me.owned.filter(o=>o.breed===id);
   const ownsCoat = (id,n) => n ? S.me.owned.some(o=>o.breed===id && o.coatNo===n) : false;
