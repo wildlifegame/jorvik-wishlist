@@ -1441,6 +1441,20 @@
     };
   }
 
+  // ---------- auto-update: reload when a newer version of the site is published ----------
+  (()=>{
+    let base=null, last=0, busy=false, told=false;
+    const sig=async()=>{ const r=await fetch(location.pathname,{method:'HEAD',cache:'no-store'}); const t=r.headers.get('etag')||r.headers.get('last-modified');
+      if(t) return t; const g=await fetch(location.pathname,{cache:'no-store'}); const txt=await g.text(); let h=0; for(let i=0;i<txt.length;i++) h=(h*31+txt.charCodeAt(i))|0; return 'h'+h+'-'+txt.length; };
+    const idle=()=>!document.querySelector('#ov.on') && !(document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName));
+    const check=async(back)=>{ if(busy||Date.now()-last<5*60e3) return; busy=true; last=Date.now();
+      try{ const s=await sig(); if(base===null) base=s; else if(s!==base){
+          if(back&&idle()) location.reload(); else if(!told){ told=true; toast('A newer version of Jorvik Wishlist is ready. It will load next time you come back to this page.'); } } }catch(e){} finally{ busy=false; } };
+    setTimeout(()=>check(false),3000);
+    document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'){ if(Date.now()-last>60e3) last=0; setTimeout(()=>check(true),800); } });
+    setInterval(()=>{ if(document.visibilityState==='visible') check(false); },30*60e3);
+  })();
+
   // ---------- start: load horse data, then this browser's lists ----------
   S.uid='local';
   S.myItems=LS.get(K_WISH,[]); S.loaded.mine=true;
