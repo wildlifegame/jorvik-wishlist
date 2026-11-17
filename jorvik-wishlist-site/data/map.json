@@ -49,7 +49,8 @@
     "Beast Bonds"
    ],
    "sx": 1.1,
-   "sy": 1.0
+   "sy": 1.0,
+   "terrain": "darkforest"
   },
   {
    "id": "goldenhills",
@@ -106,7 +107,8 @@
      "dy": -54,
      "note": "Home stable, horse shop and hostel"
     }
-   ]
+   ],
+   "terrain": "fields"
   },
   {
    "id": "medieval",
@@ -157,7 +159,8 @@
      "dy": 3,
      "note": "Horse trailer"
     }
-   ]
+   ],
+   "terrain": "fields"
   },
   {
    "id": "silverglade",
@@ -242,7 +245,8 @@
      "dy": 36,
      "note": "Horse trailer"
     }
-   ]
+   ],
+   "terrain": "meadow"
   },
   {
    "id": "moorland",
@@ -294,7 +298,8 @@
      "dy": 35,
      "note": "Default home stable"
     }
-   ]
+   ],
+   "terrain": "meadow"
   },
   {
    "id": "fortpinta",
@@ -346,7 +351,8 @@
      "dy": -22,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "beach"
   },
   {
    "id": "hollowwoods",
@@ -380,7 +386,8 @@
     "On a Whim"
    ],
    "sx": 1.0,
-   "sy": 1.05
+   "sy": 1.05,
+   "terrain": "forest"
   },
   {
    "id": "valedale",
@@ -429,7 +436,8 @@
      "dy": -21,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "forest"
   },
   {
    "id": "dino",
@@ -462,7 +470,8 @@
     "Hidden Dinosaur"
    ],
    "sx": 1.25,
-   "sy": 0.85
+   "sy": 0.85,
+   "terrain": "snow"
   },
   {
    "id": "firgrove",
@@ -503,7 +512,8 @@
      "dy": 3,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "pine"
   },
   {
    "id": "starshine",
@@ -547,7 +557,8 @@
      "dy": 45,
      "note": "Western riding stable"
     }
-   ]
+   ],
+   "terrain": "desert"
   },
   {
    "id": "mistfall",
@@ -593,7 +604,8 @@
      "dy": 60,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "pine"
   },
   {
    "id": "wildwoods",
@@ -652,7 +664,8 @@
      "dy": 38,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "forest"
   },
   {
    "id": "harvest",
@@ -721,7 +734,8 @@
      "dy": -40,
      "note": "Herman's stable and arena"
     }
-   ]
+   ],
+   "terrain": "fields"
   },
   {
    "id": "epona",
@@ -778,7 +792,8 @@
      "dy": 30,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "meadow"
   },
   {
    "id": "ridingcamp",
@@ -801,7 +816,8 @@
     "Riding Camp"
    ],
    "sx": 1.2,
-   "sy": 0.9
+   "sy": 0.9,
+   "terrain": "meadow"
   },
   {
    "id": "southhoof",
@@ -856,7 +872,8 @@
      "dy": -18,
      "note": "Home stable"
     }
-   ]
+   ],
+   "terrain": "beach"
   },
   {
    "id": "jorvikcity",
@@ -895,7 +912,8 @@
     "Pier 13"
    ],
    "sx": 1.0,
-   "sy": 1.0
+   "sy": 1.0,
+   "terrain": "city"
   }
  ],
  "links": [
