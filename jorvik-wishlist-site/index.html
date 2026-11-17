@@ -1453,6 +1453,10 @@
       const [cat,baz,ev,pets]=await Promise.all([fetch('data/catalog.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/bazaars.json',{cache:'no-cache'}).then(r=>r.json()), fetch('data/events.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).catch(()=>[]), fetch('data/pets.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}))]);
       S.events=ev; for(const [k,v] of Object.entries(pets||{})) cat[k]={type:'Pet',link:v.src,...v};
       S.catalog=cat; S.bazaars=baz.map(b=>({id:b.start,...b})); S.loaded.catalog=true; S.loaded.bazaars=true;
+      { const AL={'pet-mahr-event-sso-anniversary-8532':'pet-mahr-rcu'}; let ch=0, chMe=0;
+        for(const i of S.myItems||[]) if(AL[i.breed]){ i.breed=AL[i.breed]; delete i.coatNo; ch=1; }
+        for(const o of S.me?.owned||[]) if(AL[o.breed]){ o.breed=AL[o.breed]; delete o.coatNo; chMe=1; }
+        if(ch) LS.set(K_WISH,S.myItems); if(chMe) saveMe(); }
       renderAll();
     }catch(e){ status('Couldn\'t load the horse list. Check your connection and refresh the page.', true); }
   })();
