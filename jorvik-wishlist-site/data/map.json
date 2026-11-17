@@ -4,9 +4,9 @@
   {
    "id": "marchenghast",
    "name": "Marchenghast",
-   "x": 175,
-   "y": 115,
-   "r": 92,
+   "x": 225,
+   "y": 162,
+   "r": 107,
    "seed": 3,
    "color": "#8f7bc0",
    "blurb": "A foggy, blighted forest and castle trapped in time, home to the Saltus Witches.",
@@ -34,27 +34,29 @@
    "subs": [
     {
      "n": "The Veiled Hamlet",
-     "dx": -40,
-     "dy": -30
+     "dx": 22,
+     "dy": -39
     },
     {
      "n": "Marchenghast Castle",
-     "dx": 35,
-     "dy": 25
+     "dx": 0,
+     "dy": 48
     }
    ],
    "match": [
     "Marchenghast",
     "Veiled Hamlet",
     "Beast Bonds"
-   ]
+   ],
+   "sx": 1.1,
+   "sy": 1.0
   },
   {
    "id": "goldenhills",
    "name": "Goldenhills Valley",
-   "x": 185,
-   "y": 265,
-   "r": 86,
+   "x": 150,
+   "y": 333,
+   "r": 107,
    "seed": 7,
    "color": "#d9b56a",
    "blurb": "Golden fields between Silverglade and Marchenghast, with Goldenleaf Stable and a fishing village.",
@@ -79,32 +81,34 @@
    "subs": [
     {
      "n": "Goldenleaf Stable",
-     "dx": -45,
-     "dy": -25
+     "dx": -90,
+     "dy": -54
     },
     {
      "n": "Cape West Fishing Village",
-     "dx": -50,
-     "dy": 30
+     "dx": -93,
+     "dy": -15
     },
     {
      "n": "Scarecrow Hill",
-     "dx": 20,
-     "dy": 45
+     "dx": -75,
+     "dy": 27
     }
    ],
    "match": [
     "Goldenleaf",
     "Cape West",
     "Goldenhills"
-   ]
+   ],
+   "sx": 1.05,
+   "sy": 1.0
   },
   {
    "id": "medieval",
    "name": "Medieval Camp",
-   "x": 215,
-   "y": 405,
-   "r": 62,
+   "x": 165,
+   "y": 483,
+   "r": 76,
    "seed": 11,
    "color": "#c98b6b",
    "blurb": "Knights, jousting and dragon horses in the Forgotten Fields.",
@@ -129,21 +133,23 @@
     {
      "n": "Forgotten Fields",
      "dx": -15,
-     "dy": 30
+     "dy": 20
     }
    ],
    "match": [
     "Medieval Camp",
     "Beasts' Lair",
     "Forgotten Fields"
-   ]
+   ],
+   "sx": 1.1,
+   "sy": 0.9
   },
   {
    "id": "silverglade",
    "name": "Silverglade",
-   "x": 420,
-   "y": 290,
-   "r": 105,
+   "x": 477,
+   "y": 435,
+   "r": 160,
    "seed": 2,
    "color": "#7fb77e",
    "blurb": "The heart of Jorvik: Silverglade Village, the Equestrian Center, the Manor and Steve's Farm.",
@@ -169,28 +175,33 @@
    "subs": [
     {
      "n": "Silverglade Village",
-     "dx": -10,
-     "dy": 15
+     "dx": -9,
+     "dy": 80
     },
     {
      "n": "Equestrian Center",
-     "dx": -70,
-     "dy": -10
+     "dx": -117,
+     "dy": 22
     },
     {
      "n": "Steve's Farm",
-     "dx": 50,
-     "dy": 30
-    },
-    {
-     "n": "Silverglade Manor",
-     "dx": -40,
-     "dy": 60
+     "dx": 81,
+     "dy": 90
     },
     {
      "n": "Everwind Fields",
-     "dx": 10,
-     "dy": -60
+     "dx": -39,
+     "dy": -51
+    },
+    {
+     "n": "Northlink",
+     "dx": -64,
+     "dy": -165
+    },
+    {
+     "n": "Silverglade Castle",
+     "dx": -27,
+     "dy": 140
     }
    ],
    "match": [
@@ -198,14 +209,16 @@
     "Steve's Farm",
     "Steve's Little",
     "Black Tie and Tails"
-   ]
+   ],
+   "sx": 1.1,
+   "sy": 0.95
   },
   {
    "id": "moorland",
    "name": "Moorland",
-   "x": 420,
-   "y": 465,
-   "r": 72,
+   "x": 495,
+   "y": 627,
+   "r": 89,
    "seed": 5,
    "color": "#9cc59a",
    "blurb": "Where everyone starts. Moorland Stables, the lighthouse and the Bazaar live here.",
@@ -228,18 +241,13 @@
    "subs": [
     {
      "n": "Moorland Stables",
-     "dx": -20,
-     "dy": -10
+     "dx": -8,
+     "dy": 0
     },
     {
-     "n": "Lighthouse",
-     "dx": 40,
-     "dy": 30
-    },
-    {
-     "n": "Nilmer's Highland",
-     "dx": -55,
-     "dy": -35
+     "n": "Doyle's Abbey",
+     "dx": 120,
+     "dy": -27
     }
    ],
    "match": [
@@ -248,14 +256,16 @@
     "Nilmer's Highland",
     "Ydris"
    ],
-   "buyNote": "Gary Goldtooth's magical horses and pets only visit for a few weeks at a time."
+   "buyNote": "Gary Goldtooth's magical horses and pets only visit for a few weeks at a time.",
+   "sx": 1.15,
+   "sy": 0.85
   },
   {
    "id": "fortpinta",
    "name": "Fort Pinta",
-   "x": 545,
-   "y": 545,
-   "r": 56,
+   "x": 578,
+   "y": 698,
+   "r": 45,
    "seed": 9,
    "color": "#e3a37f",
    "blurb": "The harbor town with the beach, ferries and the bus to Jorvik City.",
@@ -280,22 +290,24 @@
    "subs": [
     {
      "n": "Fort Pinta Beach",
-     "dx": 20,
-     "dy": 30
+     "dx": 0,
+     "dy": 19
     }
    ],
    "match": [
     "Fort Pinta",
     "Selah",
     "Pet Shop Girls"
-   ]
+   ],
+   "sx": 1.0,
+   "sy": 1.1
   },
   {
    "id": "hollowwoods",
    "name": "Hollow Woods",
-   "x": 560,
-   "y": 185,
-   "r": 70,
+   "x": 608,
+   "y": 352,
+   "r": 86,
    "seed": 13,
    "color": "#5f9e7d",
    "blurb": "A huge magical forest in Valedale, home of the druids and the unicorns.",
@@ -316,29 +328,20 @@
     "Mossroot Grove",
     "Races: Hollow Woods Race, Firefly's Folly"
    ],
-   "subs": [
-    {
-     "n": "Luminous Falls",
-     "dx": -25,
-     "dy": -20
-    },
-    {
-     "n": "Mossroot Grove",
-     "dx": 25,
-     "dy": 20
-    }
-   ],
+   "subs": [],
    "match": [
     "Hollow Woods",
     "On a Whim"
-   ]
+   ],
+   "sx": 1.0,
+   "sy": 1.05
   },
   {
    "id": "valedale",
    "name": "Valedale",
-   "x": 690,
-   "y": 215,
-   "r": 72,
+   "x": 738,
+   "y": 300,
+   "r": 94,
    "seed": 17,
    "color": "#6fa8b8",
    "blurb": "A druid village by the Silversong River and Valedale Lake.",
@@ -362,25 +365,27 @@
    "subs": [
     {
      "n": "Valedale Village",
-     "dx": -15,
-     "dy": -15
+     "dx": -45,
+     "dy": -21
     },
     {
      "n": "Valedale Lake",
-     "dx": 35,
-     "dy": 30
+     "dx": 90,
+     "dy": 54
     }
    ],
    "match": [
     "Valedale"
-   ]
+   ],
+   "sx": 1.2,
+   "sy": 0.95
   },
   {
    "id": "dino",
    "name": "Valley of the Hidden Dinosaur",
-   "x": 810,
-   "y": 85,
-   "r": 82,
+   "x": 855,
+   "y": 128,
+   "r": 119,
    "seed": 19,
    "color": "#b9c7de",
    "blurb": "A frozen valley with Nic Stoneground's fossil camp and no stable or village.",
@@ -400,24 +405,20 @@
     "The Ice Forest",
     "The crater and ice cave"
    ],
-   "subs": [
-    {
-     "n": "Nic's Camp",
-     "dx": -20,
-     "dy": 10
-    }
-   ],
+   "subs": [],
    "match": [
     "Dino Valley",
     "Hidden Dinosaur"
-   ]
+   ],
+   "sx": 1.25,
+   "sy": 0.85
   },
   {
    "id": "firgrove",
    "name": "Firgrove",
-   "x": 770,
-   "y": 345,
-   "r": 66,
+   "x": 867,
+   "y": 480,
+   "r": 85,
    "seed": 23,
    "color": "#8db58a",
    "blurb": "A mountain village on the way to Mistfall.",
@@ -439,20 +440,22 @@
    "subs": [
     {
      "n": "Firgrove Village",
-     "dx": -10,
-     "dy": 5
+     "dx": -4,
+     "dy": 3
     }
    ],
    "match": [
     "Firgrove"
-   ]
+   ],
+   "sx": 1.1,
+   "sy": 1.0
   },
   {
    "id": "starshine",
    "name": "Starshine Ranch",
-   "x": 680,
-   "y": 440,
-   "r": 56,
+   "x": 720,
+   "y": 630,
+   "r": 78,
    "seed": 29,
    "color": "#e0b07a",
    "blurb": "The only western-riding place in Jorvik, and home of Camp Western.",
@@ -477,14 +480,16 @@
     "Starshine Ranch",
     "Camp Western",
     "Western Festival"
-   ]
+   ],
+   "sx": 1.1,
+   "sy": 0.95
   },
   {
    "id": "mistfall",
    "name": "Mistfall",
-   "x": 890,
-   "y": 450,
-   "r": 72,
+   "x": 960,
+   "y": 862,
+   "r": 86,
    "seed": 31,
    "color": "#7b9fc0",
    "blurb": "Misty forests around the Viking-style town of Dundull.",
@@ -508,8 +513,8 @@
    "subs": [
     {
      "n": "Dundull",
-     "dx": 15,
-     "dy": 25
+     "dx": -12,
+     "dy": 60
     }
    ],
    "match": [
@@ -517,14 +522,16 @@
     "Mistfall",
     "Kit Shorthouse",
     "Kit's Cuddle"
-   ]
+   ],
+   "sx": 0.9,
+   "sy": 1.3
   },
   {
    "id": "wildwoods",
    "name": "Wildwoods",
-   "x": 910,
-   "y": 285,
-   "r": 78,
+   "x": 968,
+   "y": 585,
+   "r": 90,
    "seed": 37,
    "color": "#4f8a62",
    "blurb": "Untouched forest where the three Jorvik Wild Horse herds live.",
@@ -547,28 +554,30 @@
    ],
    "subs": [
     {
-     "n": "Redwood Point",
-     "dx": -20,
-     "dy": 30
+     "n": "Tailtop Village",
+     "dx": 0,
+     "dy": -52
     },
     {
-     "n": "Tailtop Village",
-     "dx": 15,
-     "dy": -30
+     "n": "Redwood Point",
+     "dx": 0,
+     "dy": 38
     }
    ],
    "match": [
     "Redwood Point",
     "Tailtop",
     "Wildwoods"
-   ]
+   ],
+   "sx": 0.8,
+   "sy": 1.3
   },
   {
    "id": "harvest",
    "name": "The Harvest Counties",
-   "x": 195,
-   "y": 575,
-   "r": 92,
+   "x": 255,
+   "y": 705,
+   "r": 121,
    "seed": 41,
    "color": "#c2b36a",
    "blurb": "Farmland with Jarlaheim, Jorvik Stables and Greendale.",
@@ -593,18 +602,23 @@
    "subs": [
     {
      "n": "Jarlaheim",
-     "dx": -40,
-     "dy": -20
-    },
-    {
-     "n": "Jorvik Stables",
-     "dx": 30,
-     "dy": -30
+     "dx": -195,
+     "dy": -90
     },
     {
      "n": "Greendale",
-     "dx": 20,
-     "dy": 35
+     "dx": 0,
+     "dy": -68
+    },
+    {
+     "n": "Devil's Gap",
+     "dx": -150,
+     "dy": -128
+    },
+    {
+     "n": "Paddock Island",
+     "dx": -202,
+     "dy": -15
     }
    ],
    "match": [
@@ -613,14 +627,16 @@
     "Greendale",
     "Jarlaheim",
     "Doreen"
-   ]
+   ],
+   "sx": 1.4,
+   "sy": 0.85
   },
   {
    "id": "epona",
    "name": "Epona",
-   "x": 215,
-   "y": 735,
-   "r": 78,
+   "x": 240,
+   "y": 878,
+   "r": 116,
    "seed": 43,
    "color": "#a7c07e",
    "blurb": "The southern island with New Hillcrest, Crescent Moon Village and Fort Maria.",
@@ -643,14 +659,19 @@
    ],
    "subs": [
     {
-     "n": "New Hillcrest",
-     "dx": 30,
-     "dy": -15
+     "n": "Western Epona",
+     "dx": -105,
+     "dy": -30
     },
     {
-     "n": "Crescent Moon Village",
-     "dx": -30,
-     "dy": 20
+     "n": "Eastern Epona",
+     "dx": 93,
+     "dy": -16
+    },
+    {
+     "n": "New Hillcrest",
+     "dx": 82,
+     "dy": 30
     }
    ],
    "match": [
@@ -658,14 +679,16 @@
     "Crescent Moon",
     "Fort Maria",
     "Epona"
-   ]
+   ],
+   "sx": 1.45,
+   "sy": 0.75
   },
   {
    "id": "ridingcamp",
    "name": "Jorvik Riding Camp",
-   "x": 400,
-   "y": 620,
-   "r": 34,
+   "x": 477,
+   "y": 714,
+   "r": 30,
    "seed": 47,
    "color": "#d7a0b8",
    "blurb": "A small island made to welcome new players.",
@@ -679,14 +702,16 @@
    "subs": [],
    "match": [
     "Riding Camp"
-   ]
+   ],
+   "sx": 1.2,
+   "sy": 0.9
   },
   {
    "id": "southhoof",
    "name": "South Hoof Peninsula",
-   "x": 580,
-   "y": 725,
-   "r": 76,
+   "x": 600,
+   "y": 968,
+   "r": 108,
    "seed": 53,
    "color": "#d3c27f",
    "blurb": "A rescue ranch, a hermit and wild horses down south.",
@@ -710,26 +735,28 @@
    "subs": [
     {
      "n": "South Hoof Farm",
-     "dx": -20,
-     "dy": -10
+     "dx": -75,
+     "dy": -8
     },
     {
      "n": "Rescue Ranch",
-     "dx": 30,
-     "dy": 15
+     "dx": 75,
+     "dy": 7
     }
    ],
    "match": [
     "South Hoof",
     "Rolph"
-   ]
+   ],
+   "sx": 1.55,
+   "sy": 0.55
   },
   {
    "id": "jorvikcity",
    "name": "Jorvik City",
-   "x": 930,
-   "y": 640,
-   "r": 56,
+   "x": 1035,
+   "y": 1035,
+   "r": 42,
    "seed": 59,
    "color": "#9a9fd0",
    "blurb": "The capital, east of Silverglade. You get there by bus.",
@@ -751,15 +778,17 @@
    "subs": [
     {
      "n": "Mall",
-     "dx": -15,
-     "dy": 10
+     "dx": 0,
+     "dy": 0
     }
    ],
    "match": [
     "Jorvik City",
     "Governor's Fall",
     "Pier 13"
-   ]
+   ],
+   "sx": 1.0,
+   "sy": 1.0
   }
  ],
  "links": [
@@ -773,5 +802,9 @@
    "southhoof",
    "Ferry"
   ]
+ ],
+ "size": [
+  1080,
+  1050
  ]
 }

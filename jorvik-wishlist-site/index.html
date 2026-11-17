@@ -419,11 +419,12 @@
   /* map */
   .mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;align-items:start}
   @media (max-width:900px){.mapwrap{grid-template-columns:1fr} .mapctl .btn{min-width:30px;padding:4px 8px;font-size:12px} .mapprog{font-size:11px;padding:4px 9px} .mapside{position:static;max-height:none} .mlbl{stroke-width:6px}}
-  .mland{fill:#3d5a8a;opacity:.55;filter:url(#mblur)}
+  .mland{fill:#e9dcb4;opacity:1}
+  .mshore{fill:#5d7fb8;opacity:.55;filter:url(#mblur)}
   .mapbox{position:relative;border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#2c3f7a 0%,#1d2a5a 55%,#151d44 100%);border:1px solid #ffffff22;touch-action:none;user-select:none}
-  #mapSvg{display:block;width:100%;height:auto;aspect-ratio:1040/820;cursor:grab}
+  #mapSvg{display:block;width:100%;height:auto;aspect-ratio:1080/1050;cursor:grab}
   #mapSvg.drag{cursor:grabbing}
-  .mreg path{stroke:#ffffffcc;stroke-width:2.5;transition:filter .15s, opacity .15s;cursor:pointer}
+  .mreg path{stroke:#ffffffcc;stroke-width:2.5;fill-opacity:.88;transition:filter .15s, opacity .15s;cursor:pointer}
   .mreg:hover path,.mreg:focus path{filter:brightness(1.12) drop-shadow(0 0 8px #fff8)}
   .mreg:focus{outline:none}
   .mreg.sel path{stroke:#ef87a9;stroke-width:5}
@@ -593,7 +594,7 @@
     <p class="evintro">A hand-drawn guide to Jorvik's areas. It's our own drawing, not the in-game map, so places are roughly where they are in the game. Tap an area to see how to unlock it, its quests, shops and the horses and pets sold there, and tick off the areas you've opened.</p>
     <div class="mapwrap">
       <div class="mapbox" id="mapBox">
-        <svg id="mapSvg" viewBox="0 0 1040 820" role="group" aria-label="Map of Jorvik"></svg>
+        <svg id="mapSvg" viewBox="0 0 1080 1050" role="group" aria-label="Map of Jorvik"></svg>
         <div class="mapctl"><button type="button" class="btn small ghost" data-mz="in" aria-label="Zoom in">+</button><button type="button" class="btn small ghost" data-mz="out" aria-label="Zoom out">−</button><button type="button" class="btn small ghost" data-mz="reset">Reset</button></div>
         <div class="mapprog" id="mapProg"></div>
       </div>
@@ -1339,13 +1340,13 @@
   const monthDay = d => new Date(d+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});
 
   // ---------- MAP ----------
-  let MAP=null, mapSel=null, mapView=null;
+  let MAP=null, mapSel=null, mapView=null, MW=1080, MH=1050;
   const K_MAP='jorvikWishlist.map.v1';
   const mapHave=()=>LS.get(K_MAP,[])||[];
   function blobPath(r){
     let t=r.seed*9973; const rnd=()=>{ t=(t*16807)%2147483647; return t/2147483647; };
-    const n=11, pts=[];
-    for(let i=0;i<n;i++){ const a=i/n*Math.PI*2+rnd()*.25; const rr=r.r*(0.8+rnd()*0.32); pts.push([r.x+Math.cos(a)*rr*1.12, r.y+Math.sin(a)*rr*0.92]); }
+    const n=13, pts=[];
+    for(let i=0;i<n;i++){ const a=i/n*Math.PI*2+rnd()*.25; const rr=r.r*(0.86+rnd()*0.22); pts.push([r.x+Math.cos(a)*rr*(r.sx||1.12), r.y+Math.sin(a)*rr*(r.sy||0.92)]); }
     let d=`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
     for(let i=0;i<n;i++){ const p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];
       const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6], c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
@@ -1363,8 +1364,8 @@
       const mid=Math.ceil(words.length/2); return `<text class="mlbl" x="${r.x}" y="${r.y-fs*0.25}" font-size="${fs}"><tspan x="${r.x}">${esc(words.slice(0,mid).join(' '))}</tspan><tspan x="${r.x}" dy="${fs*1.05}">${esc(words.slice(mid).join(' '))}</tspan></text>`; };
     const R=Object.fromEntries(MAP.regions.map(r=>[r.id,r]));
     const links=(MAP.links||[]).map(([a,b,t])=>{ const A=R[a],B=R[b]; if(!A||!B) return ''; const mx=(A.x+B.x)/2+30,my=(A.y+B.y)/2-20; return `<path class="mlink" d="M${A.x},${A.y} Q${mx},${my} ${B.x},${B.y}"/><text class="mlinkt" x="${mx}" y="${my}">${esc(t)}</text>`; }).join('');
-    const stars=Array.from({length:60},(_,i)=>{ const x=(i*137.5)%1040, y=(i*89.3+i*i*3.1)%820; return `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${i%3?0.9:1.5}" fill="#fff" opacity="${i%2?.35:.6}"/>`; }).join('');
-    const isl=new Set(['epona','southhoof','ridingcamp','jorvikcity']); const land=MAP.regions.filter(r=>!isl.has(r.id)).map(r=>`<path class="mland" d="${blobPath({...r,r:r.r*1.35})}"/>`).join('')+MAP.regions.filter(r=>isl.has(r.id)).map(r=>`<path class="mland" d="${blobPath({...r,r:r.r*1.2})}"/>`).join('');
+    const stars=Array.from({length:60},(_,i)=>{ const x=(i*137.5)%MW, y=(i*89.3+i*i*3.1)%MH; return `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${i%3?0.9:1.5}" fill="#fff" opacity="${i%2?.35:.6}"/>`; }).join('');
+    const isl=new Set(['epona','southhoof','ridingcamp','jorvikcity']); const sh=r=>`<path class="mshore" d="${blobPath({...r,r:r.r*1.28})}"/>`, ln=r=>`<path class="mland" d="${blobPath({...r,r:r.r*1.1})}"/>`; const land=MAP.regions.map(sh).join('')+MAP.regions.map(ln).join('');
     svg.innerHTML=`<defs><filter id="mblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter></defs><g>${stars}</g><g>${land}</g><g>${links}</g>`+MAP.regions.map(r=>`<g class="mreg ${have.has(r.id)?'':'lock'} ${mapSel===r.id?'sel':''}" data-reg="${r.id}" tabindex="0" role="button" aria-label="${esc(r.name)}${have.has(r.id)?', unlocked':''}"><path d="${blobPath(r)}" fill="${r.color}"/></g>`).join('')
       +MAP.regions.map(r=>(r.subs||[]).map(s=>`<circle class="mdot" cx="${r.x+s.dx}" cy="${r.y+s.dy}" r="3.5"/><text class="msub" x="${r.x+s.dx+6}" y="${r.y+s.dy+4}">${esc(s.n)}</text>`).join('')).join('')
       +MAP.regions.map(lab).join('')
@@ -1385,15 +1386,15 @@
       <h4>Horses and pets sold here${items.length?` (${items.length})`:''}</h4>${r.buyNote?`<p class="mempty" style="margin:0 0 8px">${esc(r.buyNote)}</p>`:''}${items.length?`<div class="mbuy">${tiles}</div>`:'<p class="mempty">None on our list right now.</p>'}`;
     $('#mHave').onchange=e=>{ const a=new Set(mapHave()); e.target.checked?a.add(r.id):a.delete(r.id); LS.set(K_MAP,[...a]); drawMap(); };
   }
-  function applyView(){ const v=mapView; $('#mapSvg').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`); $('#mapSvg').classList.toggle('zoomed',v.w<760); }
-  function zoomMap(f,cx,cy){ const v=mapView; const nw=Math.min(1040,Math.max(220,v.w*f)), k=nw/v.w; cx??=v.x+v.w/2; cy??=v.y+v.h/2;
+  function applyView(){ const v=mapView; $('#mapSvg').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`); $('#mapSvg').classList.toggle('zoomed',v.w<MW*0.72); }
+  function zoomMap(f,cx,cy){ const v=mapView; const nw=Math.min(MW,Math.max(220,v.w*f)), k=nw/v.w; cx??=v.x+v.w/2; cy??=v.y+v.h/2;
     mapView={x:cx-(cx-v.x)*k,y:cy-(cy-v.y)*k,w:nw,h:v.h*k}; clampView(); applyView(); }
-  function clampView(){ const v=mapView; v.x=Math.min(1040-v.w*0.3,Math.max(-v.w*0.7,v.x)); v.y=Math.min(820-v.h*0.3,Math.max(-v.h*0.7,v.y)); }
+  function clampView(){ const v=mapView; v.x=Math.min(MW-v.w*0.3,Math.max(-v.w*0.7,v.x)); v.y=Math.min(MH-v.h*0.3,Math.max(-v.h*0.7,v.y)); }
   function selectRegion(id){ mapSel=id; $('#mapSvg').querySelectorAll('.mreg').forEach(g=>g.classList.toggle('sel',g.dataset.reg===id)); mapSide();
     if(innerWidth<=900) $('#mapSide').scrollIntoView({behavior:'smooth',block:'start'}); }
   async function renderMap(){
     if(!MAP){ try{ MAP=await fetch('data/map.json',{cache:'no-cache'}).then(r=>r.json()); }catch(e){ $('#mapSide').textContent='Couldn\'t load the map. Check your connection and refresh.'; return; }
-      mapView={x:0,y:0,w:1040,h:820}; $('#mapNote').textContent=MAP.note||''; wireMap(); }
+      [MW,MH]=MAP.size||[1040,820]; mapView={x:0,y:0,w:MW,h:MH}; $('#mapNote').textContent=MAP.note||''; wireMap(); }
     drawMap(); mapSide();
   }
   function wireMap(){
@@ -1410,7 +1411,7 @@
     svg.addEventListener('pointerup',up); svg.addEventListener('pointercancel',up);
     svg.addEventListener('wheel',e=>{ e.preventDefault(); const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(e.deltaY>0?1.15:1/1.15,cx,cy); },{passive:false});
     svg.addEventListener('keydown',e=>{ const g=e.target.closest('.mreg'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); selectRegion(g.dataset.reg); } });
-    $('#mapBox').querySelector('.mapctl').onclick=e=>{ const b=e.target.closest('[data-mz]'); if(!b) return; const z=b.dataset.mz; if(z==='reset'){ mapView={x:0,y:0,w:1040,h:820}; applyView(); } else zoomMap(z==='in'?1/1.3:1.3); };
+    $('#mapBox').querySelector('.mapctl').onclick=e=>{ const b=e.target.closest('[data-mz]'); if(!b) return; const z=b.dataset.mz; if(z==='reset'){ mapView={x:0,y:0,w:MW,h:MH}; applyView(); } else zoomMap(z==='in'?1/1.3:1.3); };
     $('#mapSide').onclick=e=>{ const g=e.target.closest('[data-gal]'); if(g){ e.preventDefault(); showGallery(g.dataset.gal); } };
     $('#mapSide').onkeydown=e=>{ const g=e.target.closest('[data-gal]'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); showGallery(g.dataset.gal); } };
   }
