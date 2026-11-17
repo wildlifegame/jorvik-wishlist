@@ -318,12 +318,13 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/calder.webp",
+  "coatStrip": "img/coats/calder-w.webp",
   "forms": [
    "Normal form",
    "Magical form"
   ],
-  "coatSource": "ssodb"
+  "coatSource": "ssodb",
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "chincoteague": {
   "name": "Chincoteague Pony",
@@ -464,12 +465,13 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/dorcha.webp",
+  "coatStrip": "img/coats/dorcha-w.webp",
   "forms": [
    "Normal form",
    "Magical form"
   ],
-  "coatSource": "ssodb"
+  "coatSource": "ssodb",
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "dutch-warmblood": {
   "name": "Dutch Warmblood",
@@ -552,12 +554,13 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/ephyra.webp",
+  "coatStrip": "img/coats/ephyra-w.webp",
   "forms": [
    "Normal form",
    "Magical form"
   ],
-  "coatSource": "ssodb"
+  "coatSource": "ssodb",
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "finnhorse": {
   "name": "Finnhorse",
@@ -922,12 +925,13 @@
   "level": 9,
   "location": "Medieval Camp",
   "coatCount": 2,
-  "coatStrip": "img/coats/keima.webp",
+  "coatStrip": "img/coats/keima-w.webp",
   "forms": [
    "Normal form",
    "Magical form"
   ],
-  "coatSource": "ssodb"
+  "coatSource": "ssodb",
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "knabstrupper": {
   "name": "Knabstrupper",
@@ -1287,12 +1291,13 @@
   "level": 9,
   "location": "Medieval Camp",
   "coatCount": 2,
-  "coatStrip": "img/coats/ryume.webp",
+  "coatStrip": "img/coats/ryume-w.webp",
   "forms": [
    "Normal form",
    "Magical form"
   ],
-  "coatSource": "ssodb"
+  "coatSource": "ssodb",
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "selle-francais": {
   "name": "Selle Français",
@@ -1504,13 +1509,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-lycan.webp",
+  "coatStrip": "img/coats/sp-lycan-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-pharao": {
   "name": "Pharao",
@@ -1545,13 +1551,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-pelagos.webp",
+  "coatStrip": "img/coats/sp-pelagos-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-perla": {
   "name": "Perla",
@@ -1560,13 +1567,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-perla.webp",
+  "coatStrip": "img/coats/sp-perla-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-kyria": {
   "name": "Kyria",
@@ -1601,13 +1609,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-mani.webp",
+  "coatStrip": "img/coats/sp-mani-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-sol": {
   "name": "Sól",
@@ -1616,13 +1625,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-sol.webp",
+  "coatStrip": "img/coats/sp-sol-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-galvatair": {
   "name": "Galvatair",
@@ -1631,13 +1641,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-galvatair.webp",
+  "coatStrip": "img/coats/sp-galvatair-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-bixbite": {
   "name": "Bixbite",
@@ -1646,13 +1657,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-bixbite.webp",
+  "coatStrip": "img/coats/sp-bixbite-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-monarch": {
   "name": "Monarch",
@@ -1661,13 +1673,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-monarch.webp",
+  "coatStrip": "img/coats/sp-monarch-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-luna": {
   "name": "Luna",
@@ -1676,13 +1689,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-luna.webp",
+  "coatStrip": "img/coats/sp-luna-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-hjortensia": {
   "name": "Hjortensia",
@@ -1691,13 +1705,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-hjortensia.webp",
+  "coatStrip": "img/coats/sp-hjortensia-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-earik": {
   "name": "Earik",
@@ -1706,13 +1721,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-earik.webp",
+  "coatStrip": "img/coats/sp-earik-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-bolt": {
   "name": "Bolt",
@@ -1721,13 +1737,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-bolt.webp",
+  "coatStrip": "img/coats/sp-bolt-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-calliope": {
   "name": "Calliope",
@@ -1736,13 +1753,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-calliope.webp",
+  "coatStrip": "img/coats/sp-calliope-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-bronte": {
   "name": "Bronte",
@@ -1751,13 +1769,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-bronte.webp",
+  "coatStrip": "img/coats/sp-bronte-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-serenus": {
   "name": "Serenus",
@@ -1766,13 +1785,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-serenus.webp",
+  "coatStrip": "img/coats/sp-serenus-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-tynan": {
   "name": "Tynan",
@@ -1781,13 +1801,14 @@
   "level": 1,
   "location": "Valedale",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-tynan.webp",
+  "coatStrip": "img/coats/sp-tynan-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-phoebe": {
   "name": "Phoebe",
@@ -1796,13 +1817,14 @@
   "level": 1,
   "location": "Valedale",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-phoebe.webp",
+  "coatStrip": "img/coats/sp-phoebe-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-vetle": {
   "name": "Vetle",
@@ -1811,13 +1833,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-vetle.webp",
+  "coatStrip": "img/coats/sp-vetle-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-lebkuchen": {
   "name": "Lebkuchen",
@@ -1826,13 +1849,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-lebkuchen.webp",
+  "coatStrip": "img/coats/sp-lebkuchen-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-audra": {
   "name": "Audra",
@@ -1841,13 +1865,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-audra.webp",
+  "coatStrip": "img/coats/sp-audra-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-alvirah": {
   "name": "Alvirah",
@@ -1856,13 +1881,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-alvirah.webp",
+  "coatStrip": "img/coats/sp-alvirah-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-prisma": {
   "name": "Prisma",
@@ -1871,13 +1897,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-prisma.webp",
+  "coatStrip": "img/coats/sp-prisma-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-tenebri": {
   "name": "Tenebri",
@@ -1886,13 +1913,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-tenebri.webp",
+  "coatStrip": "img/coats/sp-tenebri-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-katur": {
   "name": "Kátur",
@@ -1901,13 +1929,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-katur.webp",
+  "coatStrip": "img/coats/sp-katur-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-sylvan-unicorn": {
   "name": "Sylvan Unicorn",
@@ -1916,13 +1945,14 @@
   "level": 1,
   "location": "Winter Village event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-sylvan-unicorn.webp",
+  "coatStrip": "img/coats/sp-sylvan-unicorn-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-laverna": {
   "name": "Laverna",
@@ -1931,13 +1961,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-laverna.webp",
+  "coatStrip": "img/coats/sp-laverna-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-nemain": {
   "name": "Nemain",
@@ -1946,13 +1977,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-nemain.webp",
+  "coatStrip": "img/coats/sp-nemain-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "jorvegian-fjord": {
   "name": "Jorvegian Fjord Horse",
@@ -1994,13 +2026,14 @@
   "level": 1,
   "location": "Hollow Woods",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-hemera.webp",
+  "coatStrip": "img/coats/sp-hemera-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-antheia": {
   "name": "Antheia",
@@ -2009,13 +2042,14 @@
   "level": 1,
   "location": "Hollow Woods",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-antheia.webp",
+  "coatStrip": "img/coats/sp-antheia-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "jorvik-connemara": {
   "name": "Jorvik Connemara",
@@ -2035,13 +2069,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-proteus.webp",
+  "coatStrip": "img/coats/sp-proteus-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-sedna": {
   "name": "Sedna",
@@ -2050,13 +2085,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-sedna.webp",
+  "coatStrip": "img/coats/sp-sedna-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-birkir": {
   "name": "Birkir",
@@ -2065,13 +2101,14 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-birkir.webp",
+  "coatStrip": "img/coats/sp-birkir-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-hanami": {
   "name": "Hanami",
@@ -2080,13 +2117,14 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-hanami.webp",
+  "coatStrip": "img/coats/sp-hanami-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-shadowshield": {
   "name": "Shadowshield",
@@ -2095,13 +2133,14 @@
   "level": 1,
   "location": "Icengate",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-shadowshield.webp",
+  "coatStrip": "img/coats/sp-shadowshield-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-snowdancer": {
   "name": "Snowdancer",
@@ -2110,13 +2149,14 @@
   "level": 1,
   "location": "Icengate",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-snowdancer.webp",
+  "coatStrip": "img/coats/sp-snowdancer-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-songsorrow": {
   "name": "Songsorrow",
@@ -2125,13 +2165,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-songsorrow.webp",
+  "coatStrip": "img/coats/sp-songsorrow-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-duskgrim": {
   "name": "Duskgrim",
@@ -2140,13 +2181,14 @@
   "level": 1,
   "location": "Halloween event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-duskgrim.webp",
+  "coatStrip": "img/coats/sp-duskgrim-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "soul-steed": {
   "name": "Soul Steed",
@@ -2166,13 +2208,14 @@
   "level": 1,
   "location": "Medieval Camp",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-aldrach.webp",
+  "coatStrip": "img/coats/sp-aldrach-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-faramawr": {
   "name": "Faramawr",
@@ -2181,13 +2224,14 @@
   "level": 1,
   "location": "Medieval Camp",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-faramawr.webp",
+  "coatStrip": "img/coats/sp-faramawr-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-petra": {
   "name": "Petra",
@@ -2195,10 +2239,15 @@
   "price": 750,
   "level": null,
   "location": "Gary Goldtooth",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-petra.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-petra-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-erinys": {
   "name": "Erinys",
@@ -2206,10 +2255,15 @@
   "price": 750,
   "level": 9,
   "location": "Gary Goldtooth",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-erinys.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-erinys-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-heidrun": {
   "name": "Heidrun",
@@ -2217,10 +2271,15 @@
   "price": 469,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-heidrun.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-heidrun-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-tombhoof": {
   "name": "Tombhoof",
@@ -2228,10 +2287,15 @@
   "price": 649,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-tombhoof.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-tombhoof-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-solas": {
   "name": "Solas",
@@ -2240,13 +2304,14 @@
   "level": 1,
   "location": "Gary Goldtooth",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-solas.webp",
+  "coatStrip": "img/coats/sp-solas-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "north-swedish-rune-runner": {
   "name": "North Swedish Rune Runner",
@@ -2266,13 +2331,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-kampos.webp",
+  "coatStrip": "img/coats/sp-kampos-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-tellina": {
   "name": "Tellina",
@@ -2281,13 +2347,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-tellina.webp",
+  "coatStrip": "img/coats/sp-tellina-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-umbra": {
   "name": "Umbra",
@@ -2295,10 +2362,15 @@
   "price": 469,
   "level": 1,
   "location": "Summer Daze event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-umbra.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-umbra-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-ayla": {
   "name": "Ayla",
@@ -2307,13 +2379,14 @@
   "level": 1,
   "location": "Summer Daze event",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-ayla.webp",
+  "coatStrip": "img/coats/sp-ayla-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-fawncy": {
   "name": "Fawncy",
@@ -2321,10 +2394,15 @@
   "price": 429,
   "level": 1,
   "location": "Winter Village event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-fawncy.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-fawncy-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-woodear": {
   "name": "Woodear",
@@ -2332,10 +2410,15 @@
   "price": 449,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-woodear.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-woodear-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-pepita": {
   "name": "Pepita",
@@ -2343,10 +2426,15 @@
   "price": 449,
   "level": 1,
   "location": "Halloween event",
-  "coatCount": 1,
-  "coatStrip": "img/coats/sp-pepita.webp",
+  "coatCount": 2,
+  "coatStrip": "img/coats/sp-pepita-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "forms": [
+   "Normal form",
+   "Magical form"
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-barkhart": {
   "name": "Barkhart",
@@ -2391,13 +2479,14 @@
   "level": 1,
   "location": "Icengate",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-brinicle.webp",
+  "coatStrip": "img/coats/sp-brinicle-w.webp",
   "coatSource": "ssodb",
   "status": "available",
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-whinfell": {
   "name": "Whinfell",
