@@ -50,7 +50,14 @@
    ],
    "sx": 1.1,
    "sy": 1.0,
-   "terrain": "darkforest"
+   "terrain": "darkforest",
+   "hot": [
+    250,
+    190,
+    105,
+    135,
+    0
+   ]
   },
   {
    "id": "goldenhills",
@@ -105,10 +112,21 @@
      "home": true,
      "dx": -90,
      "dy": -54,
-     "note": "Home stable, horse shop and hostel"
+     "note": "Home stable, horse shop and hostel",
+     "at": [
+      150,
+      305
+     ]
     }
    ],
-   "terrain": "fields"
+   "terrain": "fields",
+   "hot": [
+    170,
+    400,
+    140,
+    80,
+    -10
+   ]
   },
   {
    "id": "medieval",
@@ -157,10 +175,21 @@
      "home": false,
      "dx": 25,
      "dy": 3,
-     "note": "Horse trailer"
+     "note": "Horse trailer",
+     "at": [
+      300,
+      580
+     ]
     }
    ],
-   "terrain": "fields"
+   "terrain": "fields",
+   "hot": [
+    205,
+    580,
+    105,
+    50,
+    0
+   ]
   },
   {
    "id": "silverglade",
@@ -227,7 +256,11 @@
      "home": true,
      "dx": 81,
      "dy": 90,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      612,
+      596
+     ]
     },
     {
      "n": "Silverglade Equestrian Center",
@@ -235,7 +268,11 @@
      "home": true,
      "dx": -117,
      "dy": 22,
-     "note": "Home stable. Horse trailer behind the barn"
+     "note": "Home stable. Horse trailer behind the barn",
+     "at": [
+      470,
+      520
+     ]
     },
     {
      "n": "Trailer",
@@ -243,10 +280,21 @@
      "home": false,
      "dx": -133,
      "dy": 36,
-     "note": "Horse trailer"
+     "note": "Horse trailer",
+     "at": [
+      430,
+      575
+     ]
     }
    ],
-   "terrain": "meadow"
+   "terrain": "meadow",
+   "hot": [
+    530,
+    510,
+    195,
+    150,
+    0
+   ]
   },
   {
    "id": "moorland",
@@ -296,10 +344,21 @@
      "home": true,
      "dx": -30,
      "dy": 35,
-     "note": "Default home stable"
+     "note": "Default home stable",
+     "at": [
+      600,
+      725
+     ]
     }
    ],
-   "terrain": "meadow"
+   "terrain": "meadow",
+   "hot": [
+    560,
+    735,
+    120,
+    62,
+    0
+   ]
   },
   {
    "id": "fortpinta",
@@ -349,10 +408,21 @@
      "home": true,
      "dx": 4,
      "dy": -22,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      700,
+      862
+     ]
     }
    ],
-   "terrain": "beach"
+   "terrain": "beach",
+   "hot": [
+    695,
+    840,
+    70,
+    52,
+    0
+   ]
   },
   {
    "id": "hollowwoods",
@@ -387,7 +457,14 @@
    ],
    "sx": 1.0,
    "sy": 1.05,
-   "terrain": "forest"
+   "terrain": "forest",
+   "hot": [
+    720,
+    405,
+    105,
+    105,
+    0
+   ]
   },
   {
    "id": "valedale",
@@ -434,10 +511,21 @@
      "home": true,
      "dx": -45,
      "dy": -21,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      960,
+      475
+     ]
     }
    ],
-   "terrain": "forest"
+   "terrain": "forest",
+   "hot": [
+    920,
+    430,
+    115,
+    105,
+    0
+   ]
   },
   {
    "id": "dino",
@@ -471,7 +559,14 @@
    ],
    "sx": 1.25,
    "sy": 0.85,
-   "terrain": "snow"
+   "terrain": "snow",
+   "hot": [
+    1000,
+    160,
+    215,
+    140,
+    0
+   ]
   },
   {
    "id": "firgrove",
@@ -510,10 +605,21 @@
      "home": true,
      "dx": -4,
      "dy": 3,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      1075,
+      585
+     ]
     }
    ],
-   "terrain": "pine"
+   "terrain": "pine",
+   "hot": [
+    995,
+    565,
+    85,
+    55,
+    0
+   ]
   },
   {
    "id": "starshine",
@@ -555,10 +661,21 @@
      "home": false,
      "dx": -20,
      "dy": 45,
-     "note": "Western riding stable"
+     "note": "Western riding stable",
+     "at": [
+      905,
+      775
+     ]
     }
    ],
-   "terrain": "desert"
+   "terrain": "desert",
+   "hot": [
+    890,
+    745,
+    105,
+    62,
+    0
+   ]
   },
   {
    "id": "mistfall",
@@ -602,10 +719,21 @@
      "home": true,
      "dx": -12,
      "dy": 60,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      1080,
+      1108
+     ]
     }
    ],
-   "terrain": "pine"
+   "terrain": "pine",
+   "hot": [
+    1060,
+    1010,
+    125,
+    135,
+    0
+   ]
   },
   {
    "id": "wildwoods",
@@ -654,7 +782,11 @@
      "home": true,
      "dx": 14,
      "dy": -62,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      1080,
+      612
+     ]
     },
     {
      "n": "Redwood Point stable",
@@ -662,10 +794,21 @@
      "home": true,
      "dx": 0,
      "dy": 38,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      1080,
+      722
+     ]
     }
    ],
-   "terrain": "forest"
+   "terrain": "forest",
+   "hot": [
+    1105,
+    690,
+    85,
+    150,
+    0
+   ]
   },
   {
    "id": "harvest",
@@ -732,10 +875,21 @@
      "home": false,
      "dx": 74,
      "dy": -40,
-     "note": "Herman's stable and arena"
+     "note": "Herman's stable and arena",
+     "at": [
+      140,
+      733
+     ]
     }
    ],
-   "terrain": "fields"
+   "terrain": "fields",
+   "hot": [
+    270,
+    800,
+    215,
+    150,
+    -10
+   ]
   },
   {
    "id": "epona",
@@ -790,10 +944,21 @@
      "home": true,
      "dx": 82,
      "dy": 30,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      440,
+      1080
+     ]
     }
    ],
-   "terrain": "meadow"
+   "terrain": "meadow",
+   "hot": [
+    300,
+    1040,
+    200,
+    85,
+    0
+   ]
   },
   {
    "id": "ridingcamp",
@@ -817,7 +982,14 @@
    ],
    "sx": 1.2,
    "sy": 0.9,
-   "terrain": "meadow"
+   "terrain": "meadow",
+   "hot": [
+    545,
+    845,
+    62,
+    35,
+    0
+   ]
   },
   {
    "id": "southhoof",
@@ -870,10 +1042,21 @@
      "home": true,
      "dx": -61,
      "dy": -18,
-     "note": "Home stable"
+     "note": "Home stable",
+     "at": [
+      780,
+      1150
+     ]
     }
    ],
-   "terrain": "beach"
+   "terrain": "beach",
+   "hot": [
+    640,
+    1170,
+    205,
+    95,
+    -3
+   ]
   },
   {
    "id": "jorvikcity",
@@ -913,7 +1096,14 @@
    ],
    "sx": 1.0,
    "sy": 1.0,
-   "terrain": "city"
+   "terrain": "city",
+   "hot": [
+    1095,
+    1255,
+    90,
+    40,
+    0
+   ]
   }
  ],
  "links": [
@@ -931,5 +1121,11 @@
  "size": [
   1080,
   1050
- ]
+ ],
+ "bg": {
+  "src": "img/jorvik-map.webp",
+  "w": 1199,
+  "h": 1312,
+  "credit": "Map picture added by the site owner."
+ }
 }
