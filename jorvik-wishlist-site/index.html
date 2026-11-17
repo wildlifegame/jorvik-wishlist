@@ -129,7 +129,7 @@
   .hcard .hfacts dd{margin:0;font-size:12.5px;line-height:1.35;border:1px solid var(--line);border-radius:12px;padding:3px 10px;background:var(--bg)}
   .hcard .hfacts .pl{display:inline;color:var(--muted)}
   .hcard .hfacts dd .tag{padding:0;background:none;font-size:inherit}
-  .hcard .hfacts .f-price::before{content:"🪙 "} .hcard .hfacts .f-where::before{content:"📍 "} .hcard .hfacts .f-bz::before{content:"🏷️ "} .hcard .hfacts .f-next::before{content:"📅 "} .hcard .hfacts .f-hist::before{content:"📈 "}
+  .hcard .hfacts .f-price::before{content:"🪙 "} .hcard .hfacts .f-base::before,#mineList .wfacts .f-base::before{content:"🐴 Base: "} .hcard .hfacts .f-where::before{content:"📍 "} .hcard .hfacts .f-bz::before{content:"🏷️ "} .hcard .hfacts .f-next::before{content:"📅 "} .hcard .hfacts .f-hist::before{content:"📈 "}
   .hcard .hfacts .f-hist span{margin-right:4px}
   .hcard .actions .btn{padding:6px 11px;font-size:13px}
 
@@ -630,6 +630,9 @@
   const hasForms = c => !!(c && Array.isArray(c.forms) && c.forms.length>1);
   const coatTotal = c => hasForms(c) ? 1 : (c?.coatCount||0);
   const coatHtml = (c, n, cls, extra='') => {
+    if(c.coatForms){ const N=c.coatCount, T=N*2, k=Math.min(Math.max(1,n||1),N), idx=2*k-1, pos=idx/(T-1)*100;
+      const tog=/\bpic\b/.test(cls)?`<button type="button" class="formtog on" data-form-toggle data-k="${k}" aria-label="Show normal form">🐴 Normal form</button>`:'';
+      return `<div class="coatbox ${cls}" ${extra}><i style="background-image:url('${esc(imgUrl(c.coatStrip))}');background-size:${T*100}% 100%;background-position:${pos}% 0"></i>${tog}</div>`; }
     const N=c.coatCount, k=hasForms(c) ? N : Math.min(Math.max(1,n||1),N);
     const pos = N>1 ? ((k-1)/(N-1)*100) : 0;
     const tog = hasForms(c) && /\bpic\b/.test(cls) ? `<button type="button" class="formtog on" data-form-toggle data-n="${N}" aria-label="Show ${esc(c.forms[0])}">🐴 ${esc(c.forms[0])}</button>` : '';
@@ -639,8 +642,11 @@
     const t=e.target.closest('[data-form-toggle]'); if(!t) return;
     e.stopPropagation(); e.preventDefault();
     const box=t.closest('.coatbox'); const i=box&&box.querySelector('i'); if(!i) return;
-    const c=Object.values(S.catalog).find(x=>i.style.backgroundImage.includes(x.coatStrip)); if(!c||!hasForms(c)) return;
+    const c=Object.values(S.catalog).find(x=>x.coatStrip && i.style.backgroundImage.includes(x.coatStrip)); if(!c) return;
     const magic=!t.classList.contains('on'); t.classList.toggle('on',magic);
+    if(c.coatForms){ const T=c.coatCount*2, k=Number(t.dataset.k)||1; i.style.backgroundPosition=((magic?2*k-1:2*k-2)/(T-1)*100)+'% 0';
+      t.textContent = magic ? '🐴 Normal form' : '✨ Magical form'; t.setAttribute('aria-label','Show '+(magic?'normal':'magical')+' form'); return; }
+    if(!hasForms(c)) return;
     const N=c.coatCount; i.style.backgroundPosition = (magic ? (1/(N-1)*100) : 0)+'% 0';
     t.textContent = magic ? '🐴 '+c.forms[0] : '✨ '+c.forms[1]; t.setAttribute('aria-label','Show '+(magic?c.forms[0]:c.forms[1]));
   }, true);
@@ -876,6 +882,7 @@
         ${!i.got&&ownsCoat(i.breed,i.coatNo)?`<div style="padding:0 4px"><span class="owned">🏡 You already own this coat</span></div>`:''}
         ${affordHtml(i)}
         <dl class="facts wfacts">
+          ${c.baseBreed?`<dt>Base breed</dt><dd class="f-base">${esc(c.baseBreed)}</dd>`:''}
           <dt>Price</dt><dd class="f-price">${priceTxt(c,i.coatNo)}</dd>
           <dt>Buy at</dt><dd class="f-where${eventFor(c,i.coatNo)?' f-dupe':''}">${whereTxt(c,i.coatNo)}${c.level&&!isRetired(c)&&!coatWhere(c,i.coatNo)?` <span class="lvl">(level ${esc(c.level)})</span>`:''}</dd>
           ${(()=>{ const ev=eventFor(c,i.coatNo); if(!ev) return ''; const w=eventWindow(ev); return `<dt>Event</dt><dd class="f-event">${ev.emoji} ${esc(ev.name)}${w?` <span class="lvl">(${w.start<=today&&w.end>=today?'on now!':`<span class="lg">${w.confirmed?'':'usually '}</span>`+monthDay(w.start)})</span>`:''}</dd>`; })()}
@@ -1075,6 +1082,7 @@
       ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
       <div class="meta">${r.type==='Pet'?esc(r.note||'Pet')+(r.variants>1?` · ${r.variants} kinds`:''):esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
       <dl class="facts hfacts">
+        ${r.baseBreed?`<dt>Base breed</dt><dd class="f-base">${esc(r.baseBreed)}</dd>`:''}
         <dt>Price</dt><dd class="f-price">${priceTxt(r)}</dd>
         <dt>Where</dt><dd class="f-where">${whereTxt(r)}</dd>
         ${r.bz.next?`<dt>Next</dt><dd class="f-next">${nextText(r.bz)}${dealHtml(r.id,r.bz.next.price)}</dd>`:''}

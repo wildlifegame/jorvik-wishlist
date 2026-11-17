@@ -324,7 +324,8 @@
    "Magical form"
   ],
   "coatSource": "ssodb",
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Paso Fino"
  },
  "chincoteague": {
   "name": "Chincoteague Pony",
@@ -471,7 +472,8 @@
    "Magical form"
   ],
   "coatSource": "ssodb",
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Irish Cob"
  },
  "dutch-warmblood": {
   "name": "Dutch Warmblood",
@@ -560,7 +562,8 @@
    "Magical form"
   ],
   "coatSource": "ssodb",
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Paso Fino"
  },
  "finnhorse": {
   "name": "Finnhorse",
@@ -931,7 +934,8 @@
    "Magical form"
   ],
   "coatSource": "ssodb",
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Friesian"
  },
  "knabstrupper": {
   "name": "Knabstrupper",
@@ -1297,7 +1301,8 @@
    "Magical form"
   ],
   "coatSource": "ssodb",
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Friesian"
  },
  "selle-francais": {
   "name": "Selle Français",
@@ -1516,7 +1521,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Mountain Horse"
  },
  "sp-pharao": {
   "name": "Pharao",
@@ -1540,9 +1546,12 @@
   "level": 1,
   "location": "The Veiled Hamlet",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-nottsoren.webp",
+  "coatStrip": "img/coats/sp-nottsoren-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "baseBreed": "Ardennes",
+  "coatForms": true,
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-pelagos": {
   "name": "Pelagos",
@@ -1558,7 +1567,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Black Forest Horse"
  },
  "sp-perla": {
   "name": "Perla",
@@ -1574,7 +1584,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Criollo"
  },
  "sp-kyria": {
   "name": "Kyria",
@@ -1589,7 +1600,8 @@
   "forms": [
    "Normal form",
    "Magical form"
-  ]
+  ],
+  "baseBreed": "Friesian"
  },
  "sp-fendwurm": {
   "name": "Fendwurm",
@@ -1598,9 +1610,12 @@
   "level": 9,
   "location": "Marchenghast",
   "coatCount": 3,
-  "coatStrip": "img/coats/sp-fendwurm.webp",
+  "coatStrip": "img/coats/sp-fendwurm-w.webp",
   "coatSource": "ssodb",
-  "status": "available"
+  "status": "available",
+  "baseBreed": "Friesian",
+  "coatForms": true,
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
  },
  "sp-mani": {
   "name": "Máni",
@@ -1616,7 +1631,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Andalusian"
  },
  "sp-sol": {
   "name": "Sól",
@@ -1632,7 +1648,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Andalusian"
  },
  "sp-galvatair": {
   "name": "Galvatair",
@@ -1648,7 +1665,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Hanoverian"
  },
  "sp-bixbite": {
   "name": "Bixbite",
@@ -1664,7 +1682,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Selle Français"
  },
  "sp-monarch": {
   "name": "Monarch",
@@ -1680,7 +1699,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Belgian Warmblood"
  },
  "sp-luna": {
   "name": "Luna",
@@ -1696,7 +1716,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Ardennes"
  },
  "sp-hjortensia": {
   "name": "Hjortensia",
@@ -1712,7 +1733,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "American Saddlebred"
  },
  "sp-earik": {
   "name": "Earik",
@@ -1728,7 +1750,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Ardennes"
  },
  "sp-bolt": {
   "name": "Bolt",
@@ -1744,7 +1767,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Mustang"
  },
  "sp-calliope": {
   "name": "Calliope",
@@ -1760,7 +1784,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Mustang"
  },
  "sp-bronte": {
   "name": "Bronte",
@@ -1776,7 +1801,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Dutch Warmblood"
  },
  "sp-serenus": {
   "name": "Serenus",
@@ -1792,7 +1818,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Dutch Warmblood"
  },
  "sp-tynan": {
   "name": "Tynan",
@@ -1808,7 +1835,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Paso Fino"
  },
  "sp-phoebe": {
   "name": "Phoebe",
@@ -1824,7 +1852,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Paso Fino"
  },
  "sp-vetle": {
   "name": "Vetle",
@@ -1840,7 +1869,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Shire"
  },
  "sp-lebkuchen": {
   "name": "Lebkuchen",
@@ -1856,7 +1886,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Lipizzaner"
  },
  "sp-audra": {
   "name": "Audra",
@@ -1872,7 +1903,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Haflinger"
  },
  "sp-alvirah": {
   "name": "Alvirah",
@@ -1888,7 +1920,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Tennessee Walker"
  },
  "sp-prisma": {
   "name": "Prisma",
@@ -1904,7 +1937,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Appaloosa"
  },
  "sp-tenebri": {
   "name": "Tenebri",
@@ -1920,7 +1954,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Wild Horse"
  },
  "sp-katur": {
   "name": "Kátur",
@@ -1936,7 +1971,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Icelandic"
  },
  "sp-sylvan-unicorn": {
   "name": "Sylvan Unicorn",
@@ -1952,7 +1988,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Paso Fino"
  },
  "sp-laverna": {
   "name": "Laverna",
@@ -1968,7 +2005,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "American Paint Horse"
  },
  "sp-nemain": {
   "name": "Nemain",
@@ -1984,7 +2022,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Shire"
  },
  "jorvegian-fjord": {
   "name": "Jorvegian Fjord Horse",
@@ -2033,7 +2072,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Haflinger"
  },
  "sp-antheia": {
   "name": "Antheia",
@@ -2049,7 +2089,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Haflinger"
  },
  "jorvik-connemara": {
   "name": "Jorvik Connemara",
@@ -2076,7 +2117,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Appaloosa"
  },
  "sp-sedna": {
   "name": "Sedna",
@@ -2092,7 +2134,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Appaloosa"
  },
  "sp-birkir": {
   "name": "Birkir",
@@ -2108,7 +2151,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Marwari"
  },
  "sp-hanami": {
   "name": "Hanami",
@@ -2124,7 +2168,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Percheron"
  },
  "sp-shadowshield": {
   "name": "Shadowshield",
@@ -2140,7 +2185,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Arabian"
  },
  "sp-snowdancer": {
   "name": "Snowdancer",
@@ -2156,7 +2202,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Arabian"
  },
  "sp-songsorrow": {
   "name": "Songsorrow",
@@ -2172,7 +2219,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Wild Horse"
  },
  "sp-duskgrim": {
   "name": "Duskgrim",
@@ -2188,7 +2236,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Wild Horse"
  },
  "soul-steed": {
   "name": "Soul Steed",
@@ -2215,7 +2264,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Friesian"
  },
  "sp-faramawr": {
   "name": "Faramawr",
@@ -2231,7 +2281,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Friesian"
  },
  "sp-petra": {
   "name": "Petra",
@@ -2247,7 +2298,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Clydesdale"
  },
  "sp-erinys": {
   "name": "Erinys",
@@ -2263,7 +2315,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Clydesdale"
  },
  "sp-heidrun": {
   "name": "Heidrun",
@@ -2279,7 +2332,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Curly Horse"
  },
  "sp-tombhoof": {
   "name": "Tombhoof",
@@ -2295,7 +2349,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "American Quarter Horse"
  },
  "sp-solas": {
   "name": "Solas",
@@ -2311,7 +2366,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Irish Cob"
  },
  "north-swedish-rune-runner": {
   "name": "North Swedish Rune Runner",
@@ -2338,7 +2394,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Akhal-Teke"
  },
  "sp-tellina": {
   "name": "Tellina",
@@ -2354,7 +2411,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Akhal-Teke"
  },
  "sp-umbra": {
   "name": "Umbra",
@@ -2370,7 +2428,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Andalusian"
  },
  "sp-ayla": {
   "name": "Ayla",
@@ -2386,7 +2445,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Andalusian"
  },
  "sp-fawncy": {
   "name": "Fawncy",
@@ -2402,7 +2462,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Jorvik Andalusian"
  },
  "sp-woodear": {
   "name": "Woodear",
@@ -2418,7 +2479,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Norwegian Fjord"
  },
  "sp-pepita": {
   "name": "Pepita",
@@ -2434,7 +2496,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "Norwegian Fjord"
  },
  "sp-barkhart": {
   "name": "Barkhart",
@@ -2443,9 +2506,11 @@
   "level": 1,
   "location": "",
   "coatCount": 2,
-  "coatStrip": "img/coats/sp-barkhart.webp",
+  "coatStrip": "img/coats/sp-barkhart-f.webp",
   "coatSource": "ssodb",
-  "status": "retired"
+  "status": "retired",
+  "baseBreed": "Lusitano",
+  "coatForms": true
  },
  "hanoverian-2g": {
   "name": "Hanoverian (2G)",
@@ -2486,7 +2551,8 @@
    "Normal form",
    "Magical form"
   ],
-  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>."
+  "credit": "Pictures from the <a class=\"ext\" href=\"https://starstable.wiki.gg\" target=\"_blank\" rel=\"noopener\">Star Stable Wiki</a>.",
+  "baseBreed": "North Swedish Horse"
  },
  "sp-whinfell": {
   "name": "Whinfell",
@@ -2495,9 +2561,11 @@
   "level": 1,
   "location": "",
   "coatCount": 7,
-  "coatStrip": "img/coats/sp-whinfell.webp",
+  "coatStrip": "img/coats/sp-whinfell-f.webp",
   "coatSource": "ssodb",
-  "status": "retired"
+  "status": "retired",
+  "baseBreed": "Shire",
+  "coatForms": true
  },
  "morgan-2g": {
   "name": "Morgan (2G)",
@@ -2701,9 +2769,11 @@
   "level": 1,
   "location": "",
   "coatCount": 3,
-  "coatStrip": "img/coats/sp-nixie.webp",
+  "coatStrip": "img/coats/sp-nixie-f.webp",
   "coatSource": "ssodb",
-  "status": "retired"
+  "status": "retired",
+  "baseBreed": "Icelandic",
+  "coatForms": true
  },
  "super-shire": {
   "name": "Super Shire",
