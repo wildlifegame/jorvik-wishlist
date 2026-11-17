@@ -434,6 +434,10 @@
   .mdot{fill:#fff;stroke:#1d2550;stroke-width:1.5;pointer-events:none;opacity:0;transition:opacity .2s}
   #mapSvg.zoomed .msub,#mapSvg.zoomed .mdot{opacity:1}
   .mtick{pointer-events:none}
+  .mpoi{pointer-events:auto;cursor:pointer}
+  .mpoi text.msub{font-size:10.5px}
+  .maplegend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:13px;color:#fff;margin:8px 0 0}
+  .maplegend span{display:inline-flex;align-items:center;gap:6px}
   .mlink{stroke:#ffffffaa;stroke-width:2.5;stroke-dasharray:7 7;fill:none}
   .mlinkt{font:600 12px Figtree,sans-serif;fill:#fff;paint-order:stroke;stroke:#1d2550;stroke-width:3px}
   .mapctl{position:absolute;top:10px;right:10px;display:flex;gap:6px}
@@ -600,6 +604,7 @@
       </div>
       <aside class="mapside" id="mapSide" aria-live="polite"></aside>
     </div>
+    <div class="maplegend" aria-hidden="true"><span><svg width="20" height="18" viewBox="-10 -9 20 18"><path d="M-9,1 L0,-8 L9,1 L9,8 L-9,8 Z" fill="#ef87a9" stroke="#1d2550" stroke-width="1.5"/></svg>Home stable</span><span><svg width="20" height="18" viewBox="-10 -9 20 18"><path d="M-9,1 L0,-8 L9,1 L9,8 L-9,8 Z" fill="#fff" stroke="#1d2550" stroke-width="1.5"/></svg>Other stable</span><span><svg width="22" height="16" viewBox="-11 -8 22 16"><rect x="-9" y="-6" width="15" height="10" rx="2.5" fill="#f2c94c" stroke="#1d2550" stroke-width="1.5"/></svg>Horse trailer</span><span><svg width="12" height="12" viewBox="-6 -6 12 12"><circle r="3.5" fill="#fff" stroke="#1d2550" stroke-width="1.5"/></svg>Town or place (zoom in to see names)</span></div>
     <p class="note" id="mapNote"></p>
   </section>
 
@@ -1368,6 +1373,10 @@
     const isl=new Set(['epona','southhoof','ridingcamp','jorvikcity']); const sh=r=>`<path class="mshore" d="${blobPath({...r,r:r.r*1.28})}"/>`, ln=r=>`<path class="mland" d="${blobPath({...r,r:r.r*1.1})}"/>`; const land=MAP.regions.map(sh).join('')+MAP.regions.map(ln).join('');
     svg.innerHTML=`<defs><filter id="mblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter></defs><g>${stars}</g><g>${land}</g><g>${links}</g>`+MAP.regions.map(r=>`<g class="mreg ${have.has(r.id)?'':'lock'} ${mapSel===r.id?'sel':''}" data-reg="${r.id}" tabindex="0" role="button" aria-label="${esc(r.name)}${have.has(r.id)?', unlocked':''}"><path d="${blobPath(r)}" fill="${r.color}"/></g>`).join('')
       +MAP.regions.map(r=>(r.subs||[]).map(s=>`<circle class="mdot" cx="${r.x+s.dx}" cy="${r.y+s.dy}" r="3.5"/><text class="msub" x="${r.x+s.dx+6}" y="${r.y+s.dy+4}">${esc(s.n)}</text>`).join('')).join('')
+      +MAP.regions.map(r=>(r.pois||[]).map(o=>{ const x=r.x+o.dx, y=r.y+o.dy;
+          const ic=o.t==='trailer'?`<rect x="-9" y="-6" width="15" height="10" rx="2.5" fill="#f2c94c" stroke="#1d2550" stroke-width="1.5"/><circle cx="-4" cy="5" r="2.4" fill="#1d2550"/><circle cx="2" cy="5" r="2.4" fill="#1d2550"/><path d="M6,0 L10,0" stroke="#1d2550" stroke-width="2"/>`
+            :`<path d="M-9,1 L0,-8 L9,1 L9,8 L-9,8 Z" fill="${o.home?'#ef87a9':'#ffffff'}" stroke="#1d2550" stroke-width="1.5"/><rect x="-3" y="2" width="6" height="6" fill="#1d2550"/>`;
+          return `<g class="mpoi" transform="translate(${x},${y})" data-reg="${r.id}"><title>${esc(o.n)}${o.note?' – '+esc(o.note):''}</title>${ic}<text class="msub" x="12" y="4">${esc(o.n)}</text></g>`; }).join('')).join('')
       +MAP.regions.map(lab).join('')
       +MAP.regions.filter(r=>have.has(r.id)).map(r=>`<g class="mtick" transform="translate(${r.x+r.r*0.75},${r.y-r.r*0.7})"><circle r="13" fill="#ef87a9" stroke="#fff" stroke-width="2.5"/><path d="M-6,0 L-2,5 L6,-5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`).join('');
     $('#mapProg').textContent=`${have.size} of ${MAP.regions.length} areas unlocked`;
@@ -1382,7 +1391,7 @@
     const tiles=items.map(([id,c])=>`<div class="mt" role="button" tabindex="0" data-gal="${esc(id)}" title="${esc(c.name)}">${hasCoats(c)?coatHtml(c,1,'pic h'):c.img?`<img class="pic" src="${esc(imgUrl(c.img))}" alt="">`:`<div class="nopic">${petIcon(c)}</div>`}<span>${esc(c.name)}</span><small>${c.price?c.price.toLocaleString()+' SC':esc(c.priceText||'')}</small></div>`).join('');
     box.innerHTML=`<h3>${esc(r.name)}</h3><p class="blurb">${esc(r.blurb)}</p>
       <label class="mhave"><input type="checkbox" id="mHave" ${have?'checked':''}> I've unlocked this</label>
-      <h4>How to unlock</h4>${li(r.unlock)}<h4>Quests</h4>${li(r.quests)}<h4>Places and shops</h4>${li(r.places)}
+      ${(r.pois||[]).length?`<h4>Stables and trailers</h4><ul>${r.pois.map(o=>`<li><b>${esc(o.n)}</b>${o.note?` – ${esc(o.note)}`:''}</li>`).join('')}</ul>`:''}<h4>How to unlock</h4>${li(r.unlock)}<h4>Quests</h4>${li(r.quests)}<h4>Places and shops</h4>${li(r.places)}
       <h4>Horses and pets sold here${items.length?` (${items.length})`:''}</h4>${r.buyNote?`<p class="mempty" style="margin:0 0 8px">${esc(r.buyNote)}</p>`:''}${items.length?`<div class="mbuy">${tiles}</div>`:'<p class="mempty">None on our list right now.</p>'}`;
     $('#mHave').onchange=e=>{ const a=new Set(mapHave()); e.target.checked?a.add(r.id):a.delete(r.id); LS.set(K_MAP,[...a]); drawMap(); };
   }
@@ -1407,7 +1416,7 @@
       const dx=e.clientX-start.x, dy=e.clientY-start.y; moved=Math.max(moved,Math.hypot(dx,dy)); if(moved<5) return;
       svg.classList.add('drag'); const b=svg.getBoundingClientRect(); mapView={...mapView,x:start.v.x-dx/b.width*start.v.w,y:start.v.y-dy/b.height*start.v.h}; clampView(); applyView(); });
     const up=e=>{ if(!pts.has(e.pointerId)) return; pts.delete(e.pointerId); if(pts.size<2) pinch=null; svg.classList.remove('drag');
-      if(moved<5&&pts.size===0){ const g=start.target.closest?.('.mreg'); if(g) selectRegion(g.dataset.reg); } };
+      if(moved<5&&pts.size===0){ const g=start.target.closest?.('.mreg,.mpoi'); if(g) selectRegion(g.dataset.reg); } };
     svg.addEventListener('pointerup',up); svg.addEventListener('pointercancel',up);
     svg.addEventListener('wheel',e=>{ e.preventDefault(); const [cx,cy]=toSvg(e.clientX,e.clientY); zoomMap(e.deltaY>0?1.15:1/1.15,cx,cy); },{passive:false});
     svg.addEventListener('keydown',e=>{ const g=e.target.closest('.mreg'); if(g&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); selectRegion(g.dataset.reg); } });

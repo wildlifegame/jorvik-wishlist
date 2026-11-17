@@ -80,11 +80,6 @@
    ],
    "subs": [
     {
-     "n": "Goldenleaf Stable",
-     "dx": -90,
-     "dy": -54
-    },
-    {
      "n": "Cape West Fishing Village",
      "dx": -93,
      "dy": -15
@@ -101,7 +96,17 @@
     "Goldenhills"
    ],
    "sx": 1.05,
-   "sy": 1.0
+   "sy": 1.0,
+   "pois": [
+    {
+     "n": "Goldenleaf Stables",
+     "t": "stable",
+     "home": true,
+     "dx": -90,
+     "dy": -54,
+     "note": "Home stable, horse shop and hostel"
+    }
+   ]
   },
   {
    "id": "medieval",
@@ -142,7 +147,17 @@
     "Forgotten Fields"
    ],
    "sx": 1.1,
-   "sy": 0.9
+   "sy": 0.9,
+   "pois": [
+    {
+     "n": "Trailer",
+     "t": "trailer",
+     "home": false,
+     "dx": 25,
+     "dy": 3,
+     "note": "Horse trailer"
+    }
+   ]
   },
   {
    "id": "silverglade",
@@ -179,16 +194,6 @@
      "dy": 80
     },
     {
-     "n": "Equestrian Center",
-     "dx": -117,
-     "dy": 22
-    },
-    {
-     "n": "Steve's Farm",
-     "dx": 81,
-     "dy": 90
-    },
-    {
      "n": "Everwind Fields",
      "dx": -39,
      "dy": -51
@@ -211,7 +216,33 @@
     "Black Tie and Tails"
    ],
    "sx": 1.1,
-   "sy": 0.95
+   "sy": 0.95,
+   "pois": [
+    {
+     "n": "Steve's Farm",
+     "t": "stable",
+     "home": true,
+     "dx": 81,
+     "dy": 90,
+     "note": "Home stable"
+    },
+    {
+     "n": "Silverglade Equestrian Center",
+     "t": "stable",
+     "home": true,
+     "dx": -117,
+     "dy": 22,
+     "note": "Home stable. Horse trailer behind the barn"
+    },
+    {
+     "n": "Trailer",
+     "t": "trailer",
+     "home": false,
+     "dx": -133,
+     "dy": 36,
+     "note": "Horse trailer"
+    }
+   ]
   },
   {
    "id": "moorland",
@@ -240,11 +271,6 @@
    ],
    "subs": [
     {
-     "n": "Moorland Stables",
-     "dx": -8,
-     "dy": 0
-    },
-    {
      "n": "Doyle's Abbey",
      "dx": 120,
      "dy": -27
@@ -258,7 +284,17 @@
    ],
    "buyNote": "Gary Goldtooth's magical horses and pets only visit for a few weeks at a time.",
    "sx": 1.15,
-   "sy": 0.85
+   "sy": 0.85,
+   "pois": [
+    {
+     "n": "Moorland Stables",
+     "t": "stable",
+     "home": true,
+     "dx": -30,
+     "dy": 35,
+     "note": "Default home stable"
+    }
+   ]
   },
   {
    "id": "fortpinta",
@@ -300,7 +336,17 @@
     "Pet Shop Girls"
    ],
    "sx": 1.0,
-   "sy": 1.1
+   "sy": 1.1,
+   "pois": [
+    {
+     "n": "Fort Pinta stable",
+     "t": "stable",
+     "home": true,
+     "dx": 4,
+     "dy": -22,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "hollowwoods",
@@ -364,11 +410,6 @@
    ],
    "subs": [
     {
-     "n": "Valedale Village",
-     "dx": -45,
-     "dy": -21
-    },
-    {
      "n": "Valedale Lake",
      "dx": 90,
      "dy": 54
@@ -378,7 +419,17 @@
     "Valedale"
    ],
    "sx": 1.2,
-   "sy": 0.95
+   "sy": 0.95,
+   "pois": [
+    {
+     "n": "Valedale Village stable",
+     "t": "stable",
+     "home": true,
+     "dx": -45,
+     "dy": -21,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "dino",
@@ -437,18 +488,22 @@
     "Bear Cave and Mountaineer's Hut (secret)",
     "Red String Trail Ride"
    ],
-   "subs": [
-    {
-     "n": "Firgrove Village",
-     "dx": -4,
-     "dy": 3
-    }
-   ],
+   "subs": [],
    "match": [
     "Firgrove"
    ],
    "sx": 1.1,
-   "sy": 1.0
+   "sy": 1.0,
+   "pois": [
+    {
+     "n": "Firgrove Village stable",
+     "t": "stable",
+     "home": true,
+     "dx": -4,
+     "dy": 3,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "starshine",
@@ -482,7 +537,17 @@
     "Western Festival"
    ],
    "sx": 1.1,
-   "sy": 0.95
+   "sy": 0.95,
+   "pois": [
+    {
+     "n": "Starshine Ranch",
+     "t": "stable",
+     "home": false,
+     "dx": -20,
+     "dy": 45,
+     "note": "Western riding stable"
+    }
+   ]
   },
   {
    "id": "mistfall",
@@ -510,13 +575,7 @@
     "Mistfall Lake",
     "Races: South Mistfall Forest, Bramble Gorge"
    ],
-   "subs": [
-    {
-     "n": "Dundull",
-     "dx": -12,
-     "dy": 60
-    }
-   ],
+   "subs": [],
    "match": [
     "Dundull",
     "Mistfall",
@@ -524,7 +583,17 @@
     "Kit's Cuddle"
    ],
    "sx": 0.9,
-   "sy": 1.3
+   "sy": 1.3,
+   "pois": [
+    {
+     "n": "Dundull's Stable",
+     "t": "stable",
+     "home": true,
+     "dx": -12,
+     "dy": 60,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "wildwoods",
@@ -557,11 +626,6 @@
      "n": "Tailtop Village",
      "dx": 0,
      "dy": -52
-    },
-    {
-     "n": "Redwood Point",
-     "dx": 0,
-     "dy": 38
     }
    ],
    "match": [
@@ -570,7 +634,25 @@
     "Wildwoods"
    ],
    "sx": 0.8,
-   "sy": 1.3
+   "sy": 1.3,
+   "pois": [
+    {
+     "n": "Tailtop Stables",
+     "t": "stable",
+     "home": true,
+     "dx": 14,
+     "dy": -62,
+     "note": "Home stable"
+    },
+    {
+     "n": "Redwood Point stable",
+     "t": "stable",
+     "home": true,
+     "dx": 0,
+     "dy": 38,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "harvest",
@@ -629,7 +711,17 @@
     "Doreen"
    ],
    "sx": 1.4,
-   "sy": 0.85
+   "sy": 0.85,
+   "pois": [
+    {
+     "n": "Jorvik Stables",
+     "t": "stable",
+     "home": false,
+     "dx": 74,
+     "dy": -40,
+     "note": "Herman's stable and arena"
+    }
+   ]
   },
   {
    "id": "epona",
@@ -667,11 +759,6 @@
      "n": "Eastern Epona",
      "dx": 93,
      "dy": -16
-    },
-    {
-     "n": "New Hillcrest",
-     "dx": 82,
-     "dy": 30
     }
    ],
    "match": [
@@ -681,7 +768,17 @@
     "Epona"
    ],
    "sx": 1.45,
-   "sy": 0.75
+   "sy": 0.75,
+   "pois": [
+    {
+     "n": "New Hillcrest Stables",
+     "t": "stable",
+     "home": true,
+     "dx": 82,
+     "dy": 30,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "ridingcamp",
@@ -749,7 +846,17 @@
     "Rolph"
    ],
    "sx": 1.55,
-   "sy": 0.55
+   "sy": 0.55,
+   "pois": [
+    {
+     "n": "South Hoof Stables",
+     "t": "stable",
+     "home": true,
+     "dx": -61,
+     "dy": -18,
+     "note": "Home stable"
+    }
+   ]
   },
   {
    "id": "jorvikcity",
