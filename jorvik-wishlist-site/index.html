@@ -404,6 +404,7 @@
   .petcard .f-bz{display:none!important}
   .nopic{font-size:64px}
   body.petmode #ptotal{display:none!important}
+  .pz,body.petmode .hz{display:none} body.petmode .pz{display:inline}
   .petph{display:flex;flex-direction:column;align-items:center;gap:6px;line-height:1}
   .petph small{font-size:15px;font-weight:700;color:var(--muted)}
   .hpt .petph small{font-size:10px}
@@ -478,7 +479,7 @@
     <div class="sheet" id="addSheet"><form class="card addcard" id="addForm">
       <div class="sheethead"><h2>Add a horse</h2><button class="x" type="button" data-close-sheet aria-label="Close">✕</button></div>
       <div class="row addrow">
-        <div class="f hpf" style="flex:3">Horse
+        <div class="f hpf" style="flex:3"><span class="hz">Horse</span><span class="pz">Pet</span>
           <select id="addBreed" aria-label="Horse"><option value="">Loading horses…</option></select>
         </div>
         <label class="f" style="flex:1.4">How much do you want it?
@@ -486,9 +487,9 @@
         </label>
         <button class="btn" type="submit" id="addBtn">+ Add</button>
       </div>
-      <div id="addMulti"></div><p class="coathint" id="addHint" hidden>Pick one or more coats (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
+      <div id="addMulti"></div><p class="coathint" id="addHint" hidden><span class="hz">Pick one or more coats</span><span class="pz">Pick one or more pets</span> (tap again to unselect).</p><div class="coatpick" id="addPick" aria-label="Pick coats"></div>
       <details class="more">
-        <summary>Add a name idea, mane style or a note</summary>
+        <summary><span class="hz">Add a name idea, mane style or a note</span><span class="pz">Add a name idea or a note</span></summary>
         <div class="row" style="margin-top:10px">
           <label class="f" style="flex:2">Name idea
             <input id="addName" placeholder="e.g. Moonbeam" maxlength="40">
@@ -654,6 +655,7 @@
   const isOldGen = c => c && (c.gen==='1G'||c.gen==='2G');
   const badge = c => c?.type==='Magical'?' ✨':c?.type==='Special'?' ★':c?.type==='Pet'?' 🐾':'';
   const PET_ICONS={dragon:'🐉',fox:'🦊',moth:'🦋',cat:'🐱',dog:'🐶',bird:'🐦',squirrel:'🐿️',ray:'🐟',bunny:'🐰',chicken:'🐔',magic:'✨',secret:'🎁',bat:'🦇'};
+  const linkHost = u => { try{ const h=new URL(u,location.href).hostname.replace(/^www\./,''); return h==='ssodb.bplaced.net'?'SSO DB':h; }catch(e){ return 'starstable.com'; } };
   const petIcon = c => c?.type==='Pet' ? `<span class="petph"><small>Coming soon</small></span>` : '🐴';
   const coatWhere = (c,n) => (n && Array.isArray(c?.coatWhere) && c.coatWhere[n-1]) || '';
   const coatPriceOf = (c,n) => (n && Array.isArray(c?.coatPrice) && c.coatPrice[n-1]) || c?.price || null;
@@ -719,11 +721,11 @@
   }
   function showGallery(id){
     const c=S.catalog[id]; if(!hasCoats(c)) return;
-    openModal(`<h3>${esc(c.name)} coats</h3><p class="note" style="font-style:normal">${c.credit?c.credit+'</p><p hidden>':''}${c.coatSource!=='ssodb'&&c.coatWhere?'Official pictures from starstable.com, plus extra coats from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a> (photos by Abbie Starwatcher).':c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
+    openModal(`<h3>${esc(c.name)}${c.type==='Pet'?'':' coats'}</h3><p class="note" style="font-style:normal">${c.credit?c.credit+'</p><p hidden>':''}${c.coatSource!=='ssodb'&&c.coatWhere?'Official pictures from starstable.com, plus extra coats from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a> (photos by Abbie Starwatcher).':c.coatSource==='ssodb'?'In-game pictures from the <a class="ext" href="https://ssodb.bplaced.net/db/en/horses.html" target="_blank" rel="noopener">Starstable Database</a>, photos by Abbie Starwatcher.':'Official pictures from starstable.com. Coat names from <a class="ext" href="https://pixel-ponies.com" target="_blank" rel="noopener">Pixel-Ponies</a>; a number means we couldn\'t confirm the name.'}</p>
       <div class="gallery">${Array.from({length:coatTotal(c)},(_,j)=>`<div class="g">${coatHtml(c,j+1,'pic h')}${hasForms(c)?'You get both forms – tap ✨ to switch':coatLabel(j+1,c)}${ownsCoat(id,j+1)?' 🏡':''}${whereTag(c,j+1)}<br><button class="btn small" type="button" data-gw="${j+1}" style="margin-top:4px">+ Wish</button></div>`).join('')}</div>
-      <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on starstable.com ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
+      <div class="actions" style="margin-top:12px"><a class="ext" href="${esc(breedLink(id))}" target="_blank" rel="noopener">Open on ${esc(linkHost(breedLink(id)))} ↗</a> <button class="btn ghost" type="button" id="gClose">Close</button></div>`);
     $('#modal').classList.add('wide'); $('#gClose').onclick=closeModal;
-    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } showTab('mine'); $('#addBreed').value=id; refreshAddPicker(); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
+    $('#modal').querySelector('.gallery').onclick=e=>{ const b=e.target.closest('[data-gw]'); if(!b) return; closeModal(); if(c.type==='Pet'){ showTab('pets'); } $('#addBreed').value=id; addCoatNo=[Number(b.dataset.gw)]; { const nm=Array.isArray(c.coatNames)?c.coatNames[addCoatNo[0]-1]:''; const inp=$('#addCoat'); if(!inp.value.trim()||inp.value===autoCoat){ inp.value=nm||''; autoCoat=inp.value; } } showTab(c.type==='Pet'?'pets':'mine'); $('#addBreed').value=id; refreshAddPicker(); openAdd(); toast(hasForms(c)?'Hit Add to wish for it':coatLabel(addCoatNo[0],c)+' picked – hit Add'); };
   }
   let addCoatNo=[];
   let autoCoat='';
@@ -1080,7 +1082,7 @@
       ${hasCoats(r)?coatHtml(r,1,'pic h',`data-gal="${esc(r.id)}" role="button" tabindex="0" aria-label="See all ${r.coatCount} ${esc(r.name)} coats"`):r.img?`<img class="pic" src="${esc(imgUrl(r.img))}" alt="${esc(r.name)}">`:`<div class="nopic">${petIcon(r)}</div>`}
       <h3>${esc(r.name)}${badge(r)}</h3>
       ${ownsBreed(r.id).length?`<div style="padding:0 4px"><span class="owned">🏡 In your stable${ownsBreed(r.id).length>1?` (${ownsBreed(r.id).length})`:''}</span></div>`:''}
-      <div class="meta">${r.type==='Pet'?esc(r.note||'Pet')+(r.variants>1?` · ${r.variants} kinds`:''):esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
+      <div class="meta">${r.type==='Pet'?esc(r.note||'Pet')+(r.variants>1?(hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">see all ${r.variants}</a>`:` · ${r.variants} kinds`):''):esc(r.type||'')}${r.level?`, level ${esc(r.level)}`:''}${r.type==='Pet'?'':hasForms(r)?' · normal + magical form':hasCoats(r)?` · <a class="ext" href="#" data-gal="${esc(r.id)}">${r.coatCount} coat${r.coatCount>1?'s':''}</a>`:''}</div>
       <dl class="facts hfacts">
         ${r.baseBreed?`<dt>Base breed</dt><dd class="f-base">${esc(r.baseBreed)}</dd>`:''}
         <dt>Price</dt><dd class="f-price">${priceTxt(r)}</dd>
@@ -1089,7 +1091,7 @@
         <dt>Last Bazaar</dt><dd class="f-bz"${r.free||r.type==='Pet'?' hidden':''}>${!r.bz.now&&r.bz.last?'<span class="pl">Last Bazaar </span>':''}${bazaarText(r.bz)}</dd>
         ${bazaarHistory(r.id).length>1?`<dt>Bazaar prices</dt><dd class="f-hist" title="Past Bazaar prices: ${esc(bazaarHistory(r.id).slice(0,5).map(x=>x.price.toLocaleString()+' SC ('+fmtDate(x.start)+')').join(', '))}"><span class="pl">Lowest Bazaar price </span><b>${sc(Math.min(...bazaarHistory(r.id).map(x=>x.price)))}</b></dd>`:''}
       </dl>
-      <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">starstable.com ↗</a>`}</div>
+      <div class="actions"><button class="btn small ${mine.has(r.id)?'ghost':''}" data-wish="${esc(r.id)}">${mine.has(r.id)?'♥ On your list':'+ Wish'}</button> <button class="btn small ghost" data-edit="${esc(r.id)}" aria-label="Edit ${esc(r.name)} details">Edit</button> ${r.coatSource==='ssodb'&&!r.link?'':`<a class="ext" style="margin-left:auto;align-self:center" href="${esc(breedLink(r.id))}" target="_blank" rel="noopener">${esc(linkHost(breedLink(r.id)))} ↗</a>`}</div>
     </article>`).join('') : `<div class="hcard empty"><div class="empty">${S.loaded.catalog?($('#hType').value==='Pet'?'No pets match.':'No horses match.'):'Loading horses…'}</div></div>`;
   }
   $('#hSearch').oninput=renderHorses; $('#hType').onchange=renderHorses;

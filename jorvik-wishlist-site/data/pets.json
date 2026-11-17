@@ -5,7 +5,15 @@
   "price": 350,
   "location": "Pet Shop Girls, Fort Pinta",
   "variants": 3,
-  "src": "https://starstable.com/article/7544"
+  "src": "https://starstable.com/article/7544",
+  "coatNames": [
+   "White Jorvegian house cat",
+   "Brave red tabby cat",
+   "Wily spotted cat"
+  ],
+  "coatStrip": "img/pets/pet-shorthair-cat.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-seagull": {
   "name": "Seagull",
@@ -14,7 +22,15 @@
   "location": "Selah, Fort Pinta",
   "variants": 3,
   "note": "Flying pet",
-  "src": "https://www.starstable.com/article/5884"
+  "src": "https://www.starstable.com/article/5884",
+  "coatNames": [
+   "Fancy Seagull",
+   "Autumn Seagull",
+   "Steven Seagull"
+  ],
+  "coatStrip": "img/pets/pet-seagull.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-squirrel": {
   "name": "Squirrel",
@@ -23,14 +39,29 @@
   "location": "Doreen, Greendale race start by Goldspur Farm",
   "variants": 3,
   "note": "Walking pet",
-  "src": "https://www.starstable.com/article/5296"
+  "src": "https://www.starstable.com/article/5296",
+  "coatNames": [
+   "Graydew squirrel",
+   "Greendale squirrel",
+   "Goldenleaf squirrel"
+  ],
+  "coatStrip": "img/pets/pet-squirrel.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-orla": {
   "name": "Orla (fluffy cat)",
   "kind": "cat",
   "price": 350,
   "location": "Black Tie and Tails, Silverglade Equestrian Center",
-  "src": "https://www.starstable.com/article/a-connemara-comeback"
+  "src": "https://www.starstable.com/article/a-connemara-comeback",
+  "variants": 1,
+  "coatNames": [
+   "Orla"
+  ],
+  "coatStrip": "img/pets/pet-orla.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-corgi": {
   "name": "Corgi (Eira, Dagny, Karma)",
@@ -39,7 +70,15 @@
   "location": "Steve's Farm",
   "variants": 3,
   "src": "https://www.starstable.com/article/bring-on-the-birthday-bash",
-  "note": "Permanent. Also at the Birthday hub during the festival"
+  "note": "Permanent. Also at the Birthday hub during the festival",
+  "coatNames": [
+   "Eira",
+   "Dagny",
+   "Karma"
+  ],
+  "coatStrip": "img/pets/pet-corgi.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-panda-ray": {
   "name": "Pandoric Manta Ray",
@@ -48,15 +87,29 @@
   "location": "Summer Daze event",
   "variants": 2,
   "note": "Pearly and Shimmery. Flying pet, sold with Kampos and Tellina",
-  "src": "https://starstable.com/article/8654"
+  "src": "https://starstable.com/article/8654",
+  "coatNames": [
+   "Pearly Panda Ray",
+   "Shimmery Panda Ray"
+  ],
+  "coatStrip": "img/pets/pet-panda-ray.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-happy-bunny": {
   "name": "Happy-go-lucky Bunny",
   "kind": "bunny",
-  "price": null,
   "location": "Gary Goldtooth",
   "note": "Runestone pet, sold with Petra and Erinys",
-  "src": "https://starstable.com/article/12446"
+  "src": "https://starstable.com/article/12446",
+  "variants": 2,
+  "coatNames": [
+   "Happy-go-lucky Bunny",
+   "Bunny of Darkness"
+  ],
+  "coatStrip": "img/pets/pet-happy-bunny.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-loch-theia": {
   "name": "Loch and Theia (cats)",
@@ -65,25 +118,44 @@
   "location": "Silverglade Equestrian Center pet shop",
   "variants": 2,
   "note": "Companions of Calder and Ephyra",
-  "src": "https://api.starstable.com/article/the-benevolent-brabant"
+  "src": "https://api.starstable.com/article/the-benevolent-brabant",
+  "coatNames": [
+   "Loch",
+   "Theia"
+  ],
+  "coatStrip": "img/pets/pet-loch-theia.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-ranch-chicken": {
   "name": "Ranch Chicken",
   "kind": "chicken",
-  "price": null,
   "priceText": "3,333 Gold Nuggets",
   "location": "Camp Western event",
   "variants": 2,
-  "src": "https://www.starstable.com/article/still-camp-western"
+  "src": "https://www.starstable.com/article/still-camp-western",
+  "coatNames": [
+   "Penny",
+   "Henrietta"
+  ],
+  "coatStrip": "img/pets/pet-ranch-chicken.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-atlas-kerfuffle": {
   "name": "Atlas and Kerfuffle",
   "kind": "secret",
-  "price": null,
   "location": "Camp Western event",
   "variants": 2,
   "note": "Last year's secret pets, now for sale",
-  "src": "https://www.starstable.com/article/still-camp-western"
+  "src": "https://www.starstable.com/article/still-camp-western",
+  "coatNames": [
+   "Atlas",
+   "Kerfuffle"
+  ],
+  "coatStrip": "img/pets/pet-atlas-kerfuffle.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-kaiser-fay": {
   "name": "Kaiser and Fay",
@@ -92,16 +164,29 @@
   "location": "Summer Daze event",
   "variants": 2,
   "note": "Companions of Luna and Monarch",
-  "src": "https://www.starstable.com/article/beautiful-butterflies"
+  "src": "https://www.starstable.com/article/beautiful-butterflies",
+  "coatNames": [
+   "Kaiser",
+   "Fay"
+  ],
+  "coatStrip": "img/pets/pet-kaiser-fay.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-thalasso-scintilla": {
   "name": "Thalasso and Scintilla",
   "kind": "magic",
-  "price": null,
   "location": "Summer Daze event",
   "variants": 2,
   "note": "Companions of Pelagos and Perla",
-  "src": "https://www.starstable.com/article/the-beach-comes-alive"
+  "src": "https://www.starstable.com/article/the-beach-comes-alive",
+  "coatNames": [
+   "Thalasso",
+   "Scintilla"
+  ],
+  "coatStrip": "img/pets/pet-thalasso-scintilla.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-scarlet": {
   "name": "Scarlet (goat)",
@@ -109,7 +194,14 @@
   "price": 350,
   "location": "Halloween event",
   "note": "Companion of Bixbite",
-  "src": "https://www.starstable.com/article/haunting-halloween"
+  "src": "https://www.starstable.com/article/haunting-halloween",
+  "variants": 1,
+  "coatNames": [
+   "Scarlet"
+  ],
+  "coatStrip": "img/pets/pet-scarlet.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-tempest-fenn": {
   "name": "Tempest and Fenn",
@@ -118,25 +210,46 @@
   "location": "Halloween event",
   "variants": 2,
   "note": "Spooky companions",
-  "src": "https://www.starstable.com/article/13829"
+  "src": "https://www.starstable.com/article/13829",
+  "coatNames": [
+   "Tempest",
+   "Fenn"
+  ],
+  "coatStrip": "img/pets/pet-tempest-fenn.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-mahr-nidae": {
-  "name": "Nidae (Mahr)",
+  "name": "Mahrs (Hyla, Auge, Styx, Edel, Nyth, Nidae)",
   "kind": "moth",
-  "price": null,
-  "location": "",
-  "status": "retired",
-  "note": "Invite a Friend reward",
-  "src": "https://www.starstable.com/article/puzzles-and-ponies"
+  "price": 450,
+  "location": "Beast Bonds, The Veiled Hamlet",
+  "note": "Six moth-winged Mahrs",
+  "src": "https://www.starstable.com/article/puzzles-and-ponies",
+  "variants": 6,
+  "coatNames": [
+   "Hyla",
+   "Auge",
+   "Styx",
+   "Edel",
+   "Nyth",
+   "Nidae"
+  ],
+  "coatStrip": "img/pets/pet-mahr-nidae.webp",
+  "coatCount": 6,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-mahr-rcu": {
   "name": "Black and White Mahr",
   "kind": "moth",
-  "price": null,
   "location": "",
   "status": "retired",
   "note": "Riding Club United reward. Might come to shops later",
-  "src": "https://help.starstable.com/hc/en-us/articles/38327826794002-Riding-Club-United"
+  "src": "https://help.starstable.com/hc/en-us/articles/38327826794002-Riding-Club-United",
+  "variants": 1,
+  "coatNames": [
+   "Black and White Mahr"
+  ]
  },
  "pet-gull-owl": {
   "name": "Deep-Sea Gull and Dreamy Dawn Owl",
@@ -145,7 +258,14 @@
   "location": "Pet shop by Ydris' circus tent",
   "variants": 2,
   "note": "Companions of Dorcha and Solas",
-  "src": "https://www.starstable.com/article/the-benevolent-brabant"
+  "src": "https://www.starstable.com/article/the-benevolent-brabant",
+  "coatNames": [
+   "Deep-sea gull",
+   "Dreamy dawn owl"
+  ],
+  "coatStrip": "img/pets/pet-gull-owl.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-hollow-companions": {
   "name": "Nanny, Sterling and Noctara",
@@ -154,7 +274,15 @@
   "location": "Valedale",
   "variants": 3,
   "note": "Goat, squirrel and owl companions of Phoebe and Tynan",
-  "src": "https://www.starstable.com/article/unicorns-of-the-hollow-woods"
+  "src": "https://www.starstable.com/article/unicorns-of-the-hollow-woods",
+  "coatNames": [
+   "Nanny",
+   "Sterling",
+   "Noctara"
+  ],
+  "coatStrip": "img/pets/pet-hollow-companions.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-baby-dragons": {
   "name": "Baby Dragons (Onyx and Bronwyn)",
@@ -163,7 +291,14 @@
   "location": "Medieval Camp",
   "variants": 2,
   "note": "Companions of Aldrach and Faramawr",
-  "src": "https://www.starstable.com/article/day-of-dragons"
+  "src": "https://www.starstable.com/article/day-of-dragons",
+  "coatNames": [
+   "Onyx",
+   "Bronwyn"
+  ],
+  "coatStrip": "img/pets/pet-baby-dragons.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-volt": {
   "name": "Volt (flying owl)",
@@ -171,15 +306,1052 @@
   "price": 350,
   "location": "Halloween event",
   "note": "Flying pet",
-  "src": "https://www.starstable.com/article/haunting-halloween"
+  "src": "https://www.starstable.com/article/haunting-halloween",
+  "variants": 1,
+  "coatNames": [
+   "Volt"
+  ],
+  "coatStrip": "img/pets/pet-volt.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  },
  "pet-mistfox": {
   "name": "Mistfox",
   "kind": "fox",
-  "price": null,
   "location": "Kit Shorthouse, Dundull",
-  "variants": 3,
+  "variants": 2,
   "note": "Walking pet",
-  "src": "https://starstable.com/article/4928"
+  "src": "https://starstable.com/article/4928",
+  "coatNames": [
+   "Red mistfox",
+   "Snowfox"
+  ],
+  "coatStrip": "img/pets/pet-mistfox.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-squirrel-rewards-gifts-14": {
+  "name": "Hans",
+  "kind": "squirrel",
+  "location": "Reward: trailblazer track",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Hans"
+  ]
+ },
+ "pet-bat-event-halloween-8471": {
+  "name": "Bats (Echo, Finnegan, Cleo, Lupita)",
+  "kind": "bat",
+  "price": 350,
+  "location": "Frightful Critters, Halloween event",
+  "variants": 4,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Echo",
+   "Finnegan",
+   "Cleo",
+   "Lupita"
+  ],
+  "coatStrip": "img/pets/pet-bat-event-halloween-8471.webp",
+  "coatCount": 4,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-mahr-event-sso-anniversary-8532": {
+  "name": "Unity",
+  "kind": "mahr",
+  "location": "Quest reward, SSO Anniversary event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Unity"
+  ],
+  "coatStrip": "img/pets/pet-mahr-event-sso-anniversary-8532.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-event-camp-western-8371": {
+  "name": "Archie and Ginger (terriers)",
+  "kind": "dog",
+  "price": 350,
+  "location": "Western Festival Seasonal Pets, Camp Western event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Archie",
+   "Ginger"
+  ],
+  "coatStrip": "img/pets/pet-terrier-event-camp-western-8371.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-camp-western-8371": {
+  "name": "Slinky, Reuben and Sahara (cats)",
+  "kind": "cat",
+  "price": 350,
+  "location": "Western Festival Seasonal Pets, Camp Western event",
+  "variants": 3,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Slinky",
+   "Reuben",
+   "Sahara"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-camp-western-8371.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-chicken-event-camp-western-8371": {
+  "name": "Chickens (Sheriff Cluck, Eggatha, Blaze, Gold Digger, Nugget)",
+  "kind": "chicken",
+  "price": 259,
+  "location": "Western Festival Seasonal Pets, Camp Western event",
+  "variants": 5,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Sheriff Cluck",
+   "Eggatha",
+   "Blaze",
+   "Gold Digger",
+   "Nugget"
+  ],
+  "coatStrip": "img/pets/pet-chicken-event-camp-western-8371.webp",
+  "coatCount": 5,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-seagull-event-camp-western-8371": {
+  "name": "McGully",
+  "kind": "bird",
+  "price": 350,
+  "location": "Western Festival Seasonal Pets, Camp Western event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "McGully"
+  ]
+ },
+ "pet-cat-global-store-9000": {
+  "name": "Cats (Frankie, Duchess, Monsieur, Masquerade, M'lady)",
+  "kind": "cat",
+  "price": 350,
+  "location": "Global Store",
+  "variants": 5,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Frankie",
+   "Duchess",
+   "Monsieur",
+   "Masquerade",
+   "M'lady"
+  ],
+  "coatStrip": "img/pets/pet-cat-global-store-9000.webp",
+  "coatCount": 5,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-baby-dragon-marchenghast-5471": {
+  "name": "Atter, Char and Soot (baby dragons)",
+  "kind": "dragon",
+  "price": 450,
+  "location": "Marchenghast Pet Shop, Marchenghast",
+  "variants": 3,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Atter",
+   "Char",
+   "Soot"
+  ],
+  "coatStrip": "img/pets/pet-baby-dragon-marchenghast-5471.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-shark-event-winter-village-4102": {
+  "name": "Festive Bruce",
+  "kind": "fish",
+  "location": "Winter Village quest, Winter Village event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Festive Bruce"
+  ],
+  "coatStrip": "img/pets/pet-shark-event-winter-village-4102.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-penguin-rewards-gifts-13": {
+  "name": "Pebble and Basil (penguins)",
+  "kind": "bird",
+  "location": "Reward: christmas present",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Pebble",
+   "Basil"
+  ],
+  "coatStrip": "img/pets/pet-penguin-rewards-gifts-13.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-event-winter-village-4171": {
+  "name": "Foxes (Sköll, Hati, Hardy Arctic Fox, Frigid Arctic Fox)",
+  "kind": "fox",
+  "price": 229,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 4,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Sköll",
+   "Hati",
+   "Hardy Arctic Fox",
+   "Frigid Arctic Fox"
+  ],
+  "coatStrip": "img/pets/pet-fox-event-winter-village-4171.webp",
+  "coatCount": 4,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-panda-ray-rewards-gifts-2": {
+  "name": "Finley",
+  "kind": "ray",
+  "location": "Reward: bonus store",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Finley"
+  ],
+  "coatStrip": "img/pets/pet-panda-ray-rewards-gifts-2.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-halloween-8470": {
+  "name": "Stitches and Skele-cat",
+  "kind": "cat",
+  "price": 169,
+  "location": "Ghastly Critters, Halloween event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Stitches",
+   "Skele-cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-halloween-8470.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-event-halloween-8470": {
+  "name": "Patches",
+  "kind": "bunny",
+  "price": 300,
+  "location": "Ghastly Critters, Halloween event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Patches"
+  ],
+  "coatStrip": "img/pets/pet-bunny-event-halloween-8470.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-baby-dragon-rewards-gifts-7": {
+  "name": "Blush",
+  "kind": "dragon",
+  "location": "Reward: recruit a friend",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Blush"
+  ],
+  "coatStrip": "img/pets/pet-baby-dragon-rewards-gifts-7.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-equestrian-festival-8170": {
+  "name": "Sir Meowstache",
+  "kind": "cat",
+  "price": 280,
+  "location": "Equestrian Vintage Pets, Equestrian Festival event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Sir Meowstache"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-equestrian-festival-8170.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-event-winter-village-4102": {
+  "name": "Yip",
+  "kind": "fox",
+  "location": "Winter Village quest, Winter Village event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Yip"
+  ],
+  "coatStrip": "img/pets/pet-fox-event-winter-village-4102.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-event-winter-village-4171": {
+  "name": "Leika and Hjart (bunnies)",
+  "kind": "bunny",
+  "price": 249,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Leika",
+   "Hjart"
+  ],
+  "coatStrip": "img/pets/pet-bunny-event-winter-village-4171.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-crab-fort-pinta-233": {
+  "name": "ChaCha",
+  "kind": "crab",
+  "price": 350,
+  "location": "Fort Pinta Beach Shop, Fort Pinta",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "ChaCha"
+  ],
+  "coatStrip": "img/pets/pet-crab-fort-pinta-233.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-rewards-gifts-2": {
+  "name": "Winston",
+  "kind": "dog",
+  "location": "Reward: bonus store",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Winston"
+  ],
+  "coatStrip": "img/pets/pet-terrier-rewards-gifts-2.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-event-halloween-8401": {
+  "name": "Hopalong Cassidy",
+  "kind": "bunny",
+  "location": "Halloween quest, Halloween event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Hopalong Cassidy"
+  ],
+  "coatStrip": "img/pets/pet-bunny-event-halloween-8401.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-baby-dragon-medieval-camp-5371": {
+  "name": "Baby dragons (Flame, Ember, Coal, Spark)",
+  "kind": "dragon",
+  "price": 450,
+  "location": "Beasts' Lair, Medieval Camp",
+  "variants": 4,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Flame",
+   "Ember",
+   "Coal",
+   "Spark"
+  ],
+  "coatStrip": "img/pets/pet-baby-dragon-medieval-camp-5371.webp",
+  "coatCount": 4,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-moorland-121": {
+  "name": "Tricksy Terrier",
+  "kind": "dog",
+  "price": 199,
+  "location": "Summer Camp Horse Equipment, Moorland",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Tricksy Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-moorland-121.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-moorland-121": {
+  "name": "Cuddly brown tabby cat and Celebrations Cat",
+  "kind": "cat",
+  "price": 199,
+  "location": "Summer Camp Horse Equipment, Moorland",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Cuddly brown tabby cat",
+   "Celebrations Cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-moorland-121.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-squirrel-event-equestrian-festival-8170": {
+  "name": "Brown Squirrel and Grey Squirrel",
+  "kind": "squirrel",
+  "price": 199,
+  "location": "Equestrian Vintage Pets, Equestrian Festival event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Brown Squirrel",
+   "Grey Squirrel"
+  ],
+  "coatStrip": "img/pets/pet-squirrel-event-equestrian-festival-8170.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-rewards-gifts-2": {
+  "name": "Kitt",
+  "kind": "cat",
+  "location": "Reward: bonus store",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Kitt"
+  ],
+  "coatStrip": "img/pets/pet-cat-rewards-gifts-2.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-owl-event-winter-village-4171": {
+  "name": "Saria and Observant Owl",
+  "kind": "bird",
+  "price": 229,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Saria",
+   "Observant Owl"
+  ],
+  "coatStrip": "img/pets/pet-owl-event-winter-village-4171.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-penguin-event-winter-village-4171": {
+  "name": "Murrlan and Proud Penguin",
+  "kind": "bird",
+  "price": 229,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Murrlan",
+   "Proud Penguin"
+  ],
+  "coatStrip": "img/pets/pet-penguin-event-winter-village-4171.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-halloween-8401": {
+  "name": "Necromeowncer Kitty",
+  "kind": "cat",
+  "location": "Halloween quest, Halloween event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Necromeowncer Kitty"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-halloween-8401.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-raven-cloud-kingdom-3631": {
+  "name": "Cirrus and Stratus (ravens)",
+  "kind": "bird",
+  "price": 300,
+  "location": "Mica's Camp, Cloud Kingdom",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Cirrus",
+   "Stratus"
+  ],
+  "coatStrip": "img/pets/pet-raven-cloud-kingdom-3631.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-puppy-event-equestrian-festival-8170": {
+  "name": "Prestigious Puppy and Premier Pink Puppy",
+  "kind": "dog",
+  "price": 280,
+  "location": "Equestrian Vintage Pets, Equestrian Festival event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Prestigious Puppy",
+   "Premier Pink Puppy"
+  ],
+  "coatStrip": "img/pets/pet-puppy-event-equestrian-festival-8170.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-rewards-gifts-1": {
+  "name": "Fearless Fox Kit",
+  "kind": "fox",
+  "location": "Reward: quest reward",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Fearless Fox Kit"
+  ],
+  "coatStrip": "img/pets/pet-fox-rewards-gifts-1.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-goat-event-winter-village-4132": {
+  "name": "Jules and Noel (goats)",
+  "kind": "goat",
+  "location": "Winter Token Goods, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Jules",
+   "Noel"
+  ],
+  "coatStrip": "img/pets/pet-goat-event-winter-village-4132.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-owl-event-halloween-8470": {
+  "name": "Kenna and Spye (owls)",
+  "kind": "bird",
+  "price": 229,
+  "location": "Ghastly Critters, Halloween event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Kenna",
+   "Spye"
+  ],
+  "coatStrip": "img/pets/pet-owl-event-halloween-8470.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-raven-event-halloween-8401": {
+  "name": "Nightwing Raven",
+  "kind": "bird",
+  "location": "Halloween quest, Halloween event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Nightwing Raven"
+  ],
+  "coatStrip": "img/pets/pet-raven-event-halloween-8401.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-raven-event-halloween-8470": {
+  "name": "Gloomwing, Dawnwing Raven and Duskwing Raven",
+  "kind": "bird",
+  "price": 189,
+  "location": "Ghastly Critters, Halloween event",
+  "variants": 3,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Gloomwing",
+   "Dawnwing Raven",
+   "Duskwing Raven"
+  ],
+  "coatStrip": "img/pets/pet-raven-event-halloween-8470.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-hollow-woods-5131": {
+  "name": "Ash Mistfox and Bronze Mistfox",
+  "kind": "fox",
+  "location": "On a Whim, Hollow Woods",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "priceText": "1000 Jorvik Shillings",
+  "coatNames": [
+   "Ash Mistfox",
+   "Bronze Mistfox"
+  ],
+  "coatStrip": "img/pets/pet-fox-hollow-woods-5131.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-special-events-1627": {
+  "name": "Wilma the British Shorthair",
+  "kind": "cat",
+  "location": "Beach Party quests, Special event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Wilma the British Shorthair"
+  ],
+  "coatStrip": "img/pets/pet-cat-special-events-1627.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-gary-goldtooth-2961": {
+  "name": "Admiral Stripes and Captain Finny (cats)",
+  "kind": "cat",
+  "price": 350,
+  "location": "Moorland Lighthouse, Gary Goldtooth",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Admiral Stripes",
+   "Captain Finny"
+  ],
+  "coatStrip": "img/pets/pet-cat-gary-goldtooth-2961.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-cloud-kingdom-3632": {
+  "name": "Rainbow Terrier",
+  "kind": "dog",
+  "location": "Cloud Kingdom Token Shop, Cloud Kingdom",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "priceText": "25 Jorvik Shillings",
+  "coatNames": [
+   "Rainbow Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-cloud-kingdom-3632.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-special-events-1605": {
+  "name": "Pride Terrier",
+  "kind": "dog",
+  "price": 350,
+  "location": "Rainbow Festival, Special event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Pride Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-special-events-1605.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-raven-event-equestrian-festival-8170": {
+  "name": "Pallas",
+  "kind": "bird",
+  "price": 210,
+  "location": "Equestrian Vintage Pets, Equestrian Festival event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Pallas"
+  ],
+  "coatStrip": "img/pets/pet-raven-event-equestrian-festival-8170.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-raven-global-store-9000": {
+  "name": "Hermes",
+  "kind": "bird",
+  "price": 350,
+  "location": "Global Store",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Hermes"
+  ],
+  "coatStrip": "img/pets/pet-raven-global-store-9000.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-global-store-9000": {
+  "name": "Brown Bunny and Grey Bunny",
+  "kind": "bunny",
+  "price": 350,
+  "location": "Global Store",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Brown Bunny",
+   "Grey Bunny"
+  ],
+  "coatStrip": "img/pets/pet-bunny-global-store-9000.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-event-equestrian-festival-8170": {
+  "name": "Black and White Bunny",
+  "kind": "bunny",
+  "price": 210,
+  "location": "Equestrian Vintage Pets, Equestrian Festival event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Black and White Bunny"
+  ],
+  "coatStrip": "img/pets/pet-bunny-event-equestrian-festival-8170.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-spider-gary-goldtooth-2961": {
+  "name": "Bitey the birch spider and Cherry the chomper",
+  "kind": "spider",
+  "price": 350,
+  "location": "Moorland Lighthouse, Gary Goldtooth",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Bitey the birch spider",
+   "Cherry the chomper"
+  ],
+  "coatStrip": "img/pets/pet-spider-gary-goldtooth-2961.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-rewards-gifts-13": {
+  "name": "Onyx Arctic Fox",
+  "kind": "fox",
+  "location": "Reward: christmas present",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Onyx Arctic Fox"
+  ],
+  "coatStrip": "img/pets/pet-fox-rewards-gifts-13.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-event-winter-village-4171": {
+  "name": "Winter Welcome Terrier and Adventurous Arctic Terrier",
+  "kind": "dog",
+  "price": 149,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Winter Welcome Terrier",
+   "Adventurous Arctic Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-event-winter-village-4171.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-penguin-event-winter-village-4102": {
+  "name": "Chilly Charity Penguin and Feathery Penguin",
+  "kind": "bird",
+  "location": "Winter Village quest, Winter Village event",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Chilly Charity Penguin",
+   "Feathery Penguin"
+  ],
+  "coatStrip": "img/pets/pet-penguin-event-winter-village-4102.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-moorland-121": {
+  "name": "Birthday Bunny",
+  "kind": "bunny",
+  "price": 199,
+  "location": "Summer Camp Horse Equipment, Moorland",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Birthday Bunny"
+  ],
+  "coatStrip": "img/pets/pet-bunny-moorland-121.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-wyvern-gary-goldtooth-2961": {
+  "name": "Kolandi Wyvern and Happandi Wyvern",
+  "kind": "dragon",
+  "price": 400,
+  "location": "Moorland Lighthouse, Gary Goldtooth",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Kolandi Wyvern",
+   "Happandi Wyvern"
+  ],
+  "coatStrip": "img/pets/pet-wyvern-gary-goldtooth-2961.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-rewards-gifts-1": {
+  "name": "Scraps the Trash Cat",
+  "kind": "cat",
+  "location": "Reward: quest reward",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Scraps the Trash Cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-rewards-gifts-1.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-goat-event-winter-village-4102": {
+  "name": "Magical Straw Goat",
+  "kind": "goat",
+  "location": "Winter Village quest, Winter Village event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Magical Straw Goat"
+  ],
+  "coatStrip": "img/pets/pet-goat-event-winter-village-4102.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-bunny-event-winter-village-4102": {
+  "name": "Winter Bunny",
+  "kind": "bunny",
+  "location": "Winter Village quest, Winter Village event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Winter Bunny"
+  ],
+  "coatStrip": "img/pets/pet-bunny-event-winter-village-4102.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-owl-rewards-gifts-7": {
+  "name": "Snowy owl",
+  "kind": "bird",
+  "location": "Reward: recruit a friend",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Snowy owl"
+  ],
+  "coatStrip": "img/pets/pet-owl-rewards-gifts-7.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-spider-rewards-gifts-1": {
+  "name": "Cindersilk Spider and Spider pet",
+  "kind": "spider",
+  "location": "Reward: quest reward",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Cindersilk Spider",
+   "Spider pet"
+  ],
+  "coatStrip": "img/pets/pet-spider-rewards-gifts-1.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-owl-rewards-gifts-11": {
+  "name": "Crafty Owl",
+  "kind": "bird",
+  "location": "Reward: farah's workshop",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Crafty Owl"
+  ],
+  "coatStrip": "img/pets/pet-owl-rewards-gifts-11.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-squirrel-rewards-gifts-6": {
+  "name": "Winter squirrel",
+  "kind": "squirrel",
+  "location": "Reward: redeem code",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Winter squirrel"
+  ],
+  "coatStrip": "img/pets/pet-squirrel-rewards-gifts-6.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-fox-rewards-gifts-8": {
+  "name": "Moonlit Magic Fox and Silver mistfox",
+  "kind": "fox",
+  "location": "Reward: star coins bundle",
+  "variants": 2,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Moonlit Magic Fox",
+   "Silver mistfox"
+  ],
+  "coatStrip": "img/pets/pet-fox-rewards-gifts-8.webp",
+  "coatCount": 2,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-rewards-gifts-8": {
+  "name": "Ember Enchantment Cat",
+  "kind": "cat",
+  "location": "Reward: star coins bundle",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Ember Enchantment Cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-rewards-gifts-8.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-rewards-gifts-3": {
+  "name": "Wise Winter Cat",
+  "kind": "cat",
+  "location": "Reward: present",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Wise Winter Cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-rewards-gifts-3.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-winter-village-4171": {
+  "name": "Sleepy Snow Cat",
+  "kind": "cat",
+  "price": 149,
+  "location": "Winter Village Pets, Winter Village event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Sleepy Snow Cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-winter-village-4171.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-cat-event-halloween-8499": {
+  "name": "Bewitching black cat",
+  "kind": "cat",
+  "price": 350,
+  "location": "Halloween event",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Bewitching black cat"
+  ],
+  "coatStrip": "img/pets/pet-cat-event-halloween-8499.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-rewards-gifts-6": {
+  "name": "Holiday Terrier",
+  "kind": "dog",
+  "location": "Reward: redeem code",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Holiday Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-rewards-gifts-6.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-seagull-rewards-gifts-3": {
+  "name": "Birthday Bird",
+  "kind": "bird",
+  "location": "Reward: present",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Birthday Bird"
+  ],
+  "coatStrip": "img/pets/pet-seagull-rewards-gifts-3.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-south-hoof-farm-2771": {
+  "name": "Terriers (Snuggly Terrier, Intrepid Terrier, Keen Terrier, Chipper Terrier)",
+  "kind": "dog",
+  "price": 240,
+  "location": "Rolph, South Hoof Farm",
+  "variants": 4,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Snuggly Terrier",
+   "Intrepid Terrier",
+   "Keen Terrier",
+   "Chipper Terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-south-hoof-farm-2771.webp",
+  "coatCount": 4,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-terrier-fort-pinta-271": {
+  "name": "Loyal terrier, Timid terrier and Tough terrier",
+  "kind": "dog",
+  "price": 240,
+  "location": "Pet Shop Girls, Fort Pinta",
+  "variants": 3,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "Loyal terrier",
+   "Timid terrier",
+   "Tough terrier"
+  ],
+  "coatStrip": "img/pets/pet-terrier-fort-pinta-271.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-squirrel-rewards-gifts-3": {
+  "name": "Jorvegian squirrel",
+  "kind": "squirrel",
+  "location": "Reward: present",
+  "variants": 1,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "note": "Reward pet, not sold in a shop",
+  "coatNames": [
+   "Jorvegian squirrel"
+  ],
+  "coatStrip": "img/pets/pet-squirrel-rewards-gifts-3.webp",
+  "coatCount": 1,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
+ },
+ "pet-squirrel-firgrove-671": {
+  "name": "White Mistfall chipmunk, Black squirrel and Red squirrel",
+  "kind": "squirrel",
+  "price": 49,
+  "location": "Firgrove Pet Store, Firgrove",
+  "variants": 3,
+  "src": "https://ssodb.bplaced.net/db/en/pets.html",
+  "coatNames": [
+   "White Mistfall chipmunk",
+   "Black squirrel",
+   "Red squirrel"
+  ],
+  "coatStrip": "img/pets/pet-squirrel-firgrove-671.webp",
+  "coatCount": 3,
+  "credit": "Pet pictures from the fan database SSO DB (ssodb.bplaced.net). Many are by Abbie Starwatcher."
  }
 }
