@@ -534,7 +534,6 @@
     <button role="tab" data-tab="pets" aria-selected="false"><span class="tl">Pets wishlist</span><span class="ts">Pets</span></button>
     <button role="tab" data-tab="stable" aria-selected="false"><span class="tl">My stable</span><span class="ts">Stable</span></button>
     <button role="tab" data-tab="horses" aria-selected="false">Browse</button>
-    <button role="tab" data-tab="map" aria-selected="false">Map</button>
     <button role="tab" data-tab="events" aria-selected="false">Events</button>
     <button role="tab" data-tab="bazaar" aria-selected="false"><span class="tl">Bazaar history</span><span class="ts">Bazaars</span></button>
   </nav>
@@ -852,7 +851,7 @@
   document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
   const startHash = location.hash.slice(1);
   const SHARE_RE=/^w=([zj][A-Za-z0-9_-]+)$/;
-  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','pets','bazaar','events','map'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
+  function route(h){ setTimeout(()=>{ const m=h.match(SHARE_RE); if(m){ openShared(m[1]); return; } if(['mine','stable','horses','pets','bazaar','events'].includes(h)){ if(viewing){ viewing=null; document.body.classList.remove('viewing'); renderBanner(); } showTab(h); } },0); }
   route(startHash);
   addEventListener('hashchange',()=>route(location.hash.slice(1)));
 
